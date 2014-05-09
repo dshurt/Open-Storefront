@@ -1,4 +1,4 @@
-Open-Catalog
+Open-Storefront
 ============
 
-Open source catalog for catalog software related assets (Applications, Services, Specification...etc). 
+Open Storefront is a cataloging system for  software related assets (Applications, Services, Specification...etc). 
