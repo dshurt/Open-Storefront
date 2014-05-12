@@ -537,6 +537,10 @@ MOCKDATA.assets = {
         {
           "assetId": 33,
           "name": "Microsoft Word"
+        },
+        {
+          "assetId": 1,
+          "name": "NetBeans"
         }
       ]
     },
@@ -1366,11 +1370,7 @@ MOCKDATA.assets = {
       "features": [
         {
           "code": null,
-          "desc": "Fuzzy Search Capabilities"
-        },
-        {
-          "code": null,
-          "desc": "Data-rich Geographic entities"
+          "desc": "Provides information on Ullamcorper Viverra"
         }
       ],
       "taxonomies": [
@@ -1379,6 +1379,80 @@ MOCKDATA.assets = {
           "arch": "DI2E-Svc-V4",
           "desc": "2.5.1.4 Data Transformation"
         },
+        {
+          "code": "DATVAL",
+          "arch": "DI2E-Svc-V4",
+          "desc": "2.5.1.3 Data Validation"
+        }
+      ],
+      "postedBy": "JONATHAN LAW",
+      "evaluated": false,
+      "tested": false,
+      "integrated": false,
+      "assetTags": [
+        {
+          "code": "DATAV",
+          "desc": "Data Validation"
+        },
+        {
+          "code": "DATAT",
+          "desc": "Data Transformation"
+        },
+        {
+          "code": "REFDOCS",
+          "desc": "Reference Documentation"
+        }
+      ],
+      "assetIcon": null,
+      "componentOf": [],
+      "subComponents": [],
+      "relatedAssets": [
+        {
+          "assetId": 4,
+          "name": "Morbi accumsan"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "guid": "D746290C-57FE-8001-5FF7-56249A11941A",
+      "name": "Morbi accumsan",
+      "description": "condimentum eget, volutpat ornare, facilisis eget, ipsum. Donec sollicitudin adipiscing ligula. Aenean gravida nunc sed pede. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vel arcu eu odio tristique pharetra. Quisque ac libero nec ligula. Risus. In mi pede, nonummy ut, molestie in, tempus eu, ligula. Aenean euismod mauris eu elit. Nulla facilisi. Sed neque. Sed eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus",
+      "owner": "Sodales Company",
+      "type": "WIDGET",
+      "stats": {
+        "averageRating": 4,
+        "numberRatings": 13,
+        "comments": 5,
+        "views": 253
+      },
+      "primaryLicense": "GPLV2w/ Excpetions",
+      "operationStatus": "Released/Operational",
+      "categories": [
+        {
+          "code": "COLLAB",
+          "desc": "Collaboration"
+        }
+      ],
+      "conformanceState": "Level 0 - Not Assessed",
+      "releasedDate": "07/14/2007",
+      "postDate": "02/26/2014",
+      "updateDate": "02/26/2014",
+      "features": [
+        {
+          "code": null,
+          "desc": "Open Source"
+        },
+        {
+          "code": null,
+          "desc": "CMWA 1.0 and 1.1 compliant"
+        },
+        {
+          "code": null,
+          "desc": "EMP JavaScript API Library"
+        }
+      ],
+      "taxonomies": [
         {
           "code": "DATVAL",
           "arch": "DI2E-Svc-V4",
@@ -1408,8 +1482,8 @@ MOCKDATA.assets = {
       "subComponents": [],
       "relatedAssets": [
         {
-          "assetId": 97,
-          "name": "Velit Sibling"
+          "assetId": 66,
+          "name": "Ullamcorper Viverra"
         }
       ]
     }
