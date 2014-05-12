@@ -238,7 +238,7 @@ MOCKDATA.assets = {
       "owner": "Eu Metus Company",
       "type": "REFDOCS",
       "stats": {
-        "averageRating": 6,
+        "averageRating": 3,
         "numberRatings": 3,
         "comments": 0,
         "views": 52
@@ -288,7 +288,7 @@ MOCKDATA.assets = {
         },
         {
           "assetId": 11,
-          "name": "Accumsan Laoreet Ipsum"
+          "name": "Accumsan App"
         }
       ]
     },
@@ -300,7 +300,7 @@ MOCKDATA.assets = {
       "owner": "Eu Metus Company",
       "type": "SOFTLIB",
       "stats": {
-        "averageRating": 7,
+        "averageRating": 4,
         "numberRatings": 23,
         "comments": 1,
         "views": 152
@@ -370,19 +370,19 @@ MOCKDATA.assets = {
         },
         {
           "assetId": 11,
-          "name": "Accumsan Laoreet Ipsum"
+          "name": "Accumsan App"
         }
       ]
     },
     {
       "id": 11,
       "guid": "B29BB069-59C7-05A2-37CF-CC460DD7D5F3",
-      "name": "Accumsan Laoreet Ipsum",
+      "name": "Accumsan App",
       "description": "Ipsum dolor sit amet, consectetuer adipiscing. Get tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel, venenatis vel, faucibus id, libero. Donec consectetuer mauris id sapien. Cras dolor dolor, tempus non, lacinia at, iaculis quis, pede. Praesent eu dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
       "owner": "Mollis Vitae Posuere Inc.",
       "type": "APPS",
       "stats": {
-        "averageRating": 7,
+        "averageRating": 4,
         "numberRatings": 23,
         "comments": 1,
         "views": 152
@@ -457,7 +457,7 @@ MOCKDATA.assets = {
         },
         {
           "assetId": 11,
-          "name": "Accumsan Laoreet Ipsum"
+          "name": "Accumsan App"
         }
       ]
     },
@@ -469,7 +469,7 @@ MOCKDATA.assets = {
       "owner": "Don Ho",
       "type": "APPS",
       "stats": {
-        "averageRating": 9,
+        "averageRating": 5,
         "numberRatings": 15,
         "comments": 1,
         "views": 43
@@ -552,7 +552,7 @@ MOCKDATA.assets = {
       "owner": "Microsoft",
       "type": "APPS",
       "stats": {
-        "averageRating": 8,
+        "averageRating": 4,
         "numberRatings": 26,
         "comments": 0,
         "views": 43
@@ -620,6 +620,10 @@ MOCKDATA.assets = {
         {
           "assetId": 34,
           "name": "Notepad++"
+        },
+        {
+          "assetId": 52,
+          "name": "Microsoft Windows"
         }
       ]
     },
@@ -631,7 +635,7 @@ MOCKDATA.assets = {
       "owner": "Google",
       "type": "APPS",
       "stats": {
-        "averageRating": 8,
+        "averageRating": 4,
         "numberRatings": 26,
         "comments": 0,
         "views": 43
@@ -718,7 +722,7 @@ MOCKDATA.assets = {
       "owner": "Google",
       "type": "TOOLS",
       "stats": {
-        "averageRating": 0,
+        "averageRating": 1,
         "numberRatings": 0,
         "comments": 0,
         "views": 15
@@ -776,7 +780,7 @@ MOCKDATA.assets = {
       "owner": "Mozilla",
       "type": "APPS",
       "stats": {
-        "averageRating": 8,
+        "averageRating": 4,
         "numberRatings": 53,
         "comments": 0,
         "views": 111
@@ -851,7 +855,7 @@ MOCKDATA.assets = {
       "owner": "Donec Felis Company",
       "type": "SOFTLIB",
       "stats": {
-        "averageRating": 5,
+        "averageRating": 3,
         "numberRatings": 47,
         "comments": 0,
         "views": 92
@@ -948,7 +952,7 @@ MOCKDATA.assets = {
       "owner": "Egestas Fusce Institute",
       "type": "SOFTLIB",
       "stats": {
-        "averageRating": 0,
+        "averageRating": 1,
         "numberRatings": 0,
         "comments": 0,
         "views": 3
@@ -1197,7 +1201,7 @@ MOCKDATA.assets = {
       "owner": "Dolor Sit Limited",
       "type": "WIDGET",
       "stats": {
-        "averageRating": 9,
+        "averageRating": 5,
         "numberRatings": 9,
         "comments": 1,
         "views": 9
@@ -1266,12 +1270,12 @@ MOCKDATA.assets = {
     {
       "id": 13,
       "guid": "6696D03B-71FF-5127-732D-86BF3A8D352F",
-      "name": "nec mauris blandit mattis.",
+      "name": "NecMauris",
       "description": "Euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas iaculis aliquet diam. Sed diam lorem, auctor.quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla",
       "owner": "Dolor Sit Limited",
       "type": "WIDGET",
       "stats": {
-        "averageRating": 9,
+        "averageRating": 5,
         "numberRatings": 9,
         "comments": 1,
         "views": 9
@@ -1345,12 +1349,12 @@ MOCKDATA.assets = {
     {
       "id": 66,
       "guid": "6B7E113B-A402-0DAC-622D-173DC2095E13",
-      "name": "Ullamcorper Viverra",
-      "description": "A sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed,. Nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius ultrices, mauris ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus a ultricies adipiscing, enim mi tempor lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo at, libero. Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet luctus vulputate, nisi sem semper erat, in consectetuer ipsum nunc id enim. Curabitur massa. Vestibulum accumsan neque et nunc. Quisque ornare",
+      "name": "Ullamcorper Viverra Reference Document",
+      "description": "A sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed,. Nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius ultrices, mauris ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus a ultricies adipiscing, enim mi tempor lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo at, libero. Morbi Accumsan App. Curabitur consequat, lectus sit amet luctus vulputate, nisi sem semper erat, in consectetuer ipsum nunc id enim. Curabitur massa. Vestibulum accumsan neque et nunc. Quisque ornare",
       "owner": "Dolor Sit Limited",
       "type": "REFDOCS",
       "stats": {
-        "averageRating": 5,
+        "averageRating": 3,
         "numberRatings": 123,
         "comments": 21,
         "views": 1209
@@ -1409,19 +1413,19 @@ MOCKDATA.assets = {
       "relatedAssets": [
         {
           "assetId": 4,
-          "name": "Morbi accumsan"
+          "name": "Morbi Widget"
         }
       ]
     },
     {
       "id": 4,
       "guid": "D746290C-57FE-8001-5FF7-56249A11941A",
-      "name": "Morbi accumsan",
+      "name": "Morbi Widget",
       "description": "condimentum eget, volutpat ornare, facilisis eget, ipsum. Donec sollicitudin adipiscing ligula. Aenean gravida nunc sed pede. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vel arcu eu odio tristique pharetra. Quisque ac libero nec ligula. Risus. In mi pede, nonummy ut, molestie in, tempus eu, ligula. Aenean euismod mauris eu elit. Nulla facilisi. Sed neque. Sed eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus",
       "owner": "Sodales Company",
       "type": "WIDGET",
       "stats": {
-        "averageRating": 4,
+        "averageRating": 2,
         "numberRatings": 13,
         "comments": 5,
         "views": 253
@@ -1483,9 +1487,243 @@ MOCKDATA.assets = {
       "relatedAssets": [
         {
           "assetId": 66,
-          "name": "Ullamcorper Viverra"
+          "name": "Ullamcorper Viverra Reference Document"
         }
       ]
+    },
+    {
+      "id": 73,
+      "guid": "737D183A-8530-F6E6-FA37-7DAE134A9138",
+      "name": "Pede Plan",
+      "description": "iaculis enim, sit amet ornare lectus justo eu arcu. Morbi sit amet massa. Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices a, auctor non, feugiat nec, diam. Duis mi enim, condimentum eget, volutpat ornare, facilisis eget, ipsum. Donec sollicitudin adipiscing ligula.. Mauris sagittis placerat. Cras dictum ultricies ligula. Nullam enim. Sed nulla ante, iaculis nec, eleifend non, dapibus rutrum, justo. Praesent luctus. Curabitur egestas nunc sed libero. Proin sed turpis nec mauris blandit mattis. Cras eget nisi dictum augue malesuada malesuada. Integer id magna et ipsum cursus vestibulum. Mauris magna. Duis dignissim tempor arcu. Vestibulum ut eros non enim commodo",
+      "owner": "Lacus Quisque INC.",
+      "type": "SOFTLIB",
+      "stats": {
+        "averageRating": 2,
+        "numberRatings": 13,
+        "comments": 5,
+        "views": 253
+      },
+      "primaryLicense": "BSD",
+      "operationStatus": "Released/Operational",
+      "categories": [
+        {
+          "code": "PLAN",
+          "desc": "Planning and Direction"
+        }
+      ],
+      "conformanceState": "No Evaluation Planned",
+      "releasedDate": "10/10/1999",
+      "postDate": "02/26/2014",
+      "updateDate": "02/26/2014",
+      "features": [
+        {
+          "code": null,
+          "desc": "REST API interface"
+        },
+        {
+          "code": null,
+          "desc": "Swappable backend"
+        },
+        {
+          "code": null,
+          "desc": "Supports MongoDB"
+        },
+        {
+          "code": null,
+          "desc": "Supports in-memory implementations"
+        }
+      ],
+      "taxonomies": [
+        {
+          "code": "SENCAT",
+          "arch": "DI2E-Svc-V4",
+          "desc": "3.1.2.2 Sensor Cataloging"
+        }
+      ],
+      "postedBy": "JONATHAN LAW",
+      "evaluated": false,
+      "tested": false,
+      "integrated": false,
+      "assetTags": [
+        {
+          "code": "DATAV",
+          "desc": "Data Validation"
+        },
+        {
+          "code": "DATAT",
+          "desc": "Data Transformation"
+        },
+        {
+          "code": "PLAN",
+          "desc": "Planning and Direction"
+        },
+        {
+          "code": "SOFTLIB",
+          "desc": "Software Libraries"
+        }
+      ],
+      "assetIcon": null,
+      "componentOf": [],
+      "subComponents": [],
+      "relatedAssets": []
+    },
+    {
+      "id": 52,
+      "guid": "0BC6E60A-B3DB-9412-09BF-0293690EA443",
+      "name": "Microsoft Windows",
+      "description": "Microsoft Windows is a series of graphical interface operating systems developed, marketed, and sold by Microsoft. Microsoft introduced an operating environment named Windows on November 20, 1985 as a graphical operating system shell for MS-DOS in response to the growing interest in graphical user interfaces (GUIs). Microsoft Windows came to dominate the world's personal computer market with over 90% market share, overtaking Mac OS, which had been introduced in 1984. As of April 2014, the most recent versions of Windows for personal computers, smartphones, server computers and embedded devices are respectively Windows 8.1, Windows Phone 8.1, Windows Server 2012 R2 and Windows Embedded 8.",
+      "owner": "Microsoft",
+      "type": "APPS",
+      "stats": {
+        "averageRating": 2,
+        "numberRatings": 325,
+        "comments": 552,
+        "views": 12314
+      },
+      "primaryLicense": "MSL",
+      "operationStatus": "Released/Operational",
+      "categories": [
+        {
+          "code": "DATAM",
+          "desc": "Data Management"
+        },
+        {
+          "code": "VISUAL",
+          "desc": "Visualization"
+        }
+      ],
+      "conformanceState": "No Evaluation Planned",
+      "releasedDate": "10/10/1999",
+      "postDate": "02/26/2014",
+      "updateDate": "02/26/2014",
+      "features": [
+        {
+          "code": null,
+          "desc": "Unique user interface and Memory Management"
+        },
+        {
+          "code": null,
+          "desc": "Added Security Features"
+        },
+        {
+          "code": null,
+          "desc": "New Live Tile Interaction"
+        }
+      ],
+      "taxonomies": [
+        {
+          "code": "DESSHA",
+          "arch": "DI2E-Svc-V4",
+          "desc": "2.1.2.1 Desktop Sharing"
+        },
+        {
+          "code": "METMEACOL",
+          "arch": "DI2E-Svc-V4",
+          "desc": "1.1.1.1 Metrics Measurements Collection"
+        }
+      ],
+      "postedBy": "JONATHAN LAW",
+      "evaluated": false,
+      "tested": false,
+      "integrated": false,
+      "assetTags": [
+        {
+          "code": "DATAV",
+          "desc": "Data Validation"
+        },
+        {
+          "code": "DATAT",
+          "desc": "Data Transformation"
+        },
+        {
+          "code": "APPS",
+          "desc": "Applications"
+        }
+      ],
+      "assetIcon": null,
+      "componentOf": [],
+      "subComponents": [],
+      "relatedAssets": [
+        {
+          "assetId": 33,
+          "name": "Microsoft Word"
+        }
+      ]
+    },
+    {
+       "id": 83,
+      "guid": "ED0B6211-D0E3-060A-7224-F79A3A0070C0",
+      "name": "Vivamus",
+      "description": "lorem eu metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Curabitur consequat, lectus sit amet luctus vulputate, nisi sem semper erat, in consectetuer ipsum nunc id enim. Curabitur massa. Vestibulum accumsan neque et nunc. Quisque ornare tortor at risus. Nunc ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi, ac mattis velit justo nec.",
+      "owner": "Ipsum Leo Corp",
+      "type": "WIDGET",
+      "stats": {
+        "averageRating": 3,
+        "numberRatings": 41,
+        "comments": 354,
+        "views": 235
+      },
+      "primaryLicense": "GOTS",
+      "operationStatus": "Released/Operational",
+      "categories": [
+        {
+          "code": "DATAM",
+          "desc": "Data Management"
+        },
+        {
+          "code": "VISUAL",
+          "desc": "Visualization"
+        }
+      ],
+      "conformanceState": "Level 0 - Not assessed",
+      "releasedDate": "06/16/2004",
+      "postDate": "02/26/2014",
+      "updateDate": "02/26/2014",
+      "features": [
+        {
+          "code": "CDRC1",
+          "desc": "CDR Search 1.0 compliant"
+        },
+        {
+          "code": null,
+          "desc": "Data Viewer Widget"
+        }
+      ],
+      "taxonomies": [
+        {
+          "code": "DATTRANS",
+          "arch": "DI2E-Svc-V4",
+          "desc": "2.5.1.4 Data Transformation"
+        },
+        {
+          "code": "DATVAL",
+          "arch": "DI2E-Svc-V4",
+          "desc": "2.5.1.3 Data Validation"
+        }
+      ],
+      "postedBy": "JONATHAN LAW",
+      "evaluated": false,
+      "tested": false,
+      "integrated": false,
+      "assetTags": [
+        {
+          "code": "DATAV",
+          "desc": "Data Validation"
+        },
+        {
+          "code": "DATAT",
+          "desc": "Data Transformation"
+        },
+        {
+          "code": "WIDGET",
+          "desc": "Widgets"
+        }
+      ],
+      "assetIcon": null,
+      "componentOf": [],
+      "subComponents": [],
+      "relatedAssets": []
     }
   ]
 };
