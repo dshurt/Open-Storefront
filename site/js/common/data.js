@@ -18,6 +18,110 @@ var MOCKDATA = {};
 MOCKDATA.assets = {
   assets:[
     {
+      "id": 1,
+      "guid": '88fg7-7776-FH',
+      "name": 'NetBeans',
+      "description": 'NetBeans IDE is FREE, open source, and has a worldwide community of users and developers. ',
+      "owner": 'Oracle',
+      "type": 'TOOLS',
+      "stats": {
+         "averageRating": 3,
+         "numberRatings": 10,
+         "comments": 1,
+         "views": 10
+      },
+      "primaryLicense": 'GPLV2w/ Excpetions',
+      "operationStatus": 'Released/Operational',
+      "categories": [
+        {
+          "code": 'SOFTLIB',
+          "desc": 'Software Libraries'
+        },
+        {
+          "code": 'DATAM',
+          "desc": 'Data Management'
+        }
+      ],
+      "conformanceState": 'Level 3',
+      "releasedDate": '03/27/2013',
+      "postDate": '02/26/2014',
+      "updateDate": '02/26/2014',
+      "features": [
+        {
+          "code": 'MULITLANG',
+          "desc": 'Multiple Language Suppot '
+        },
+        {
+          "code": 'PROJECTM',
+          "desc": 'Project Management'
+        },
+        {
+          "code": 'CODEEDIT',
+          "desc": 'Smart Code Editing'
+        },
+        {
+          "code": 'MULTIPLATFORM',
+          "desc": 'Desktop, mobile and web applications'
+        }
+      ],
+      "taxonomies": [
+        {
+          "code": 'CONSRCH',
+          "arch": 'DI2E-Svc-V4',
+          "desc": '2.3.1.1 Content Search'
+        },
+        {
+          "code": 'WEBVIZ',
+          "arch": 'DI2E-Svc-V4',
+          "desc": '2.2.3 Web Visualization'
+        }
+      ],
+      "postedBy": 'Net Beans',
+      "evaluated": true,
+      "tested": true,
+      "integrated": true,
+      "tags": [
+        {
+          "code": 'IDE',
+          "desc": 'IDE'
+        },
+        {
+          "code": 'JAVA',
+          "desc": ' Java'
+        },
+        {
+          "code": 'TOOL',
+          "desc": 'Development Tool'
+        },
+        {
+          "code": 'APP',
+          "desc": ' Application'
+        }
+      ],
+      "assetIcon": 'image/pastel/cog.png',
+      "metaData": [
+      ],
+      "componentOf": [
+        {
+          "assetId": 3,
+          "name": 'IDE'
+        }
+      ],
+      "subComponents": [
+        {
+          "assetId": 5,
+          "name": 'NetBean RPC Platform'
+        }
+      ],
+      "relatedAssets": [
+        {
+          "assetId": 2,
+          "name": 'Eclipse IDE'
+        }
+      ]
+    },
+    {
+
       "id": 71,
       "guid": "BA234D54-955F-2A7E-65A8-997712E46FD2",
       "name": "Bandit OZONE Widget",
@@ -1306,109 +1410,6 @@ MOCKDATA.assets = {
         {
           "assetId": 97,
           "name": "Velit Sibling"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "guid": '88fg7-7776-FH',
-      "name": 'NetBeans',
-      "description": 'NetBeans IDE is FREE, open source, and has a worldwide community of users and developers. ',
-      "owner": 'Oracle',
-      "type": 'TOOLS',
-      "stats": {
-         "averageRating": 3,
-         "numberRatings": 10,
-         "comments": 1,
-         "views": 10
-      },
-      "primaryLicense": 'GPLV2w/ Excpetions',
-      "operationStatus": 'Released/Operational',
-      "categories": [
-        {
-          "code": 'SOFTLIB',
-          "desc": 'Software Libraries'
-        },
-        {
-          "code": 'DATAM',
-          "desc": 'Data Management'
-        }
-      ],
-      "conformanceState": 'Level 3',
-      "releasedDate": '03/27/2013',
-      "postDate": '02/26/2014',
-      "updateDate": '02/26/2014',
-      "features": [
-        {
-          "code": 'MULITLANG',
-          "desc": 'Multiple Language Suppot '
-        },
-        {
-          "code": 'PROJECTM',
-          "desc": 'Project Management'
-        },
-        {
-          "code": 'CODEEDIT',
-          "desc": 'Smart Code Editing'
-        },
-        {
-          "code": 'MULTIPLATFORM',
-          "desc": 'Desktop, mobile and web applications'
-        }
-      ],
-      "taxonomies": [
-        {
-          "code": 'CONSRCH',
-          "arch": 'DI2E-Svc-V4',
-          "desc": '2.3.1.1 Content Search'
-        },
-        {
-          "code": 'WEBVIZ',
-          "arch": 'DI2E-Svc-V4',
-          "desc": '2.2.3 Web Visualization'
-        }
-      ],
-      "postedBy": 'Net Beans',
-      "evaluated": true,
-      "tested": true,
-      "integrated": true,
-      "tags": [
-        {
-          "code": 'IDE',
-          "desc": 'IDE'
-        },
-        {
-          "code": 'JAVA',
-          "desc": ' Java'
-        },
-        {
-          "code": 'TOOL',
-          "desc": 'Development Tool'
-        },
-        {
-          "code": 'APP',
-          "desc": ' Application'
-        }
-      ],
-      "assetIcon": 'image/pastel/cog.png',
-      "metaData": [
-      ],
-      "componentOf": [
-        {
-          "assetId": 3,
-          "name": 'IDE'
-        }
-      ],
-      "subComponents": [
-        {
-          "assetId": 5,
-          "name": 'NetBean RPC Platform'
-        }
-      ],
-      "relatedAssets": [
-        {
-          "assetId": 2,
-          "name": 'Eclipse IDE'
         }
       ]
     }
