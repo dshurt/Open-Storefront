@@ -1,0 +1,457 @@
+<!--
+/* 
+ * Copyright 2014 Space Dynamics Laboratory - Utah State University Research Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+*/
+ -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/catalog.css" />		
+		<link rel="stylesheet" type="text/css" href="resources/extjs4.2.1/css/ext-all-neptune.css" />
+		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
+		
+		<script type="text/javascript" src="js/extjs4.2.1/bootstrap.js"></script>
+		<script src="js/extjs4.2.1/ux/data/PagingMemoryProxy.js" type="text/javascript"></script>
+		
+		<script type="text/javascript" src="js/common/global.js"></script>
+		<script type="text/javascript" src="js/common/app.js"></script>
+		
+		<script type="text/javascript" src="js/common/data.js"></script>
+		<script type="text/javascript" src="js/common/models.js"></script>
+		<script type="text/javascript" src="js/common/stores.js"></script>
+		<script  type="text/javascript" src="js/lib/TranslateUtil.js"></script>
+		<script src="js/component/ratings.js" type="text/javascript"></script>
+		<script src="js/lib/StringUtil.js" type="text/javascript"></script>
+		
+		
+	</head>
+	<body >
+		<div id="headerDiv" style="display: none; visibility: hidden">
+			<header class="header">
+				<table width="100%" style="border-spacing: 0px; margin-top: 5px; border-collapse: collapse;">
+					<tr>
+						<td style="font-size: 28px; padding-left: 20px;" width="340px;">
+							<a href="index.html" class="headerApplicationTitle">DI2E Storefront Catalog</a>
+						</td>
+						<td valign="top" style="padding-bottom: 5px;">												
+							<input type="search" placeholder="Search" id="searchField" name="search" class="mainsearch" style="width: 500px;">	
+							<span id='searchBtnHolder' style="margin-left: -5px;"></span>	
+						</td>
+						<td>
+
+						</td>
+						<td align="right">
+							<div id="userMenuDiv" style="margin-right: 40px;"></div>
+						</td>
+					</tr>				
+				</table>			
+			</header>
+		</div>
+		
+		<script type="text/javascript">
+			
+			Ext.onReady(function(){
+				
+				var viewShowDetails = false;
+				
+				var resultsPanel = Ext.create('Ext.panel.Panel', {
+					id: 'resultsPanel',
+					region: 'center',
+					bodyStyle: 'padding: 25px;',
+					autoScroll: true,
+					dockedItems: [
+						{
+							xtype: 'toolbar',
+							dock: 'top',
+							items: [
+								Ext.create('Ext.PagingToolbar', {
+									store: Ext.data.StoreManager.lookup('Assets'),
+									displayInfo: true,
+									border: false,
+									displayMsg: 'Displaying Assets {0} - {1} of {2}',
+									emptyMsg: "No Assets to display"
+								}),	
+								{
+									xtype: 'tbfill'
+								},
+								{
+									xtype: 'button',
+									pressed: true,
+									glyph: 'xf039@FontAwesome',
+									scale: 'medium',									
+									toggleGroup: 'viewDetailGroup',
+									tooltip: 'Summary View',
+									toggleHandler: function(button, state){
+										if (state === true)
+										{
+											Ext.getCmp('resultsPanel').suspendLayout = true;
+											Ext.Array.each(Ext.getCmp('resultsPanel').items.items, function(item){
+												item.hideDetails();
+											});
+											viewShowDetails = false;
+											Ext.getCmp('resultsPanel').suspendLayout = false;
+											Ext.getCmp('resultsPanel').updateLayout();
+										}
+									}
+								},
+								{
+									xtype: 'button',
+									glyph: 'xf00b@FontAwesome',
+									scale: 'medium',
+									toggleGroup: 'viewDetailGroup',
+									tooltip: 'Detail View',
+									toggleHandler: function(button, state){
+										if (state === true)
+										{			
+											Ext.getCmp('resultsPanel').suspendLayout = true;
+											Ext.Array.each(Ext.getCmp('resultsPanel').items.items, function(item){
+												item.showDetails();
+											});	
+											viewShowDetails = true;
+											Ext.getCmp('resultsPanel').suspendLayout = false;
+											Ext.getCmp('resultsPanel').updateLayout();
+										}
+									}									
+								}								
+							]
+						}
+					]
+				});
+				
+				
+				var typeGrid = Ext.create('Ext.grid.Panel', {					
+						id: 'typeGrid',
+						store:  Ext.data.StoreManager.lookup('typesStore'),
+						columnLines: true,
+						width: 255,
+						height: 200,	
+						selType: 'checkboxmodel',						
+						margin: '0 20 0 0',
+						columns: [
+							{ text: 'Type',  dataIndex: 'type', flex: 1, menuDisabled: true  }
+						]
+				});
+				
+				var catGrid = Ext.create('Ext.grid.Panel', {
+						id: 'catGrid',
+						store: Ext.data.StoreManager.lookup('categoryStore'),
+						columnLines: true,
+						width: 255,
+						height: 200,	
+						selType: 'checkboxmodel',
+						margin: '0 20 0 0',
+						columns: [							
+							{ text: 'Category', dataIndex: 'desc', flex: 1, menuDisabled: true }
+						]
+				});					
+				
+				var stateGrid = Ext.create('Ext.grid.Panel', {
+						id: 'stateGrid',
+						store: Ext.data.StoreManager.lookup('stateStore'),
+						columnLines: true,
+						width: 255,
+						height: 200,							
+						selType: 'checkboxmodel',						
+						columns: [							
+							{ text: 'State', dataIndex: 'desc', flex: 1, menuDisabled: true }
+						]
+				});
+				
+				var filterPanel = Ext.create('Ext.panel.Panel', {
+					region: 'west',
+					collapsible: true,
+					title: 'Filter',
+					split: true,
+					minWidth: 300,
+					maxWidth: 300,
+					bodyStyle: 'padding: 10px;',
+					autoScroll: true,					
+					items: [
+						typeGrid,
+						{
+							xtype: 'container',
+							height: 20
+							
+						},
+						catGrid,
+						{
+							xtype: 'container',
+							height: 20
+						},
+						stateGrid
+					]
+				});
+				
+				
+				Ext.create('Ext.container.Viewport', {
+					layout: 'border',
+					renderTo: 'mainContents',
+					items: [
+						{
+							region: 'north',
+							html: Ext.get('headerDiv').getHTML(),							
+							border: false,
+							height: 50,
+							margins: '0 0 5 0'
+						},
+						filterPanel,
+						resultsPanel,
+						{
+							region: 'south',
+							html: '<div style="text-align:center;" class="footerInside"><a href="#" style="color: white" onclick="OpenCatalog.showAbout();">DI2E Storefront Catalog Version 1.0</a></div>',							
+							border: false,
+							height: 15,
+							margins: '0 0 5 0'							
+						}
+					]
+				});
+		
+				var assetStore = Ext.data.StoreManager.lookup('Assets');
+				
+				assetStore.on('load', function(store, records, success, opts){
+					
+					Ext.getCmp("resultsPanel").removeAll();
+					Ext.getCmp("resultsPanel").suspendLayout = true;
+					
+					var stripe = false;
+					Ext.Array.each(records, function(item){
+
+						var stripeColor;
+						if (stripe) {
+							stripeColor = 'background-color: #eeeeee';
+							stripe = false;
+						} else {
+							stripeColor = 'background-color: white';
+							stripe = true;							
+						}
+
+						var details = '<div class="item_owner item_text">' + item.get('owner') + '</div>';
+						details += '<div class="item_version_state_block">' +							
+								'<div class="item_version">' +
+									'<div class="item_type item_text"><span class="item_bold">Type:</span> ' +  Translate(item.get('type')) + '</div>'+
+									'<span class="item_bold">License:</span> ' + StringUtil.blankIfNull(item.raw.primaryLicense) +
+								'</div>'+							
+							'</div><br>';
+
+						details += item.get('description')  + '<br><br>';
+						details += '<table width="100%">';
+						details += '<tr>';
+						details +='	<td valign="top" width="50%">';
+						details +='		<div class="item_listing_meta_block">';									
+						details +='			<div class="item_categories_block item_text">';
+						details +='				<span class="item_bold"><span class="item_bold">Categories:</span></span>' ;
+						details +='				<span class="item_category_text">';
+
+						Ext.Array.each(item.raw.categories, function(category){
+							details +=  category.desc + ", ";
+						});
+						details = details.slice(0, -2);
+
+						details +='				</span>';
+						details +='			</div>' ;
+						details +='			<div class="clear"></div>';
+						details +='			<div class="item_status"><span class="item_bold">Status:</span> ' +StringUtil.blankIfNull(item.raw.operationStatus) + '</div>';
+						details +='			<div class="item_status"><span class="item_bold">DI2E State:</span> ' + StringUtil.blankIfNull(item.raw.conformanceState) + '</div>';															
+						details +='			<div class="item_released"><span class="item_bold">Released:</span> ' + StringUtil.blankIfNull(item.raw.releaseDate) + '</div>'; 									
+						details +='			<div class="item_modified"><span class="item_bold">Catalog Post Modified:</span> ' + StringUtil.blankIfNull(item.raw.postDate) + '</div>';
+						details +='			<div class="clear"></div>	'; 			
+						details +='		</div>'; 
+						details +='	</td>'; 
+						details +='	<td valign="top">';
+						details +='		<b>Features:</b><br>';
+
+						Ext.Array.each(item.raw.features, function(feature){
+							details += '		<img src="image/icon/tango/tick.png" alt=""/>' + feature.desc + '<br>';
+						});
+
+						details +='	</td>';
+						details +='</tr>';
+						details +='</table>';						
+
+
+						var contentPanel = Ext.create('Ext.panel.Panel', {
+							border: false,
+							summary: true,
+							bodyStyle:  stripeColor ,
+							defaults: {
+								bodyStyle: 'background-color: transparent;'
+							},
+							items: [
+								{
+									xtype: 'container',
+									border: false,
+									itemId: 'summaryPanel',
+									layout: 'hbox',
+									defaults: {
+										bodyStyle: 'background-color: transparent;'
+									},
+									items: [
+										{
+											xtype: 'container',
+											border: false,
+											width: 64,
+											height: 64,
+											margin: '0px 20px 0px 0px',										
+											html:  '<img src ="' + OpenCatalog.categoryIcons[item.get('type')] + '" /> ',
+											listeners: {
+												click: {
+													element: 'el',
+													fn: function(){
+														var contentPanel = Ext.getCmp(this.id).up().up();
+														if (contentPanel.summary)
+														{
+															Ext.getCmp('resultsPanel').suspendLayout = true;
+															contentPanel.showDetails();
+															contentPanel.summary = false;
+															Ext.getCmp('resultsPanel').suspendLayout = false;							
+															Ext.getCmp('resultsPanel').updateLayout();
+														}
+														else
+														{
+															Ext.getCmp('resultsPanel').suspendLayout = true;
+															contentPanel.hideDetails();
+															contentPanel.summary = true;
+															Ext.getCmp('resultsPanel').suspendLayout = false;							
+															Ext.getCmp('resultsPanel').updateLayout();														
+														}
+													}
+												}
+											}										
+										},
+										{
+											xtype: 'container',										
+											border: false,
+											flex:2,
+											itemId: 'titlePanel',
+											items: [
+												{
+													xtype: 'container',
+													border: false,
+													html: '<a href="details.html?assetId=' + item.get('id')  +  '"  title="' + item.get('name') + '"><span class="listing_short_title_text">' + item.get('name') + '</span></a>'																	
+												},
+												{
+													xtype: 'container',												
+													itemId: 'shortDescription',
+													border: false,
+													html: '<span class="listing_short_desc">' + Ext.String.ellipsis(item.get('description'), 120) +  '</span>'
+												}
+											]					
+										},
+										Ext.create('OpenCatalog.ratings.Panel', {
+											ratings: item.raw.stats
+										})
+									]								
+								},
+								{
+									xtype: 'container',
+									itemId: 'detailPanel',
+									border: false,
+									hidden: true,
+									padding: '5px 20px 20px 80px',
+									html:  details							
+								},
+								{
+									xtype: 'panel',
+									border: false,
+									bodyStyle: 'background-color: white;',
+									html: '<hr>'
+								}
+
+							],
+							showDetails: function() {							
+								this.getComponent('detailPanel').show();
+								this.getComponent('summaryPanel').getComponent('titlePanel').getComponent('shortDescription').hide();
+							},
+							hideDetails: function() {
+								this.getComponent('detailPanel').hide();
+								this.getComponent('summaryPanel').getComponent('titlePanel').getComponent('shortDescription').show();
+							}
+						});
+						if (viewShowDetails)
+						{
+							contentPanel.showDetails();
+						}
+
+						Ext.getCmp("resultsPanel").add(contentPanel);
+					});
+					
+					Ext.getCmp("resultsPanel").suspendLayout = false;
+					Ext.getCmp("resultsPanel").updateLayout();					
+				});
+				assetStore.load();		
+			});
+			
+			
+			
+		</script>
+		
+		
+		<script type="text/javascript">
+				
+			Ext.onReady(function(){
+				
+				var userMenuButton = Ext.create('Ext.button.Button', {
+					renderTo: 'userMenuDiv',
+					text: 'John.Tester',
+					handler: function()  {
+						//window.location.href = 'mylanding.html';
+					},
+					menu: new Ext.menu.Menu({
+						items:[
+/*					
+							{
+								text: 'User Profile',
+								handler: function()  {
+									window.location.href = 'mylanding.html';
+								}
+							},
+							{
+								text: 'Admin',
+								handler: function()  {
+									window.location.href = 'admin.html';
+								}
+							},
+*/							
+							{
+								xtype: 'menuseparator'
+							},
+							{
+								text: 'Logout'
+							}
+						]
+					})
+				});				
+				
+				var searchBtn = Ext.create('Ext.button.Button', {
+					renderTo: 'searchBtnHolder',
+					glyph: 'xf002@FontAwesome',
+					scale: 'large',
+					handler: function(){
+						
+					}
+				});	
+				
+			});
+			
+		</script>			
+		
+		<div id="footerDiv" style="display: none; visibility: hidden">
+			<footer class="footer">
+				<center><a href="#" onclick="OpenCatalog.showAbout();">DI2E Storefront Catalog Version 1.0</a></center>
+			</footer>
+		</div>	
+	</body>
+	
+</html>		
