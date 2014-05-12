@@ -42,7 +42,7 @@ Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
     for (i = 0, ln = scripts.length; i < ln; i++) {
         scriptSrc = scripts[i].src;
 
-        match = scriptSrc.match(/bootstrap\.js$/);
+        match = scriptSrc.match(/bootstrapExt\.js$/);
 
         if (match) {
             path = scriptSrc.substring(0, scriptSrc.length - match[0].length);
