@@ -34,7 +34,7 @@ Ext.define('OpenCatalog.ratings.Panel', {
        
         var ratingsPanel = this;
 
-      var content = '<div >' +
+      var content = '<div style="width: 215px; ">' +
               '<span>';
 
       for (var i = 1; i <= ratingsPanel.maxRating; i++) {
@@ -45,7 +45,7 @@ Ext.define('OpenCatalog.ratings.Panel', {
         }
       }
       content += '(' + ratingsPanel.ratings.numberRatings + ')</span></div>';
-      content += '<div>' + ratingsPanel.ratings.comments + ' comment(s),  ' + ratingsPanel.ratings.views + ' view(s)</div>';
+      content += '<div >' + ratingsPanel.ratings.comments + ' comment(s),  ' + ratingsPanel.ratings.views + ' view(s)</div>';
 
       ratingsPanel.html = content;       
        
