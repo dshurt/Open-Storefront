@@ -292,6 +292,7 @@ header{
 .hide-search{
   overflow: hidden; 
   padding: 0px !important;
+  padding-bottom: 4px !important;
 }
 
 .splash-board{
