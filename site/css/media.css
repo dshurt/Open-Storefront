@@ -1,0 +1,88 @@
+
+/* Below 1024*/
+@media (max-width: 1200px) {
+  .full-on-small{
+    width: 70%;
+  }
+  .main-content{
+    width: 100%;
+  }
+  #userMenuDiv{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+}
+
+@media (max-width: 991px) {
+  #resultsPanel{
+    padding-top: 38px !important;
+  }
+  #detailPanel{
+    padding-top: 38px !important;
+  }
+  .westPanel{
+    padding-top: 38px !important;
+  }
+}
+
+/* Smallest devices*/
+@media (max-width: 768px) {
+  .full-on-small{
+    width: 90%;
+  }
+  .searchgroup{
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+  #resultsPanel{
+    width: 100%;
+  }
+  .main-content .col-sm-4{
+    height: inherit;
+  }
+  .categories{
+    margin-top: 0px;
+  }
+}
+
+/* Smaller still devices*/
+@media (max-width: 460px) {
+  .full-on-small{
+    width: 100%;
+  }
+  .searchgroup{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: -5px;
+  }
+  .applicationtitle {
+    padding-top: 10px;
+    height: 60px;
+    font-size: 2em;
+  }
+  .hide-on-smallest{
+    display:none;
+    visibility: hidden;
+  }
+  .headerApplicationTitle{
+    visibility:hidden;
+  }
+}
+
+/* Small devices (tablets, 786px and up) */
+@media (min-width: 768px) {
+  .main-content .col-sm-4{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-bottom: 1px transparent solid;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
