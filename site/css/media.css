@@ -28,6 +28,14 @@
 
 /* Smallest devices*/
 @media (max-width: 768px) {
+  .leftDesc{
+    top: 10px;
+    display: inline-table;
+    clear: both;
+  }
+  .desc-title{
+    margin-left: 0px;
+  }
   .full-on-small{
     width: 90%;
   }
