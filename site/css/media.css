@@ -48,24 +48,31 @@
 
 /* Smaller still devices*/
 @media (max-width: 460px) {
-  body{
-    padding-right: 20px !important;
-  }
   .full-on-small{
     width: 100%;
   }
   .searchgroup{
     padding-top: 0px;
     padding-bottom: 0px;
+    margin-top: 100px;
     margin-bottom: -5px;
+    position: fixed;
+    width: 100%;
+    z-index:2;
   }
   .applicationtitle {
     padding-top: 10px;
     height: 60px;
     font-size: 2em;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
   }
   .hide-on-smallest{
-    display:none;
+    display: none;
+    visibility: hidden;
+  }
+  .invisible-on-smallest{
     visibility: hidden;
   }
   .headerApplicationTitle{
@@ -73,6 +80,9 @@
   }
   .splash-board a:hover{
     text-decoration: none;
+  }
+  .main-content{
+    margin-top:150px;
   }
 }
 

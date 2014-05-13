@@ -62,7 +62,7 @@
 		
 		
 		<div id="contentDiv" style="display: none; visibility: hidden">	
-			<br>
+			<!-- <br> -->
 			<span style="padding-left: 20px;"><a href="results.html" style="color: blue; text-decoration: underline">Back to Search Results</a></span>
 			<div style="padding-top:20px;padding-left: 20px; padding-right: 20px;  padding-bottom: 20px;">					
 				<table width="100%">
@@ -91,7 +91,7 @@
 										<span class="item_bold">Operational Status:</span> {operationStatus}
 									</div>
 									<div class="item_version">
-										<span class="item_bold">DI2E Status:</span> {conformanceState}
+										<span class="item_bold">Evaluation Level:</span> {conformanceState}
 									</div>
 							</div>	
 							<br>
@@ -167,7 +167,7 @@
 						<br>
 						
 						<div class="detailSectionHeader">						
-							<span style="font-size: 14pt;">DI2E Conformance</span>
+							<span style="font-size: 14pt;">Evaluation Levels</span>
 						</div>						
 						<div  class="detailSection">
 							<table>
@@ -344,7 +344,7 @@
 								<hr>
 								<h3>Your Feeback</h3>							
 								Rating: <select><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><br>
-								Experience this asset?  <select><option>Never used</option><option> < 1 month</option><option>3 months + </option><option>6 months +</option><option>over 1 year</option></select><br>													
+								Experience this component?  <select><option>Never used</option><option> < 1 month</option><option>3 months + </option><option>6 months +</option><option>over 1 year</option></select><br>													
 								Comments<br>
 								<textarea cols="80"></textarea><br>
 								<button>Post</button> 
@@ -353,13 +353,13 @@
 						
 						<br>
 						<div class="detailSectionHeader">						
-							<span style="font-size: 14pt;">Related Assets</span>
+							<span style="font-size: 14pt;">Related Components</span>
 						</div>	
 						<div id="commentsDiv" class="detailSection">
 							<tpl for=' relatedAssets'>
 								<a href="">{name}</a><br>
 							</tpl>
-							<i>(LINKS TO RELATED ASSETS  - determine by system based on Tags) </i>
+							<i>(LINKS TO RELATED COMPONENTS  - determine by system based on Tags) </i>
 						</div>
 						
 					</div>
