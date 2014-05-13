@@ -48,6 +48,9 @@
 
 /* Smaller still devices*/
 @media (max-width: 460px) {
+  body{
+    padding-right: 20px !important;
+  }
   .full-on-small{
     width: 100%;
   }
@@ -67,6 +70,9 @@
   }
   .headerApplicationTitle{
     visibility:hidden;
+  }
+  .splash-board a:hover{
+    text-decoration: none;
   }
 }
 
