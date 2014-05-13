@@ -83,7 +83,7 @@
   .invisible-on-smallest{
     visibility: hidden;
   }
-  .headerApplicationTitle{
+  .headerApplicationTitle span{
     visibility:hidden;
   }
   .splash-board a:hover{
