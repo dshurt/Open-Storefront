@@ -44,27 +44,7 @@
   </head>
   <body class="container-fluid">
     <div id="headerDiv" style="display: none; visibility: hidden">
-      <header class="header" id="header">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <ul class="nav navbar-nav navbar-right" style="position: relative; z-index: 5">
-          <li id="userMenuDiv">
-            <!-- <div id="userMenuDiv" style="margin-right: 40px;"></div> -->
-          </li>
-          <li class="dropdown">
-
-            <a href="#" class="dropdown-toggle x-btn x-unselectable x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon x-border-box" role="button"data-toggle="dropdown" id="filters">
-              <span class="x-btn-wrap x-btn-arrow x-btn-arrow-right" unselectable="on">
-                <span class="x-btn-button">
-                  <span class="x-btn-inner x-btn-inner-center" unselectable="on">Filters</span>
-                  <span role="img" class="x-btn-icon-el  " unselectable="on" style=""></span>
-                </span>
-              </span>
-            </a>
-            <ul class="dropdown-menu">
-              <li id="navheader"></li>
-            </ul>
-          </li>
-        </ul>
+      <header class="header">
         <div class="row" style="margin-top: 5px;">
           <div class='col-md-1 headerApplicationTitle'>
             <a href="index.html" >
@@ -73,12 +53,16 @@
               </span>
             </a>
           </div>
-          <div class="hide-search col-md-5">
+          <div class="hide-search col-md-6">
             <input type="search" placeholder="Search" id="searchField" name="search" class="mainsearch">
             <div class="search-btn">
               <span id='searchBtnHolder'></span> 
             </div>  
           </div>
+          <div class="filterDrop">
+              <span id="filterDropDown" class="show-on-small" ></span>
+          </div>
+          <div id="userMenuDiv" style="margin-right: 40px;"></div>
         </div>
       </header>
     </div>
@@ -86,7 +70,8 @@
     <script type="text/javascript">
       
       Ext.onReady(function(){
-        
+          
+
         var viewShowDetails = false;
         
         var resultsPanel = Ext.create('Ext.panel.Panel', {
@@ -100,6 +85,8 @@
               dock: 'top',
               items: [
                 Ext.create('Ext.PagingToolbar', {
+                  id: 'pagingToolbar',
+                  cls: 'row',
                   store: Ext.data.StoreManager.lookup('Assets'),
                   displayInfo: true,
                   border: false,
@@ -110,6 +97,7 @@
                   xtype: 'tbfill'
                 },
                 {
+                  id: 'smallDetail',
                   xtype: 'button',
                   pressed: true,
                   glyph: 'xf039@FontAwesome',
@@ -130,6 +118,7 @@
                   }
                 },
                 {
+                  id: 'largeDetail',
                   xtype: 'button',
                   glyph: 'xf00b@FontAwesome',
                   scale: 'medium',
@@ -153,6 +142,45 @@
           ]
         });
         
+        
+        var typeGrid2 = Ext.create('Ext.grid.Panel', {         
+            id: 'typeGrid2',
+            store:  Ext.data.StoreManager.lookup('typesStore'),
+            columnLines: true,
+            width: 255,
+            height: 200,  
+            selType: 'checkboxmodel',           
+            margin: '0 20 0 0',
+            columns: [
+              { text: 'Type',  dataIndex: 'type', flex: 1, menuDisabled: true  }
+            ]
+        });
+        
+        var catGrid2 = Ext.create('Ext.grid.Panel', {
+            id: 'catGrid2',
+            store: Ext.data.StoreManager.lookup('categoryStore'),
+            columnLines: true,
+            width: 255,
+            height: 200,  
+            selType: 'checkboxmodel',
+            margin: '0 20 0 0',
+            columns: [              
+              { text: 'Category', dataIndex: 'desc', flex: 1, menuDisabled: true }
+            ]
+        });         
+        
+        var stateGrid2 = Ext.create('Ext.grid.Panel', {
+            id: 'stateGrid2',
+            store: Ext.data.StoreManager.lookup('stateStore'),
+            columnLines: true,
+            width: 255,
+            height: 200,              
+            selType: 'checkboxmodel',           
+            columns: [              
+              { text: 'State', dataIndex: 'desc', flex: 1, menuDisabled: true }
+            ]
+        });
+
         
         var typeGrid = Ext.create('Ext.grid.Panel', {         
             id: 'typeGrid',
@@ -193,16 +221,21 @@
         });
         
         var filterPanel = Ext.create('Ext.panel.Panel', {
+          id: 'filterPanel',
           cls: 'westPanel',
+          region: 'west',
           bodyCls: 'westPanelBody',
-          collapsible: false,
+          collapsible: true,
           title: 'Filter',
+          // floating: 'true',
           split: true,
-          minWidth: 310,
+          // width: 255,
+          // height: 200,
+          minWidth: 300,
           maxWidth: 300,
           bodyStyle: 'padding: 10px;',
           autoScroll: true,       
-          renderTo: Ext.get('navheader'),  
+          // renderTo: Ext.get('navheader'),  
           items: [
             typeGrid,
             {
@@ -219,6 +252,27 @@
           ]
         });
         
+        var advSearchMenu = Ext.create('Ext.menu.Menu', {
+          id: 'advSearchMenu',
+          indent: false,
+          plain: true,
+          allowOtherMenus: true,
+          items: [
+            typeGrid2,
+            {
+              xtype: 'container',
+              height: 20
+              
+            },
+            catGrid2,
+            {
+              xtype: 'container',
+              height: 20
+            },
+            stateGrid2
+
+          ]
+        });
         
         Ext.create('Ext.container.Viewport', {
           layout: 'border',
@@ -231,7 +285,7 @@
               height: 50,
               margins: '0 0 5 0'
             },
-            // filterPanel,
+            filterPanel,
             resultsPanel,
             {
               region: 'south',
@@ -307,6 +361,7 @@
 
 
             var contentPanel = Ext.create('Ext.panel.Panel', {
+                  cls:'summary',
               border: false,
               summary: true,
               bodyStyle:  stripeColor ,
@@ -324,6 +379,7 @@
                   },
                   items: [
                     {
+                      cls: 'componentIconLarge',
                       xtype: 'container',
                       border: false,
                       width: 64,
@@ -467,28 +523,101 @@
             
           }
         }); 
-        
+
+        var filterButton = Ext.create('Ext.button.Button', {
+          id: 'filterDropButton',
+          renderTo: 'filterDropDown',
+          glyph: 'xf0c9@FontAwesome',
+          scale: 'medium',
+          handler: function(){
+            
+          }
+        }); 
+
+        Ext.getCmp('filterDropButton').on("click", function(){
+          Ext.getCmp('advSearchMenu').showBy(Ext.get('filterDropDown'));
+        })
+
+
+        $(document).ready(function(){
+          // initial window setup
+          var width = $(window).width();
+          var filterPanel = Ext.getCmp("filterPanel");
+          var filterDropButton = Ext.getCmp("filterDropButton");
+          if (width <= 768)
+          {
+            filterPanel.collapse();
+          }
+          else{
+            filterPanel.expand();
+          }
+          if (width <= 460)
+          {
+            filterDropButton.setVisible(true);
+            Ext.getCmp('resultsPanel').suspendLayout = true;
+            Ext.Array.each(Ext.getCmp('resultsPanel').items.items, function(item){
+              item.hideDetails();
+            });
+            viewShowDetails = false;
+            Ext.getCmp('resultsPanel').suspendLayout = false;
+            Ext.getCmp('resultsPanel').updateLayout();
+            // filterPanel.hide();
+            filterPanel.setVisible(false);
+          }
+          else
+          {
+            // filterPanel.hide();
+            filterDropButton.setVisible(false);
+            filterPanel.setVisible(true); 
+          }
+
+          // continuation of the window set up on change
+          $(window).resize(function(){
+            var width = $(window).width();
+            var filterPanel = Ext.getCmp("filterPanel");
+            if (width <= 768)
+            {
+              // filterPanel.hide();
+              filterPanel.collapse();
+              // var els = Ext.query(".componentIconLarge"), ret=[];
+              // for( i = 0; i < els.length; i++)
+              // {
+              //   Ext.getCmp(els[i].id).setVisible(false);
+              // }
+            }
+            else{
+              filterPanel.expand();
+              // var els = Ext.query(".componentIconLarge"), ret=[];
+              // for( i = 0; i < els.length; i++)
+              // {
+              //   Ext.getCmp(els[i].id).setVisible(true);
+              // }
+            }
+            if (width <= 460)
+            {
+              filterDropButton.setVisible(true);
+              Ext.getCmp('resultsPanel').suspendLayout = true;
+              Ext.Array.each(Ext.getCmp('resultsPanel').items.items, function(item){
+                item.hideDetails();
+              });
+              viewShowDetails = false;
+              Ext.getCmp('resultsPanel').suspendLayout = false;
+              Ext.getCmp('resultsPanel').updateLayout();
+              // filterPanel.hide();
+              filterPanel.setVisible(false);
+            }
+            else
+            {
+              // filterPanel.hide();
+              filterDropButton.setVisible(false);
+              filterPanel.setVisible(true); 
+            }
+          })
+        });
       });
       
     </script>     
     
-    <script type="text/javascript">
-    $(document).ready(function() {
-      setTimeout(function(){
-      $('#navheader img, #navheader div').click(function(e) {
-          e.stopPropagation();
-        });
-      $("#filters").mouseleave(function(){
-        $(this).removeClass("x-over, x-btn-over, x-btn-default-small-over, x-focus, x-btn-focus, x-btn-default-small-focus");
-      });
-      $("#filters").on('mouseenter', function(){
-        console.log("Blah");
-        
-        $(this).addClass("x-over, x-btn-over, x-btn-default-small-over, x-focus, x-btn-focus, x-btn-default-small-focus");
-      });     
-    }, 50); 
-    });
-    </script>
     <div id="footerDiv" style="display: none; visibility: hidden">
       <footer class="footer">
         <center><a href="#" onclick="OpenCatalog.showAbout();">DI2E Storefront Catalog Version 1.0</a></center>

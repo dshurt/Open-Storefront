@@ -284,6 +284,13 @@ header{
   margin-top: -41px;
 }
 
+.filterDrop {
+  float:right;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
 .padding-tb-50{
   padding-top: 50px; 
   padding-bottom: 50px;
@@ -330,7 +337,7 @@ header{
 
 #userMenuDiv{
   min-width: 100px;
-  /*float: right;*/
+  float: right;
 }
 
 .categories{
@@ -382,10 +389,10 @@ header{
 
 
 .westPanel{
-  height: 500px !important;
+  /*height: 500px !important;*/
 }
 .westPanelBody{
-  height: 500px !important;
+  /*height: 500px !important;*/
 }
 
 #catGrid, #typeGrid, #stateGrid{

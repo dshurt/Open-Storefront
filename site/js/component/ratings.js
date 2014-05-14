@@ -16,7 +16,7 @@
 
 Ext.define('OpenCatalog.ratings.Panel', {
      extend: 'Ext.container.Container',
-     
+     cls: 'ratings',
      border: false,
      ratings: {
          averageRating: 0,

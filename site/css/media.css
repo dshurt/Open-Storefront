@@ -8,25 +8,58 @@
     width: 100%;
   }
   #userMenuDiv{
-    /*position: absolute;*/
-    /*top: 0px;*/
-    /*right: 0px;*/
+    position: absolute;
+    top: 0px;
+    right: 0px;
   }
 }
 
 @media (max-width: 991px) {
-  #resultsPanel{
-    padding-top: 38px !important;
-  }
   #detailPanel{
-    padding-top: 38px !important;
+    padding-top: 50px !important;
   }
   .headerApplicationTitle{
     margin-bottom: 10px;
   }
-/*  .westPanel{
-    padding-top: 38px !important;
-  }*/
+  #resultsPanel{
+    padding-top: 50px !important;
+  }
+  #resultsPanel-body{
+    margin-top: 38px;
+  }
+  #filterPanel{
+    padding-top: 50px !important;
+  }
+  #filterPanel-placeholder{
+    padding-top: 50px !important;
+  }
+  #resultsPanel > div:first-child > div:first-child
+  {
+    /*border: 1px red solid;*/
+    height: 76px !important;
+  }
+  #pagingToolbar{
+    width: 310px !important;
+  }
+  #pagingToolbar-innerCt{
+    width: 310px !important;
+    height: 66px !important;
+  }
+  #pagingToolbar > div:first-child > div:last-child > div:last-child
+  {
+    left:0px !important;
+    top: 38px !important;
+  }
+  #smallDetail, #largeDetail{
+    top: 38px !important;
+    float:right !important;
+  }
+  #smallDetail{
+    left: 220px !important;
+  }
+  #largeDetail{
+    left: 260px !important;
+  }
 }
 
 /* Smallest devices*/
@@ -58,6 +91,16 @@
   .hide-on-small{
     display:none;
     visibility: hidden;
+  }
+  .componentIconLarge,.componentIconLarge > span, .componentIconLarge > span > div, .componentIconLarge > span > div > img{
+    top: 10px !important;
+    right: 5px !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .componentIconLarge + div{
+    left: 25px !important;
+    right: -20px !important;
   }
 }
 
@@ -107,6 +150,21 @@
   }
   .screenshot{
     width: 100%;
+  }
+  #smallDetail{
+    display: none;
+    visibility: hidden;
+  }
+  #largeDetail{
+    display: none;
+    visibility: hidden;
+  }
+  .ratings{
+    left: 330px !important;
+    display: none;
+  }
+  .componentIconLarge + div{
+    /*width: auto !important;*/
   }
 }
 
