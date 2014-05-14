@@ -102,6 +102,9 @@
   .desc-title-rating{
     float:left;
   }
+  .screenshot{
+    width: 100%;
+  }
 }
 
 /* Small devices (tablets, 786px and up) */
