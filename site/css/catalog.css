@@ -330,7 +330,7 @@ header{
 
 #userMenuDiv{
   min-width: 100px;
-  float: right;
+  /*float: right;*/
 }
 
 .categories{
@@ -378,4 +378,15 @@ header{
 
 .screenshot{
   width: 300px;
+}
+
+
+.westPanel{
+  height: 500px !important;
+}
+.westPanelBody{
+  height: 500px !important;
+}
+
+#catGrid, #typeGrid, #stateGrid{
 }

@@ -44,7 +44,27 @@
   </head>
   <body class="container-fluid">
     <div id="headerDiv" style="display: none; visibility: hidden">
-      <header class="header">
+      <header class="header" id="header">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <ul class="nav navbar-nav navbar-right" style="position: relative; z-index: 5">
+          <li id="userMenuDiv">
+            <!-- <div id="userMenuDiv" style="margin-right: 40px;"></div> -->
+          </li>
+          <li class="dropdown">
+
+            <a href="#" class="dropdown-toggle x-btn x-unselectable x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon x-border-box" role="button"data-toggle="dropdown" id="filters">
+              <span class="x-btn-wrap x-btn-arrow x-btn-arrow-right" unselectable="on">
+                <span class="x-btn-button">
+                  <span class="x-btn-inner x-btn-inner-center" unselectable="on">Filters</span>
+                  <span role="img" class="x-btn-icon-el  " unselectable="on" style=""></span>
+                </span>
+              </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li id="navheader"></li>
+            </ul>
+          </li>
+        </ul>
         <div class="row" style="margin-top: 5px;">
           <div class='col-md-1 headerApplicationTitle'>
             <a href="index.html" >
@@ -53,17 +73,16 @@
               </span>
             </a>
           </div>
-          <div class="hide-search col-md-6">
+          <div class="hide-search col-md-5">
             <input type="search" placeholder="Search" id="searchField" name="search" class="mainsearch">
             <div class="search-btn">
               <span id='searchBtnHolder'></span> 
             </div>  
           </div>
-          <div id="userMenuDiv" style="margin-right: 40px;"></div>
         </div>
       </header>
     </div>
-    
+
     <script type="text/javascript">
       
       Ext.onReady(function(){
@@ -175,15 +194,15 @@
         
         var filterPanel = Ext.create('Ext.panel.Panel', {
           cls: 'westPanel',
-          collapsedCls: 'westPanel',
-          region: 'west',
-          collapsible: true,
+          bodyCls: 'westPanelBody',
+          collapsible: false,
           title: 'Filter',
           split: true,
-          minWidth: 300,
+          minWidth: 310,
           maxWidth: 300,
           bodyStyle: 'padding: 10px;',
-          autoScroll: true,         
+          autoScroll: true,       
+          renderTo: Ext.get('navheader'),  
           items: [
             typeGrid,
             {
@@ -212,7 +231,7 @@
               height: 50,
               margins: '0 0 5 0'
             },
-            filterPanel,
+            // filterPanel,
             resultsPanel,
             {
               region: 'south',
@@ -453,6 +472,23 @@
       
     </script>     
     
+    <script type="text/javascript">
+    $(document).ready(function() {
+      setTimeout(function(){
+      $('#navheader img, #navheader div').click(function(e) {
+          e.stopPropagation();
+        });
+      $("#filters").mouseleave(function(){
+        $(this).removeClass("x-over, x-btn-over, x-btn-default-small-over, x-focus, x-btn-focus, x-btn-default-small-focus");
+      });
+      $("#filters").on('mouseenter', function(){
+        console.log("Blah");
+        
+        $(this).addClass("x-over, x-btn-over, x-btn-default-small-over, x-focus, x-btn-focus, x-btn-default-small-focus");
+      });     
+    }, 50); 
+    });
+    </script>
     <div id="footerDiv" style="display: none; visibility: hidden">
       <footer class="footer">
         <center><a href="#" onclick="OpenCatalog.showAbout();">DI2E Storefront Catalog Version 1.0</a></center>

@@ -8,9 +8,9 @@
     width: 100%;
   }
   #userMenuDiv{
-    position: absolute;
-    top: 0px;
-    right: 0px;
+    /*position: absolute;*/
+    /*top: 0px;*/
+    /*right: 0px;*/
   }
 }
 
@@ -21,9 +21,12 @@
   #detailPanel{
     padding-top: 38px !important;
   }
-  .westPanel{
-    padding-top: 38px !important;
+  .headerApplicationTitle{
+    margin-bottom: 10px;
   }
+/*  .westPanel{
+    padding-top: 38px !important;
+  }*/
 }
 
 /* Smallest devices*/
