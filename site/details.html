@@ -70,23 +70,16 @@
     <span style="padding-left: 20px;"><a href="results.html" style="color: blue; text-decoration: underline">Back to Search Results</a></span>
     <div style="padding-top:20px;padding-left: 20px; padding-right: 20px;  padding-bottom: 20px; width: 100%">
       <div class="desc-title">
-        <table >
-            <tr>
-              <td width="80%">
+          <div class="desc-title-name">
                 <span class="item_bold">                    
                   <span class="listing_short_title_text">{name}</span>                    
                 </span>
                 <div class="item_owner item_text">{owner}</div>
-              </td>
-              <td>
-
-              </td>
-              <td>
+          </div>
+          <div class="desc-title-rating">
                 <div id="ratingsDiv">
                 </div>                    
-              </td> 
-            </tr>
-          </table>
+          </div>
       </div>
       <div class="desc ">
         <div class="leftDesc">
@@ -100,11 +93,13 @@
           <tpl if='integrated'>
             <img src="image/icon/silk/medal_gold_1.png" title="RI Integrated" />
           </tpl>
+          <span class="hide-on-small">
           <br>
           <br>
-          {name}
+            {name}
           <br>
           <br>
+          </span>
           <div class="item_version_state_block">                            
             <div class="item_version">
               <span class="item_bold">License:</span> {primaryLicense}

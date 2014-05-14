@@ -52,6 +52,10 @@
   .categories{
     margin-top: 0px;
   }
+  .hide-on-small{
+    display:none;
+    visibility: hidden;
+  }
 }
 
 /* Smaller still devices*/
@@ -91,6 +95,12 @@
   }
   .main-content{
     margin-top:150px;
+  }
+  .desc-title-name{
+    width: 100%;
+  }
+  .desc-title-rating{
+    float:left;
   }
 }
 

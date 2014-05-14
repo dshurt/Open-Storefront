@@ -365,3 +365,14 @@ header{
 .desc-title{
   margin-left: 260px;
 }
+
+.desc-title-name{
+  float: left;
+  width: 278px;
+}
+
+.desc-title-rating{
+  float: right;
+  width: 125px;
+}
+
