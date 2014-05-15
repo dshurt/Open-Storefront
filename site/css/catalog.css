@@ -422,3 +422,13 @@ header{
   background-color: #ddd;
   display: inline-block;
 }
+
+
+.help-info{
+  border: 1px grey solid; 
+  border-radius: 4px; 
+  height: 100%; 
+  position: absolute; 
+  right: 0px; 
+  background: white;
+}
