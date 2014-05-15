@@ -217,13 +217,19 @@
 									window.location.href = 'admin.html';
 								}
 							},
-*/							
-							{
-								xtype: 'menuseparator'
-							},
-							{
-								text: 'Logout'
-							}
+*/              
+              {
+                text: 'Logout'
+              },
+              {
+                xtype: 'menuseparator'
+              },
+              {
+                text: 'Help',
+                handler: function()  {
+                  window.location.href = 'help.html';
+                }
+              }
 						]
 					})
 				});

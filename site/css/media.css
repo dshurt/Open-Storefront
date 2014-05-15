@@ -196,8 +196,10 @@
   #resultsPanel-body > span:first-child{
     padding-bottom: 40px !important;
   }
+  .pad-100{
+    padding-top: 100px !important;
+  }
 }
-
 /* Small devices (tablets, 786px and up) */
 @media (min-width: 768px) {
   .main-content .col-sm-4{

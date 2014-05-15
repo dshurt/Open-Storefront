@@ -397,3 +397,28 @@ header{
 
 #catGrid, #typeGrid, #stateGrid{
 }
+
+.helpCols{
+  min-height: 60px !important;
+  padding: 0px !important;
+}
+
+.clearfix:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+.overflow-pair-left{
+  display: block;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+}
+
+.overflow-pair-right{
+  float: right;
+  background-color: #ddd;
+  display: inline-block;
+}

@@ -1,0 +1,226 @@
+<!--
+/* 
+ * Copyright 2014 Space Dynamics Laboratory - Utah State University Research Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+*/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="resources/extjs4.2.1/css/ext-all-neptune.css" />
+  <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap-theme.css" />
+  <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="components/fontawesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/catalog.css" />    
+  <link rel="stylesheet" type="text/css" href="css/media.css" />    
+  <link href="css/overrides.css" rel="stylesheet" type="text/css"/>
+
+  <script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="components/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/extjs4.2.1/bootstrapExt.js"></script>
+  <script type="text/javascript" src="js/common/global.js"></script>
+  <script type="text/javascript" src="js/common/app.js"></script>
+
+
+
+</head>
+<body class="container-fluid">
+  <header class="header" style="background-color: white; ">
+    <table width="100%">
+      <tr>
+        <td width="90%">    
+          <span style="font-size: 28px; font-weight: bold;  text-align: center; width: 100%; margin-top:  20px; padding-left: 20px;"></span>
+        </td>
+        <td>            
+          <div id="userMenuDiv"></div>
+        </td>
+      </tr>       
+    </table>      
+  </header>
+  <div class="applicationtitle">DI2E Storefront Catalog</div>
+    <!-- <div class="row searchgroup row-centered padding-tb-50">
+      <div class="hide-search col-xs-8 col-centered full-on-small">
+        <input type="search" placeholder="Search" id="searchField" name="search" class="mainsearch">
+        <div class="search-btn">
+          <span id='searchBtnHolder'></span>
+        </div>
+      </div>
+    </div> -->
+    <div class="splash-board pad-100">
+      <div class="row row-centered">
+        <div class="col-centered col-md-8">
+          <div class="row">
+            <div class="col-md-9 helpCols">
+              <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title clearfix">
+                      <a data-toggle="collapse" data-parent="#accordion" class="collapse-link" href="#collapseOne">
+                        <span class="pull-right fa fa-caret-down" class="overflow-pair-right"></span>
+                        <span class="overflow-pair-left">About DI2E Storefront Catalog</span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title clearfix">
+                      <a data-toggle="collapse" data-parent="#accordion" class="collapse-link" href="#collapseTwo">
+                        <span class="pull-right fa fa-caret-down" class="overflow-pair-right"></span>
+                        <span class="overflow-pair-left">Account Settings</span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title clearfix">
+                      <a data-toggle="collapse" data-parent="#accordion" class="collapse-link" href="#collapseThree">
+                        <span class="pull-right fa fa-caret-down" class="overflow-pair-right"></span>
+                        <span class="overflow-pair-left">Features</span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title clearfix">
+                      <a data-toggle="collapse" data-parent="#accordion" class="collapse-link" href="#collapseFour">
+                        <span class="pull-right fa fa-caret-down" class="overflow-pair-right"></span>
+                        <span class="overflow-pair-left">Technical Questions</span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseFour" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title clearfix">
+                      <a data-toggle="collapse" data-parent="#accordion" class="collapse-link" href="#collapseFive">
+                        <span class="pull-right fa fa-caret-down" class="overflow-pair-right"></span>
+                        <span class="overflow-pair-left">Other</span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseFive" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 helpCols"><img style="width: 100%; height: auto;" src="media/help.png" alt="help!"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Associated application store section CURRENTLY UNUSED
+    <div style="border-top: 1px lightgrey solid; visibility: hidden; display: none;">
+      <div style="width:1020px; margin:0 auto;padding-top: 20px; padding: 20px;">
+        <div class='browse' style=''>Associated Application Stores</div>
+          <ul style=''>
+            <li><a href="">NGA App Store</a></li>
+            <li><a href="">Air Force Application Mall</a></li>
+            <li><a href="">Army Application Mall</a></li>
+            <li><a href="">Navy Marketplace</a></li>
+            <li><a href="">Marines Marketplace</a></li>
+          </ul>       
+      </div>
+    </div> -->
+    
+    <footer class="footer">
+      <center><a href="#" onclick="OpenCatalog.showAbout();"> DI2E Storefront Catalog Version 1.0</a></center>
+    </footer>
+
+    <script type="text/javascript">
+
+    Ext.onReady(function(){
+
+      var userMenuButton = Ext.create('Ext.button.Button', {
+        renderTo: 'userMenuDiv',
+        text: 'John.Tester',
+        handler: function()  {
+            //window.location.href = 'mylanding.html';
+          },
+          menu: new Ext.menu.Menu({
+            items:[
+/*          
+              {
+                text: 'User Profile',
+                handler: function()  {
+                  window.location.href = 'mylanding.html';
+                }
+              },
+              {
+                text: 'Admin',
+                handler: function()  {
+                  window.location.href = 'admin.html';
+                }
+              },
+              */              
+              {
+                text: 'Logout'
+              },
+              {
+                xtype: 'menuseparator'
+              },
+              {
+                text: 'Help',
+                handler: function()  {
+                  window.location.href = 'help.html';
+                }
+              }
+              ]
+            })
+        });
+
+      var searchBtn = Ext.create('Ext.button.Button', {
+        renderTo: 'searchBtnHolder',
+        glyph: 'xf002@FontAwesome',
+        scale: 'large',
+        handler: function(){
+
+        }
+      });
+
+    });         
+</script> 
+
+</body>
+
+</html> 
