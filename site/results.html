@@ -18,6 +18,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="resources/extjs4.2.1/css/ext-all-neptune.css" />
     <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.css" />
@@ -81,6 +82,7 @@
           autoScroll: true,
           dockedItems: [
             {
+              id: 'dockedToolbar',
               xtype: 'toolbar',
               dock: 'top',
               items: [
@@ -97,7 +99,7 @@
                   xtype: 'tbfill'
                 },
                 {
-                  id: 'smallDetail',
+                  cls: 'smallDetail',
                   xtype: 'button',
                   pressed: true,
                   glyph: 'xf039@FontAwesome',
@@ -118,7 +120,7 @@
                   }
                 },
                 {
-                  id: 'largeDetail',
+                  cls: 'largeDetail',
                   xtype: 'button',
                   glyph: 'xf00b@FontAwesome',
                   scale: 'medium',
@@ -360,6 +362,8 @@
             details +='</table>';           
 
 
+
+
             var contentPanel = Ext.create('Ext.panel.Panel', {
                   cls:'summary',
               border: false,
@@ -483,6 +487,24 @@
         
       Ext.onReady(function(){
         
+        var toolBar = Ext.create('Ext.toolbar.Toolbar', {
+          id: 'toolbar',
+          xtype: 'toolbar',
+          renderTo: 'resultsPanel',
+          items: [
+            Ext.create('Ext.PagingToolbar', {
+              id: 'pagingToolbar2',
+              cls: 'row',
+              store: Ext.data.StoreManager.lookup('Assets'),
+              displayInfo: false,
+              border: false,
+            }), 
+            {
+              xtype: 'tbfill'
+          }  
+          ]
+        });
+
         var userMenuButton = Ext.create('Ext.button.Button', {
           renderTo: 'userMenuDiv',
           text: 'John.Tester',
@@ -538,7 +560,7 @@
           Ext.getCmp('advSearchMenu').showBy(Ext.get('filterDropDown'));
         })
 
-
+        // Ext.getCmp('resultsPanel').
         $(document).ready(function(){
           // initial window setup
           var width = $(window).width();
@@ -551,7 +573,7 @@
           else{
             filterPanel.expand();
           }
-          if (width <= 460)
+          if (width <= 480)
           {
             filterDropButton.setVisible(true);
             Ext.getCmp('resultsPanel').suspendLayout = true;
@@ -562,10 +584,16 @@
             Ext.getCmp('resultsPanel').suspendLayout = false;
             Ext.getCmp('resultsPanel').updateLayout();
             // filterPanel.hide();
-            filterPanel.setVisible(false);
+            setTimeout(function(){
+                filterPanel.setVisible(false);
+              }, 1000);
+            var dockedToolbar = Ext.getCmp("dockedToolbar");
+            dockedToolbar.setVisible(false);
           }
           else
           {
+            var dockedToolbar = Ext.getCmp("dockedToolbar");
+            dockedToolbar.setVisible(true);
             // filterPanel.hide();
             filterDropButton.setVisible(false);
             filterPanel.setVisible(true); 
@@ -593,7 +621,8 @@
               //   Ext.getCmp(els[i].id).setVisible(true);
               // }
             }
-            if (width <= 460)
+
+            if (width <= 480)
             {
               filterDropButton.setVisible(true);
               Ext.getCmp('resultsPanel').suspendLayout = true;
@@ -604,10 +633,16 @@
               Ext.getCmp('resultsPanel').suspendLayout = false;
               Ext.getCmp('resultsPanel').updateLayout();
               // filterPanel.hide();
-              filterPanel.setVisible(false);
+              setTimeout(function(){
+                filterPanel.setVisible(false);
+              }, 1000);
+              var dockedToolbar = Ext.getCmp("dockedToolbar");
+              dockedToolbar.setVisible(false);
             }
             else
             {
+              var dockedToolbar = Ext.getCmp("dockedToolbar");
+              dockedToolbar.setVisible(true);
               // filterPanel.hide();
               filterDropButton.setVisible(false);
               filterPanel.setVisible(true); 
