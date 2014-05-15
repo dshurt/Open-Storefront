@@ -589,9 +589,13 @@
               }, 1000);
             var dockedToolbar = Ext.getCmp("dockedToolbar");
             dockedToolbar.setVisible(false);
+            var toolbar = Ext.getCmp("toolbar");
+            toolbar.setVisible(true);
           }
           else
           {
+            var toolbar = Ext.getCmp("toolbar");
+            toolbar.setVisible(false);
             var dockedToolbar = Ext.getCmp("dockedToolbar");
             dockedToolbar.setVisible(true);
             // filterPanel.hide();
@@ -638,9 +642,13 @@
               }, 1000);
               var dockedToolbar = Ext.getCmp("dockedToolbar");
               dockedToolbar.setVisible(false);
+              var toolbar = Ext.getCmp("toolbar");
+              toolbar.setVisible(true);
             }
             else
             {
+              var toolbar = Ext.getCmp("toolbar");
+              toolbar.setVisible(false);
               var dockedToolbar = Ext.getCmp("dockedToolbar");
               dockedToolbar.setVisible(true);
               // filterPanel.hide();

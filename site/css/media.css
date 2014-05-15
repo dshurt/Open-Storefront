@@ -115,7 +115,7 @@
   #toolbar{
     visibility: visible;
     position: relative;
-     top: -50px;
+    top: -50px;
   }
 }
 
@@ -185,13 +185,6 @@
   }
 }
 
-/* Small devices (tablets, 786px and up) */
-@media (min-width: 480) {
-  #toolbar{
-    display:none;
-    visibility: hidden;
-  }
-}
 /* Small devices (tablets, 786px and up) */
 @media (min-width: 768px) {
   .main-content .col-sm-4{
