@@ -181,7 +181,17 @@
     display: none;
   }
   .componentIconLarge + div{
-    /*width: auto !important;*/
+/*    display: inline-block !important;
+    width: 100% !important;*/
+  }
+  .summar{
+    height: 100% !important;
+  }
+  .summary > div:first-child > span:first-child > div:first-child > div:nth-child(2) > span:first-child > div:first-child{
+    padding: 0px !important;
+  }
+  #toolbar > div:first-child{
+    width: 264px !important;
   }
 }
 

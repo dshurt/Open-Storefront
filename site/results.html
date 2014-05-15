@@ -589,6 +589,7 @@
             // filterPanel.hide();
             setTimeout(function(){
                 filterPanel.setVisible(false);
+                $(".componentIconLarge + div").width($(".componentIconLarge + div").width() + 60);
               }, 1000);
             var dockedToolbar = Ext.getCmp("dockedToolbar");
             dockedToolbar.setVisible(false);
@@ -642,6 +643,7 @@
               // filterPanel.hide();
               setTimeout(function(){
                 filterPanel.setVisible(false);
+                $(".componentIconLarge + div").width($(".componentIconLarge + div").width() + 60);
               }, 1000);
               var dockedToolbar = Ext.getCmp("dockedToolbar");
               dockedToolbar.setVisible(false);
