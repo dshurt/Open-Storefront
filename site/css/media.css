@@ -193,6 +193,9 @@
   #toolbar > div:first-child{
     width: 264px !important;
   }
+  #resultsPanel-body > span:first-child{
+    padding-bottom: 40px !important;
+  }
 }
 
 /* Small devices (tablets, 786px and up) */
