@@ -12,7 +12,7 @@
   #userMenuDiv{
     /*This id maintains the user menu dropdown button*/
     position: absolute;
-    top: 0px;
+    top: 8px;
     right: 0px;
   }
   .help-info{
@@ -173,6 +173,10 @@
 
 /* Effects only below 460px (considered a better break point than 320... but both are interchangeble more or less)*/
 @media  (max-width: 460px) {
+  #userMenuDiv{
+    top: 0px !important;
+
+  }
   #userMenuDiv a{
     /*This maintains the usermenudiv for the help and default page setup*/
     padding-top: 12px;
@@ -307,12 +311,15 @@
     padding: 5px !important;
   }
   #toolbar > div:first-child{
+    /*This dictates the width of the popup toolbar for the smallest screens*/
     width: 264px !important;
   }
   #resultsPanel-body > span:first-child{
+    /*this ensures that the popup toolbar will not cover content within the resultsPanel-body*/
     padding-bottom: 40px !important;
   }
   .pad-100{
+    /*This class is useful for spacing on the smallest screen for the help.html page*/
     padding-top: 100px !important;
   }
 }
