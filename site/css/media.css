@@ -12,17 +12,20 @@
     top: 0px;
     right: 0px;
   }
-}
-
-@media (max-width: 991px) {
   .help-info{
-    margin-top: 30px !important;
+    margin-top: 5px;
     border: 1px grey solid; 
     border-radius: 4px; 
     height: inherit; 
     position: inherit; 
     background: white;
   }
+  .margin-md-5{
+    margin-right:0px;
+  }
+}
+
+@media (max-width: 991px) {
   #detailPanel{
     padding-top: 50px !important;
   }
@@ -162,7 +165,7 @@
     font-size: 2em;
     position: fixed;
     width: 100%;
-    z-index: 2;
+    z-index: 6;
   }
   .hide-on-smallest{
     display: none;

@@ -439,3 +439,11 @@ header{
 .helpapplicationtitle a:hover{
   text-decoration: none !important;
 }
+
+.margin-md-5{
+  margin-right: 5px;
+}
+
+#itemDescBlock_32{
+  padding: 0px !important;
+}
