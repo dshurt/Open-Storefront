@@ -143,6 +143,19 @@
     width: 100%;
     z-index:2;
   }
+  #helpSearch{
+    /*padding-top: 0px;*/
+    padding: 0px !important;
+    margin-top: 5px !important;
+    position: relative !important;
+    width: 100%;
+  }
+   #helpSearch div{
+    padding: 0px !important;
+   }
+   #helpSearch .col-xs-10{
+    width: 100%;
+   }
   .applicationtitle {
     padding-top: 10px;
     height: 60px;
