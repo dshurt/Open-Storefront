@@ -432,3 +432,10 @@ header{
   right: 0px; 
   background: white;
 }
+
+.helpapplicationtitle a{
+  color: white !important;
+}
+.helpapplicationtitle a:hover{
+  text-decoration: none !important;
+}
