@@ -203,6 +203,7 @@
   .ratings{
     left: 330px !important;
     display: none;
+    margin-right: -40px;
   }
   .componentIconLarge + div{
 /*    display: inline-block !important;
@@ -212,7 +213,7 @@
     height: 100% !important;
   }
   .summary > div:first-child > span:first-child > div:first-child > div:nth-child(2) > span:first-child > div:first-child{
-    padding: 0px !important;
+    padding: 5px !important;
   }
   #toolbar > div:first-child{
     width: 264px !important;

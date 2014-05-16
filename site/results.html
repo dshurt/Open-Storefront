@@ -570,11 +570,17 @@
         })
 
         // Ext.getCmp('resultsPanel').
-        $(document).ready(function(){
-          // initial window setup
+        var setupVisible = function() {
+          // first grab the viewport width -- make sure to include the meta tag for device-width on this page
           var width = $(window).width();
+
+          // grab the components we'll be adjusting;
           var filterPanel = Ext.getCmp("filterPanel");
           var filterDropButton = Ext.getCmp("filterDropButton");
+          var dockedToolbar = Ext.getCmp("dockedToolbar");
+          var toolbar = Ext.getCmp("toolbar");
+
+          // if the screen is less than or equal to 768px, collapse the panel onload
           if (width <= 768)
           {
             filterPanel.collapse();
@@ -582,9 +588,22 @@
           else{
             filterPanel.expand();
           }
+
+          // if the screen is less than or equal to 480px hide the filter panel
+          // and provide the user with the filter button. Also make sure that
+          // the descriptions default to the simple description.
           if (width <= 480)
           {
-            filterDropButton.setVisible(true);
+            // we have to set a timeout to hide the panel because it may be
+            // animating the collapse still.
+            // TODO:: figure out how to hault the collapse and just make it
+            // disapear.
+            setTimeout(function(){
+                filterPanel.hide();
+              }, 1300);
+
+            // show the button and change the description
+            filterDropButton.show();
             Ext.getCmp('resultsPanel').suspendLayout = true;
             Ext.Array.each(Ext.getCmp('resultsPanel').items.items, function(item){
               item.hideDetails();
@@ -592,80 +611,26 @@
             viewShowDetails = false;
             Ext.getCmp('resultsPanel').suspendLayout = false;
             Ext.getCmp('resultsPanel').updateLayout();
-            // filterPanel.hide();
-            setTimeout(function(){
-                filterPanel.setVisible(false);
-                $(".componentIconLarge + div").width($(".componentIconLarge + div").width() + 60);
-              }, 1300);
-            var dockedToolbar = Ext.getCmp("dockedToolbar");
-            dockedToolbar.setVisible(false);
-            var toolbar = Ext.getCmp("toolbar");
-            toolbar.setVisible(true);
+
+            // also make sure we hide the docked toolbar (takes up to much room)
+            dockedToolbar.hide();
+            toolbar.show();
           }
           else
           {
-            var toolbar = Ext.getCmp("toolbar");
-            toolbar.setVisible(false);
-            var dockedToolbar = Ext.getCmp("dockedToolbar");
-            dockedToolbar.setVisible(true);
-            // filterPanel.hide();
-            filterDropButton.setVisible(false);
-            filterPanel.setVisible(true); 
+            toolbar.hide();
+            dockedToolbar.show();
+            filterDropButton.hide();
+            filterPanel.show(); 
           }
+        }
+        $(document).ready(function(){
+          // initial window setup
+          setupVisible(); 
 
           // continuation of the window set up on change
           $(window).resize(function(){
-            var width = $(window).width();
-            var filterPanel = Ext.getCmp("filterPanel");
-            if (width <= 768)
-            {
-              // filterPanel.hide();
-              filterPanel.collapse();
-              // var els = Ext.query(".componentIconLarge"), ret=[];
-              // for( i = 0; i < els.length; i++)
-              // {
-              //   Ext.getCmp(els[i].id).setVisible(false);
-              // }
-            }
-            else{
-              filterPanel.expand();
-              // var els = Ext.query(".componentIconLarge"), ret=[];
-              // for( i = 0; i < els.length; i++)
-              // {
-              //   Ext.getCmp(els[i].id).setVisible(true);
-              // }
-            }
-
-            if (width <= 480)
-            {
-              filterDropButton.setVisible(true);
-              Ext.getCmp('resultsPanel').suspendLayout = true;
-              Ext.Array.each(Ext.getCmp('resultsPanel').items.items, function(item){
-                item.hideDetails();
-              });
-              viewShowDetails = false;
-              Ext.getCmp('resultsPanel').suspendLayout = false;
-              Ext.getCmp('resultsPanel').updateLayout();
-              // filterPanel.hide();
-              setTimeout(function(){
-                filterPanel.setVisible(false);
-                $(".componentIconLarge + div").width($(".componentIconLarge + div").width() + 60);
-              }, 1300);
-              var dockedToolbar = Ext.getCmp("dockedToolbar");
-              dockedToolbar.setVisible(false);
-              var toolbar = Ext.getCmp("toolbar");
-              toolbar.setVisible(true);
-            }
-            else
-            {
-              var toolbar = Ext.getCmp("toolbar");
-              toolbar.setVisible(false);
-              var dockedToolbar = Ext.getCmp("dockedToolbar");
-              dockedToolbar.setVisible(true);
-              // filterPanel.hide();
-              filterDropButton.setVisible(false);
-              filterPanel.setVisible(true); 
-            }
+            setupVisible();
           })
         });
       });
