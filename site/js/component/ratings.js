@@ -34,7 +34,7 @@ Ext.define('OpenCatalog.ratings.Panel', {
        
         var ratingsPanel = this;
 
-      var content = '<div style="width: 154; ">' +
+      var content = '<div style="width: 230px !important; ">' +
               '<span>';
 
       for (var i = 1; i <= ratingsPanel.maxRating; i++) {

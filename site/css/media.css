@@ -1,18 +1,22 @@
 
-/* Below 1024*/
+/* Effects only Below 1200 */
 @media (max-width: 1200px) {
   .full-on-small{
+    /*This class is used to make the search div on the default page expand as the page becomes smaller*/
     width: 70%;
   }
   .main-content{
+    /*This class maintains the default page's content*/
     width: 100%;
   }
   #userMenuDiv{
+    /*This id maintains the user menu dropdown button*/
     position: absolute;
     top: 0px;
     right: 0px;
   }
   .help-info{
+    /*This class maintains the side div on the help page*/
     margin-top: 5px;
     border: 1px grey solid; 
     border-radius: 4px; 
@@ -20,110 +24,145 @@
     position: inherit; 
     background: white;
   }
-  .margin-md-5{
+  .lg-rm-padding-right{
+    /*This div removes padding-right from the transition from large to medium*/
     margin-right:0px;
   }
 }
 
+/* Effects only Below 991px*/
 @media (max-width: 991px) {
   #detailPanel{
+    /*this is an adjustment for the details panel as the application title drops*/
     padding-top: 50px !important;
   }
   .headerApplicationTitle{
+    /*This class maintains the application title for the results and details page*/
     margin-bottom: 10px;
   }
   #resultsPanel{
+    /*This is an adjustment for the results panel page as the application title drops*/
     padding-top: 50px !important;
   }
   #resultsPanel-body{
+    /*This is an adjustment for the results panel page as the application title drops*/
     margin-top: 38px;
   }
   #filterPanel{
+    /*This is an adjustment for the filter panel as the application title drops*/
     padding-top: 50px !important;
   }
   #filterPanel-placeholder{
+    /*This is an adjustment for the filter panel as the application title drops*/
     padding-top: 50px !important;
   }
   #resultsPanel > div:first-child > div:first-child
   {
+    /*This adjustment handles the toolbar for pagination on the results page*/
     /*border: 1px red solid;*/
     height: 76px !important;
   }
   #pagingToolbar{
+    /*This also adjust the toolbar*/
     width: 310px !important;
   }
   #pagingToolbar-innerCt{
+    /*This also adjust the toolbar*/
     width: 310px !important;
     height: 66px !important;
   }
   #pagingToolbar > div:first-child > div:last-child > div:last-child
   {
+    /*This adjusts the toolbar description*/
     left:0px !important;
     top: 38px !important;
   }
-  #smallDetail, #largeDetail{
+  .smallDetail, .largeDetail{
+    /*This adjusts the toolbar buttons*/
     top: 38px !important;
     float:right !important;
   }
-  #smallDetail{
+  .smallDetail{
+    /*This adjusts the toolbar buttons*/
     left: 220px !important;
   }
-  #largeDetail{
+  .largeDetail{
+    /*This adjusts the toolbar buttons*/
     left: 260px !important;
+  }
+  .componentIconLarge + div{
+    /*This is the selector for the content in the summary view in the results page*/
+    padding-right: 50px;
+  }
+  .ratings{
+    /*This adjusts the raitings component so that the description can take full width*/
+    display: none;
+    margin-right: -50px !important;
   }
 }
 
-/* Smallest devices*/
+/* Effects only Below 768px */
 @media (max-width: 768px) {
   .leftDesc{
+    /*This maintains the left portion of the columns on the details page*/
     top: 10px;
     display: inline-table;
     clear: both;
   }
   .desc-title{
+    /*This maintains the compnent title in the details page*/
     margin-left: 0px;
   }
   .full-on-small{
+    /*This class is used to make the search div on the default page expand as the page becomes smaller*/
     width: 90%;
   }
   .searchgroup{
+    /*This maintains the search div on the default page*/
     padding-top: 20px;
     padding-bottom: 15px;
   }
   #resultsPanel{
+    /*This is an adjustment for the results panel page as the application title drops*/
     width: 100%;
   }
-  .main-content .col-sm-4{
-    height: inherit;
-  }
   .categories{
+    /*This maintains the categories divs within the main content on the default page*/
     margin-top: 0px;
   }
   .hide-on-small{
+    /*This is a trigger to make something disapear on small screens*/
     display:none;
     visibility: hidden;
   }
   .componentIconLarge,.componentIconLarge > span, .componentIconLarge > span > div, .componentIconLarge > span > div > img{
+    /*This is used to move the icon on the results page so that it shrinks and moves to the left*/
     top: 10px !important;
+    left: 5px !important;
     right: 5px !important;
     width: 20px !important;
     height: 20px !important;
   }
   .componentIconLarge + div{
-    left: 25px !important;
-    right: -20px !important;
+    /*This is the selector for the content in the summary view in the results page*/
+    left: 30px !important;
+    padding-bottom: 5px;
   }
+
 }
 
-
+/* Effects only below 480px */
 @media  (max-width: 480px) {
   #resultsPanel{
+    /*This maintains the resultsPanel*/
     padding-top: 50px !important;
   }
   #resultsPanel-body{
+    /*This maintains the resultsPanelBody*/
     margin-top: 0px;
   }
   #toolbar{
+    /*This maintains the toolbar for pagination*/
     visibility: visible;
     position: relative;
     top: -50px;
@@ -132,12 +171,32 @@
 
 
 
-/* Smaller still devices*/
+/* Effects only below 460px (considered a better break point than 320... but both are interchangeble more or less)*/
 @media  (max-width: 460px) {
+  #userMenuDiv a{
+    /*This maintains the usermenudiv for the help and default page setup*/
+    padding-top: 12px;
+    height: 40px;
+  }
+  .usrDiv{
+    /*This maintains the usermenudiv for the results page*/
+    margin-right: 32px !important;
+  }
+  .usrDivDetails{
+    /*This maintains the usermenudiv for the details page*/
+    margin-right: 0px !important;
+  }
+  .usrDiv a, .usrDivDetails a{
+    /*This maintains the usermenudiv for the help and details page setup*/
+    padding-top: 7px !important;
+    height: 32px !important;
+  }
   .full-on-small{
+    /*This class is used to make the search div on the default page expand as the page becomes smaller*/
     width: 100%;
   }
   .searchgroup{
+    /*This maintains the searchgroup div for the searchbar on the default page*/
     padding-top: 0px;
     padding-bottom: 0px;
     margin-top: 100px;
@@ -147,19 +206,23 @@
     z-index:2;
   }
   #helpSearch{
+    /*This maintains the search component for the help page (keep this after .searchgroup)*/
     /*padding-top: 0px;*/
     padding: 0px !important;
     margin-top: 5px !important;
     position: relative !important;
     width: 100%;
   }
-   #helpSearch div{
+  #helpSearch div{
+    /*This also maintains a portion of the help page search component*/
     padding: 0px !important;
-   }
-   #helpSearch .col-xs-10{
+  }
+  #helpSearch .col-xs-10{
+    /*This is used to override the helpsearch in order to make the search bar fill the width*/
     width: 100%;
-   }
+  }
   .applicationtitle {
+    /*This maintains the applicationtitle on the help and default pages*/
     padding-top: 10px;
     height: 60px;
     font-size: 2em;
@@ -168,51 +231,79 @@
     z-index: 6;
   }
   .hide-on-smallest{
+    /*This is a trigger to make something disappear on the smallest screen*/
     display: none;
     visibility: hidden;
   }
   .invisible-on-smallest{
+    /*This is a trigger to make something invisible, but still there on the*/
+    /*smallest screen*/
     visibility: hidden;
   }
-  .headerApplicationTitle span{
-    visibility:hidden;
+  .headerApplicationTitle{
+    margin-bottom: -10px; 
+  }
+  #resultsPanel{
+    /*This is an adjustment for the results panel page as the application title drops*/
+    padding-top: 30px !important;
+  }
+  #detailPanel{
+    /*This is an adjustment for the detail panel page as the application title drops*/
+    padding-top: 30px !important;
+  }
+  #resultsPanel-body{
+    /*this maintains the resultsPanelBody*/
+    padding:5px !important;
+  }
+  #filterPanel{
+    /*This is an adjustment for the filter panel as the application title drops*/
+    padding-top: 30px !important;
+  }
+  #filterPanel-placeholder{
+    /*This is an adjustment for the filter panel as the application title drops*/
+    padding-top: 30px !important;
   }
   .splash-board a:hover{
+    /*This maintains the default page's link's within the main content*/
     text-decoration: none;
   }
   .main-content{
+    /*This adjusts the main-content when the header becomes fixed. Needed to add spacing*/
     margin-top:150px;
   }
   .desc-title-name{
+    /*This gives the description page component title full width on the smallest screen.*/
     width: 100%;
   }
   .desc-title-rating{
+    /*This makes the description page component title float left*/
     float:left;
   }
   .screenshot{
+    /*This adjusts the screenshot image so that when the smallest screen appears*/
+    /*All of the images adjust to fit the screen.*/
     width: 100%;
   }
+  .ratings{
+    /*This adjusts the raitings component so that the description can take full width*/
+    margin-right: -50px !important;
+  }
   .smallDetail{
+    /*This makes the toolbar buttons for summar vs detailed view disapear on smallest screan*/
     display: none;
     visibility: hidden;
   }
   .largeDetail{
+    /*This makes the toolbar buttons for summar vs detailed view disapear on smallest screan*/
     display: none;
     visibility: hidden;
   }
-  .ratings{
-    left: 330px !important;
-    display: none;
-    margin-right: -40px;
-  }
   .componentIconLarge + div{
-/*    display: inline-block !important;
-    width: 100% !important;*/
-  }
-  .summar{
-    height: 100% !important;
+    /*This is the selector for the content in the summary view in the results page*/
+    padding-right: 0px;
   }
   .summary > div:first-child > span:first-child > div:first-child > div:nth-child(2) > span:first-child > div:first-child{
+    /*This maintains the large descripti*/
     padding: 5px !important;
   }
   #toolbar > div:first-child{
@@ -225,6 +316,18 @@
     padding-top: 100px !important;
   }
 }
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 460px) {
+}
 /* Small devices (tablets, 786px and up) */
 @media (min-width: 768px) {
   .main-content .col-sm-4{
@@ -236,6 +339,15 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    .ratings{
+    /*This adjusts*/
+    /*width: 154px !important;*/
+    left: auto !important;
+    right: 0px !important;
+    /*display: none;*/
+    margin-left: -50px !important;
+    padding-left: 50px !important;
+  }
 }
 
 /* Large devices (large desktops, 1200px and up) */
