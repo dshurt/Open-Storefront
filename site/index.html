@@ -28,16 +28,25 @@
   <link rel="stylesheet" href="app/css/overrides.css">
   
 
+  <script type="text/javascript" src="app/bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="app/bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="app/js/app.js"></script>
+  <script type="text/javascript" src="app/js/services/localCache.js"></script>
+  <script type="text/javascript" src="app/js/services/storefrontBusiness.js"></script>
+
+  <script type="text/javascript" src="app/js/common/data.js"></script>
+  <script type="text/javascript" src="app/modules/default/default.js"></script>
+</head>
+<body ng-app="storefront">
+  <div ng-controller="defaultCtrl">
+    <div ng-repeat="item in practice">{{item.name}}</div>
+  </div>
+
 
   <script type="text/javascript" src="app/js/common/data.js"></script>
   <script type="text/javascript" src="app/js/common/models.js"></script>
   <script type="text/javascript" src="app/js/common/stores.js"></script>
-  <script type="text/javascript" src="app/bower_components/jquery/dist/jquery.js"></script>
-  <script type="text/javascript" src="app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script type="text/javascript" src="app/bower_components/angular/angular.js"></script>
-</head>
-<body>
-
 </body>
 
 </html>	

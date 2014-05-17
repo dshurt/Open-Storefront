@@ -1736,6 +1736,15 @@ MOCKDATA.feedback = {
   
 };
 
+MOCKDATA.componentTypes = {
+  types: [
+    {
+      name: 'WIDGET',
+      icon: 'Widget'                
+    }
+  ]
+};
+
 MOCKDATA.assetDetails = {
     details: [
       {
