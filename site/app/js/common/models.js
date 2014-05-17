@@ -14,25 +14,25 @@
  * limitations under the License.
  */
 
-Ext.define('Stats', {
-    extend: 'Ext.data.Model',
-    fields: ['averageRating', 'numberRatings', 'comments', 'views'],
+// Ext.define('Stats', {
+//     extend: 'Ext.data.Model',
+//     fields: ['averageRating', 'numberRatings', 'comments', 'views'],
     
-    belongsTo: 'Asset'
-});
+//     belongsTo: 'Asset'
+// });
 
-Ext.define('Asset', {
-    extend: 'Ext.data.Model',
-    fields: [
-      {name: 'id', type: 'int'},
-      {name: 'name', type: 'string'},      
-      {name: 'shortDescription', type: 'string'},
-      {name: 'description', type: 'string'},
-      {name: 'owner', type: 'string'},
-      {name: 'type', type: 'string'}
-    ],
-    hasOne: {model: 'Stats', name: 'stats'}
-});
+// Ext.define('Asset', {
+//     extend: 'Ext.data.Model',
+//     fields: [
+//       {name: 'id', type: 'int'},
+//       {name: 'name', type: 'string'},      
+//       {name: 'shortDescription', type: 'string'},
+//       {name: 'description', type: 'string'},
+//       {name: 'owner', type: 'string'},
+//       {name: 'type', type: 'string'}
+//     ],
+//     hasOne: {model: 'Stats', name: 'stats'}
+// });
 
 
 
