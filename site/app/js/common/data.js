@@ -1739,8 +1739,34 @@ MOCKDATA.feedback = {
 MOCKDATA.componentTypes = {
   types: [
     {
-      name: 'WIDGET',
-      icon: 'Widget'                
+      'code': 'REFDOCS', 
+      'type': 'Reference Documents', 
+      "desc": "Standards, Specifications, and APIs"
+    },
+    {
+      'code': 'APPS', 
+      'type': 'Applications', 
+      "desc": "Redeployable, Middleware"
+    },
+    {
+      'code': 'ENTERPRISE', 
+      'type': 'Enterprise Services', 
+      "desc": "Soap, REST, ..."
+    },
+    {
+      'code': 'SOFTLIB', 
+      'type': 'Software Libraries', 
+      "desc": "javascript, java, .net, python"
+    },
+    {
+      'code': 'TOOLS', 
+      'type': 'Tools', 
+      "desc": "Test scripts, Development Tools"
+    },
+    {
+      'code': 'WIDGET', 
+      'type': 'Widgets', 
+      "desc": "Ozone widgets"
     }
   ]
 };
