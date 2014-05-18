@@ -14,6 +14,144 @@
  * limitations under the License.
  */
 var MOCKDATA = {};
+MOCKDATA.resources = {
+  
+};
+
+MOCKDATA.feedback = {
+  
+};
+
+MOCKDATA.componentTypes = {
+  types: [
+    {
+      'code': 'APPS', 
+      'type': 'Applications', 
+      "desc": "Redeployable, Middleware"
+    },
+    {
+      'code': 'ENTERPRISE', 
+      'type': 'Enterprise Services', 
+      "desc": "Soap, REST, ..."
+    },
+    {
+      'code': 'REFDOCS', 
+      'type': 'Reference Documents', 
+      "desc": "Standards, Specifications, and APIs"
+    },
+    {
+      'code': 'SOFTLIB', 
+      'type': 'Software Libraries', 
+      "desc": "javascript, java, .net, python"
+    },
+    {
+      'code': 'TOOLS', 
+      'type': 'Tools', 
+      "desc": "Test scripts, Development Tools"
+    },
+    {
+      'code': 'WIDGET', 
+      'type': 'Widgets', 
+      "desc": "Ozone widgets"
+    }
+  ]
+};
+
+MOCKDATA.assetDetails = {
+    details: [
+      {
+        name: 'Resource Type',
+        value: 'Widget'                
+      },
+      {
+        name: 'Metadata Date',
+        value: 'Present'                
+      },
+      {
+        name: 'Metadata Created Date',
+        value: 'May 18, 2013'                
+      },
+      {
+        name: 'Metadata Updated Date',
+        value: 'Jan 16, 2014'                
+      },
+      {
+        name: 'Reference Date(s)',
+        value: '5 Minute'                
+      },
+      {
+        name: 'Access Level',
+        value: 'WWW, SIPR, JSWIC'                
+      },
+      {
+        name: 'ITAR Export Approved',
+        value: 'No'                
+      },  
+      {
+        name: 'C&A',
+        value: 'Avaliable',
+        url: ''
+      }         
+    ]
+};
+
+MOCKDATA.conformanceDetails = {
+  conformance: [
+    {
+      id: 1,
+      assetId: 1,
+      level: 1,
+      name: "Evaluated",
+      docUrl: '',
+      icon: ''
+    }
+  ]
+};
+
+MOCKDATA.userProfile = {
+  users: [
+    {
+      username: 'John.Tester',
+      firstname: 'John',
+      lastname: 'Tester',
+      email: 'john.tester@test.com',
+      type: 'Developer',
+      createDate: ' 01/01/2014'      
+    }
+  ]
+};
+
+MOCKDATA.userWatches = {
+    watches: [
+      {
+        username: 'John.Tester',
+        assetId: 1,
+        assetUpdateDate: '03/01/2014',
+        lastViewDate: '02/25/2014'
+      },
+      {
+        username: 'John.Tester',
+        assetId: 2,
+        assetUpdateDate: '02/01/2014',
+        lastViewDate: '02/02/2014'
+      },
+      {
+        username: 'John.Tester',
+        assetId: 3,
+        assetUpdateDate: '07/01/2013',
+        lastViewDate: '01/1/2014'
+      }      
+    ]
+};
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 
 MOCKDATA.assets = {
   assets:[
@@ -1728,135 +1866,6 @@ MOCKDATA.assets = {
   ]
 };
 
-MOCKDATA.resources = {
-  
-};
-
-MOCKDATA.feedback = {
-  
-};
-
-MOCKDATA.componentTypes = {
-  types: [
-    {
-      'code': 'REFDOCS', 
-      'type': 'Reference Documents', 
-      "desc": "Standards, Specifications, and APIs"
-    },
-    {
-      'code': 'APPS', 
-      'type': 'Applications', 
-      "desc": "Redeployable, Middleware"
-    },
-    {
-      'code': 'ENTERPRISE', 
-      'type': 'Enterprise Services', 
-      "desc": "Soap, REST, ..."
-    },
-    {
-      'code': 'SOFTLIB', 
-      'type': 'Software Libraries', 
-      "desc": "javascript, java, .net, python"
-    },
-    {
-      'code': 'TOOLS', 
-      'type': 'Tools', 
-      "desc": "Test scripts, Development Tools"
-    },
-    {
-      'code': 'WIDGET', 
-      'type': 'Widgets', 
-      "desc": "Ozone widgets"
-    }
-  ]
-};
-
-MOCKDATA.assetDetails = {
-    details: [
-      {
-        name: 'Resource Type',
-        value: 'Widget'                
-      },
-      {
-        name: 'Metadata Date',
-        value: 'Present'                
-      },
-      {
-        name: 'Metadata Created Date',
-        value: 'May 18, 2013'                
-      },
-      {
-        name: 'Metadata Updated Date',
-        value: 'Jan 16, 2014'                
-      },
-      {
-        name: 'Reference Date(s)',
-        value: '5 Minute'                
-      },
-      {
-        name: 'Access Level',
-        value: 'WWW, SIPR, JSWIC'                
-      },
-      {
-        name: 'ITAR Export Approved',
-        value: 'No'                
-      },  
-      {
-        name: 'C&A',
-        value: 'Avaliable',
-        url: ''
-      }         
-    ]
-};
-
-MOCKDATA.conformanceDetails = {
-  conformance: [
-    {
-      id: 1,
-      assetId: 1,
-      level: 1,
-      name: "Evaluated",
-      docUrl: '',
-      icon: ''
-    }
-  ]
-};
-
-MOCKDATA.userProfile = {
-  users: [
-    {
-      username: 'John.Tester',
-      firstname: 'John',
-      lastname: 'Tester',
-      email: 'john.tester@test.com',
-      type: 'Developer',
-      createDate: ' 01/01/2014'      
-    }
-  ]
-};
-
-MOCKDATA.userWatches = {
-    watches: [
-      {
-        username: 'John.Tester',
-        assetId: 1,
-        assetUpdateDate: '03/01/2014',
-        lastViewDate: '02/25/2014'
-      },
-      {
-        username: 'John.Tester',
-        assetId: 2,
-        assetUpdateDate: '02/01/2014',
-        lastViewDate: '02/02/2014'
-      },
-      {
-        username: 'John.Tester',
-        assetId: 3,
-        assetUpdateDate: '07/01/2013',
-        lastViewDate: '01/1/2014'
-      }      
-    ]
-};
 
 
 
