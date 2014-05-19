@@ -44,7 +44,7 @@
   .userNavDropdownHidden ul{
     margin: 0px 0px !important;
   }
-  .navSearch, .navbar-form, .userNavDropdownHidden, .userNavDropdownHidden ul li ul{
+  .navSearch, .navbar-form, .userNavDropdownHidden, .userNavDropdownHidden ul li ul, .default-content{
     margin:0px !important;
     padding:0px !important;
     width: 100%;

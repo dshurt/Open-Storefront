@@ -27,32 +27,38 @@ MOCKDATA.componentTypes = {
     {
       'code': 'APPS', 
       'type': 'Applications', 
-      "desc": "Redeployable, Middleware"
+      "desc": "Redeployable, Middleware",
+      "src": "app/images/icon/pastel/application-xp-terminal.png"
     },
     {
       'code': 'ENTERPRISE', 
       'type': 'Enterprise Services', 
-      "desc": "Soap, REST, ..."
+      "desc": "Soap, REST, ...",
+      "src": "app/images/icon/pastel/world-link.png"
     },
     {
       'code': 'REFDOCS', 
       'type': 'Reference Documents', 
-      "desc": "Standards, Specifications, and APIs"
+      "desc": "Standards, Specifications, and APIs",
+      "src": "app/images/icon/pastel/table-multiple.png"
     },
     {
       'code': 'SOFTLIB', 
       'type': 'Software Libraries', 
-      "desc": "javascript, java, .net, python"
+      "desc": "javascript, java, .net, python",
+      "src": "app/images/icon/pastel/book-link.png"
     },
     {
       'code': 'TOOLS', 
       'type': 'Tools', 
-      "desc": "Test scripts, Development Tools"
+      "desc": "Test scripts, Development Tools",
+      "src": "app/images/icon/pastel/cog.png"
     },
     {
       'code': 'WIDGET', 
       'type': 'Widgets', 
-      "desc": "Ozone widgets"
+      "desc": "Ozone widgets",
+      "src": "app/images/icon/pastel/application-double.png"
     }
   ]
 };

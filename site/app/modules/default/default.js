@@ -5,6 +5,7 @@ app.controller('defaultCtrl', ['$scope', 'Business', '$timeout', function($scope
   $scope._scopename = 'default';
   $scope.practice = Business.getTypes();
   $scope.pageTitle = "DI2E Storefront Catalog";
+  $scope.defaultTitle = "Browse Categories";
   console.log("Practice", $scope.practice);
   
 }]);
