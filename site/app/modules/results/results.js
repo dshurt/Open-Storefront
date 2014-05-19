@@ -2,22 +2,26 @@
 var app = angular.module('storefront');
 
 app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', function($scope, Business, $timeout, tempData){
+  // makesure to update the tempData
   tempData.restoreState();
+  
+  // tell the scope whot it is
   $scope._scopename = 'results';
-  $scope.practice = Business.getTypes();
+
+  // set up some variables
   $scope.pageTitle = "DI2E Storefront Catalog";
   $scope.defaultTitle = "Browse Categories";
-  console.log("Practice", $scope.practice);
-  console.log("tempData", tempData);
+
+  // start the filters
   var searchData = tempData.getData();
   $scope.searchType = searchData.type.length > 0? searchData.type: [];
   $scope.searchCategory =  searchData.category.length > 0? searchData.category: [];
   $scope.searchState = searchData.state.length > 0? searchData.state: [];
 
-  console.log("searchType", $scope.searchType);
-  
+  // grab the data  
   $scope.data = Business.getData();
 
+  //
   console.dir($scope.data);
   
 }]);
