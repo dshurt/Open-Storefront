@@ -18,6 +18,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap-theme.css">
   <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css">
@@ -27,16 +28,11 @@
   <link rel="stylesheet" href="app/css/media.css">
   <link rel="stylesheet" href="app/css/overrides.css">
   
-
   <script type="text/javascript" src="app/bower_components/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script type="text/javascript" src="app/bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="app/js/app.js"></script>
-  <script type="text/javascript" src="app/js/services/localCache.js"></script>
-  <script type="text/javascript" src="app/js/services/storefrontBusiness.js"></script>
-
-  <script type="text/javascript" src="app/js/common/data.js"></script>
-  <script type="text/javascript" src="app/modules/default/default.js"></script>
+  <script type="text/javascript" src="app/bower_components/underscore/underscore.js"></script>
+  
 </head>
 <body ng-app="storefront">
   <div ng-controller="defaultCtrl">
@@ -123,21 +119,30 @@
       </div>
     </div>
     <div class="row default-content">
-      <div class="col-sm-4" ng-repeat="item in practice" style="min-height: 100px; padding-right: 30px;">
-        <div style="width: 64px; float: left">
-          <img src="{{item.src}}" width="64" height="64">
-        </div>
-        <div style="margin-left: 64px;">
-        <span class="item_bold">
-          <span class="listing_short_title_text">{{item.type}}</span>               
-        </span>
-        <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
-        </div>
+      <div class="col-sm-4 categories" ng-repeat="item in types" style="padding-right: 30px;">
+        <a ng-click="goToSearch(item.code);">
+          <div style="height: 100%">
+            <div style="width: 64px; float: left">
+              <img src="{{item.src}}" width="64" height="64">
+            </div>
+            <div style="margin-left: 70px;">
+              <span class="item_bold">
+                <span class="listing_short_title_text">{{item.type}}</span>               
+              </span>
+              <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </div>
 
+  <script type="text/javascript" src="app/js/app.js"></script>
+  <script type="text/javascript" src="app/js/services/localCache.js"></script>
+  <script type="text/javascript" src="app/js/services/storefrontBusiness.js"></script>
 
+  <script type="text/javascript" src="app/js/common/data.js"></script>
+  <script type="text/javascript" src="app/modules/default/default.js"></script>
   <script type="text/javascript" src="app/js/common/data.js"></script>
   <script type="text/javascript" src="app/js/common/models.js"></script>
   <script type="text/javascript" src="app/js/common/stores.js"></script>

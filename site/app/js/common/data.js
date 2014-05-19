@@ -59,18 +59,6 @@ MOCKDATA.componentTypes = {
       'type': 'Widgets', 
       "desc": "Ozone widgets",
       "src": "app/images/icon/pastel/application-double.png"
-    },
-    {
-      'code': 'JON', 
-      'type': 'Jon', 
-      "desc": "Stuff Jon does",
-      "src": "app/images/icon/pastel/application-double.png"
-    },
-    {
-      'code': 'WIDGET', 
-      'type': 'Widgets', 
-      "desc": "Ozone widgets",
-      "src": "app/images/icon/pastel/application-double.png"
     }
   ]
 };

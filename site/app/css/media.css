@@ -11,11 +11,20 @@
     margin-left:100px !important;
     margin-right:100px !important;
   }
+  .default-content{
+    margin:0px !important;
+    padding:10px !important;
+    width: 100%;
+  }
 }
 
 /* Effects only Below 768px */
 @media (max-width: 767px) {
-
+  .default-content .categories{
+    float:left;
+    width: 100%;
+    height: auto;
+  }
   .fixed-on-small{
     position: fixed;
   }

@@ -11,9 +11,16 @@ app.factory('Business', ['localCache', '$http', '$q', function(LocalCache, $http
     return MOCKDATA.componentTypes.types;
   }
 
+  var getDataByType = function(input){
+    return _.filter(MOCKDATA.assets.assets, function(item){
+      return item.type == input;
+    });
+  }
+
 
   return {
     getData: getData,
+    getDataByType: getDataByType,
     getTypes: getTypes
   };
 }])
