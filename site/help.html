@@ -30,14 +30,16 @@
 
   <script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="components/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="components/angular/angular.js"></script>
   <script type="text/javascript" src="js/extjs4.2.1/bootstrapExt.js"></script>
   <script type="text/javascript" src="js/common/global.js"></script>
   <script type="text/javascript" src="js/common/app.js"></script>
+  <script type="text/javascript" src="js/common/angularApp.js"></script>
 
 
 
 </head>
-<body class="container-fluid">
+<body class="container-fluid" ng-app="storefront">
   <header class="header" style="background-color: white; ">
     <table width="100%">
       <tr>
@@ -51,10 +53,28 @@
     </table>      
   </header>
   <div class="applicationtitle"><span class="helpapplicationtitle"><a href="index.html">DI2E Storefront Catalog</a></span></div>
-  <div class="splash-board pad-100">
+  <div class="splash-board pad-100" ng-controller="default">
     <div class="row row-centered">
       <div class="col-centered col-md-8" style="padding:0px !important;">
-        <div class="row" style="position: relative;">
+        <div class="tabs">
+          <ul class="nav nav-tabs">
+            <li class="active" ng-class="{'active': aboutUs}"><a href="#" ng-click="aboutUs=true;">Home</a></li>
+            <li ng-class="{'active': !aboutUs}"><a href="#" ng-click="aboutUs=false">{{practice}}</a></li>
+            <!-- <li class="dropdown"> -->
+            <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#"> -->
+            <!-- Dropdown <span class="caret"></span> -->
+            <!-- </a> -->
+            <!-- <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul> -->
+            <!-- </li> -->
+          </ul>
+        </div>
+        <div class="row" style="position: relative;" ng-show="aboutUs" ng-hide="!aboutUs">
           <div class="col-lg-9 helpCols">
             <div class="panel panel-default lg-rm-padding-right" style="margin-bottom:5px; border: 1px grey solid;">
               <div class="well" style="margin-bottom: 0px; padding:0px;">
@@ -252,6 +272,13 @@
               This help page attempts to direct you to the solution to your needs. If you do not find what you are looking for you are invited to send us feedback on how we might assist you better! <img style="width: 40px; height: auto;" src="media/help.png" alt="help!"></div>
             </div>
           </div>
+        <div class="row" style="position: relative;" ng-show="!aboutUs" ng-hide="aboutUs">
+          <div class="col-lg-9 helpCols">
+            <div style="100%">
+              Here is where we will fit our feedback plugin...
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </div>
