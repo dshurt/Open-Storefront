@@ -444,7 +444,7 @@ header{
 
 
 .help-info{
-  border: 1px grey solid; 
+  border: 1px lightgray solid; 
   border-radius: 4px; 
   height: 100%; 
   position: absolute; 
@@ -465,4 +465,8 @@ header{
 
 #itemDescBlock_32{
   padding: 0px !important;
+}
+
+.tabs{
+  margin-bottom: 10px;
 }
