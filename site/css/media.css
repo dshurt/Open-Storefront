@@ -117,6 +117,10 @@ limitations under the License.
     display: none;
     margin-right: -50px !important;
   }
+  .full-on-medium{
+    width: 100% !important;
+    float: left;
+  }
 }
 
 /* Effects only Below 768px */

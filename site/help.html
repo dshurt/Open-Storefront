@@ -55,7 +55,7 @@
   <div class="applicationtitle"><span class="helpapplicationtitle"><a href="index.html">DI2E Storefront Catalog</a></span></div>
   <div class="splash-board pad-100" ng-controller="default">
     <div class="row row-centered">
-      <div class="col-centered col-md-8" style="padding:0px !important;">
+      <div class="col-centered col-md-8 full-on-medium" style="padding:0px !important;">
         <div class="tabs">
           <ul class="nav nav-tabs">
             <li class="active" ng-class="{'active': aboutUs}"><a href="#" ng-click="aboutUs=true;">Home</a></li>
@@ -274,8 +274,18 @@
           </div>
         <div class="row" style="position: relative;" ng-show="!aboutUs" ng-hide="aboutUs">
           <div class="col-lg-9 helpCols">
-            <div style="100%">
-              Here is where we will fit our feedback plugin...
+            <div class="panel panel-default lg-rm-padding-right" style="margin-bottom:5px;">
+              <div class="well" style="margin-bottom: 0px; padding:0px; width: 100%">
+                <div class="panel-body" style="padding: 0px;">
+                  <div class="row">
+                    <div class="col-sm-12" style="padding: 0px !important">
+                      <div   style="margin:5px; padding: 5px;">
+                        This is where we're going to put the feedback plugin.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
