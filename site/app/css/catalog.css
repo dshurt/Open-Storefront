@@ -25,14 +25,14 @@
 
 
 .row-centered {
-    text-align:center;
+  text-align:center;
 }
 .col-centered {
-    display:inline-block;
-    float:none;
-    /* reset the text-align */
-    text-align:left;
-    /* inline-block space fix */
+  display:inline-block;
+  float:none;
+  /* reset the text-align */
+  text-align:left;
+  /* inline-block space fix */
 }
 
 .navButton{
@@ -155,5 +155,25 @@
 }
 
 a{
-    cursor: pointer;
+  cursor: pointer;
+}
+
+#showPageLeft{
+  height:90px;
+  width:45px;
+  border-radius: 90px 0 0 90px;
+  -moz-border-radius: 90px 0 0 90px;
+  -webkit-border-radius: 90px 0 0 90px;
+  background: white;
+  position: fixed;
+  top: 50%;
+  margin-top: -45px;
+  right: 0px;
+  z-index: 1000;
+}
+
+#page1{
+  overflow: auto;
+  visibility: inherit;
+  position: inherit;
 }
