@@ -38,11 +38,11 @@
 </head>
 <body ng-app="storefront">
   <div ng-controller="resultsCtrl">
-  <div class="showPage">
-    <button id="showPageLeft" class="showPageLeft btn btn-primary">
-      <i class="fa fa-caret-left"></i> 
-    </button>
-  </div>
+    <div class="showPage">
+      <button id="showPageLeft" class="showPageLeft btn btn-primary">
+        <i class="fa fa-caret-left"></i> 
+      </button>
+    </div>
     <div class="top">
       <div class="navbar navbar-default navigation"> 
         <div class="container-fluid">
@@ -70,7 +70,7 @@
                   <li><a href="#">Another action</a></li>
                   <li><a href="#">Something else here</a></li>
                   <li class="divider"></li>
-                          <li><a href="#" data-toggle="modal" data-target="#basicModal">User Profile</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#basicModal">User Profile</a></li>
                   <li><a href="#" data-toggle="modal" data-target="#basicFeedback">Feedback</a></li>
                 </ul>
               </li>
@@ -168,17 +168,78 @@
     <div class="filters">
       <!-- <div class="filterTitle">Search Filters</div> -->
       <div class="filterButton btn btn-primary pull-right" id="showFilters">Filters <i class="fa fa-caret-right"></i></div>
-      <div id="filters" class="hidden">
-
+      <div id="filters">
+        <table class="table table-striped">
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+          <tr>
+            <td>Filters</td>
+            <td>Filters</td>
+          </tr>
+        </table>
       </div>
     </div>
 
     <div id="pt-main" class="pt-perspective" >
-      <div class="pt-page pt-page-1"  id="page1">
-        <div ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this" style="margin-bottom: 20px;">
-          <button class="showPageLeft">Details</button>
-          {{item}}
-        </div>
+      <div class="pt-page pt-page-1 table-responsive"  id="page1">
+        <table class="table table-striped">
+          <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this"  style="margin-bottom: 20px;">
+            <td>
+              <button class="showPageLeft">Details</button>
+              {{item}}
+            </td>
+          </tr>
+        </table>
       </div>
       <div class="pt-page pt-page-2"><h1><span>A collection of</span><strong>Details</strong> on a component</h1></div>
     </div>
@@ -270,22 +331,22 @@
     }
 
   })
-  </script>
+</script>
 
 
 
-  <script type="text/javascript" src="../../js/app.js"></script>
-  <script type="text/javascript" src="../../js/services/localCache.js"></script>
-  <script type="text/javascript" src="../../js/services/storefrontBusiness.js"></script>
+<script type="text/javascript" src="../../js/app.js"></script>
+<script type="text/javascript" src="../../js/services/localCache.js"></script>
+<script type="text/javascript" src="../../js/services/storefrontBusiness.js"></script>
 
-  <script type="text/javascript" src="../../js/common/data.js"></script>
-  <script type="text/javascript" src="../../modules/results/results.js"></script>
-  <script type="text/javascript" src="../../js/common/data.js"></script>
-  <script type="text/javascript" src="../../js/common/models.js"></script>
-  <script type="text/javascript" src="../../js/common/stores.js"></script>
-  <script type="text/javascript" src="../../js/common/modernizr.custom.js"></script>
-  <script type="text/javascript" src="../../js/common/jquery.dlmenu.js"></script>
-  <script type="text/javascript" src="../../js/common/pagetransitions.js"></script>
+<script type="text/javascript" src="../../js/common/data.js"></script>
+<script type="text/javascript" src="../../modules/results/results.js"></script>
+<script type="text/javascript" src="../../js/common/data.js"></script>
+<script type="text/javascript" src="../../js/common/models.js"></script>
+<script type="text/javascript" src="../../js/common/stores.js"></script>
+<script type="text/javascript" src="../../js/common/modernizr.custom.js"></script>
+<script type="text/javascript" src="../../js/common/jquery.dlmenu.js"></script>
+<script type="text/javascript" src="../../js/common/pagetransitions.js"></script>
 </body>
 
 </html> 
