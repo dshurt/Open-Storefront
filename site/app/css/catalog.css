@@ -177,3 +177,8 @@ a{
   visibility: inherit;
   position: inherit;
 }
+
+.hidden{
+  display: none;
+  visibility: hidden;
+}

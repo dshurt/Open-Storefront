@@ -74,10 +74,11 @@ html, body { height: 100%; }
 }
 
 .pt-page-1 {
-	background: #0ac2d2;
 }
 
 .pt-page-2 {
+  margin-left: 300px;
+  width: calc(100% - 300px);
 	background: #7bb7fa;
 }
 
