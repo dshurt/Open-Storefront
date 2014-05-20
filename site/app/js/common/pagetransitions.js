@@ -36,18 +36,22 @@ var PageTransitions = (function() {
 		// 		nextPage( el.data( 'animation' ) );
 		// 	}
 		// } );
+    $(document).ready(function(){
 
-		$iterate.on( 'click', function() {
-      console.log("Clicked");
-      
-      if( isAnimating ) {
-        return false;
-      }
-      if( animcursor > 2 ) {
-        animcursor = 1;
-      }
-      nextPage( animcursor );
-      animcursor++;
+      $(".showPageLeft").each(function() {
+        $(this).on( 'click', function() {
+          console.log("Clicked");
+
+          if( isAnimating ) {
+            return false;
+          }
+          if( animcursor > 2 ) {
+            animcursor = 1;
+          }
+          nextPage( animcursor );
+          animcursor++;
+        });
+      });
     });
 
   }
