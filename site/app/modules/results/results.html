@@ -38,8 +38,8 @@
 </head>
 <body ng-app="storefront">
   <div class="showPage">
-    <button id="showPageLeft" class="showPageLeft">
-      Show Left  
+    <button id="showPageLeft" class="showPageLeft btn btn-primary">
+      <i class="fa fa-caret-left"></i> 
     </button>
   </div>
   <div ng-controller="resultsCtrl">
@@ -161,6 +161,10 @@
       }, 300, function() {
         $('#showFilters').html("Filters <i class='fa fa-caret-left'></i>");
       });
+      $( '#pt-main' ).animate({
+        'margin-left': "+=300px"
+      }, 300, function() {
+      });
     }
     function hideFilters(){
       $( '.filterButton' ).animate({
@@ -170,6 +174,12 @@
       });
       $( '.filtersOverride' ).animate({
         left: "-=300px"
+      }, 300, function() {
+        $('#showFilters').html("Filters <i class='fa fa-caret-right'></i>");
+        $('.filters').toggleClass("filtersOverride");
+      });
+      $( '#pt-main' ).animate({
+        'margin-left': "-=300px"
       }, 300, function() {
         $('#showFilters').html("Filters <i class='fa fa-caret-right'></i>");
         $('.filters').toggleClass("filtersOverride");

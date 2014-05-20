@@ -100,6 +100,7 @@ var PageTransitions = (function() {
           left: "-="+(move - 300)
           // left: "-="+move,
         }, 200, function() {
+          $('#showPageLeft').html("<i class='fa fa-caret-right'></i>")
         // Animation complete.
         });
         break;
@@ -112,6 +113,7 @@ var PageTransitions = (function() {
         $('#showPageLeft').toggleClass('current').animate({
           right: "-="+(move - 300)
         }, 200, function() {
+          $('#showPageLeft').html("<i class='fa fa-caret-left'></i>")
         });
         break;
     }
