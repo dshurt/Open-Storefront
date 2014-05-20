@@ -35,7 +35,14 @@ app.factory('tempData', ['$rootScope', function($rootScope) {
 
   searchService.restoreState = function () {
     console.log("Session storage", sessionStorage);
-    searchService.data = angular.fromJson(sessionStorage.tempData);
+    if (sessionStorage.tempData != undefined && sessionStorage.tempData != null)
+    {
+      searchService.data = angular.fromJson(sessionStorage.tempData);
+    }
+    else
+    {
+      searchService.data = {"type": [ "APPS" ], "category": [], "state": []};
+    }
   }
 
   searchService.saveState = function () {

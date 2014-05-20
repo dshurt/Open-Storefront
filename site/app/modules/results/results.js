@@ -14,6 +14,9 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
 
   // start the filters
   var searchData = tempData.getData();
+  if (!searchData){
+    searchData = {"type": [ "APPS" ], "category": [], "state": []}
+  }
   $scope.searchType = searchData.type.length > 0? searchData.type: [];
   $scope.searchCategory =  searchData.category.length > 0? searchData.category: [];
   $scope.searchState = searchData.state.length > 0? searchData.state: [];
