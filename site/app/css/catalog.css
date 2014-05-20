@@ -158,6 +158,7 @@ a{
   cursor: pointer;
 }
 
+
 #showPageLeft{
   height:90px;
   width:45px;
@@ -168,8 +169,15 @@ a{
   position: fixed;
   top: 50%;
   margin-top: -45px;
+  left: auto;
   right: 0px;
   z-index: 1000;
+}
+
+#showPageLeft.current{
+  border-radius: 0 90px 90px 0;
+  -moz-border-radius: 0 90px 90px 0;
+  -webkit-border-radius:  0 90px 90px 0;
 }
 
 #page1{
@@ -178,7 +186,7 @@ a{
   position: inherit;
 }
 
-.hidden{
-  display: none;
-  visibility: hidden;
+
+.pt-page-1.pt-page-not-current{
+  width: 300px !important;
 }
