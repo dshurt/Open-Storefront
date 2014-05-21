@@ -225,7 +225,8 @@ $(document).ready(function(){
       $('#page2').css({'height': height + 'px', 'top': (0 - (52 - offset)) + 'px'})
     }    
   });
-  var toggled = false;
+  var toggled = true;
+  showFilters();
   $("#showFilters").on("click", function(){
     if (!toggled){
       toggled = true;

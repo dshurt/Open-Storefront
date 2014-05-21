@@ -96,6 +96,11 @@
   .defaultSpacer{
     min-height: 162px;
   }
+  .screenshot{
+    /*This adjusts the screenshot image so that when the smallest screen appears*/
+    /*All of the images adjust to fit the screen.*/
+    width: 100%;
+  }
 }
 
 

@@ -45,31 +45,30 @@ html, body { height: 100%; }
 /* Text Styles, Colors, Backgrounds */
 
 .pt-page h1 {
-	font-weight: 300;
-	font-size: 4.4em;
-	line-height: 1;
-	letter-spacing: 6px;
-	margin: 0;
-	top: 12%;
-	width: 100%;
-	text-align: center;
-	text-transform: uppercase;
-	word-spacing: -0.3em;
+  color: #3892d3;
+  padding: 15px 10px;
+  font-weight: 300;
+  font-size: 2.4em;
+  line-height: 1;
+  letter-spacing: 2px;
+  margin: 0;
+  /*text-transform: uppercase;*/
+  word-spacing: -0.3em;
 }
 
 .pt-page h1 span {
-	font-family: 'Satisfy', serif;
-	font-weight: 400;
-	font-size: 40%;
-	text-transform: none;
-	word-spacing: 0;
-	letter-spacing: 0;
-	display: block;
-	opacity: 0.4;
+  padding: 15px 10px;
+  font-family: 'Satisfy', serif;
+  font-weight: 400;
+  font-size: 40%;
+  text-transform: none;
+  word-spacing: 0;
+  letter-spacing: 0;
+  opacity: 0.4;
 }
 
 .pt-page h1 strong {
-	color: rgba(0,0,0,0.1);
+  color: rgba(0,0,0,0.1);
 }
 
 .pt-page-1 {
@@ -85,9 +84,9 @@ html, body { height: 100%; }
 .pt-page-2-container{
   position: relative;
   height: 100%;
-  background: #7bb7fa;
+  background: #f0f0f0;
   overflow: auto;
-  
+  border-left: 1px lightgray solid;
 }
 
 .pt-page-3 {

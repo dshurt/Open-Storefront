@@ -24,6 +24,11 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
 
   // grab the data  
   $scope.data = Business.getData();
+  _.each($scope.data, function(item){
+    item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + ".";
+  })
+  console.log("data", $scope.data);
+  
 
   $scope.dataTypes = Business.getTypes();
   $scope.categoryTypes = Business.getCategories();
@@ -58,6 +63,10 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
   $scope.toggleStateChecks = function(){
     toggleChecks($scope.stateTypes);
   };
+
+
+
+  $scope.details = $scope.data[10];
 
 }]);
 
