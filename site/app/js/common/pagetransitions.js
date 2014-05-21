@@ -8,6 +8,7 @@ var PageTransitions = (function() {
   current = 0,
   next = 1,
   isAnimating = false,
+  isPage1 = true,
   animEndEventNames = {
    'WebkitAnimation' : 'webkitAnimationEnd',
    'OAnimation' : 'oAnimationEnd',
@@ -44,7 +45,7 @@ var PageTransitions = (function() {
     $(document).ready(function(){
       $(".showPageLeft").each(function() {
         $(this).on( 'click', function() {
-          if( isAnimating) {
+          if( isAnimating || !isPage1) {
             return false;
           }
           if( animcursor > 2 ) {
@@ -52,6 +53,20 @@ var PageTransitions = (function() {
           }
           nextPage( animcursor );
           animcursor++;
+          isPage1 = false;
+        });
+      });
+      $(".showPageRight").each(function() {
+        $(this).on( 'click', function() {
+          if( isAnimating || isPage1) {
+            return false;
+          }
+          if( animcursor > 2 ) {
+            animcursor = 1;
+          }
+          nextPage( animcursor );
+          animcursor++;
+          isPage1 = true;
         });
       });
     });
@@ -90,13 +105,13 @@ var PageTransitions = (function() {
       case 1:
       outClass = 'pt-page-moveToLeft';
       inClass = 'pt-page-moveFromRight';
-      $('#showPageLeft').css("left", move+"px");
-      $('#showPageLeft').css("right", "auto");
-      $('#showPageLeft').toggleClass('current').animate({
+      $('#showPageRight').css("left", move+"px");
+      $('#showPageRight').css("right", "auto");
+      $('#showPageRight').toggleClass('current').animate({
         left: "-="+(move - 300)
           // left: "-="+move,
         }, 200, function() {
-          $('#showPageLeft').html("<i class='fa fa-caret-right'></i>")
+          $('#showPageRight').html("<i class='fa fa-caret-right'></i>")
         // Animation complete.
       });
       break;
@@ -104,12 +119,12 @@ var PageTransitions = (function() {
       outClass = 'pt-page-moveToRight';
       inClass = 'pt-page-moveFromLeft';
 
-      $('#showPageLeft').css("left", "auto");
-      $('#showPageLeft').css("right", (move - 300)+"px");
-      $('#showPageLeft').toggleClass('current').animate({
+      $('#showPageRight').css("left", "auto");
+      $('#showPageRight').css("right", (move - 300)+"px");
+      $('#showPageRight').toggleClass('current').animate({
         right: "-="+(move - 300)
       }, 200, function() {
-        $('#showPageLeft').html("<i class='fa fa-caret-left'></i>")
+        $('#showPageRight').html("<i class='fa fa-caret-left'></i>")
       });
       break;
     }
@@ -222,7 +237,7 @@ $(document).ready(function(){
       'padding-left': '+=300px',
     }, 200, function(){
     });
-    $( '#showPageLeft' ).animate({
+    $( '#showPageRight' ).animate({
       'margin-left': "+=300px"
     }, 200, function() {
     });
@@ -249,7 +264,7 @@ $(document).ready(function(){
       });
     });
     setTimeout(function() {
-      $( '#showPageLeft' ).animate({
+      $( '#showPageRight' ).animate({
         'margin-left': "-=300px"
       }, 200, function() {
       });
