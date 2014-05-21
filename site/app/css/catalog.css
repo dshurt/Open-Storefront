@@ -229,6 +229,7 @@ a{
 
 .filtersOverride{
   height: 100%;
+  overflow:auto;
 }
 
 #resultsTable{

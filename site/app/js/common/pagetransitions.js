@@ -186,6 +186,18 @@ $(document).ready(function(){
     $('.filters').css({'position':'absolute', 'top':'52px'});
     $('.filtersOverride').css({'height': height})
   }    
+  $(window).resize(function(){
+    var elementPosition = $('.filters').offset();
+    if($(window).scrollTop() > elementPosition.top){
+      $('.filters').css({'position':'fixed','top':'0'});
+      $('.filtersOverride').css({'height': '100%'})
+    } else {
+      var height = $(window).height() - (0 - ($(window).scrollTop() - elementPosition.top));
+      console.log("height", height);
+      $('.filters').css({'position':'absolute', 'top':'52px'});
+      $('.filtersOverride').css({'height': height})
+    }    
+  });
   var toggled = false;
   $("#showFilters").on("click", function(){
     if (!toggled){

@@ -104,6 +104,31 @@ MOCKDATA.componentCategories = {
   ]
 };
 
+MOCKDATA.componentStates = {
+  states: [
+  {
+    "type": "No Evaluation Planned",
+    'checked': false
+  },
+  {
+    "type": "Level 0 - Not Assessed",
+    'checked': false
+  },
+  {
+    "type": "Level 1 - Checklist Complete",
+    'checked': false
+  },
+  {
+    "type": "Level 2 - DI2E Tested",
+    'checked': false
+  },
+  {
+    "type": "Level 3 - DI2E Framework Conformant",
+    'checked': false
+  }
+  ]
+};
+
 MOCKDATA.assetDetails = {
   details: [
   {

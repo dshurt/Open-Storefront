@@ -19,6 +19,10 @@ app.factory('Business', ['localCache', '$http', '$q', function(LocalCache, $http
     });
   }
   
+  var getStates = function() {
+    return MOCKDATA.componentStates.states;
+  }
+  
   var getTypes = function() {
     return MOCKDATA.componentTypes.types;
   }
@@ -29,6 +33,7 @@ app.factory('Business', ['localCache', '$http', '$q', function(LocalCache, $http
     getCategories: getCategories,
     getData: getData,
     getDataByType: getDataByType,
+    getStates: getStates,
     getTypes: getTypes
   };
 }])

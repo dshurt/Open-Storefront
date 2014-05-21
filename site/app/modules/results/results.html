@@ -171,7 +171,7 @@
       <div id="filters">
         <div class="filterTableDiv firstFilter">
           <table class="table table-striped filterTable">
-            <th>Type</th>
+            <th ng-click="toggleTypeChecks()">Type</th>
             <tr class="filtersTr" data-ng-repeat="type in dataTypes">
               <td class="filtersTd">
                 <div class="checkbox filterCheckbox"><label for="{{type.type}}"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}">{{type.type}}</label></div>
@@ -181,8 +181,18 @@
         </div>
         <div class="filterTableDiv">
           <table class="table table-striped filterTable">
-            <th>Category</th>
+            <th ng-click="toggleCategoryChecks()">Category</th>
             <tr class="filtersTr" data-ng-repeat="type in categoryTypes">
+              <td class="filtersTd">
+                <div class="checkbox filterCheckbox"><label for="{{type.type}}"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}">{{type.type}}</label></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="filterTableDiv">
+          <table class="table table-striped filterTable">
+            <th ng-click="toggleStateChecks()">State</th>
+            <tr class="filtersTr" data-ng-repeat="type in stateTypes">
               <td class="filtersTd">
                 <div class="checkbox filterCheckbox"><label for="{{type.type}}"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}">{{type.type}}</label></div>
               </td>
