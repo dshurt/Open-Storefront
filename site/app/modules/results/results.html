@@ -169,62 +169,76 @@
       <!-- <div class="filterTitle">Search Filters</div> -->
       <div class="filterButton btn btn-primary pull-right" id="showFilters">Filters <i class="fa fa-caret-right"></i></div>
       <div id="filters">
-        <table class="table table-striped">
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+        <table class="table table-striped filterTable">
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter1"><input type="checkbox" name="filter1" id="filter1" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter2"><input type="checkbox" name="filter2" id="filter2" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter3"><input type="checkbox" name="filter3" id="filter3" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter4"><input type="checkbox" name="filter4" id="filter4" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter5"><input type="checkbox" name="filter5" id="filter5" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter6"><input type="checkbox" name="filter6" id="filter6" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter7"><input type="checkbox" name="filter7" id="filter7" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter8"><input type="checkbox" name="filter8" id="filter8" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter9"><input type="checkbox" name="filter9" id="filter9" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter10"><input type="checkbox" name="filter10" id="filter10" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter11"><input type="checkbox" name="filter11" id="filter11" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter12"><input type="checkbox" name="filter12" id="filter12" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter13"><input type="checkbox" name="filter13" id="filter13" value="">This is a filter</label></div>
+            </td>
           </tr>
-          <tr>
-            <td>Filters</td>
-            <td>Filters</td>
+          <tr class="filtersTr">
+            <td class="filtersTd">
+              <div class="checkbox filterCheckbox"><label for="filter14"><input type="checkbox" name="filter14" id="filter14" value="">This is a filter</label></div>
+            </td>
           </tr>
         </table>
       </div>
@@ -232,7 +246,7 @@
 
     <div id="pt-main" class="pt-perspective" >
       <div class="pt-page pt-page-1 table-responsive"  id="page1">
-        <table class="table table-striped">
+        <table class="table table-striped" id="resultsTable">
           <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this"  style="margin-bottom: 20px;">
             <td>
               <button class="showPageLeft">Details</button>
@@ -241,7 +255,7 @@
           </tr>
         </table>
       </div>
-      <div class="pt-page pt-page-2"><h1><span>A collection of</span><strong>Details</strong> on a component</h1></div>
+      <div class="pt-page pt-page-2"><h1><span>A collection of</span><strong>Details on</strong>a component</h1></div>
     </div>
 
     <div class="pt-message">
@@ -249,104 +263,19 @@
     </div>
   </div>
 
-  
-  <script type="text/javascript">
-  var elementPosition = $('.filters').offset();
-  
-  $(window).scroll(function(){
-    if($(window).scrollTop() > elementPosition.top){
-      $('.filters').css({'position':'fixed','top':'0'});
-      $('.filtersOverride').css({'height': '100%'})
-    } else {
-      var height = $(window).height() - (0 - ($(window).scrollTop() - elementPosition.top));
-      console.log("height", height);
-      
-      $('.filters').css({'position':'absolute', 'top':'52px'});
-      $('.filtersOverride').css({'height': height})
-    }
-  });
-  $(document).ready(function(){
-    var elementPosition = $('.filters').offset();
-    if($(window).scrollTop() > elementPosition.top){
-      $('.filters').css({'position':'fixed','top':'0'});
-      $('.filtersOverride').css({'height': '100%'})
-    } else {
-      var height = $(window).height() - (0 - ($(window).scrollTop() - elementPosition.top));
-      console.log("height", height);
-      $('.filters').css({'position':'absolute', 'top':'52px'});
-      $('.filtersOverride').css({'height': height})
-    }    
-    var toggled = false;
-    $("#showFilters").on("click", function(){
-      if (!toggled){
-        toggled = true;
-        showFilters();
-      }
-      else {
-        toggled = false;
-        hideFilters();
-      }
-    });
-    function showFilters(){
-      $('.filters').toggleClass("filtersOverride");
-      $( '.filterButton' ).animate({
-        right: "+=100px",
-        width: "300px"
-      }, 300, function() {
-      });
-      $( '.filtersOverride' ).animate({
-        left: "+=300px"
-      }, 300, function() {
-        $('#showFilters').html("Filters <i class='fa fa-caret-left'></i>");
-      });
-      $( '#pt-main' ).animate({
-        'margin-left': "+=300px"
-      }, 300, function() {
-      });
-      $( '#showPageLeft' ).animate({
-        'margin-left': "+=300px"
-      }, 300, function() {
-      });
-    }
-    function hideFilters(){
-      $( '.filterButton' ).animate({
-        right: "-=100px",
-        width: "100px"
-      }, 300, function() {
-      });
-      $( '.filtersOverride' ).animate({
-        left: "-=300px"
-      }, 300, function() {
-        $('#showFilters').html("Filters <i class='fa fa-caret-right'></i>");
-        $('.filters').toggleClass("filtersOverride");
-      });
-      $( '#pt-main' ).animate({
-        'margin-left': "-=300px"
-      }, 300, function() {
-      });
-      $( '#showPageLeft' ).animate({
-        'margin-left': "-=300px"
-      }, 300, function() {
-      });
-    }
 
-  })
-</script>
+  <script type="text/javascript" src="../../js/app.js"></script>
+  <script type="text/javascript" src="../../js/services/localCache.js"></script>
+  <script type="text/javascript" src="../../js/services/storefrontBusiness.js"></script>
 
-
-
-<script type="text/javascript" src="../../js/app.js"></script>
-<script type="text/javascript" src="../../js/services/localCache.js"></script>
-<script type="text/javascript" src="../../js/services/storefrontBusiness.js"></script>
-
-<script type="text/javascript" src="../../js/common/data.js"></script>
-<script type="text/javascript" src="../../modules/results/results.js"></script>
-<script type="text/javascript" src="../../js/common/data.js"></script>
-<script type="text/javascript" src="../../js/common/models.js"></script>
-<script type="text/javascript" src="../../js/common/stores.js"></script>
-<script type="text/javascript" src="../../js/common/modernizr.custom.js"></script>
-<script type="text/javascript" src="../../js/common/jquery.dlmenu.js"></script>
-<script type="text/javascript" src="../../js/common/pagetransitions.js"></script>
+  <script type="text/javascript" src="../../js/common/data.js"></script>
+  <script type="text/javascript" src="../../modules/results/results.js"></script>
+  <script type="text/javascript" src="../../js/common/data.js"></script>
+  <script type="text/javascript" src="../../js/common/models.js"></script>
+  <script type="text/javascript" src="../../js/common/stores.js"></script>
+  <script type="text/javascript" src="../../js/common/modernizr.custom.js"></script>
+  <script type="text/javascript" src="../../js/common/jquery.dlmenu.js"></script>
+  <script type="text/javascript" src="../../js/common/pagetransitions.js"></script>
 </body>
 
 </html> 

@@ -230,3 +230,19 @@ a{
 .filtersOverride{
   height: 100%;
 }
+
+#resultsTable{
+  table-layout: fixed;
+}
+
+.filtersTd{
+  padding: 0px 8px !important;
+}
+
+.filterCheckbox{
+  margin: 2px 0px !important;
+}
+
+.filterTable{
+  border-bottom: 1px lightgray solid;
+}
