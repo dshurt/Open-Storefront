@@ -256,3 +256,13 @@ a{
 .firstFilter{
   margin: 50px 10px 10px 10px;
 }
+
+.results-button{
+  width: 110px;
+  float:left;
+}
+.results-content-title{
+  height: 34px;
+  padding: 2px 5px;
+  font-size: 23px;
+}

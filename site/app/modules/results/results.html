@@ -207,16 +207,30 @@
         <table class="table table-striped" id="resultsTable">
           <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this"  style="margin-bottom: 20px;">
             <td style="overflow:auto">
-              <button class="showPageLeft">Details</button>
-              {{item}}
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="results-button">
+                    <button class="showPageLeft btn btn-info">Show Details</button>
+                  </div>
+                  <div class="results-content">
+                    <div class="results-content-title">
+                      {{item.name}}
+                    </div>
+                    <div class="results-content-description">
+                      {{item.description}}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </td>
           </tr>
         </table>
       </div>
       <div class="pt-page pt-page-2">
         <div class="pt-page-2-container">
-          <h1><span>A collection of</span><strong>Details on</strong>a component</h1></div>
+          <h1><span>A collection of</span><strong>Details on</strong>a component</h1>
         </div>
+      </div>
     </div>
 
     <div class="pt-message">
