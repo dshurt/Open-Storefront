@@ -206,7 +206,7 @@
       <div class="pt-page pt-page-1 table-responsive"  id="page1">
         <table class="table table-striped" id="resultsTable">
           <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this"  style="margin-bottom: 20px;">
-            <td>
+            <td style="overflow:auto">
               <button class="showPageLeft">Details</button>
               {{item}}
             </td>

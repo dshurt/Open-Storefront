@@ -42,7 +42,6 @@ var PageTransitions = (function() {
     $pages.eq( next ).addClass( 'pt-page-not-current' );
 
     $(document).ready(function(){
-
       $(".showPageLeft").each(function() {
         $(this).on( 'click', function() {
           if( isAnimating) {
@@ -145,6 +144,7 @@ var PageTransitions = (function() {
 function resetPage( $outpage, $inpage ) {
   $outpage.attr( 'class', $outpage.data( 'originalClassList') + ' pt-page-not-current');
   $inpage.attr( 'class', $inpage.data( 'originalClassList' ) + ' pt-page-current' );
+  PageTransitions.init();
 }
 
 init();

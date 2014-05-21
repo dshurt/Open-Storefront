@@ -74,6 +74,8 @@ html, body { height: 100%; }
 }
 
 .pt-page-1 {
+  position: relative;
+  z-index: 2;
 }
 
 .pt-page-2 {
