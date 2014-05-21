@@ -211,7 +211,7 @@
               <div class="container-fluid">
                 <div class="row">
                   <div class="results-content">
-                    <div class="results-content-title showPageLeft">
+                    <div class="results-content-title showPageLeft" ng-click="updateDetails(item.id)">
                       {{item.name}}
                     </div>
                     <div class="results-content-description">
@@ -297,7 +297,6 @@
                   </tr>
                 </tbody></table>              
               </div>
-              {{details.conformanceState}}
             </div>
             <div class="component-div-title">Relations</div>
             <div class="component-div">

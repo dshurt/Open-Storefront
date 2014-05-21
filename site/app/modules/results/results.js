@@ -65,8 +65,15 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
   };
 
 
-
   $scope.details = $scope.data[10];
+
+  $scope.updateDetails = function(id){
+    var temp =  _.where($scope.data, {'id': id})[0];
+    if (temp)
+    {
+      $scope.details = temp;
+    }
+  }
 
 }]);
 
