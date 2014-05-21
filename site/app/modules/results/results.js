@@ -27,10 +27,8 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
   $scope.dataTypes = Business.getTypes();
   $scope.categoryTypes = Business.getCategories();
   $scope.stateTypes = Business.getStates();
-  console.log("Categories", $scope.categoryTypes);
   
   //
-  console.dir($scope.data);
 
   $scope.toggleTypeChecks = function(){
     var master = false;

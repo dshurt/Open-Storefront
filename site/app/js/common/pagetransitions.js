@@ -148,9 +148,6 @@ var PageTransitions = (function() {
 }
 
 function resetPage( $outpage, $inpage ) {
-  console.log("Out class", $outpage.data('originalClassList'));
-  console.log("In class", $inpage.data('originalClassList'));
-
   $outpage.attr( 'class', $outpage.data( 'originalClassList') + ' pt-page-not-current');
   $inpage.attr( 'class', $inpage.data( 'originalClassList' ) + ' pt-page-current' );
 }
@@ -169,7 +166,6 @@ $(window).scroll(function(){
     $('.filtersOverride').css({'height': '100%'})
   } else {
     var height = $(window).height() - (0 - ($(window).scrollTop() - elementPosition.top));
-    console.log("height", height);
 
     $('.filters').css({'position':'absolute', 'top':'52px'});
     $('.filtersOverride').css({'height': height})
@@ -182,7 +178,6 @@ $(document).ready(function(){
     $('.filtersOverride').css({'height': '100%'})
   } else {
     var height = $(window).height() - (0 - ($(window).scrollTop() - elementPosition.top));
-    console.log("height", height);
     $('.filters').css({'position':'absolute', 'top':'52px'});
     $('.filtersOverride').css({'height': height})
   }    
@@ -193,7 +188,6 @@ $(document).ready(function(){
       $('.filtersOverride').css({'height': '100%'})
     } else {
       var height = $(window).height() - (0 - ($(window).scrollTop() - elementPosition.top));
-      console.log("height", height);
       $('.filters').css({'position':'absolute', 'top':'52px'});
       $('.filtersOverride').css({'height': height})
     }    
