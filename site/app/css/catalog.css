@@ -299,14 +299,7 @@ input[type=checkbox]:checked + label{
   color: #22699c;
 }
 
-.pt-page-2-container{
-  overflow: auto;
-}
-
 .component-details{
   position: absolute;
   width: 100%;
-}
-.pt-page h1{
-  position: static !important;
 }

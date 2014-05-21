@@ -45,7 +45,6 @@ html, body { height: 100%; }
 /* Text Styles, Colors, Backgrounds */
 
 .pt-page h1 {
-	position: absolute;
 	font-weight: 300;
 	font-size: 4.4em;
 	line-height: 1;
@@ -87,6 +86,8 @@ html, body { height: 100%; }
   position: relative;
   height: 100%;
   background: #7bb7fa;
+  overflow: auto;
+  
 }
 
 .pt-page-3 {
