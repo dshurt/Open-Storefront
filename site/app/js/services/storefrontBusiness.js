@@ -3,12 +3,14 @@
 var app = angular.module('storefront');
 
 app.factory('Business', ['localCache', '$http', '$q', function(LocalCache, $http, $q){
-  var getData = function() {
-    return MOCKDATA.assets.assets;
+  
+  var getCategories = function() {
+    return MOCKDATA.componentCategories.categories;
   }
 
-  var getTypes = function() {
-    return MOCKDATA.componentTypes.types;
+
+  var getData = function() {
+    return MOCKDATA.assets.assets;
   }
 
   var getDataByType = function(input){
@@ -16,9 +18,15 @@ app.factory('Business', ['localCache', '$http', '$q', function(LocalCache, $http
       return item.type == input;
     });
   }
+  
+  var getTypes = function() {
+    return MOCKDATA.componentTypes.types;
+  }
+
 
 
   return {
+    getCategories: getCategories,
     getData: getData,
     getDataByType: getDataByType,
     getTypes: getTypes

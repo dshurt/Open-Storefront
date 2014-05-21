@@ -25,7 +25,9 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
   $scope.data = Business.getData();
 
   $scope.dataTypes = Business.getTypes();
-
+  $scope.categoryTypes = Business.getCategories();
+  console.log("Categories", $scope.categoryTypes);
+  
   //
   console.dir($scope.data);
   
@@ -38,15 +40,12 @@ app.filter('typeFilter', function() {
         return false;
       }
       var found = _.where(scope.dataTypes, {"code": item.code});
-      console.log("found", found[0]);
       
       if (isEmpty(found))
         return true;
       else
         return found[0].checked;
     })
-    console.log("SearchType", scope.searchType);
-    console.log("dataTypes", scope.dataTypes);
     scope.searchType = _.pluck(scope.searchType, 'code');
     if (scope.searchType.length < 1)
       return input;
@@ -62,21 +61,29 @@ app.filter('typeFilter', function() {
 
 app.filter('categoryFilter', function() {
   return function(input, scope) {
+    scope.searchCategory = _.filter(scope.categoryTypes, function(item){
+      if (_.contains(scope.searchCategory.type, item)){
+        return false;
+      }
+      var found = _.where(scope.categoryTypes, {"code": item.code});
+      
+      if (isEmpty(found))
+        return true;
+      else
+        return found[0].checked;
+    })
+    scope.searchCategory = _.pluck(scope.searchCategory, 'code');
     if (scope.searchCategory.length < 1)
       return input;
     var out = [];
-    var flag = true;
-    for (var i = 0; i < input.length && flag; i++){
-      flag = true;
-      _.each(input[i].categories, function(item){
-        console.log("Categories", item);
-        console.log("searchCategory", scope.searchCategory);
-        if(_.contains(scope.searchCategory, item.code) && flag) {
-          out.push(input[i]);
-          flag = false;
-        }
+    _.each(input, function(temp){
+      _.each(scope.searchCategory, function(item){
+        var found = _.where(temp.categories, {"code": item});
+        if (!isEmpty(found))        
+          out.push(temp);
       });
-    }      
+    });  
+    out = _.uniq(out);    
     return out;
   };
 });
