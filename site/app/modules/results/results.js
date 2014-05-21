@@ -24,6 +24,8 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
   // grab the data  
   $scope.data = Business.getData();
 
+  $scope.dataTypes = Business.getTypes();
+
   //
   console.dir($scope.data);
   
@@ -31,6 +33,21 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
 
 app.filter('typeFilter', function() {
   return function(input, scope) {
+    scope.searchType = _.filter(scope.dataTypes, function(item){
+      if (_.contains(scope.searchType.type, item)){
+        return false;
+      }
+      var found = _.where(scope.dataTypes, {"code": item.code});
+      console.log("found", found[0]);
+      
+      if (isEmpty(found))
+        return true;
+      else
+        return found[0].checked;
+    })
+    console.log("SearchType", scope.searchType);
+    console.log("dataTypes", scope.dataTypes);
+    scope.searchType = _.pluck(scope.searchType, 'code');
     if (scope.searchType.length < 1)
       return input;
     var out = [];

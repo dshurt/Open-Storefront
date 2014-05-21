@@ -245,4 +245,13 @@ a{
 
 .filterTable{
   border-bottom: 1px lightgray solid;
+  margin-bottom: 0px !important;
+}
+
+.filterTableDiv{
+  margin: 10px;
+  border: 1px gray solid;
+}
+.firstFilter{
+  margin: 50px 10px 10px 10px;
 }

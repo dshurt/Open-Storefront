@@ -28,37 +28,43 @@ MOCKDATA.componentTypes = {
       'code': 'APPS', 
       'type': 'Applications', 
       "desc": "Redeployable, Middleware",
-      "src": "app/images/icon/pastel/application-xp-terminal.png"
+      "src": "app/images/icon/pastel/application-xp-terminal.png",
+      "checked": false
     },
     {
       'code': 'ENTERPRISE', 
       'type': 'Enterprise Services', 
       "desc": "Soap, REST, ...",
-      "src": "app/images/icon/pastel/world-link.png"
+      "src": "app/images/icon/pastel/world-link.png",
+      "checked": false
     },
     {
       'code': 'REFDOCS', 
       'type': 'Reference Documents', 
       "desc": "Standards, Specifications, and APIs",
-      "src": "app/images/icon/pastel/table-multiple.png"
+      "src": "app/images/icon/pastel/table-multiple.png",
+      "checked": false
     },
     {
       'code': 'SOFTLIB', 
       'type': 'Software Libraries', 
       "desc": "javascript, java, .net, python",
-      "src": "app/images/icon/pastel/book-link.png"
+      "src": "app/images/icon/pastel/book-link.png",
+      "checked": false
     },
     {
       'code': 'TOOLS', 
       'type': 'Tools', 
       "desc": "Test scripts, Development Tools",
-      "src": "app/images/icon/pastel/cog.png"
+      "src": "app/images/icon/pastel/cog.png",
+      "checked": false
     },
     {
       'code': 'WIDGET', 
       'type': 'Widgets', 
       "desc": "Ozone widgets",
-      "src": "app/images/icon/pastel/application-double.png"
+      "src": "app/images/icon/pastel/application-double.png",
+      "checked": false
     }
   ]
 };

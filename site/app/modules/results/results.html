@@ -169,78 +169,15 @@
       <!-- <div class="filterTitle">Search Filters</div> -->
       <div class="filterButton btn btn-primary pull-right" id="showFilters">Filters <i class="fa fa-caret-right"></i></div>
       <div id="filters">
+        <div class="filterTableDiv firstFilter">
         <table class="table table-striped filterTable">
-          <tr class="filtersTr">
+          <tr class="filtersTr" data-ng-repeat="type in dataTypes">
             <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter1"><input type="checkbox" name="filter1" id="filter1" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter2"><input type="checkbox" name="filter2" id="filter2" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter3"><input type="checkbox" name="filter3" id="filter3" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter4"><input type="checkbox" name="filter4" id="filter4" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter5"><input type="checkbox" name="filter5" id="filter5" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter6"><input type="checkbox" name="filter6" id="filter6" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter7"><input type="checkbox" name="filter7" id="filter7" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter8"><input type="checkbox" name="filter8" id="filter8" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter9"><input type="checkbox" name="filter9" id="filter9" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter10"><input type="checkbox" name="filter10" id="filter10" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter11"><input type="checkbox" name="filter11" id="filter11" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter12"><input type="checkbox" name="filter12" id="filter12" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter13"><input type="checkbox" name="filter13" id="filter13" value="">This is a filter</label></div>
-            </td>
-          </tr>
-          <tr class="filtersTr">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><label for="filter14"><input type="checkbox" name="filter14" id="filter14" value="">This is a filter</label></div>
+              <div class="checkbox filterCheckbox"><label for="{{type.type}}"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}">{{type.type}}</label></div>
             </td>
           </tr>
         </table>
+        </div>
       </div>
     </div>
 
