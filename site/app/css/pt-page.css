@@ -79,11 +79,12 @@ html, body { height: 100%; }
 }
 
 .pt-page-2 {
+  position: fixed;
   margin-left: 300px;
   width: calc(100% - 300px);
 }
 .pt-page-2-container{
-  width: 100%;
+  position: relative;
   height: 100%;
   background: #7bb7fa;
 }
