@@ -260,8 +260,10 @@ a{
 .results-button{
   width: 110px;
   float:left;
+  margin-right:-110px;
 }
 .results-content-title{
   padding: 2px 5px;
   font-size: 23px;
+  margin-left:110px;
 }
