@@ -170,31 +170,31 @@
       <div class="filterButton btn btn-primary pull-right" id="showFilters">Filters <i class="fa fa-caret-right"></i></div>
       <div id="filters">
         <div class="filterTableDiv firstFilter">
-          <table class="table table-striped filterTable">
-            <th ng-click="toggleTypeChecks()">Type</th>
+          <table class="table filterTable">
+            <th class="filtersTd" ng-click="toggleTypeChecks()">Type</th>
             <tr class="filtersTr" data-ng-repeat="type in dataTypes">
               <td class="filtersTd">
-                <div class="checkbox filterCheckbox"><label for="{{type.type}}"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}">{{type.type}}</label></div>
+                <div class="checkbox filterCheckbox"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
               </td>
             </tr>
           </table>
         </div>
         <div class="filterTableDiv">
-          <table class="table table-striped filterTable">
-            <th ng-click="toggleCategoryChecks()">Category</th>
+          <table class="table filterTable">
+            <th class="filtersTd" ng-click="toggleCategoryChecks()">Category</th>
             <tr class="filtersTr" data-ng-repeat="type in categoryTypes">
               <td class="filtersTd">
-                <div class="checkbox filterCheckbox"><label for="{{type.type}}"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}">{{type.type}}</label></div>
+                <div class="checkbox filterCheckbox"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
               </td>
             </tr>
           </table>
         </div>
         <div class="filterTableDiv">
-          <table class="table table-striped filterTable">
-            <th ng-click="toggleStateChecks()">State</th>
+          <table class="table filterTable">
+            <th class="filtersTd" ng-click="toggleStateChecks()">State</th>
             <tr class="filtersTr" data-ng-repeat="type in stateTypes">
               <td class="filtersTd">
-                <div class="checkbox filterCheckbox"><label for="{{type.type}}"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}">{{type.type}}</label></div>
+                <div class="checkbox filterCheckbox"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
               </td>
             </tr>
           </table>
@@ -210,11 +210,8 @@
             <td style="overflow:auto">
               <div class="container-fluid">
                 <div class="row">
-                  <div class="results-button">
-                    <button class="showPageLeft btn btn-info">Show Details</button>
-                  </div>
                   <div class="results-content">
-                    <div class="results-content-title">
+                    <div class="results-content-title showPageLeft">
                       {{item.name}}
                     </div>
                     <div class="results-content-description">

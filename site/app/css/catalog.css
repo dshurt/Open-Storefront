@@ -230,6 +230,7 @@ a{
 .filtersOverride{
   height: 100%;
   overflow:auto;
+  background-color: #f0f0f0;
 }
 
 #resultsTable{
@@ -238,32 +239,39 @@ a{
 
 .filtersTd{
   padding: 0px 8px !important;
+  border: 0px transparent!important;
 }
+
+input[type=checkbox] + label{
+  color: inherit;
+}
+input[type=checkbox]:checked + label{
+  color: #3892d3;
+}
+
 
 .filterCheckbox{
   margin: 2px 0px !important;
 }
 
 .filterTable{
-  border-bottom: 1px lightgray solid;
   margin-bottom: 0px !important;
 }
 
 .filterTableDiv{
   margin: 10px;
-  border: 1px gray solid;
 }
 .firstFilter{
   margin: 50px 10px 10px 10px;
 }
 
-.results-button{
-  width: 110px;
-  float:left;
-  margin-right:-110px;
-}
 .results-content-title{
+  color: #3892d3;
   padding: 2px 5px;
   font-size: 23px;
-  margin-left:110px;
+  /*margin-left:110px;*/
+}
+.results-content-title:hover{
+  cursor: pointer;
+  color: #22699c;
 }
