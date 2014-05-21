@@ -29,56 +29,34 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
   $scope.categoryTypes = Business.getCategories();
   $scope.stateTypes = Business.getStates();
   
-  //
-
-  $scope.toggleTypeChecks = function(){
+  // function to flip the switch on checkboxes
+  var toggleChecks = function(collection){
     var master = false;
-    var found = _.where($scope.dataTypes, {"checked": true});
+    var found = _.where(collection, {"checked": true});
     
     if (!isEmpty(found)) {
-      if (found.length !== $scope.dataTypes.length)
+      if (found.length !== collection.length)
         master = true;
       else
         master = false;
     }
     else
       master = true;
-    _.each($scope.dataTypes, function(item){
+    _.each(collection, function(item){
       item.checked = master;
     });
   };
+
+
+  $scope.toggleTypeChecks = function(){
+    toggleChecks($scope.dataTypes);
+  };
   $scope.toggleCategoryChecks = function(){
-    var master = false;
-    var found = _.where($scope.categoryTypes, {"checked": true});
-    
-    if (!isEmpty(found)) {
-      if (found.length !== $scope.categoryTypes.length)
-        master = true;
-      else
-        master = false;
-    }
-    else
-      master = true;
-    _.each($scope.categoryTypes, function(item){
-      item.checked = master;
-    });
+    toggleChecks($scope.categoryTypes);
   };
 
   $scope.toggleStateChecks = function(){
-    var master = false;
-    var found = _.where($scope.stateTypes, {"checked": true});
-    
-    if (!isEmpty(found)) {
-      if (found.length !== $scope.stateTypes.length)
-        master = true;
-      else
-        master = false;
-    }
-    else
-      master = true;
-    _.each($scope.stateTypes, function(item){
-      item.checked = master;
-    });
+    toggleChecks($scope.stateTypes);
   };
 
 }]);
