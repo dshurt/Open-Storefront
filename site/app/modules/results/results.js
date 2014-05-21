@@ -3,7 +3,7 @@ var app = angular.module('storefront');
 
 app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', function($scope, Business, $timeout, tempData){
   // makesure to update the tempData
-  tempData.restoreState();
+  // tempData.restoreState();
   
   // tell the scope whot it is
   $scope._scopename = 'results';
@@ -13,7 +13,8 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
   $scope.defaultTitle = "Browse Categories";
 
   // start the filters
-  var searchData = tempData.getData();
+  // var searchData = tempData.getData();
+  var searchData = null;
   if (!searchData){
     searchData = {"type": [ "APPS" ], "category": [], "state": []}
   }
@@ -79,7 +80,7 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
       item.checked = master;
     });
   };
-  
+
 }]);
 
 app.filter('typeFilter', function() {
@@ -101,6 +102,7 @@ app.filter('typeFilter', function() {
       if(_.contains(scope.searchType, input[i].type))
         out.push(input[i]);
     }      
+    PageTransitions.init();
     return out;
   };
 });
@@ -127,6 +129,7 @@ app.filter('categoryFilter', function() {
       });
     });  
     out = _.uniq(out);    
+    PageTransitions.init();
     return out;
   };
 });
@@ -155,6 +158,7 @@ app.filter('stateFilter', function() {
       if(_.contains(results, input[i].conformanceState.toString().toLowerCase()))
         out.push(input[i]);
     }      
+    PageTransitions.init();
     return out;
   };
 });

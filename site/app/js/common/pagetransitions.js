@@ -45,8 +45,6 @@ var PageTransitions = (function() {
 
       $(".showPageLeft").each(function() {
         $(this).on( 'click', function() {
-          console.log("Clicked");
-
           if( isAnimating) {
             return false;
           }
@@ -87,7 +85,6 @@ var PageTransitions = (function() {
     var $nextPage = $pages.eq( current ).addClass( 'pt-page-current' ),
     outClass = '', inClass = '';
     var move = $(window).width();
-    console.log("move", move);
     
     switch( animation ) {
 
@@ -141,8 +138,6 @@ var PageTransitions = (function() {
  }
 
  function onEndAnimation( $outpage, $inpage ) {
-  console.log("We reset");
-
   resetPage( $outpage, $inpage );
   isAnimating = false;
 }
@@ -216,17 +211,22 @@ $(document).ready(function(){
       $('#showFilters').html("Filters <i class='fa fa-caret-left'></i>");
     });
     $( '#pt-main' ).animate({
-      'margin-left': "+=300px"
+      'padding-left': "+=300px"
     }, 200, function() {
       $( '#page1' ).animate({
         'padding-top': "-=40px"
       }, 100, function() {
       });
     });
+    $(".pt-page-2").animate({
+      'padding-left': '+=300px',
+    }, 200, function(){
+    });
     $( '#showPageLeft' ).animate({
       'margin-left': "+=300px"
     }, 200, function() {
     });
+    PageTransitions.init();
   }
   function hideFilters(){
     $( '.filterButton' ).animate({
@@ -244,7 +244,7 @@ $(document).ready(function(){
       'padding-top': "+=40px"
     }, 100, function() {
       $( '#pt-main' ).animate({
-        'margin-left': "-=300px"
+        'padding-left': "-=300px"
       }, 200, function() {
       });
     });
@@ -253,7 +253,12 @@ $(document).ready(function(){
         'margin-left': "-=300px"
       }, 200, function() {
       });
+    $(".pt-page-2").animate({
+      'padding-left': '-=300px',
+    }, 200, function(){
+    });
     }, 100);
+    PageTransitions.init();
   }
 
 });
