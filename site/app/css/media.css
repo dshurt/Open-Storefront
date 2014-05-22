@@ -37,6 +37,10 @@
     left: 0px !important;
   }
 
+  .filterButton.current{
+    display: none !important;
+  }
+
   .pt-page-1.pt-page-not-current{
     display: none !important;
   }

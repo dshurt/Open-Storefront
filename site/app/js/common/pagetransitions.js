@@ -116,6 +116,7 @@ var PageTransitions = (function() {
           $('#showPageRight').html("<i class='fa fa-caret-right'></i>")
         // Animation complete.
       });
+      $('.filterButton').toggleClass("current");
       break;
       case 2:
       outClass = 'pt-page-moveToRight';
@@ -129,6 +130,7 @@ var PageTransitions = (function() {
       }, 200, function() {
         $('#showPageRight').html("<i class='fa fa-caret-left'></i>")
       });
+      $('.filterButton').toggleClass("current");
       break;
     }
 
