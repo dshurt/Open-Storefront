@@ -35,9 +35,12 @@
   }
   #showPageRight.current{
     left: 0px !important;
+    margin-left: 0px !important;
   }
-
-  .filterButton.current{
+  #page2.pt-page-current{
+    padding-left: 0px !important;
+  }
+  .filters.current{
     display: none !important;
   }
 

@@ -207,15 +207,15 @@
         <!-- TODO:: MAKE ME RESPONSIVE! -->
         <table class="table table-striped" id="resultsTable">
           <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this"  style="margin-bottom: 20px;">
-            <td style="overflow:auto">
+            <td style="white-space: inherit;">
               <div class="container-fluid">
-                <div class="row">
+                <div class="row" style="margin-left: 0px; margin-right: 0px">
                   <div class="results-content">
                     <div class="results-content-title">
                       <div class="showPageLeft" ng-click="updateDetails(item.id)">
                         {{item.name}}
                       </div>
-                      <raty ng-class='{in:$last}' class="pull-left" id="star{{$index}}" style="min-width:105px; height: 100%; margin: -6px 10px -4px 0px;" score="{{item.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Number of ratings: {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
+                      <raty ng-class='{in:$last}' class="pull-left" id="star{{$index}}" style="min-width:105px; height: 100%; margin: -6px 10px -4px 0px;" score="{{item.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Average rating: {{item.stats.averageRating}} of {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
                     </div>
                     <div class="results-content-description">
                       {{item.shortdescription}}
@@ -370,13 +370,9 @@
                     </tr>
                     <tr>
                       <td width="150px" valign="top">                   
-                        <span class="rating_total_votes rating_star_group" id="ext-gen1196">
-                          <img title="Average Rating: 5.0" id="read_only_rank_4.1" src="../../images/icon/pastel/star.png" border="0">
-                          <img title="Average Rating: 5.0" id="read_only_rank_4.2" src="../../images/icon/pastel/star.png" border="0">
-                          <img title="Average Rating: 5.0" id="read_only_rank_4.3" src="../../images/icon/pastel/star.png" border="0">
-                          <img title="Average Rating: 5.0" id="read_only_rank_4.4" src="../../images/icon/pastel/star.png" border="0">
-                          <img title="Average Rating: 5.0" id="read_only_rank_4.5" src="../../images/icon/pastel/star.png" border="0">
-                        </span><br>
+                        <raty class="pull-left" id="star{{$index}}" style="min-width:105px; height: 100%; margin: -6px 10px -4px 0px;" score="{{details.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+                        </raty>
+                        
                         Ted Jones - Developer<br>
                         3 months + experience<br>
                       </td>
