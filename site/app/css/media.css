@@ -88,6 +88,7 @@
   }
   .defaultSpacer{
     min-height: 202px;
+    margin-bottom: 0px;
   }
   .searchBoxButton button, .navSearchBar input{
     border-radius: 0px 0px 0px 0px; 
