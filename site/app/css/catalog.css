@@ -342,3 +342,6 @@ input[type=checkbox]:checked + label{
   width: 300px;
 }
 
+.atlwdg-trigger{
+  z-index: 1012;
+}
