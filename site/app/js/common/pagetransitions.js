@@ -52,7 +52,7 @@ var PageTransitions = (function() {
       isPage1 = !isPage1;
     }
     $(document).ready(function(){
-      $(".showPageLeft").each(function() {
+      $(".showPageLeftToggle").each(function() {
         $(this).on( 'click', function() {
           console.log("This", $(this).attr('id'));
           console.log("history", history);
@@ -70,6 +70,7 @@ var PageTransitions = (function() {
           animate();
           history = $(this).attr('id');
         });
+        $(this).toggleClass("showPageLeftToggle")
       });
       $(".showPageRight").each(function() {
         $(this).on( 'click', function() {
