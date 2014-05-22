@@ -191,6 +191,9 @@ $(window).scroll(function(){
   }
 });
 $(document).ready(function(){
+
+  $('[data-toggle="popover"]').popover({trigger: 'hover','placement': 'bottom', 'html': true});
+
   if (windowChange2)
   {
     windowHeight = $(window).height();
