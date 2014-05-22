@@ -9,6 +9,7 @@ var PageTransitions = (function() {
   next = 1,
   isAnimating = false,
   isPage1 = true,
+  history = '',
   animEndEventNames = {
    'WebkitAnimation' : 'webkitAnimationEnd',
    'OAnimation' : 'oAnimationEnd',
@@ -42,18 +43,32 @@ var PageTransitions = (function() {
     $pages.eq( current ).addClass( 'pt-page-current' );
     $pages.eq( next ).addClass( 'pt-page-not-current' );
 
+    function animate() {
+      if( animcursor > 2 ) {
+        animcursor = 1;
+      }
+      nextPage( animcursor );
+      animcursor++;
+      isPage1 = !isPage1;
+    }
     $(document).ready(function(){
       $(".showPageLeft").each(function() {
         $(this).on( 'click', function() {
-          if( isAnimating || !isPage1) {
+          console.log("This", $(this).attr('id'));
+          console.log("history", history);
+          
+          if( isAnimating || ( history !=='' && history !== $(this).attr('id') ) ) { // if the history is not the same, don't animate
+            console.log("historyChange");
+            console.log("isPage1", isPage1);
+          
+            if (isPage1 && !isAnimating) { // unless the page is closed
+              animate();
+            }
+            history = $(this).attr('id'); // update the history
             return false;
           }
-          if( animcursor > 2 ) {
-            animcursor = 1;
-          }
-          nextPage( animcursor );
-          animcursor++;
-          isPage1 = false;
+          animate();
+          history = $(this).attr('id');
         });
       });
       $(".showPageRight").each(function() {
@@ -61,12 +76,7 @@ var PageTransitions = (function() {
           if( isAnimating) {
             return false;
           }
-          if( animcursor > 2 ) {
-            animcursor = 1;
-          }
-          nextPage( animcursor );
-          animcursor++;
-          isPage1 = !isPage1;
+          animate();
         });
       });
     });
@@ -100,9 +110,9 @@ var PageTransitions = (function() {
     outClass = '', inClass = '';
     var move = $(window).width();
 
-      console.log("move", move);
+    console.log("move", move);
     switch( animation ) {
-      
+
       case 1:
       outClass = 'pt-page-moveToLeft';
       inClass = 'pt-page-moveFromRight';
@@ -164,7 +174,6 @@ var PageTransitions = (function() {
 function resetPage( $outpage, $inpage ) {
   $outpage.attr( 'class', $outpage.data( 'originalClassList') + ' pt-page-not-current');
   $inpage.attr( 'class', $inpage.data( 'originalClassList' ) + ' pt-page-current' );
-  PageTransitions.init();
 }
 
 init();
@@ -278,7 +287,6 @@ function showFilters(){
     'margin-left': "+=300px"
   }, 200, function() {
   });
-  PageTransitions.init();
 }
 function hideFilters(){
 
@@ -311,7 +319,6 @@ function hideFilters(){
     }, 200, function(){
     });
   }, 100);
-  PageTransitions.init();
 }
 
 });
