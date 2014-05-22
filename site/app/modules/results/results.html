@@ -271,6 +271,39 @@
               <div class="component-title">
                 <h1>{{details.name}}<span>{{details.owner}} ({{details.type}})</span></h1>
               </div>
+              <div class="component-div row" style="margin-top: -10px">
+                <div class="col-sm-6">
+
+                  <p style="margin-top: 5px">
+                    <strong>
+                      License:
+                    </strong>
+                    {{details.primaryLicense}}
+                  </p>
+                  <p style="margin-top: -10px">
+                    <strong>
+                      Operational Status:
+                    </strong>
+                    {{details.operationStatus}}
+                  </p>
+                  <p style="margin-top: -10px">
+                    <strong>
+                      Evaluation Level:
+                    </strong>
+                    {{details.conformanceState}}
+                  </p>
+                </div>
+                <div class="col-sm-6">
+                  <p style="margin-top: 5px"><strong>Tags:</strong></p>
+                  <div data-ng-repeat="tag in details.assetTags">
+                    <p style="margin-top: -10px">
+                      <a href="">
+                        {{tag.desc}}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div class="component-div-title">Description</div>
               <div class="component-div">
                 {{details.description}}
@@ -358,8 +391,8 @@
                   </div>
                   <h3>
                     Sub-Component Of:</h3>
-                    <div data-ng-repeat="thing in details.subComponents">
-                      <a  href="">{{thing.name}}</a>
+                    <div data-ng-repeat="subComponent in details.subComponents">
+                      <a  href="">{{subComponent.name}}</a>
                     </div>
                   </div>
                 </div>
@@ -443,8 +476,8 @@
                 <div class="component-div-title">Related Components</div>
                 <div class="component-div">
                   <div id="commentsDiv" class="detailSection">
-                    <div data-ng-repeat="thing in details.relatedAssets">
-                      <a  href="">{{thing.name}}</a><br>
+                    <div data-ng-repeat="relatedAsset in details.relatedAssets">
+                      <a  href="">{{relatedAsset.name}}</a><br>
                     </div>
 
                     <i>(LINKS TO RELATED COMPONENTS  - determine by system based on Tags) </i>
