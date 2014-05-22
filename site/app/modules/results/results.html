@@ -34,9 +34,20 @@
   <script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script type="text/javascript" src="../../bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="../../bower_components/underscore/underscore.js"></script>
-  
+  <!--[if lte IE 8]>
+    <script src="../../js/common/json2.js"></script>
+  <![endif]-->
+  <!--[if lte IE 8]>
+    <script>
+      document.createElement('raty');
+
+      // Optionally these for CSS
+      document.createElement('raty');
+    </script>
+  <![endif]-->
+
 </head>
-<body ng-app="storefront">
+<body ng-app="storefront" id="ng-app">
   <div ng-controller="resultsCtrl">
     <div class="showPage">
       <button id="showPageRight" class="showPageRight btn btn-primary">
@@ -413,7 +424,7 @@
       </div>
 
       <div class="pt-message">
-        <p>Your browser does not support CSS animations.</p>
+        <p>Your browser does not support CSS animations.<i class="fa fa-times-circle pull-right" style="font-size: 24px; margin: 17px 20px; cursor:pointer" onclick="$('.pt-message').css('display', 'none')"></i></p>        
       </div>
     </div>
 

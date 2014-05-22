@@ -218,6 +218,9 @@ a{
   visibility: inherit;
   /*position: inherit;*/
 }
+#page1 .pt-page-2-container{
+  border-top: 1px solid lightgray;
+}
 
 
 .pt-page-1.pt-page-not-current{
