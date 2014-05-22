@@ -196,7 +196,8 @@ $(window).scroll(function(){
   }
 });
 $(document).ready(function(){
-
+  if ($('[data-toggle="popover"]').length > 2)
+    $('.in[data-toggle="popover"]').popover({trigger: 'hover','placement': 'top', 'html': true});
   $('[data-toggle="popover"]').popover({trigger: 'hover','placement': 'bottom', 'html': true});
 
   if (windowChange2)

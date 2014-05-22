@@ -370,13 +370,9 @@
                     </tr>
                     <tr>
                       <td width="150px" valign="top">                   
-                        <span class="rating_total_votes rating_star_group" id="ext-gen1196">
-                          <img title="Average Rating: 5.0" id="read_only_rank_4.1" src="../../images/icon/pastel/star.png" border="0">
-                          <img title="Average Rating: 5.0" id="read_only_rank_4.2" src="../../images/icon/pastel/star.png" border="0">
-                          <img title="Average Rating: 5.0" id="read_only_rank_4.3" src="../../images/icon/pastel/star.png" border="0">
-                          <img title="Average Rating: 5.0" id="read_only_rank_4.4" src="../../images/icon/pastel/star.png" border="0">
-                          <img title="Average Rating: 5.0" id="read_only_rank_4.5" src="../../images/icon/pastel/star.png" border="0">
-                        </span><br>
+                        <raty class="pull-left" id="star{{$index}}" style="min-width:105px; height: 100%; margin: -6px 10px -4px 0px;" score="{{details.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Number of ratings: {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+                        </raty>
+                        
                         Ted Jones - Developer<br>
                         3 months + experience<br>
                       </td>
