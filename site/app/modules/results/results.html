@@ -36,7 +36,7 @@
   <script type="text/javascript" src="../../bower_components/underscore/underscore.js"></script>
   <!--[if lte IE 8]>
     <script src="../../js/common/json2.js"></script>
-  <![endif]-->
+    <![endif]-->
   <!--[if lte IE 8]>
     <script>
       document.createElement('raty');
@@ -44,407 +44,416 @@
       // Optionally these for CSS
       document.createElement('raty');
     </script>
-  <![endif]-->
+    <![endif]-->
 
-</head>
-<body ng-app="storefront" id="ng-app" ng-cloak>
-  <div ng-controller="resultsCtrl">
-    <div class="showPage">
-      <button id="showPageRight" class="showPageRight btn btn-primary">
-        <i class="fa fa-caret-left"></i> 
-      </button>
-    </div>
-    <!-- begin User Profile Modal -->
-    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">User Profile</h4>
-          </div>
-          <div class="modal-body">
-            <form class="form-horizontal" role="form">
-              <div class="form-group">
-                <label for="inputEmail3" class="col-sm-3 control-label">Name</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="inputName3" placeholder="First and Last Name">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputEmail3" class="col-sm-3 control-label">Role</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="inputRole" placeholder="Role">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputEmail3" class="col-sm-3 control-label">Member Since</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="inputMemberSince" placeholder="Member Since">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-                <div class="col-sm-9">
-                  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+  </head>
+  <body ng-app="storefront" id="ng-app" ng-cloak>
+    <div ng-controller="resultsCtrl">
+      <div class="showPage">
+        <button id="showPageRight" class="showPageRight btn btn-primary">
+          <i class="fa fa-caret-left"></i> 
+        </button>
       </div>
-    </div>
-    <!-- end User Profile Modal -->
-    <!-- begin User Profile Modal -->
-    <div class="modal fade" id="basicFeedback" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Feedback Modal Stub</h4>
-          </div>
-          <div class="modal-body">
-            <form class="form-horizontal" role="form">
-              <div class="form-group">
-                <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
-                <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
-                <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end User Feedback Modal -->
-    <div class="top">
-      <div class="navbar navbar-default navigation"> 
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <div>
-              <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                <span class="sr-only">User Panel</span>
-                <span>Jimmy tester <b class="caret"></b></span>
-              </button>
-              <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle Search</span>
-                <i class="fa fa-search"></i>
-              </button>        
+      <!-- begin User Profile Modal -->
+      <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">User Profile</h4>
             </div>
-            <div>
-              <a class="navbar-brand" href="../../../index.html">DI2E <span class="hidden-small">Storefront Catalog</span></a>
+            <div class="modal-body">
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-3 control-label">Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputName3" placeholder="First and Last Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-3 control-label">Role</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputRole" placeholder="Role">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-3 control-label">Member Since</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputMemberSince" placeholder="Member Since">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                  <div class="col-sm-9">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-          <div class="collapse navbar-collapse pull-right userNavDropdown">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#" data-toggle="modal" data-target="#basicModal">User Profile</a></li>
-                  <li><a href="#" data-toggle="modal" data-target="#basicFeedback">Feedback</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!-- /.userNav-collapse -->
-          <!-- </div> -->
-
-          <div class="collapse navbar-collapse center navSearch" id="bs-example-navbar-collapse-1">
-            <form class="navbar-form navbar-left" role="search">
-              <div class="pull-right searchBoxButton">
-                <button type="submit" class="btn btn-default pull-right"><i class="fa fa-search"></i></button>
-              </div>
-              <div class="navSearchBar">
-                <input type="text" class="form-control " placeholder="Search">
-              </div>
-            </form>
-          </div>
-          <div class="collapse navbar-collapse pull-right userNavDropdownHidden" id="bs-example-navbar-collapse-2">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown open">
-                <ul class="dropdown-menu">
-                  <li class="gray-link"><a href="#">Action</a></li>
-                  <li class="gray-link"><a href="#">Another action</a></li>
-                  <li class="gray-link"><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="gray-link"><a href="#">Separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div> 
-    </div>
-    <div class="filters">
-      <!-- <div class="filterTitle">Search Filters</div> -->
-      <div class="filterButton btn btn-primary pull-right" id="showFilters">Filters <i class="fa fa-caret-right"></i></div>
-      <div id="filters">
-        <div class="filterTableDiv firstFilter">
-          <table class="table filterTable">
-            <th class="filtersTd" ng-click="toggleTypeChecks()">Type</th>
-            <tr class="filtersTr" data-ng-repeat="type in dataTypes">
-              <td class="filtersTd">
-                <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="filterTableDiv">
-          <table class="table filterTable">
-            <th class="filtersTd" ng-click="toggleCategoryChecks()">Category</th>
-            <tr class="filtersTr" data-ng-repeat="type in categoryTypes">
-              <td class="filtersTd">
-                <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="filterTableDiv">
-          <table class="table filterTable">
-            <th class="filtersTd" ng-click="toggleStateChecks()">State</th>
-            <tr class="filtersTr" data-ng-repeat="type in stateTypes">
-              <td class="filtersTd">
-                <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
-              </td>
-            </tr>
-          </table>
         </div>
       </div>
-    </div>
+      <!-- end User Profile Modal -->
+      <!-- begin User Profile Modal -->
+      <div class="modal fade" id="basicFeedback" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">Feedback Modal Stub</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
+                  <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
+                  <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end User Feedback Modal -->
+      <div class="top">
+        <div class="navbar navbar-default navigation"> 
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <div>
+                <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                  <span class="sr-only">User Panel</span>
+                  <span>Jimmy tester <b class="caret"></b></span>
+                </button>
+                <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle Search</span>
+                  <i class="fa fa-search"></i>
+                </button>        
+              </div>
+              <div>
+                <a class="navbar-brand" href="../../../index.html">DI2E <span class="hidden-small">Storefront Catalog</span></a>
+              </div>
+            </div>
+            <div class="collapse navbar-collapse pull-right userNavDropdown">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" data-toggle="modal" data-target="#basicModal">User Profile</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#basicFeedback">Feedback</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.userNav-collapse -->
+            <!-- </div> -->
 
-    <div id="pt-main" class="pt-perspective" >
-      <div class="pt-page pt-page-1 table-responsive"  id="page1">
-        <div class="pt-page-2-container">
-          <!-- TODO:: MAKE ME RESPONSIVE! -->
-          <table class="table table-striped" id="resultsTable">
-            <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this"  style="margin-bottom: 20px;">
-              <td style="white-space: inherit;">
-                <div class="container-fluid">
-                  <div class="row" style="margin-left: 0px; margin-right: 0px">
-                    <div class="results-content">
-                      <div class="results-content-title">
-                        <div class="showPageLeft showPageLeftToggle" ng-click="updateDetails(item.id)" id="{{item.id}}">
-                          {{item.name}}
+            <div class="collapse navbar-collapse center navSearch" id="bs-example-navbar-collapse-1">
+              <form class="navbar-form navbar-left" role="search">
+                <div class="pull-right searchBoxButton">
+                  <button type="submit" class="btn btn-default pull-right"><i class="fa fa-search"></i></button>
+                </div>
+                <div class="navSearchBar">
+                  <input type="text" class="form-control " placeholder="Search">
+                </div>
+              </form>
+            </div>
+            <div class="collapse navbar-collapse pull-right userNavDropdownHidden" id="bs-example-navbar-collapse-2">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown open">
+                  <ul class="dropdown-menu">
+                    <li class="gray-link"><a href="#">Action</a></li>
+                    <li class="gray-link"><a href="#">Another action</a></li>
+                    <li class="gray-link"><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="gray-link"><a href="#">Separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <div class="filters">
+        <!-- <div class="filterTitle">Search Filters</div> -->
+        <div class="filterButton btn btn-primary pull-right" id="showFilters">Filters <i class="fa fa-caret-right"></i></div>
+        <div id="filters">
+          <div class="filterTableDiv firstFilter">
+            <table class="table filterTable">
+              <th class="filtersTd" ng-click="toggleTypeChecks()">Type</th>
+              <tr class="filtersTr" data-ng-repeat="type in dataTypes">
+                <td class="filtersTd">
+                  <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="filterTableDiv">
+            <table class="table filterTable">
+              <th class="filtersTd" ng-click="toggleCategoryChecks()">Category</th>
+              <tr class="filtersTr" data-ng-repeat="type in categoryTypes">
+                <td class="filtersTd">
+                  <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="filterTableDiv">
+            <table class="table filterTable">
+              <th class="filtersTd" ng-click="toggleStateChecks()">State</th>
+              <tr class="filtersTr" data-ng-repeat="type in stateTypes">
+                <td class="filtersTd">
+                  <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="pt-main" class="pt-perspective" >
+        <div class="pt-page pt-page-1 table-responsive"  id="page1">
+          <div class="pt-page-2-container">
+            <!-- TODO:: MAKE ME RESPONSIVE! -->
+            <table class="table table-striped" id="resultsTable">
+              <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this"  style="margin-bottom: 20px;">
+                <td style="white-space: inherit;">
+                  <div class="container-fluid">
+                    <div class="row" style="margin-left: 0px; margin-right: 0px">
+                      <div class="results-content">
+                        <div class="results-content-title">
+                          <div class="showPageLeft showPageLeftToggle" ng-click="updateDetails(item.id)" id="{{item.id}}">
+                            {{item.name}}
+                          </div>
+                          <raty ng-class='{in:$last}' class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="{{item.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Average rating: {{item.stats.averageRating}} of {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
                         </div>
-                        <raty ng-class='{in:$last}' class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="{{item.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Average rating: {{item.stats.averageRating}} of {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
-                      </div>
-                      <div class="results-content-description">
-                        {{item.shortdescription}}
+                        <div class="results-content-description">
+                          {{item.shortdescription}}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </td>
-            </tr>
+                </td>
+              </tr>
 
-          </table>
-          <!--  -->
+            </table>
+            <!--  -->
+          </div>
         </div>
-      </div>
-      <div class="pt-page pt-page-2" id="page2">
-        <div class="pt-page-2-container">
-          <div class="component-details">
-            <div class="component-title">
-              <h1>{{details.name}}<span>{{details.owner}} ({{details.type}})</span></h1>
-            </div>
-            <div class="component-div-title">Description</div>
-            <div class="component-div">
-              {{details.description}}
-            </div>
-            <div class="component-div-title">Resources</div>
-            <div class="component-div">
-              <div class="resource-list detailSection text-center">
-                <div style="max-width: 550px">
+        <div class="pt-page pt-page-2" id="page2">
+          <div class="pt-page-2-container">
+            <div class="component-details">
+              <div class="component-title">
+                <h1>{{details.name}}<span>{{details.owner}} ({{details.type}})</span></h1>
+              </div>
+              <div class="component-div-title">Description</div>
+              <div class="component-div">
+                {{details.description}}
+              </div>
+              <div class="component-div-title">Resources</div>
+              <div class="component-div">
 
-                  <!-- <div class="row"> -->
-                  <!-- <div class='col-sm-3 text-center'> -->
-                  <div style="display:inline-block" class="text-center col-sm-3">
-                    <div class="resource-icon-webpage" style="display:inline-block"></div>                    
-                    <div id="webPageButtonDiv"><a class="x-btn x-unselectable x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon x-border-box" role="button" hidefocus="on" unselectable="on" tabindex="0" id="button-1022"><span id="button-1022-btnWrap" class="x-btn-wrap x-btn-arrow x-btn-arrow-right" unselectable="on"><span id="button-1022-btnEl" class="x-btn-button"><span id="button-1022-btnInnerEl" class="x-btn-inner x-btn-inner-center" unselectable="on">Web Pages</span><span role="img" id="button-1022-btnIconEl" class="x-btn-icon-el  " unselectable="on" style=""></span></span></span></a></div>                         
+                <div class="pull-left" style="width: 95px">
+                  <div style="text-align: center; width: 100%">
+                    <img src="../../images/icon/tango/text-html.png" alt="">
                   </div>
-                  <!-- </div> -->
-                  <!-- <div class='col-sm-3 text-center'> -->
-                  <div style="display:inline-block" class="text-center col-sm-3">
-                    <div class="resource-icon-binary" style="display:inline-block"></div>                   
-                    <div id="binariesButtonDiv"><a class="x-btn x-unselectable x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon x-border-box" role="button" hidefocus="on" unselectable="on" tabindex="0" id="button-1026"><span id="button-1026-btnWrap" class="x-btn-wrap x-btn-arrow x-btn-arrow-right" unselectable="on"><span id="button-1026-btnEl" class="x-btn-button"><span id="button-1026-btnInnerEl" class="x-btn-inner x-btn-inner-center" unselectable="on">Binaries</span><span role="img" id="button-1026-btnIconEl" class="x-btn-icon-el  " unselectable="on" style=""></span></span></span></a></div>  
-                  </div>
-                  <!-- </div> -->
-                  <!-- <div class='col-sm-3 text-center'> -->
-                  <div style="display:inline-block" class="text-center col-sm-3">
-                    <div class="resource-icon-source" style="display:inline-block"></div>                   
-                    <div id="sourceButtonDiv"><a class="x-btn x-unselectable x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon x-border-box" role="button" hidefocus="on" unselectable="on" tabindex="0" id="button-1030"><span id="button-1030-btnWrap" class="x-btn-wrap x-btn-arrow x-btn-arrow-right" unselectable="on"><span id="button-1030-btnEl" class="x-btn-button"><span id="button-1030-btnInnerEl" class="x-btn-inner x-btn-inner-center" unselectable="on">Source</span><span role="img" id="button-1030-btnIconEl" class="x-btn-icon-el  " unselectable="on" style=""></span></span></span></a></div>  
-                  </div>
-                  <!-- </div> -->
-                  <!-- <div class='col-sm-3 text-center'> -->
-                  <div style="display:inline-block" class="text-center col-sm-3">
-                    <div class="resource-icon-doc" style="display:inline-block"></div>                    
-                    <div id="docsButtonDiv"><a class="x-btn x-unselectable x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon x-border-box" role="button" hidefocus="on" unselectable="on" tabindex="0" id="button-1034"><span id="button-1034-btnWrap" class="x-btn-wrap x-btn-arrow x-btn-arrow-right" unselectable="on"><span id="button-1034-btnEl" class="x-btn-button"><span id="button-1034-btnInnerEl" class="x-btn-inner x-btn-inner-center" unselectable="on">Documentation</span><span role="img" id="button-1034-btnIconEl" class="x-btn-icon-el  " unselectable="on" style=""></span></span></span></a></div>  
-                  </div>
-                  <div class="spacer" style="clear: both;"></div>
-                  <!-- </div> -->
-                  <!-- </div> -->
-                </div>
-
-              </div>
-            </div>
-            <div class="component-div-title">Evaluation Levels</div>
-            <div class="component-div">
-              <div class="detailSection">
-                <table>
-                  <tbody><tr>
-                    <td>
-                      <a href="" target="_blank">
-                        <img src="../../images/icon/silk/medal_bronze_1.png" title="Evaluated" width="22" height="22"> 
-                        <span class="conformance_badge">Evaluation</span><br>                   
-                      </a> 
-                    </td>
-                    <td style="padding-left: 20px">
-                      <a href="" target="_blank">
-                        <img src="../../images/icon/silk/medal_silver_1.png" title="Evaluated" width="22" height="22"> 
-                        <span class="conformance_badge">Conformance Testing</span><br>                    
-                      </a>                  
-                    </td>
-                    <td style="padding-left: 20px">
-                      <a href="" target="_blank">
-                        <img src="../../images/icon/silk/medal_gold_1.png" title="Evaluated" width="22" height="22"> 
-                        <span class="conformance_badge">Reference Integration</span><br>                    
-                      </a>                  
-                    </td>
-                  </tr>
-                </tbody></table>              
-              </div>
-            </div>
-            <div class="component-div-title">Relations</div>
-            <div class="component-div">
-              <div>
-                <h3>
-                  Component Of:
-                </h3>
-                <div data-ng-repeat="thing in details.componentOf">
-                  <a  href="">{{thing.name}}</a>
-                </div>
-                <h3>
-                  Sub-Component Of:</h3>
-                  <div data-ng-repeat="thing in details.subComponents">
-                    <a  href="">{{thing.name}}</a>
+                  <div style="text-align: center">
+                    <a href="">
+                      Web Pages
+                    </a>
                   </div>
                 </div>
+                <div class="pull-left" style="width: 95px">
+                  <div style="text-align: center; width: 100%">
+                    <img src="../../images/icon/tango/text-x-script.png" alt="">
+                  </div>
+                  <div style="text-align: center">
+                    <a href="">
+                      Binaries
+                    </a>
+                  </div>
+                </div>
+                <div class="pull-left" style="width: 95px">
+                  <div style="text-align: center; width: 100%">
+                    <img src="../../images/icon/tango/text-x-generic.png" alt="">
+                  </div>
+                  <div style="text-align: center">
+                    <a href="">
+                      Source
+                    </a>
+                  </div>
+                </div>
+                <div class="pull-left" style="width: 95px">
+                  <div style="text-align: center; width: 100%">
+                    <img src="../../images/icon/tango/x-office-document.png" alt="">
+                  </div>
+                  <div style="text-align: center">
+                    <a href="">
+                      Documentation
+                    </a>
+                  </div>
+                </div>
+                <div style="position: relative; clear: both"></div>
               </div>
-              <div class="component-div-title">Screenshots/Media</div>
+              <div class="component-div-title">Evaluation Levels</div>
               <div class="component-div">
                 <div class="detailSection">
-                  <img src="../../media/Picture1.png" class="screenshot" onclick="screenshotPopUp('media/Picture1.png')">
+                  <table>
+                    <tbody><tr>
+                      <td>
+                        <a href="" target="_blank">
+                          <img src="../../images/icon/silk/medal_bronze_1.png" title="Evaluated" width="22" height="22"> 
+                          <span class="conformance_badge">Evaluation</span><br>                   
+                        </a> 
+                      </td>
+                      <td style="padding-left: 20px">
+                        <a href="" target="_blank">
+                          <img src="../../images/icon/silk/medal_silver_1.png" title="Evaluated" width="22" height="22"> 
+                          <span class="conformance_badge">Conformance Testing</span><br>                    
+                        </a>                  
+                      </td>
+                      <td style="padding-left: 20px">
+                        <a href="" target="_blank">
+                          <img src="../../images/icon/silk/medal_gold_1.png" title="Evaluated" width="22" height="22"> 
+                          <span class="conformance_badge">Reference Integration</span><br>                    
+                        </a>                  
+                      </td>
+                    </tr>
+                  </tbody></table>              
                 </div>
               </div>
-              <div class="component-div-title">Details</div>
+              <div class="component-div-title">Relations</div>
               <div class="component-div">
-                <table class="table table-striped table-bordered">
-                  <tr>
-                    <th style="width: 180px">Resource Type</th>
-                    <td>{{details.type}}</td>
-                  </tr>
-                  <tr>
-                    <th style="width: 180px">Metadata Date</th>
-                    <td>{{details.releaseDate}}</td>
-                  </tr>
-                  <tr>
-                    <th style="width: 180px">Metadata Created Date</th>
-                    <td>{{details.postDate}}</td>
-                  </tr>
-                  <tr>
-                    <th style="width: 180px">Metadata Updated Date</th>
-                    <td>{{details.updateDate}}</td>
-                  </tr>
-                  <tr>
-                    <th style="width: 180px">Reference Date(s)</th>
-                    <td>5 Minutes</td>
-                  </tr>
-                  <tr>
-                    <th style="width: 180px">Access Level</th>
-                    <td>WWW, SIPR, JSWIC</td>
-                  </tr>
-                  <tr>
-                    <th style="width: 180px">ITAR Export Approved</th>
-                    <td>No</td>
-                  </tr>
-                  <tr>
-                    <th style="width: 180px">C&amp;A</th>
-                    <td>Available</td>
-                  </tr>
-                </table>
-              </div>
-              <div class="component-div-title">Comments</div>
-              <div class="component-div">
-                <div style="padding:20px;">
-                  <table width="100%">
-                    <tbody><tr>
-                      <th></th>
-                      <th align="left">Great!</th>
+                <div>
+                  <h3>
+                    Component Of:
+                  </h3>
+                  <div data-ng-repeat="thing in details.componentOf">
+                    <a  href="">{{thing.name}}</a>
+                  </div>
+                  <h3>
+                    Sub-Component Of:</h3>
+                    <div data-ng-repeat="thing in details.subComponents">
+                      <a  href="">{{thing.name}}</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="component-div-title">Screenshots/Media</div>
+                <div class="component-div">
+                  <div class="detailSection">
+                    <img src="../../media/Picture1.png" class="screenshot" onclick="screenshotPopUp('media/Picture1.png')">
+                  </div>
+                </div>
+                <div class="component-div-title">Details</div>
+                <div class="component-div">
+                  <table class="table table-striped table-bordered">
+                    <tr>
+                      <th style="width: 180px">Resource Type</th>
+                      <td>{{details.type}}</td>
                     </tr>
                     <tr>
-                      <td width="150px" valign="top">                   
-                        <raty class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="{{details.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-                        </raty>
-                        
-                        Ted Jones - Developer<br>
-                        3 months + experience<br>
-                      </td>
-                      <td valign="top">
-                        This was just what I was looking for!  It's well organized and easy to read.
-                      </td>
-                      <td width="10%">
-                        03/14/2014
-                      </td><td>  
-                    </td></tr>
-                  </tbody></table>
-                  <hr>
-                  <h3>Your Feeback</h3>             
-                  Rating: <select><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><br>
-                  Experience with this component?  <select><option>Never used</option><option> &lt; 1 month</option><option>3 months + </option><option>6 months +</option><option>over 1 year</option></select><br>                          
-                  Your Role?  <select><option>Consumer</option><option>Developer</option><option>Program Manager</option><option>Other</option></select><br>                          
-                  Comments<br>
-                  <textarea cols="60"></textarea><br>
-                  <button>Post</button> 
+                      <th style="width: 180px">Metadata Date</th>
+                      <td>{{details.releaseDate}}</td>
+                    </tr>
+                    <tr>
+                      <th style="width: 180px">Metadata Created Date</th>
+                      <td>{{details.postDate}}</td>
+                    </tr>
+                    <tr>
+                      <th style="width: 180px">Metadata Updated Date</th>
+                      <td>{{details.updateDate}}</td>
+                    </tr>
+                    <tr>
+                      <th style="width: 180px">Reference Date(s)</th>
+                      <td>5 Minutes</td>
+                    </tr>
+                    <tr>
+                      <th style="width: 180px">Access Level</th>
+                      <td>WWW, SIPR, JSWIC</td>
+                    </tr>
+                    <tr>
+                      <th style="width: 180px">ITAR Export Approved</th>
+                      <td>No</td>
+                    </tr>
+                    <tr>
+                      <th style="width: 180px">C&amp;A</th>
+                      <td>Available</td>
+                    </tr>
+                  </table>
                 </div>
-              </div>
-              <div class="component-div-title">Related Components</div>
-              <div class="component-div">
-                <div id="commentsDiv" class="detailSection">
-                  <div data-ng-repeat="thing in details.relatedAssets">
-                    <a  href="">{{thing.name}}</a><br>
-                  </div>
+                <div class="component-div-title">Comments</div>
+                <div class="component-div">
+                  <div style="padding:20px;">
+                    <table width="100%">
+                      <tbody><tr>
+                        <th></th>
+                        <th align="left">Great!</th>
+                      </tr>
+                      <tr>
+                        <td width="150px" valign="top">                   
+                          <raty class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="{{details.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+                          </raty>
 
-                  <i>(LINKS TO RELATED COMPONENTS  - determine by system based on Tags) </i>
+                          Ted Jones - Developer<br>
+                          3 months + experience<br>
+                        </td>
+                        <td valign="top">
+                          This was just what I was looking for!  It's well organized and easy to read.
+                        </td>
+                        <td width="10%">
+                          03/14/2014
+                        </td><td>  
+                      </td></tr>
+                    </tbody></table>
+                    <hr>
+                    <h3>Your Feeback</h3>             
+                    Rating: <select><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><br>
+                    Experience with this component?  <select><option>Never used</option><option> &lt; 1 month</option><option>3 months + </option><option>6 months +</option><option>over 1 year</option></select><br>                          
+                    Your Role?  <select><option>Consumer</option><option>Developer</option><option>Program Manager</option><option>Other</option></select><br>                          
+                    Comments<br>
+                    <textarea cols="60"></textarea><br>
+                    <button>Post</button> 
+                  </div>
+                </div>
+                <div class="component-div-title">Related Components</div>
+                <div class="component-div">
+                  <div id="commentsDiv" class="detailSection">
+                    <div data-ng-repeat="thing in details.relatedAssets">
+                      <a  href="">{{thing.name}}</a><br>
+                    </div>
+
+                    <i>(LINKS TO RELATED COMPONENTS  - determine by system based on Tags) </i>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="pt-message">
+          <p>Your browser does not support CSS animations.<i class="fa fa-times-circle pull-right" style="font-size: 24px; margin: 17px 20px; cursor:pointer" onclick="$('.pt-message').css('display', 'none')"></i></p>        
+        </div>
       </div>
 
-      <div class="pt-message">
-        <p>Your browser does not support CSS animations.<i class="fa fa-times-circle pull-right" style="font-size: 24px; margin: 17px 20px; cursor:pointer" onclick="$('.pt-message').css('display', 'none')"></i></p>        
-      </div>
-    </div>
 
+      <script type="text/javascript" src="../../js/app.js"></script>
+      <script type="text/javascript" src="../../js/services/localCache.js"></script>
+      <script type="text/javascript" src="../../js/services/storefrontBusiness.js"></script>
 
-    <script type="text/javascript" src="../../js/app.js"></script>
-    <script type="text/javascript" src="../../js/services/localCache.js"></script>
-    <script type="text/javascript" src="../../js/services/storefrontBusiness.js"></script>
+      <script type="text/javascript" src="../../js/directives/rating.js"></script>
 
-    <script type="text/javascript" src="../../js/directives/rating.js"></script>
+      <script type="text/javascript" src="../../js/common/data.js"></script>
+      <script type="text/javascript" src="../../js/common/raty-2.5.2/lib/jquery.raty.js"></script>
+      <script type="text/javascript" src="../../modules/results/results.js"></script>
+      <script type="text/javascript" src="../../js/common/data.js"></script>
+      <script type="text/javascript" src="../../js/common/models.js"></script>
+      <script type="text/javascript" src="../../js/common/stores.js"></script>
+      <script type="text/javascript" src="../../js/common/modernizr.custom.js"></script>
+      <script type="text/javascript" src="../../js/common/jquery.dlmenu.js"></script>
+      <script type="text/javascript" src="../../js/common/pagetransitions.js"></script>
+      <script type="text/javascript" src="https://jira.di2e.net/s/d41d8cd98f00b204e9800998ecf8427e/en_US-4u1hwv-1988229788/6261/8/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=fc4dac85"></script>
+    </body>
 
-    <script type="text/javascript" src="../../js/common/data.js"></script>
-    <script type="text/javascript" src="../../js/common/raty-2.5.2/lib/jquery.raty.js"></script>
-    <script type="text/javascript" src="../../modules/results/results.js"></script>
-    <script type="text/javascript" src="../../js/common/data.js"></script>
-    <script type="text/javascript" src="../../js/common/models.js"></script>
-    <script type="text/javascript" src="../../js/common/stores.js"></script>
-    <script type="text/javascript" src="../../js/common/modernizr.custom.js"></script>
-    <script type="text/javascript" src="../../js/common/jquery.dlmenu.js"></script>
-    <script type="text/javascript" src="../../js/common/pagetransitions.js"></script>
-    <script type="text/javascript" src="https://jira.di2e.net/s/d41d8cd98f00b204e9800998ecf8427e/en_US-4u1hwv-1988229788/6261/8/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=fc4dac85"></script>
-  </body>
-
-  </html> 
+    </html> 
