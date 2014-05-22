@@ -99,25 +99,18 @@ var PageTransitions = (function() {
     var $nextPage = $pages.eq( current ).addClass( 'pt-page-current' ),
     outClass = '', inClass = '';
     var move = $(window).width();
-    var trigger = false;
-    if (move < 768)
-    {
-      trigger = true;
-      move = move + 300;
-    }
-    else{
-      if (trigger = true)
-        move = move - 300;
-    }
-    switch( animation ) {
 
+      console.log("move", move);
+    switch( animation ) {
+      
       case 1:
       outClass = 'pt-page-moveToLeft';
       inClass = 'pt-page-moveFromRight';
       $('#showPageRight').css("left", move+"px");
       $('#showPageRight').css("right", "auto");
       $('#showPageRight').toggleClass('current').animate({
-        left: "-="+(move - 300)+'px'
+        left: "300px",
+        right: ""
           // left: "-="+move,
         }, 200, function() {
           $('#showPageRight').html("<i class='fa fa-caret-right'></i>")
@@ -131,7 +124,8 @@ var PageTransitions = (function() {
       $('#showPageRight').css("left", "auto");
       $('#showPageRight').css("right", (move - 300)+"px");
       $('#showPageRight').toggleClass('current').animate({
-        right: "-="+(move - 300)+'px'
+        right: "0px",
+        left: $('#page1').width + 'px'
       }, 200, function() {
         $('#showPageRight').html("<i class='fa fa-caret-left'></i>")
       });
