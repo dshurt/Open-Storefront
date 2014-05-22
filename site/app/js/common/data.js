@@ -335,7 +335,7 @@ MOCKDATA.assets = {
   "id": 71,
   "guid": "BA234D54-955F-2A7E-65A8-997712E46FD2",
   "name": "Bandit OZONE Widget",
-  "description": "Vehicula aliquet libero. Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum. Mollis nec, cursus a, enim. Suspendisse aliquet, sem ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros turpis non enim. Mauris quis turpis vitae purus gravida sagittis. Duis gravida. Praesent eu nulla at sem molestie sodales. Mauris blandit enim consequat purus..",
+  "description": "Vehicula aliquet libero Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum. Mollis nec, cursus a, enim. Suspendisse aliquet, sem ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros turpis non enim. Mauris quis turpis vitae purus gravida sagittis. Duis gravida. Praesent eu nulla at sem molestie sodales. Mauris blandit enim consequat purus..",
   "owner": "Semper Rutrum Fusce LLP",
   "type": "WIDGET",
   "stats": {
@@ -506,7 +506,7 @@ MOCKDATA.assets = {
   "id": 72,
   "guid": "324D7C4A-D726-AE19-1EB0-9CDCACF07232",
   "name": "Risus Software Library",
-  "description": "Facilisi. Sed neque. Sed eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis non, cursus non, egestas a, dui. Cras pellentesque. Sed dictum. Proin eget odio. Aliquam vulputate ullamcorper magna. Sed eu eros. Nam consequat dolor vitae dolor. Donec fringilla. Donec feugiat metus sit amet ante. Vivamus non lorem vitae odio sagittis semper. Nam tempor diam dictum sapien. Aenean massa. Integer vitae nibh. Donec est mauris, rhoncus id, mollis nec, cursus a, enim. Suspendisse aliquet, sem ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros turpis non",
+  "description": "Facilisi Sed neque Sed eget lacus Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis non, cursus non, egestas a, dui. Cras pellentesque. Sed dictum. Proin eget odio. Aliquam vulputate ullamcorper magna. Sed eu eros. Nam consequat dolor vitae dolor. Donec fringilla. Donec feugiat metus sit amet ante. Vivamus non lorem vitae odio sagittis semper. Nam tempor diam dictum sapien. Aenean massa. Integer vitae nibh. Donec est mauris, rhoncus id, mollis nec, cursus a, enim. Suspendisse aliquet, sem ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros turpis non",
   "owner": "Eu Metus Company",
   "type": "SOFTLIB",
   "stats": {

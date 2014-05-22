@@ -215,6 +215,7 @@
                       {{item.name}}
                     </div>
                     <div class="results-content-description">
+                      <raty id="star{{$index}}" score="1" number="5" path="../../js/common/raty-2.5.2/lib/img"></raty>
                       {{item.shortdescription}}
                     </div>
                   </div>
@@ -420,7 +421,10 @@
   <script type="text/javascript" src="../../js/services/localCache.js"></script>
   <script type="text/javascript" src="../../js/services/storefrontBusiness.js"></script>
 
+  <script type="text/javascript" src="../../js/directives/rating.js"></script>
+
   <script type="text/javascript" src="../../js/common/data.js"></script>
+  <script type="text/javascript" src="../../js/common/raty-2.5.2/lib/jquery.raty.js"></script>
   <script type="text/javascript" src="../../modules/results/results.js"></script>
   <script type="text/javascript" src="../../js/common/data.js"></script>
   <script type="text/javascript" src="../../js/common/models.js"></script>
