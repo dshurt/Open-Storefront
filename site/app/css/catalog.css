@@ -117,7 +117,7 @@
 }
 
 .defaultSpacer{
-  margin-bottom: -20px;
+  margin-bottom: 298px;
 }
 
 .search{
@@ -214,10 +214,12 @@ a{
 }
 
 #page1{
-  padding-top: 92px;
   overflow: auto;
   visibility: inherit;
-  position: inherit;
+  /*position: inherit;*/
+}
+#page1 .pt-page-2-container{
+  border-top: 1px solid lightgray;
 }
 
 
@@ -340,3 +342,6 @@ input[type=checkbox]:checked + label{
   width: 300px;
 }
 
+.atlwdg-trigger{
+  z-index: 1012;
+}
