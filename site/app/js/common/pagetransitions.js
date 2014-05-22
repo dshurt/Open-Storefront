@@ -99,7 +99,16 @@ var PageTransitions = (function() {
     var $nextPage = $pages.eq( current ).addClass( 'pt-page-current' ),
     outClass = '', inClass = '';
     var move = $(window).width();
-    
+    var trigger = false;
+    if (move < 768)
+    {
+      trigger = true;
+      move = move + 300;
+    }
+    else{
+      if (trigger = true)
+        move = move - 300;
+    }
     switch( animation ) {
 
       case 1:
@@ -108,7 +117,7 @@ var PageTransitions = (function() {
       $('#showPageRight').css("left", move+"px");
       $('#showPageRight').css("right", "auto");
       $('#showPageRight').toggleClass('current').animate({
-        left: "-="+(move - 300)
+        left: "-="+(move - 300)+'px'
           // left: "-="+move,
         }, 200, function() {
           $('#showPageRight').html("<i class='fa fa-caret-right'></i>")
@@ -122,7 +131,7 @@ var PageTransitions = (function() {
       $('#showPageRight').css("left", "auto");
       $('#showPageRight').css("right", (move - 300)+"px");
       $('#showPageRight').toggleClass('current').animate({
-        right: "-="+(move - 300)
+        right: "-="+(move - 300)+'px'
       }, 200, function() {
         $('#showPageRight').html("<i class='fa fa-caret-left'></i>")
       });
@@ -179,8 +188,8 @@ $(window).scroll(function(){
     windowChange1 = false;
   }
   if($(window).scrollTop() > elementPosition.top){
-    $('.filters').css({'position':'fixed',/*'top':'0px'*/});
-    $('.filtersOverride').css({'height': '100%'})
+  $('.filters').css({'position':'fixed',/*'top':'0px'*/});
+  $('.filtersOverride').css({'height': '100%'})
     // $('#page2').css({'height': windowHeight + 'px', 'top': '-52px' })
   } else {
     var offset = (0 - ($(window).scrollTop() - elementPosition.top))
@@ -203,20 +212,20 @@ $(document).ready(function(){
   if($(window).scrollTop() > elementPosition.top){
     $('.filters').css({'position':'fixed','top':'0px'});
     $('.filtersOverride').css({'height': '100%'})
-    $('#page2').css({'height': windowHeight + 'px', /*'top': '-52px' */})
-  } else {
-    var offset = (0 - ($(window).scrollTop() - elementPosition.top))
-    var height = $(window).height() - offset;
-    $('.filters').css({'position':'absolute', 'top':'52px'});
-    $('.filtersOverride').css({'height': height + 'px'})
-    $('#page2').css({'height': height + 'px', 'top': /*(0 - (52 - offset)) + 'px'*/ '52px'})
-  }    
-  $(window).resize(function(){
-    windowChange1 = true;
-    windowChange2 = true;
-    windowHeight = $(window).height();
-    var elementPosition = $('.filters').offset();
-    if($(window).scrollTop() > elementPosition.top){
+  $('#page2').css({'height': windowHeight + 'px', /*'top': '-52px' */})
+} else {
+  var offset = (0 - ($(window).scrollTop() - elementPosition.top))
+  var height = $(window).height() - offset;
+  $('.filters').css({'position':'absolute', 'top':'52px'});
+  $('.filtersOverride').css({'height': height + 'px'})
+  $('#page2').css({'height': height + 'px', 'top': /*(0 - (52 - offset)) + 'px'*/ '52px'})
+}    
+$(window).resize(function(){
+  windowChange1 = true;
+  windowChange2 = true;
+  windowHeight = $(window).height();
+  var elementPosition = $('.filters').offset();
+  if($(window).scrollTop() > elementPosition.top){
       // $('.filters').css({'position':'fixed','top':'0px'});
       // $('.filtersOverride').css({'height': '100%'})
       // $('#page2').css({'height': windowHeight + 'px', 'top': '-52px' })
@@ -228,79 +237,84 @@ $(document).ready(function(){
       // $('#page2').css({'height': height + 'px', 'top': (0 - (52 - offset)) + 'px'})
     }    
   });
-  var toggled = true;
+var toggled = false;
+if ($(window).width() > 767)
+{
+  toggled = true;
   showFilters();
-  $("#showFilters").on("click", function(){
-    if (!toggled){
-      toggled = true;
-      showFilters();
-    }
-    else {
-      toggled = false;
-      hideFilters();
-    }
-  });
-  function showFilters(){
-    $('.filters').toggleClass("filtersOverride");
-    $( '.filterButton' ).animate({
-      right: "+=100px",
-      width: "300px"
-    }, 300, function() {
-    });
-    $( '.filtersOverride' ).animate({
-      left: "+=300px"
-    }, 300, function() {
-      $('#showFilters').html("Filters <i class='fa fa-caret-left'></i>");
-    });
-    $( '#pt-main' ).animate({
-      'padding-left': "+=300px"
-    }, 200, function() {
-      $( '#page1' ).animate({
-        'padding-top': "-=40px"
-      }, 100, function() {
-      });
-    });
-    $(".pt-page-2").animate({
-      'padding-left': '+=300px',
-    }, 200, function(){
-    });
-    $( '#showPageRight' ).animate({
-      'margin-left': "+=300px"
-    }, 200, function() {
-    });
-    PageTransitions.init();
+}
+$("#showFilters").on("click", function(){
+  if (!toggled){
+    toggled = true;
+    showFilters();
   }
-  function hideFilters(){
-    $( '.filterButton' ).animate({
-      right: "-=100px",
-      width: "100px"
-    }, 300, function() {
-    });
-    $( '.filtersOverride' ).animate({
-      left: "-=300px"
-    }, 300, function() {
-      $('#showFilters').html("Filters <i class='fa fa-caret-right'></i>");
-      $('.filters').toggleClass("filtersOverride");
-    });
+  else {
+    toggled = false;
+    hideFilters();
+  }
+});
+function showFilters(){
+  $('.filters').toggleClass("filtersOverride");
+  $( '.filterButton' ).animate({
+    right: "+=100px",
+    width: "300px"
+  }, 300, function() {
+  });
+  $( '.filtersOverride' ).animate({
+    left: "+=300px"
+  }, 300, function() {
+    $('#showFilters').html("Filters <i class='fa fa-caret-left'></i>");
+  });
+  $( '#pt-main' ).animate({
+    'padding-left': "+=300px"
+  }, 200, function() {
     $( '#page1' ).animate({
-      'padding-top': "+=40px"
+      'padding-top': "-=40px"
     }, 100, function() {
-      $( '#pt-main' ).animate({
-        'padding-left': "-=300px"
-      }, 200, function() {
-      });
     });
-    setTimeout(function() {
-      $( '#showPageRight' ).animate({
-        'margin-left': "-=300px"
-      }, 200, function() {
-      });
+  });
+  $(".pt-page-2").animate({
+    'padding-left': '+=300px',
+  }, 200, function(){
+  });
+  $( '#showPageRight' ).animate({
+    'margin-left': "+=300px"
+  }, 200, function() {
+  });
+  PageTransitions.init();
+}
+function hideFilters(){
+
+  $( '.filterButton' ).animate({
+    right: "-=100px",
+    width: "100px"
+  }, 300, function() {
+  });
+  $( '.filtersOverride' ).animate({
+    left: "-=300px"
+  }, 300, function() {
+    $('#showFilters').html("Filters <i class='fa fa-caret-right'></i>");
+    $('.filters').toggleClass("filtersOverride");
+  });
+  $( '#page1' ).animate({
+    'padding-top': "+=40px"
+  }, 100, function() {
+    $( '#pt-main' ).animate({
+      'padding-left': "-=300px"
+    }, 200, function() {
+    });
+  });
+  setTimeout(function() {
+    $( '#showPageRight' ).animate({
+      'margin-left': "-=300px"
+    }, 200, function() {
+    });
     $(".pt-page-2").animate({
       'padding-left': '-=300px',
     }, 200, function(){
     });
-    }, 100);
-    PageTransitions.init();
-  }
+  }, 100);
+  PageTransitions.init();
+}
 
 });

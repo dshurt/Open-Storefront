@@ -28,8 +28,18 @@
   .fixed-on-small{
     position: fixed;
   }
+  .pt-page-2{
+    margin-left: 0px !important;
+    width: 100% !important;
+    z-index: 1011 !important;
+  }
+  #showPageRight.current{
+    left: 0px !important;
+  }
 
-
+  .pt-page-1.pt-page-not-current{
+    display: none !important;
+  }
   .container-fluid{
     padding: 0px;
   } 
