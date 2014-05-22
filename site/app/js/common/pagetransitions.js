@@ -113,7 +113,10 @@ var PageTransitions = (function() {
     var leftOffset = 300;
     var rightOffset = 0;
     if (toggled){
-          leftOffset = 600;
+      if (move < 768)
+        leftOffset = 0;
+      else
+        leftOffset = 600;
     }
     switch( animation ) {
       case 1:
