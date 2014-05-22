@@ -54,12 +54,8 @@ var PageTransitions = (function() {
     $(document).ready(function(){
       $(".showPageLeftToggle").each(function() {
         $(this).on( 'click', function() {
-          console.log("This", $(this).attr('id'));
-          console.log("history", history);
           
           if( isAnimating || ( history !=='' && history !== $(this).attr('id') ) ) { // if the history is not the same, don't animate
-            console.log("historyChange");
-          console.log("isPage1", isPage1);
           
             if (isPage1 && !isAnimating) { // unless the page is closed
               animate();
