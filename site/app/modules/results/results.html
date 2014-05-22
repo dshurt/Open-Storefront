@@ -44,66 +44,66 @@
       </button>
     </div>
     <!-- begin User Profile Modal -->
-          <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="myModalLabel">User Profile</h4>
-                </div>
-                <div class="modal-body">
-                  <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Name</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputName3" placeholder="First and Last Name">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Role</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputRole" placeholder="Role">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Member Since</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputMemberSince" placeholder="Member Since">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-                      <div class="col-sm-9">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                      </div>
-                    </div>
-                  </form>
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">User Profile</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Name</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputName3" placeholder="First and Last Name">
                 </div>
               </div>
-            </div>
-          </div>
-          <!-- end User Profile Modal -->
-          <!-- begin User Profile Modal -->
-          <div class="modal fade" id="basicFeedback" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="myModalLabel">Feedback Modal Stub</h4>
-                </div>
-                <div class="modal-body">
-                  <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
-                      <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
-                      <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
-                    </div>
-                  </form>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Role</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputRole" placeholder="Role">
                 </div>
               </div>
-            </div>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Member Since</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputMemberSince" placeholder="Member Since">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+              </div>
+            </form>
           </div>
-          <!-- end User Feedback Modal -->
+        </div>
+      </div>
+    </div>
+    <!-- end User Profile Modal -->
+    <!-- begin User Profile Modal -->
+    <div class="modal fade" id="basicFeedback" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Feedback Modal Stub</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
+                <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
+                <label for="inputEmail3" class="col-sm-12 ">Place CRUD Feedback items here</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end User Feedback Modal -->
     <div class="top">
       <div class="navbar navbar-default navigation"> 
         <div class="container-fluid">
@@ -204,29 +204,32 @@
 
     <div id="pt-main" class="pt-perspective" >
       <div class="pt-page pt-page-1 table-responsive"  id="page1">
-        <!-- TODO:: MAKE ME RESPONSIVE! -->
-        <table class="table table-striped" id="resultsTable">
-          <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this"  style="margin-bottom: 20px;">
-            <td style="white-space: inherit;">
-              <div class="container-fluid">
-                <div class="row" style="margin-left: 0px; margin-right: 0px">
-                  <div class="results-content">
-                    <div class="results-content-title">
-                      <div class="showPageLeft" ng-click="updateDetails(item.id)" id="{{item.id}}">
-                        {{item.name}}
+        <div class="pt-page-2-container">
+          <!-- TODO:: MAKE ME RESPONSIVE! -->
+          <table class="table table-striped" id="resultsTable">
+            <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this"  style="margin-bottom: 20px;">
+              <td style="white-space: inherit;">
+                <div class="container-fluid">
+                  <div class="row" style="margin-left: 0px; margin-right: 0px">
+                    <div class="results-content">
+                      <div class="results-content-title">
+                        <div class="showPageLeft" ng-click="updateDetails(item.id)" id="{{item.id}}">
+                          {{item.name}}
+                        </div>
+                        <raty ng-class='{in:$last}' class="pull-left" id="star{{$index}}" style="min-width:105px; height: 100%; margin: -6px 10px -4px 0px;" score="{{item.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Average rating: {{item.stats.averageRating}} of {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
                       </div>
-                      <raty ng-class='{in:$last}' class="pull-left" id="star{{$index}}" style="min-width:105px; height: 100%; margin: -6px 10px -4px 0px;" score="{{item.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Average rating: {{item.stats.averageRating}} of {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
-                    </div>
-                    <div class="results-content-description">
-                      {{item.shortdescription}}
+                      <div class="results-content-description">
+                        {{item.shortdescription}}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-        <!--  -->
+              </td>
+            </tr>
+
+          </table>
+          <!--  -->
+        </div>
       </div>
       <div class="pt-page pt-page-2" id="page2">
         <div class="pt-page-2-container">

@@ -117,7 +117,7 @@
 }
 
 .defaultSpacer{
-  margin-bottom: -20px;
+  margin-bottom: 298px;
 }
 
 .search{
@@ -214,10 +214,9 @@ a{
 }
 
 #page1{
-  padding-top: 92px;
   overflow: auto;
   visibility: inherit;
-  position: inherit;
+  /*position: inherit;*/
 }
 
 
