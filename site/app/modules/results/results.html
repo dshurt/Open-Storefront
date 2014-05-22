@@ -174,7 +174,7 @@
             <th class="filtersTd" ng-click="toggleTypeChecks()">Type</th>
             <tr class="filtersTr" data-ng-repeat="type in dataTypes">
               <td class="filtersTd">
-                <div class="checkbox filterCheckbox"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
+                <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
               </td>
             </tr>
           </table>
@@ -184,7 +184,7 @@
             <th class="filtersTd" ng-click="toggleCategoryChecks()">Category</th>
             <tr class="filtersTr" data-ng-repeat="type in categoryTypes">
               <td class="filtersTd">
-                <div class="checkbox filterCheckbox"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
+                <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
               </td>
             </tr>
           </table>
@@ -194,7 +194,7 @@
             <th class="filtersTd" ng-click="toggleStateChecks()">State</th>
             <tr class="filtersTr" data-ng-repeat="type in stateTypes">
               <td class="filtersTd">
-                <div class="checkbox filterCheckbox"><input type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
+                <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
               </td>
             </tr>
           </table>

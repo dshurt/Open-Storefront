@@ -75,6 +75,12 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
     }
   }
 
+  $scope.resetPageTransition = function(){
+    $timeout(function() {
+      PageTransitions.init();
+    }, 20);
+  }
+
 }]);
 
 app.filter('typeFilter', function() {
@@ -96,7 +102,6 @@ app.filter('typeFilter', function() {
       if(_.contains(scope.searchType, input[i].type))
         out.push(input[i]);
     }      
-    PageTransitions.init();
     return out;
   };
 });
@@ -123,7 +128,6 @@ app.filter('categoryFilter', function() {
       });
     });  
     out = _.uniq(out);    
-    PageTransitions.init();
     return out;
   };
 });
@@ -152,7 +156,6 @@ app.filter('stateFilter', function() {
       if(_.contains(results, input[i].conformanceState.toString().toLowerCase()))
         out.push(input[i]);
     }      
-    PageTransitions.init();
     return out;
   };
 });
