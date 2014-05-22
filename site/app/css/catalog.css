@@ -17,7 +17,10 @@
   text-overflow: ellipsis;
 }
 .top{
-  position: relative;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   z-index: 1010;
 }
 .navigation{
@@ -211,7 +214,7 @@ a{
 }
 
 #page1{
-  padding-top: 40px;
+  padding-top: 92px;
   overflow: auto;
   visibility: inherit;
   position: inherit;

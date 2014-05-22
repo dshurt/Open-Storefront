@@ -179,15 +179,15 @@ $(window).scroll(function(){
     windowChange1 = false;
   }
   if($(window).scrollTop() > elementPosition.top){
-    $('.filters').css({'position':'fixed','top':'0px'});
+    $('.filters').css({'position':'fixed',/*'top':'0px'*/});
     $('.filtersOverride').css({'height': '100%'})
-    $('#page2').css({'height': windowHeight + 'px', 'top': '-52px' })
+    // $('#page2').css({'height': windowHeight + 'px', 'top': '-52px' })
   } else {
     var offset = (0 - ($(window).scrollTop() - elementPosition.top))
     var height = $(window).height() - offset;
     $('.filters').css({'position':'absolute', 'top':'52px'});
-    $('.filtersOverride').css({'height': height + 'px'})
-    $('#page2').css({'height': height + 'px', 'top': (0 - (52 - offset)) + 'px'})
+    // $('.filtersOverride').css({'height': height + 'px'})
+    // $('#page2').css({'height': height + 'px', 'top': (0 - (52 - offset)) + 'px'})
   }
 });
 $(document).ready(function(){
@@ -203,13 +203,13 @@ $(document).ready(function(){
   if($(window).scrollTop() > elementPosition.top){
     $('.filters').css({'position':'fixed','top':'0px'});
     $('.filtersOverride').css({'height': '100%'})
-    $('#page2').css({'height': windowHeight + 'px', 'top': '-52px' })
+    $('#page2').css({'height': windowHeight + 'px', /*'top': '-52px' */})
   } else {
     var offset = (0 - ($(window).scrollTop() - elementPosition.top))
     var height = $(window).height() - offset;
     $('.filters').css({'position':'absolute', 'top':'52px'});
     $('.filtersOverride').css({'height': height + 'px'})
-    $('#page2').css({'height': height + 'px', 'top': (0 - (52 - offset)) + 'px'})
+    $('#page2').css({'height': height + 'px', 'top': /*(0 - (52 - offset)) + 'px'*/ '52px'})
   }    
   $(window).resize(function(){
     windowChange1 = true;
@@ -217,15 +217,15 @@ $(document).ready(function(){
     windowHeight = $(window).height();
     var elementPosition = $('.filters').offset();
     if($(window).scrollTop() > elementPosition.top){
-      $('.filters').css({'position':'fixed','top':'0px'});
-      $('.filtersOverride').css({'height': '100%'})
-      $('#page2').css({'height': windowHeight + 'px', 'top': '-52px' })
+      // $('.filters').css({'position':'fixed','top':'0px'});
+      // $('.filtersOverride').css({'height': '100%'})
+      // $('#page2').css({'height': windowHeight + 'px', 'top': '-52px' })
     } else {
-      var offset = (0 - ($(window).scrollTop() - elementPosition.top))
-      var height = $(window).height() - offset;
-      $('.filters').css({'position':'absolute', 'top':'52px'});
-      $('.filtersOverride').css({'height': height + 'px'})
-      $('#page2').css({'height': height + 'px', 'top': (0 - (52 - offset)) + 'px'})
+      // var offset = (0 - ($(window).scrollTop() - elementPosition.top))
+      // var height = $(window).height() - offset;
+      // $('.filters').css({'position':'absolute', 'top':'52px'});
+      // $('.filtersOverride').css({'height': height + 'px'})
+      // $('#page2').css({'height': height + 'px', 'top': (0 - (52 - offset)) + 'px'})
     }    
   });
   var toggled = true;

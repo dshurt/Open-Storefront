@@ -215,7 +215,7 @@
                       <div class="showPageLeft" ng-click="updateDetails(item.id)">
                         {{item.name}}
                       </div>
-                      <raty class="pull-left" id="star{{$index}}" style="min-width:105px; height: 100%; margin: -6px 10px -4px 0px;" score="{{item.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Number of ratings: {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
+                      <raty ng-class='{in:$last}' class="pull-left" id="star{{$index}}" style="min-width:105px; height: 100%; margin: -6px 10px -4px 0px;" score="{{item.stats.averageRating}}" number="5" path="../../js/common/raty-2.5.2/lib/img" data-container="body" data-toggle="popover" data-content="Number of ratings: {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
                     </div>
                     <div class="results-content-description">
                       {{item.shortdescription}}
