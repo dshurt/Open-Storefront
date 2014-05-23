@@ -7,6 +7,7 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
   
   // tell the scope whot it is
   $scope._scopename = 'results';
+  $scope.orderProp = '';
 
   // set up some variables
   $scope.pageTitle = "DI2E Storefront Catalog";
@@ -37,6 +38,10 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
     if ($scope.pageNumber > $scope.maxPageNumber)
       $scope.pageNumber = $scope.maxPageNumber;
     $scope.data = $scope.filteredTotal.slice((($scope.pageNumber - 1) * $scope.rowsPerPage), ($scope.pageNumber * $scope.rowsPerPage));
+  });
+
+  $scope.$watch('orderProp',function(val, old){
+    $scope.applyFilters();
   });
 
   $scope.$watch('rowsPerPage',function(val, old){
@@ -95,8 +100,8 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
     }
   }
 
-  $scope.resetPageTransition = function(){
-    $scope.filteredTotal = $filter('stateFilter')($filter('categoryFilter')($filter('typeFilter')($scope.total, $scope), $scope), $scope);
+  $scope.applyFilters = function() {
+    $scope.filteredTotal = $filter('orderBy')($filter('stateFilter')($filter('categoryFilter')($filter('typeFilter')($scope.total, $scope), $scope), $scope), $scope.orderProp);
     $scope.maxPageNumber = $scope.filteredTotal.length / $scope.rowsPerPage;
     if (($scope.pageNumber - 1) * $scope.rowsPerPage <= $scope.filteredTotal.length)
       $scope.pageNumber = 1;
@@ -104,6 +109,9 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
     $timeout(function() {
       PageTransitions.init();
     }, 20);
+  }
+  $scope.resetPageTransition = function(){
+    $scope.applyFilters();
   }
 
 }]);

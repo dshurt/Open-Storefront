@@ -584,93 +584,7 @@ MOCKDATA.assets = {
   }
   ]
 },
-{
-  "id": 11,
-  "guid": "B29BB069-59C7-05A2-37CF-CC460DD7D5F3",
-  "name": "Accumsan App",
-  "description": "Ipsum dolor sit amet, consectetuer adipiscing. Get tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel, venenatis vel, faucibus id, libero. Donec consectetuer mauris id sapien. Cras dolor dolor, tempus non, lacinia at, iaculis quis, pede. Praesent eu dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-  "owner": "Mollis Vitae Posuere Inc.",
-  "type": "APPS",
-  "stats": {
-    "averageRating": 4,
-    "numberRatings": 23,
-    "comments": 1,
-    "views": 152
-  },
-  "primaryLicense": "APACHE2.0",
-  "operationStatus": "Released/Operational",
-  "categories": [
-  {
-    "code": "DATAM",
-    "desc": "Data Management"
-  }
-  ],
-  "conformanceState": "Level 0 - Not assessed",
-  "releasedDate": "05/24/2009",
-  "postDate": "02/26/2014",
-  "updateDate": "02/26/2014",
-  "features": [
-  {
-    "code": null,
-    "desc": "OpenAM compliant"
-  },
-  {
-    "code": null,
-    "desc": "Master IdAM Administration Console"
-  },
-  {
-    "code": null,
-    "desc": "Supports Ozone Widget Framework Implementations"
-  }
-  ],
-  "taxonomies": [
-  {
-    "code": "DATTRANS",
-    "arch": "DI2E-Svc-V4",
-    "desc": "2.5.1.4 Data Transformation"
-  },
-  {
-    "code": "DATVAL",
-    "arch": "DI2E-Svc-V4",
-    "desc": "2.5.1.3 Data Validation"
-  }
-  ],
-  "postedBy": "JONATHAN LAW",
-  "evaluated": false,
-  "tested": false,
-  "integrated": false,
-  "assetTags": [
-  {
-    "code": "IMGSRCH",
-    "desc": "Image Search"
-  },
-  {
-    "code": "DATAV",
-    "desc": "Data Validation"
-  },
-  {
-    "code": "DATAT",
-    "desc": "Data Transformation"
-  },
-  {
-    "code": "APPS",
-    "desc": "Application"
-  }
-  ],
-  "assetIcon": null,
-  "componentOf": [],
-  "subComponents": [],
-  "relatedAssets": [
-  {
-    "assetId": 57,
-    "name": "Risus Developers Cookbook"
-  },
-  {
-    "assetId": 11,
-    "name": "Accumsan App"
-  }
-  ]
-},
+
 {
   "id": 34,
   "guid": "6482B5F8-CB71-E00D-8FA4-16529549EC22",
@@ -1934,6 +1848,93 @@ MOCKDATA.assets = {
 "componentOf": [],
 "subComponents": [],
 "relatedAssets": []
+},
+{
+  "id": 11,
+  "guid": "B29BB069-59C7-05A2-37CF-CC460DD7D5F3",
+  "name": "Accumsan App",
+  "description": "Ipsum dolor sit amet, consectetuer adipiscing. Get tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel, venenatis vel, faucibus id, libero. Donec consectetuer mauris id sapien. Cras dolor dolor, tempus non, lacinia at, iaculis quis, pede. Praesent eu dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+  "owner": "Mollis Vitae Posuere Inc.",
+  "type": "APPS",
+  "stats": {
+    "averageRating": 4,
+    "numberRatings": 23,
+    "comments": 1,
+    "views": 152
+  },
+  "primaryLicense": "APACHE2.0",
+  "operationStatus": "Released/Operational",
+  "categories": [
+  {
+    "code": "DATAM",
+    "desc": "Data Management"
+  }
+  ],
+  "conformanceState": "Level 0 - Not assessed",
+  "releasedDate": "05/24/2009",
+  "postDate": "02/26/2014",
+  "updateDate": "02/26/2014",
+  "features": [
+  {
+    "code": null,
+    "desc": "OpenAM compliant"
+  },
+  {
+    "code": null,
+    "desc": "Master IdAM Administration Console"
+  },
+  {
+    "code": null,
+    "desc": "Supports Ozone Widget Framework Implementations"
+  }
+  ],
+  "taxonomies": [
+  {
+    "code": "DATTRANS",
+    "arch": "DI2E-Svc-V4",
+    "desc": "2.5.1.4 Data Transformation"
+  },
+  {
+    "code": "DATVAL",
+    "arch": "DI2E-Svc-V4",
+    "desc": "2.5.1.3 Data Validation"
+  }
+  ],
+  "postedBy": "JONATHAN LAW",
+  "evaluated": false,
+  "tested": false,
+  "integrated": false,
+  "assetTags": [
+  {
+    "code": "IMGSRCH",
+    "desc": "Image Search"
+  },
+  {
+    "code": "DATAV",
+    "desc": "Data Validation"
+  },
+  {
+    "code": "DATAT",
+    "desc": "Data Transformation"
+  },
+  {
+    "code": "APPS",
+    "desc": "Application"
+  }
+  ],
+  "assetIcon": null,
+  "componentOf": [],
+  "subComponents": [],
+  "relatedAssets": [
+  {
+    "assetId": 57,
+    "name": "Risus Developers Cookbook"
+  },
+  {
+    "assetId": 11,
+    "name": "Accumsan App"
+  }
+  ]
 }
 ]
 };
