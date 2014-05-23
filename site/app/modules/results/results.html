@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="../../css/overrides.css">
   <link rel="stylesheet" href="../../css/pt-page.css">
   <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/results.css">
 
   <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -116,9 +117,8 @@
       </div>
       <!-- end User Feedback Modal -->
       <div class="top">
-        <div class="navbar navbar-default navigation"> 
-          <div class="container-fluid">
-            <div class="navbar-header">
+      <div class="navbar navbar-default navigation container-fluid"> 
+        <div class="row">
               <div>
                 <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
                   <span class="sr-only">User Panel</span>
@@ -129,11 +129,10 @@
                   <i class="fa fa-search"></i>
                 </button>        
               </div>
-              <div>
+            <div class="col-sm-3">
                 <a class="navbar-brand" href="../../../index.html">DI2E <span class="hidden-small">Storefront Catalog</span></a>
               </div>
-            </div>
-            <div class="collapse navbar-collapse pull-right userNavDropdown">
+          <div class="collapse navbar-collapse pull-right userNavDropdown col-sm-3">
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
@@ -150,15 +149,24 @@
             </div><!-- /.userNav-collapse -->
             <!-- </div> -->
 
-            <div class="collapse navbar-collapse center navSearch" id="bs-example-navbar-collapse-1">
-              <form class="navbar-form navbar-left" role="search">
+          <div class="collapse navbar-collapse col-sm-6" id="bs-example-navbar-collapse-1">
+            <div class="row center-nav">
+              <form class="col-sm-12 navbar-form" role="search">
                 <div class="pull-right searchBoxButton">
                   <button type="submit" class="btn btn-default pull-right"><i class="fa fa-search"></i></button>
                 </div>
                 <div class="navSearchBar">
-                  <input type="text" class="form-control " placeholder="Search">
+                  <input type="text" class="form-control " placeholder="Search" ng-model="query">
                 </div>
               </form>
+              <div class="col-sm-4 sorting-menu">
+                <label>Sort by:</label>
+                <select ng-model="orderProp">
+                  <option value="name">Name</option>
+                  <option value="age">Last Update</option>
+                </select>
+              </div>
+            </div>
             </div>
             <div class="collapse navbar-collapse pull-right userNavDropdownHidden" id="bs-example-navbar-collapse-2">
               <ul class="nav navbar-nav navbar-right">
@@ -219,7 +227,7 @@
         <div class="pt-page pt-page-1 table-responsive"  id="page1">
           <div class="pt-page-2-container">
             <table class="table table-striped" id="resultsTable">
-              <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this"  style="margin-bottom: 20px;">
+          <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this | filter:query | orderBy:orderProp"  style="margin-bottom: 20px;">
                 <td style="white-space: inherit;">
                   <div class="container-fluid">
                     <div class="row" style="margin-left: 0px; margin-right: 0px">

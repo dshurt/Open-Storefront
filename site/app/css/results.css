@@ -1,0 +1,14 @@
+@media (min-width: 768px) { 
+	.center-nav {
+	display: table;
+	margin:auto;
+	}
+	.sorting-menu {
+	display: table-cell;
+	vertical-align: middle;
+	float: none;
+	}
+	form.navbar-form {
+		width: 100%;
+	}
+}
