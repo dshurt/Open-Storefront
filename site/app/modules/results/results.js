@@ -75,6 +75,7 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
     _.each(collection, function(item){
       item.checked = master;
     });
+    $scope.applyFilters();
   };
 
 
