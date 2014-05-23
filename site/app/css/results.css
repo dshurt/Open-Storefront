@@ -1,14 +1,35 @@
 @media (min-width: 768px) { 
 	.center-nav {
-	display: table;
-	margin:auto;
+		display: table;
+		margin:auto;
 	}
 	.sorting-menu {
-	display: table-cell;
-	vertical-align: middle;
-	float: none;
+		display: table-cell;
+		vertical-align: middle;
+		float: none;
+		margin-top: 7px;
+		margin-left: -15px;
 	}
 	form.navbar-form {
 		width: 100%;
 	}
+}
+
+@media (min-width: 768px ) and (max-width: 1199px) {
+	.navbar-form {
+		padding-left: 0px;
+		padding-right: 14px;
+	}
+	.sorting-menu {
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	.navbar-brand {
+		padding: 15px 5px;
+		font-size: 14px;
+	}
+}
+
+.sorting-menu {
+	margin-bottom: 10px;
 }
