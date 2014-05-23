@@ -374,3 +374,7 @@ input[type=checkbox]:checked + label{
   -ms-user-select: none;
   user-select: none;
 }
+
+.lastFilter{
+  padding-bottom: 40px;
+}
