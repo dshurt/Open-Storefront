@@ -149,7 +149,7 @@
             </div><!-- /.userNav-collapse -->
             <!-- </div> -->
 
-          <div class="collapse navbar-collapse col-sm-6" id="bs-example-navbar-collapse-1">
+          <div class="collapse navbar-collapse col-sm-6 userNavDropdownHidden" id="bs-example-navbar-collapse-1">
             <div class="row center-nav">
               <form class="col-sm-12 navbar-form" role="search">
                 <div class="pull-right searchBoxButton">
@@ -160,8 +160,8 @@
                 </div>
               </form>
               <div class="col-sm-4 sorting-menu">
-                <label>Sort by:</label>
                 <select ng-model="orderProp">
+                  <option class="hidden-lg" selected disabled value="" hidden>Sort By</option>
                   <option value="name">Name</option>
                   <option value="age">Last Update</option>
                 </select>
@@ -517,7 +517,7 @@
       <script type="text/javascript" src="../../js/common/modernizr.custom.js"></script>
       <script type="text/javascript" src="../../js/common/jquery.dlmenu.js"></script>
       <script type="text/javascript" src="../../js/common/pagetransitions.js"></script>
-      <script type="text/javascript" src="https://jira.di2e.net/s/d41d8cd98f00b204e9800998ecf8427e/en_US-4u1hwv-1988229788/6261/8/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=fc4dac85"></script>
+      <!--<script type="text/javascript" src="https://jira.di2e.net/s/d41d8cd98f00b204e9800998ecf8427e/en_US-4u1hwv-1988229788/6261/8/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=fc4dac85"></script>-->
     </body>
 
     </html> 
