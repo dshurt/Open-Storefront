@@ -117,22 +117,22 @@
       </div>
       <!-- end User Feedback Modal -->
       <div class="top">
-      <div class="navbar navbar-default navigation container-fluid"> 
-        <div class="row">
-              <div>
-                <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                  <span class="sr-only">User Panel</span>
-                  <span>Jimmy tester <b class="caret"></b></span>
-                </button>
-                <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle Search</span>
-                  <i class="fa fa-search"></i>
-                </button>        
-              </div>
+        <div class="navbar navbar-default navigation container-fluid"> 
+          <div class="row">
+            <div>
+              <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                <span class="sr-only">User Panel</span>
+                <span>Jimmy tester <b class="caret"></b></span>
+              </button>
+              <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle Search</span>
+                <i class="fa fa-search"></i>
+              </button>        
+            </div>
             <div class="col-sm-3">
-                <a class="navbar-brand" href="../../../index.html">DI2E <span class="hidden-small">Storefront Catalog</span></a>
-              </div>
-          <div class="collapse navbar-collapse pull-right userNavDropdown col-sm-3">
+              <a class="navbar-brand" href="../../../index.html">DI2E <span class="hidden-small">Storefront Catalog</span></a>
+            </div>
+            <div class="collapse navbar-collapse pull-right userNavDropdown col-sm-3">
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
@@ -149,24 +149,47 @@
             </div><!-- /.userNav-collapse -->
             <!-- </div> -->
 
-          <div class="collapse navbar-collapse col-sm-6 userNavDropdownHidden" id="bs-example-navbar-collapse-1">
-            <div class="row center-nav">
-              <form class="col-sm-12 navbar-form" role="search">
-                <div class="pull-right searchBoxButton">
-                  <button type="submit" class="btn btn-default pull-right"><i class="fa fa-search"></i></button>
-                </div>
-                <div class="navSearchBar">
-                  <input type="text" class="form-control " placeholder="Search" ng-model="query">
-                </div>
-              </form>
-              <div class="col-sm-4 sorting-menu">
-                <select ng-model="orderProp">
-                  <option class="hidden-lg" selected disabled value="" hidden>Sort By</option>
-                  <option value="name">Name</option>
-                  <option value="age">Last Update</option>
+            <!-- Placeholder for the pagination controls -->
+            <div >
+              <div class="col-sm-4">
+                <span class="glyphicon glyphicon-fast-backward" ng-click="pageNumber=1">&nbsp;</span>
+                <span class="glyphicon glyphicon-chevron-left" ng-click="pageNumber=pageNumber-1">&nbsp;</span>
+                <span >Page </span>
+                <!-- <span > <input type="text" name="currentPage" style="width:21px" value="{{pageNumber}}"></span> -->
+                <span > <input type="text" ng-model="pageNumber" style="width:21px"></span>
+                <span > of </span>
+                <!-- <label> {{maxPageNumber}}</label>   -->
+                <span ng-bind="maxPageNumber"></span>
+                <span class="glyphicon glyphicon-chevron-right" ng-click="pageNumber=pageNumber+1">&nbsp;</span>
+                <span class="glyphicon glyphicon-fast-forward"  ng-click="pageNumber=maxPageNumber">&nbsp;</span>          
+                <select data-ng-model="rowsPerPage">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="20" selected="selected">20</option>
+                  <option value="50">50</option>
                 </select>
               </div>
             </div>
+            <!-- End Placeholder for the pagination controls -->
+
+            <div class="collapse navbar-collapse col-sm-6 userNavDropdownHidden" id="bs-example-navbar-collapse-1">
+              <div class="row center-nav">
+                <form class="col-sm-12 navbar-form" role="search">
+                  <div class="pull-right searchBoxButton">
+                    <button type="submit" class="btn btn-default pull-right"><i class="fa fa-search"></i></button>
+                  </div>
+                  <div class="navSearchBar">
+                    <input type="text" class="form-control " placeholder="Search" ng-model="query">
+                  </div>
+                </form>
+                <div class="col-sm-4 sorting-menu">
+                  <select ng-model="orderProp">
+                    <option class="hidden-lg" selected disabled value="" hidden>Sort By</option>
+                    <option value="name">Name</option>
+                    <option value="age">Last Update</option>
+                  </select>
+                </div>
+              </div>
             </div>
             <div class="collapse navbar-collapse pull-right userNavDropdownHidden" id="bs-example-navbar-collapse-2">
               <ul class="nav navbar-nav navbar-right">
@@ -227,7 +250,7 @@
         <div class="pt-page pt-page-1 table-responsive"  id="page1">
           <div class="pt-page-2-container">
             <table class="table table-striped" id="resultsTable">
-          <tr ng-repeat="item in data"  style="margin-bottom: 20px;">
+              <tr ng-repeat="item in data"  style="margin-bottom: 20px;">
                 <td style="white-space: inherit;">
                   <div class="container-fluid">
                     <div class="row" style="margin-left: 0px; margin-right: 0px">

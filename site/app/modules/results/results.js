@@ -29,7 +29,7 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
   $scope.data = $scope.total;
   $scope.rowsPerPage = 20;
   $scope.pageNumber = 1;
-  $scope.maxPageNumber = $scope.data.length / $scope.rowsPerPage;
+  $scope.maxPageNumber = Math.ceil($scope.data.length / $scope.rowsPerPage);
 
   $scope.$watch('pageNumber',function(val, old){
     $scope.pageNumber = parseInt(val); 
@@ -46,7 +46,8 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
 
   $scope.$watch('rowsPerPage',function(val, old){
     $scope.pageNumber = 1;
-    $scope.maxPageNumber = $scope.filteredTotal.length / $scope.rowsPerPage;
+    $scope.maxPageNumber = Math.ceil($scope.filteredTotal.length / $scope.rowsPerPage);
+    $scope.applyFilters();
   });
 
   _.each($scope.data, function(item){
@@ -102,7 +103,7 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
 
   $scope.applyFilters = function() {
     $scope.filteredTotal = $filter('orderBy')($filter('stateFilter')($filter('categoryFilter')($filter('typeFilter')($scope.total, $scope), $scope), $scope), $scope.orderProp);
-    $scope.maxPageNumber = $scope.filteredTotal.length / $scope.rowsPerPage;
+    $scope.maxPageNumber = Math.ceil($scope.filteredTotal.length / $scope.rowsPerPage);
     if (($scope.pageNumber - 1) * $scope.rowsPerPage <= $scope.filteredTotal.length)
       $scope.pageNumber = 1;
     $scope.data = $scope.filteredTotal.slice((($scope.pageNumber - 1) * $scope.rowsPerPage), ($scope.pageNumber * $scope.rowsPerPage));
