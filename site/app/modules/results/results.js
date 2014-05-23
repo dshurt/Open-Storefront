@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('storefront');
 
-app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', function($scope, Business, $timeout, tempData){
+app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$filter', function($scope, Business, $timeout, tempData, $filter){
   // makesure to update the tempData
   // tempData.restoreState();
   
@@ -23,7 +23,27 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
   $scope.searchState = searchData.state.length > 0? searchData.state: [];
 
   // grab the data  
-  $scope.data = Business.getData();
+  $scope.total = Business.getData();
+  $scope.filteredTotal = $scope.total;
+  $scope.data = $scope.total;
+  $scope.rowsPerPage = 20;
+  $scope.pageNumber = 1;
+  $scope.maxPageNumber = $scope.data.length / $scope.rowsPerPage;
+
+  $scope.$watch('pageNumber',function(val, old){
+    $scope.pageNumber = parseInt(val); 
+    if ($scope.pageNumber < 1)
+      $scope.pageNumber = 1;
+    if ($scope.pageNumber > $scope.maxPageNumber)
+      $scope.pageNumber = $scope.maxPageNumber;
+    $scope.data = $scope.filteredTotal.slice((($scope.pageNumber - 1) * $scope.rowsPerPage), ($scope.pageNumber * $scope.rowsPerPage));
+  });
+
+  $scope.$watch('rowsPerPage',function(val, old){
+    $scope.pageNumber = 1;
+    $scope.maxPageNumber = $scope.filteredTotal.length / $scope.rowsPerPage;
+  });
+
   _.each($scope.data, function(item){
     item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + ".";
   })
@@ -76,6 +96,11 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', fun
   }
 
   $scope.resetPageTransition = function(){
+    $scope.filteredTotal = $filter('stateFilter')($filter('categoryFilter')($filter('typeFilter')($scope.total, $scope), $scope), $scope);
+    $scope.maxPageNumber = $scope.filteredTotal.length / $scope.rowsPerPage;
+    if (($scope.pageNumber - 1) * $scope.rowsPerPage <= $scope.filteredTotal.length)
+      $scope.pageNumber = 1;
+    $scope.data = $scope.filteredTotal.slice((($scope.pageNumber - 1) * $scope.rowsPerPage), ($scope.pageNumber * $scope.rowsPerPage));
     $timeout(function() {
       PageTransitions.init();
     }, 20);

@@ -227,7 +227,7 @@
         <div class="pt-page pt-page-1 table-responsive"  id="page1">
           <div class="pt-page-2-container">
             <table class="table table-striped" id="resultsTable">
-          <tr ng-repeat="item in data | typeFilter:this | categoryFilter:this | stateFilter:this | filter:query | orderBy:orderProp"  style="margin-bottom: 20px;">
+          <tr ng-repeat="item in data | orderBy:orderProp"  style="margin-bottom: 20px;">
                 <td style="white-space: inherit;">
                   <div class="container-fluid">
                     <div class="row" style="margin-left: 0px; margin-right: 0px">
