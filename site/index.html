@@ -16,7 +16,7 @@
 */
 -->
 <!DOCTYPE html>
-<html>
+<html xmlns:ng="http://angularjs.org">
 <head>
 
   <meta name="viewport" content="width=device-width">
@@ -34,8 +34,18 @@
   <script type="text/javascript" src="app/bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="app/bower_components/underscore/underscore.js"></script>
   
+
+  <!--[if lte IE 8]>
+    <script src="/app/js/common/json2.js"></script>
+    <![endif]-->
+  <!--[if lte IE 8]>
+    <script>
+      document.createElement('raty');
+    </script>
+    <![endif]-->
+
 </head>
-<body ng-app="storefront" ng-cloak>
+<body ng-app="storefront" id="ng-app" ng-cloak>
   <div ng-controller="defaultCtrl">
     <div class="top">
       <div class="navbar navbar-default navigation"> 
