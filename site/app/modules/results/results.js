@@ -38,7 +38,17 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
       $scope.pageNumber = 1;
     if ($scope.pageNumber > $scope.maxPageNumber)
       $scope.pageNumber = $scope.maxPageNumber;
-    $scope.data = $scope.filteredTotal.slice((($scope.pageNumber - 1) * $scope.rowsPerPage), ($scope.pageNumber * $scope.rowsPerPage));
+
+    var page = $scope.pageNumber;
+    if (page < 1 || page === '' || isNaN(page)){
+      page = 1;
+    }
+
+    $scope.data = $scope.filteredTotal.slice(((page - 1) * $scope.rowsPerPage), (page * $scope.rowsPerPage));
+    // $scope.applyFilters();
+    $timeout(function() {
+      PageTransitions.init();
+    }, 20);
   });
 
   $scope.$watch('orderProp',function(val, old){
