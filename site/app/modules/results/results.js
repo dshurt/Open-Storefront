@@ -8,6 +8,7 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
   // tell the scope whot it is
   $scope._scopename = 'results';
   $scope.orderProp = '';
+  $scope.query = '';
 
   // set up some variables
   $scope.pageTitle = "DI2E Storefront Catalog";
@@ -41,6 +42,9 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
   });
 
   $scope.$watch('orderProp',function(val, old){
+    $scope.applyFilters();
+  });
+  $scope.$watch('query',function(val, old){
     $scope.applyFilters();
   });
 
@@ -103,7 +107,7 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
   }
 
   $scope.applyFilters = function() {
-    $scope.filteredTotal = $filter('orderBy')($filter('stateFilter')($filter('categoryFilter')($filter('typeFilter')($scope.total, $scope), $scope), $scope), $scope.orderProp);
+    $scope.filteredTotal = $filter('orderBy')($filter('stateFilter')($filter('categoryFilter')($filter('typeFilter')($filter('filter')($scope.total, $scope.query), $scope), $scope), $scope), $scope.orderProp);
     $scope.maxPageNumber = Math.ceil($scope.filteredTotal.length / $scope.rowsPerPage);
     if (($scope.pageNumber - 1) * $scope.rowsPerPage <= $scope.filteredTotal.length)
       $scope.pageNumber = 1;
