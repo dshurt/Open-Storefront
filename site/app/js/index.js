@@ -1,4 +1,4 @@
-var substringMatcher = function(strs) {
+var substringMatcher = function(objs) {
   return function findMatches(q, cb) {
     var matches, substringRegex;
  
@@ -10,11 +10,11 @@ var substringMatcher = function(strs) {
  
     // iterate through the pool of strings and for any string that
     // contains the substring `q`, add it to the `matches` array
-    $.each(strs, function(i, str) {
-      if (substrRegex.test(str)) {
+    $.each(objs, function(i, obj) {
+      if (substrRegex.test(obj.name)) {
         // the typeahead jQuery plugin expects suggestions to a
         // JavaScript object, refer to typeahead docs for more info
-        matches.push({ value: str });
+        matches.push({ value: obj.name });
       }
     });
  
@@ -23,16 +23,6 @@ var substringMatcher = function(strs) {
 };
 
 $( document ).ready(function() { 
-  var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-    'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-    'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-    'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-    'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-    'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-    'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-    'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-    'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-  ];
    
   $('.typeahead').typeahead({
     hint: true,
@@ -42,6 +32,6 @@ $( document ).ready(function() {
   {
     name: 'states',
     displayKey: 'value',
-    source: substringMatcher(states)
+    source: substringMatcher(MOCKDATA.assets.assets)
   });
 });
