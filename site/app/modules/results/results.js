@@ -67,7 +67,7 @@ app.controller('resultsCtrl', ['$scope', 'Business', '$timeout', 'tempData', '$f
   _.each($scope.data, function(item){
     item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + ".";
   })
-  console.log("data", $scope.data);
+  // console.log("data", $scope.data);
   
 
   $scope.dataTypes = Business.getTypes();
