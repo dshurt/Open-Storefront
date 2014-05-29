@@ -196,22 +196,16 @@ MOCKDATA.userProfile = {
 MOCKDATA.userWatches = {
   watches: [
   {
-    username: 'John.Tester',
-    assetId: 1,
-    assetUpdateDate: '03/01/2014',
-    lastViewDate: '02/25/2014'
+    "username": "John.Tester",
+    "assetId": 1,
+    "assetUpdateDate": "03/01/2014",
+    "lastViewDate": "02/25/2014"
   },
   {
-    username: 'John.Tester',
-    assetId: 2,
-    assetUpdateDate: '02/01/2014',
-    lastViewDate: '02/02/2014'
-  },
-  {
-    username: 'John.Tester',
-    assetId: 3,
-    assetUpdateDate: '07/01/2013',
-    lastViewDate: '01/1/2014'
+    "username": "John.Tester",
+    "assetId": 3,
+    "assetUpdateDate": "07/01/2013",
+    "lastViewDate": "01/1/2014"
   }      
   ]
 };

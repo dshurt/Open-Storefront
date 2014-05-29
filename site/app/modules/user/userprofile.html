@@ -14,4 +14,324 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
- -->
+-->
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap-theme.css">
+	<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="../../bower_components/fontawesome/css/font-awesome.css">
+	<link rel="stylesheet" href="../../css/fonts.css">
+	<link rel="stylesheet" href="../../css/catalog.css">
+	<link rel="stylesheet" href="../../css/media.css">
+	<link rel="stylesheet" href="../../css/overrides.css">
+	<link rel="stylesheet" href="../../css/pt-page.css">
+	<link rel="stylesheet" href="../../css/animations.css">
+	<link rel="stylesheet" href="../../css/results.css">
+
+	<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../../bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="../../bower_components/underscore/underscore.js"></script>
+
+
+  <!--[if lte IE 8]>
+    <script src="../../js/common/json2.js"></script>
+    <![endif]-->
+  <!--[if lte IE 8]>
+    <script>
+      document.createElement('raty');
+
+      // Optionally these for CSS
+      document.createElement('raty');
+    </script>
+    <![endif]-->
+</head>
+<body ng-app="storefront" id="ng-app">
+	<div ng-controller="userprofileCtrl">
+				<!-- begin User Profile Modal -->
+				<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="myModalLabel">User Profile</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" role="form">
+									<div class="form-group">
+										<label for="inputName3" class="col-sm-3 control-label">Name</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control" id="inputName3" placeholder="First and Last Name">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputRole" class="col-sm-3 control-label">Role</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control" id="inputRole" placeholder="Role">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputMemberSince" class="col-sm-3 control-label">Member Since</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control" id="inputMemberSince" placeholder="Member Since">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputEmail" class="col-sm-3 control-label">Email</label>
+										<div class="col-sm-9">
+											<input type="email" class="form-control" id="inputEmail" placeholder="Email">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end User Profile Modal -->
+		<div class="top">
+			<div class="navbar navbar-default navigation"> 
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<div>
+							<button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+								<span class="sr-only">User Panel</span>
+								<span>Jimmy tester <b class="caret"></b></span>
+							</button>
+							<button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle Search</span>
+								<i class="fa fa-search"></i>
+							</button>        
+						</div>
+						<div>
+							<a class="navbar-brand" href="../../../index.html">DI2E <span class="hidden-small">Storefront Catalog</span></a>
+						</div>
+					</div>
+					<div class="collapse navbar-collapse pull-right userNavDropdown">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+<!-- 									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+								-->									<!-- <li><a href="#" data-toggle="modal" data-target="#basicModal">User Profile</a></li> -->
+								<li><a href="../../modules/user/userprofile.html">User Profile</a></li>
+								<!-- <li><a href="#" data-toggle="modal" data-target="#basicFeedback">Feedback</a></li> -->
+							</ul>
+						</li>
+					</ul>
+				</div><!-- /.userNav-collapse -->
+				
+
+				<!-- </div> -->
+
+<!--           <div class="collapse navbar-collapse center navSearch" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left" role="search">
+              <div class="pull-right searchBoxButton">
+                <button type="submit" class="btn btn-default pull-right"><i class="fa fa-search"></i></button>
+              </div>
+              <div class="navSearchBar">
+                <input type="text" class="form-control " placeholder="Search">
+              </div>
+            </form>
+          </div>
+          <div class="collapse navbar-collapse pull-right userNavDropdownHidden" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown open">
+                <ul class="dropdown-menu">
+                  <li class="gray-link"><a href="#">Action</a></li>
+                  <li class="gray-link"><a href="#">Another action</a></li>
+                  <li class="gray-link"><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="gray-link"><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+        </div> -->
+    </div>
+</div> 
+
+<div class="banner">
+	{{pageTitle}}
+</div>
+</div>
+
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+<div class="row default-content">
+</div>	
+
+<div class="row default-contentz">
+	<div class="col-sm-1">&nbsp;</div>
+	<div class="col-sm-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading text-center watch-content-title">User Profile</div>
+			<div class="panel-body">
+				<div class="row text-center">
+					<img src="../../../app/images/1.jpg" width="96" height="96"></img>
+				</div>
+				<br><br>
+				<div>
+					<div ng-init="uProfileStuff = [
+					{id:'1',name:'John Q. Sample', memberSince:'03/01/2014', role:'Administrator',email:'john.q.sample@gmail.com'}
+					]">
+				</div>
+				<div class="col-sm-12" ng-repeat="item in uProfileStuff" style="padding-left:5px;padding-top:0px">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="col-sm-4 control-label">Name:</label>
+							<div class="col-sm-8">
+								<!-- <input type="text" class="form-control"  placeholder="First and Last Name" ng-model="userName"> -->
+								<label class="control-label">{{item.name}}</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">Role:</label>
+							<div class="col-sm-8">
+								<label class="control-label">{{item.role}}</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">Member Since:</label>
+							<div class="col-sm-8">
+								<label class="control-label">{{item.memberSince}}</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">Email:</label>
+							<div class="col-sm-8">
+								<label class="control-label">{{item.email}}</label>
+							</div>
+						</div>	
+						<!-- comeback -->
+						<div class="text-center">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicModal">Edit Profile</button>
+							<!-- <a data-toggle="modal" href="#basicModal" class="btn btn-primary btn-lg">Launch demo modal</a> -->
+							<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+							<!-- <li><a href="#" data-toggle="modal" data-target="#basicModal">User Profile</a></li> -->
+
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-sm-7">
+	<div class="panel panel-primary">
+		<div class="panel-heading text-center">
+			<h3 class="panel-title watch-content-title">Watches</h3>
+		</div>
+		<div class="panel-body">
+			<div ng-init="watches = [
+			{id:'1',name:'VANTAGE WESS OZONE Widget', updated:'03/01/2014', new:'*new',src:'../../../app/images/wess_logo.png'},
+			{id:'2',name:'Extensible Mapping Platform (EMP)', updated:'02/28/2014', new:'',src:'../../../app/images/core-map-api.png'},
+			{id:'3',name:'JC2CUI Common 2D Map API Widget', updated:'05/28/2014', new:'',src:'../../../app/images/maps-icon.png'},
+			{id:'4',name:'VANTAGE WESS OZONE Widget', updated:'03/01/2014', new:'',src:'../../../app/images/wess_logo.png'},
+			{id:'5',name:'Extensible Mapping Platform (EMP)', updated:'02/28/2014', new:'',src:'../../../app/images/core-map-api.png'},
+			{id:'6',name:'JC2CUI Common 2D Map API Widget', updated:'05/28/2014', new:'*new',src:'../../../app/images/maps-icon.png'}
+			]">
+		</div>
+		<div ng-init="watches2 = [
+		{id:'1',name:'VANTAGE WESS OZONE Widget', updated:'03/01/2014', new:'*new',src:'../../../app/images/wess_logo.png'},
+		{id:'2',name:'Extensible Mapping Platform (EMP)', updated:'02/28/2014', new:'',src:'../../../app/images/core-map-api.png'},
+		{id:'3',name:'JC2CUI Common 2D Map API Widget', updated:'05/28/2014', new:'',src:'../../../app/images/maps-icon.png'},
+		]">
+	</div>				
+	<div class="col-sm-4" ng-repeat="item in watches" style="padding-left:60px;padding-top:50px">
+		<div id="div{{item.id}}" >
+			<div style="height: 100%">
+				<img src="{{item.src}}" width="96" height="96">
+				<div style="margin-left: 10px;">
+					<span class="item_bold">
+						<a href="../../modules/results/results.html" 
+						<span class="none">{{item.name}}</span><span style="font-size: 12px; color: red;vertical-align:super">{{item.new}}</span>
+					</a>
+				</span>
+				<div style="font-size: 12px; color: grey;">Updated: {{item.updated}}</div>
+				<div style="font-size: 12px; color: red; "><label style="cursor:pointer" ng-click="removeWatch()">remove</label></div>
+				<!-- <div style="font-size: 16px; color: red; "><span class="glyphicon glyphicon-remove"></span></div> -->
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>
+</div>
+<div class="panel panel-primary">
+	<div class="panel-heading text-center">
+		<h3 class="panel-title watch-content-title">Feedback</h3>
+	</div>
+	<div class="panel-body">
+		<div ng-init="feedback = [
+		{id:'1',name:'VANTAGE WESS OZONE Widget feedback',comments:'This VANTAGE WESS OZONE Widget is really cool',src:'../../../app/images/wess_logo.png'},
+		{id:'2',name:'Extensible Mapping Platform (EMP) feedback',comments:'The Extensible Mapping Platform (EMP) is interesting, and may need some attention at ...',src:'../../../app/images/core-map-api.png'},
+		{id:'3',name:'JC2CUI Common 2D Map API Widget feedback',comments:'I tried this out May 15. Some of my observations are...Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,Text for observation,',src:'../../../app/images/maps-icon.png'}
+		]">
+	</div>
+
+	<div ng-init="feedbackdetails = [
+	{id:'1',date:'Jan 4, 2014 8:25 am',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'Jim Calhoun'},
+	{id:'2',date:'01/05/2014 9:25 am',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'Jill Calhoun'},
+	{id:'3',date:'01/06/2014 10:25 am',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'Jay Calhoun'},
+	{id:'4',date:'01/07/2014 11:25 am',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'Jade Calhoun'},
+	{id:'5',date:'01/08/2014 12:25 pm',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'Jesse Calhoun'},
+	{id:'6',date:'01/09/2014 8:25 pm',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'JaLayne Calhoun'}
+	]">
+</div>
+<div class="col-sm-12" ng-repeat="item1 in feedback" style="padding-left:30px;padding-top:30px">
+	<div style="height: 100%;">
+		<img src="{{item1.src}}" width="40" height="40">
+		<span class="none">{{item1.name}}</span>
+		<div style="padding-left:5px;padding-top:5px">
+
+			<div ng-repeat="item2 in feedbackdetails" style="padding-left:5px;padding-top:5px">
+				<div style="padding-bottom:15px">
+					<div class="col-sm-9">
+						<span class="none">{{item2.name}}</span>
+						<textarea class="form-control" rows="3">{{item2.comments}}</textarea>
+					</div>
+					<div class="col-sm-3">
+						<div class="none">Author: {{item2.author}}</div>
+						<div class="none">Date: {{item2.date}}</div>
+						<div style="font-size: 12px; color: red; "><label style="cursor:pointer" ng-click="removeWatch()">delete comment</label></div>
+					</div>
+					<div>&nbsp;</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="col-sm-1">&nbsp;</div>
+</div>
+
+
+<script type="text/javascript" src="../../js/app.js"></script>
+<script type="text/javascript" src="../../js/services/localCache.js"></script>
+<script type="text/javascript" src="../../js/services/storefrontBusiness.js"></script>
+
+<script type="text/javascript" src="../../js/common/data.js"></script>
+<script type="text/javascript" src="../../modules/user/userprofile.js"></script>
+<script type="text/javascript" src="../../js/common/models.js"></script>
+<script type="text/javascript" src="../../js/common/stores.js"></script>
+
+<script type="text/javascript" src="../../js/jq-user-profile.js"></script>
+
+</body>
+
+</html>	

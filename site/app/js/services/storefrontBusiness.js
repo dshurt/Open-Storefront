@@ -27,13 +27,16 @@ app.factory('Business', ['localCache', '$http', '$q', function(LocalCache, $http
     return MOCKDATA.componentTypes.types;
   }
 
-
+  var getWatches = function() {
+    return MOCKDATA.watchTypes.watches;
+  }
 
   return {
     getCategories: getCategories,
     getData: getData,
     getDataByType: getDataByType,
     getStates: getStates,
-    getTypes: getTypes
+    getTypes: getTypes,
+    getWatches: getWatches
   };
 }])

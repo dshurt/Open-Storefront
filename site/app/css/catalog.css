@@ -307,7 +307,12 @@ input[type=checkbox]:checked + label{
   cursor: pointer;
   color: #22699c;
 }
-
+.watch-content-title{
+  color: #ffffff;
+  padding: 2px 5px;
+  font-size: 23px;
+  /*margin-left:110px;*/
+}
 .component-details{
   position: absolute;
   width: 100%;
