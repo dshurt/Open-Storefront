@@ -45,10 +45,15 @@ If you don't want to contribute to this project and you know git, Yoeman, Bower,
 **If you want to contribute to this project, read the rest this file!**
 * You will need to install:
   * git
-  * npm (node.js)
+  * npm (node.js) 
   * yoeman & generator-angular (yoeman vanilla angular generator)
   * bower
   * grunt
+
+* Versions currently used:
+  * git version 1.9.4
+  * npm version 1.4.13
+  * [generator-angular](https://github.com/yeoman/generator-angular)
 
 Installing Components
 =======================
