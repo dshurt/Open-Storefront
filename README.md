@@ -103,21 +103,15 @@ Installing and configuring git
 
 * To learn more about git, read the free book [Git Pro](http://progit.org/book/).
 
-Getting the sources locally
----------------------------
+#### Getting the sources locally
 
 Because you 'll probably want to change our code, it's recommended to fork our code before cloning it,
 so it's easier to share your changes with us later.
 For more info on forking, read [Github's help on forking](http://help.github.com/fork-a-repo/).
 
-* First fork the repository you want to work on, for example `guvnor`:
+* First fork the repository you want to work on, for example `Open-Storefront`:
 
-    * Surf to [the blessed repositories on github](https://github.com/droolsjbpm) and log in.
-
-        * Note: **Every git repository can be build alone.**
-        You only need to fork/clone the repositories you're interested in (`guvnor` in this case).
-
-    * Surf to [the specific repository (`guvnor`)](https://github.com/droolsjbpm/guvnor)
+    * Surf to [the specific repository (`Open-Storefront`)](https://github.com/dshurt/Open-Storefront)
 
     * Click the top right button *Fork*
 
@@ -126,16 +120,16 @@ For more info on forking, read [Github's help on forking](http://help.github.com
 
 * **Clone your fork locally:**
 
-        # First make a directory to hold all the droolsjbpm projects
-        $ mkdir droolsjbpm
-        $ cd droolsjbpm
+        # First make a directory to hold the Open-Storefront project
+        $ mkdir Open-Storefront
+        $ cd Open-Storefront
 
         # Then clone the repository you want to clone.
-        $ git clone git@github.com:MY_GITHUB_USERNAME/guvnor.git
-        $ cd guvnor
+        $ git clone https://github.com/dshurt/Open-Storefront.git
+        $ cd Open-Storefront
         $ ls
 
-    * Warning: Always clone with the *SSH URL*, never clone with the *HTTPS URL* because the latter is unreliable.
+    * Warning: Always you can clone with the *SSH URL*. It is possible that the *HTTPS URL* can be unreliable.
 
     * Note: it's highly recommended to name the cloned directory the same as the repository (which is the default), so the helper scripts work.
 
@@ -145,13 +139,7 @@ For more info on forking, read [Github's help on forking](http://help.github.com
 
                 $ git checkout 5.2.0.Final
 
-* Add the blessed repository as upstream (if you've directly cloned the blessed repository, don't do this):
-
-        $ git remote add upstream git@github.com:droolsjbpm/guvnor.git
-        $ git fetch upstream
-
-
-### Share your changes with a pull request
+#### Share your changes with a pull request
 A pull request is like a patch file, but easier to apply, more powerful and you'll be credited as the author.
 
 * Creating a pull request
@@ -170,11 +158,11 @@ A pull request is like a patch file, but easier to apply, more powerful and you'
 
     * Review the changes
 
-    * Click the button *Merge help* on the bottom of the page and follow the instructions of github to apply those changes on the blessed master.
+    * Click the button *Merge help* on the bottom of the page and follow the instructions of github to apply those changes on the master.
 
         * Or use the button *Merge* if there are no merge conflicts.
 
-
+---
 Installing and configuring npm
 ------------------------------
 
