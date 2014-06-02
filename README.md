@@ -216,39 +216,3 @@ Open-Storefront uses Karma to run tests for the frontend and hence tests need to
 
 FAQ
 ===
-
-* Why do you not accept `@author` lines in your source code?
-
-    * Because the author tags in the java files are a maintenance nightmare
-
-        * A large percentage is wrong, incomplete or inaccurate.
-
-        * Most of the time, it only contains the original author. Many files are completely refactored/expanded by other authors.
-
-        * Git is accurate, that is the canonical source to find the correct author.
-
-    * Because the author tags promote *code ownership*, which is bad in the long run.
-
-        * If people work on a piece they perceive as being owned by someone else, they tend to:
-
-            * only fix what they are assigned to fix, instead of everything that's broken
-
-            * discard responsibility if that code doesn't work properly
-
-            * be scared of stepping on the feet of the owner.
-
-        * For more motivation, see [this video on How to get a healthy open source project?](http://video.google.com/videoplay?docid=-4216011961522818645#)
-
-    * Credit to the authors is given:
-
-        * on [the team page](http://www.jboss.org/drools/team)
-
-             * Please contact Geoffrey (or any of us) if you want to add/change/expand your entry in the team page. Don't be shy!
-
-        * on [the blog](http://blog.athico.com)
-
-            * Write an article about the improvements you did! Contact us if you don't have write authorization on the blog yet.
-
-        * with [ohloh](https://www.ohloh.net/p/jboss-drools/contributors) which also has statistics
-
-        * in [the github web interface](https://github.com/droolsjbpm).
