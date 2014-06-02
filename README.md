@@ -173,10 +173,12 @@ No special configuration is required, but details on npm configuration can be fo
 Installing and configuring Yoeman, Bower and Grunt
 ---------------------------------
 To install Yeoman, simply enter this into your terminal:
+        
         # The -g installs yoeman globally
         $ npm install -g yo
 
 Once yeoman has finished installing, we then need to install the AngularJS scaffolding tool for Yeoman:
+        
         # Once again the -g installs the generator globally so that you can use it anywhere inside a yoeman project
         $ npm install -g generator-angular
 
@@ -193,6 +195,7 @@ Running the build
         $ cd ~/projects/Open-Storefront-Project/Open-Storefront/frontend
         $ ls
         app/  bower.json*  Gruntfile.js*  karma.conf.js*  karma-e2e.conf.js*  node_modules/  package.json*  test/
+
 * **Run the build**:
 
         $ grunt build
@@ -208,6 +211,7 @@ Running tests
 -------------
 
 Open-Storefront uses Karma to run tests for the frontend and hence tests need to be ran differently to others.
+        
         $ cd ~/projects/Open-Storefront-Project/Open-Storefront/frontend
         $ grunt test
 
