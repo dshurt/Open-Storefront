@@ -1,40 +1,111 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="openstorefront">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="openstorefrontApp"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="openstorefrontApp"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="openstorefrontApp"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="openstorefrontApp"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css({.tmp,app}) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" ng-href="styles/{{styles}}" />
+  <!-- endbuild -->
+</head>
+<body >
+  <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!-- Fixed Navigation -->
+    <div class="top">
+      <div class="navbar navbar-default navigation"> 
+        <div class="container-fluid">
+
+          <!-- Nav header -->
+          <div class="navbar-header">
+            <!-- Nav buttons when collapsed menu is up -->
+            <div>
+              <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                <span class="sr-only">User Panel</span>
+                <span>Jimmy tester <b class="caret"></b></span>
+              </button>
+              <button type="button" class="navbar-toggle navButton" id="searchNavButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle Search</span>
+                <i class="fa fa-search"></i>
+              </button>        
+            </div>
+            <!-- / Nav buttons when collapsed menu is up -->
+            <div>
+              <a class="navbar-brand" href="#"><span class="visible-xs">DI2E </span><span class="hidden-xs">DI2E Storefront Catalog</span></a>
+            </div>
+          </div>
+          <!-- /Nav header -->
+
+          <!-- .userNav-collapse -->
+          <div class="collapse navbar-collapse pull-right userNavDropdown">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <!-- <li><a href="#" class="btn btn-md" data-toggle="modal" data-target="#basicModal">User Profile</a></li> -->
+                  <li><a href="app/modules/user/userprofile.html">User Profile</a></li>
+                  <!-- <li><a href="#" data-toggle="modal" data-target="#basicFeedback">Feedback</a></li> -->
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.userNav-collapse -->
+
+          <div class="collapse navbar-collapse center navSearch" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left navSearchForm" role="search">
+              <div class="pull-right searchBoxButton">
+                <button type="submit" class="btn btn-default pull-right"><i class="fa fa-search"></i></button>
+              </div>
+              <div class="navSearchBar">
+                <input type="text" class="form-control typeahead" placeholder="Search">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div> 
+    </div>
+    <div class="defaultSpacer">&nbsp;</div>
+    <!-- /Fixed Navigation -->
+
+
+
+
+
+
+
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="container-fluid" ng-view="">
+      <!-- Nothing goes here!!! -->
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+    // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       // ga('create', 'UA-XXXXX-X');
-       // ga('send', 'pageview');
+    // ga('create', 'UA-XXXXX-X');
+    // ga('send', 'pageview');
     </script>
 
     <!--[if lt IE 9]>
@@ -55,11 +126,15 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/user.js"></script>
-        <script src="scripts/controllers/results.js"></script>
-        <!-- endbuild -->
-</body>
-</html>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/localcache.js"></script>
+    <script src="scripts/services/business.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/user.js"></script>
+    <script src="scripts/controllers/results.js"></script>
+    <script src="scripts/common/animations.js"></script>
+    <script src="scripts/common/data.js"></script>
+    <!-- endbuild -->
+  </body>
+  </html>
