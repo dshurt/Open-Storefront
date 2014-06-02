@@ -33,6 +33,42 @@
 }
 
 
+.defaultContent{
+  padding-top: 20px;
+  margin: 0px auto;
+  width: 80%;
+}
+
+.defaultTitle{
+  padding-left: 20px;
+  padding-top: 20px;
+  font-size: 17.6px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #E2E2E2;
+}
+
+.listing_short_title_text{
+  font-size: 28px;
+  text-decoration: none;
+  color: steelblue;
+  font-weight: bold;
+}
+
+.defaultContent .categories{
+  float:left;
+  padding: 5px;
+  height: 120px;
+  border-radius: 4px;
+}
+
+.defaultContent .categories:hover{
+  background-color: lightgray;
+}
+
+.defaultContent .categories a:hover{
+  text-decoration: none;
+}
+
 @media screen and (max-width: 768px) {
   .banner{
     padding: 10px 2px;
@@ -43,5 +79,14 @@
     margin-right: 0px;
     margin-left: 0px;
     padding: 0px;
+  }
+  .col-sm-4 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .defaultContent {
+    width: 100%;
   }
 }

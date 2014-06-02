@@ -1,10 +1,5 @@
 'use strict';
 
-angular.module('openstorefrontApp')
-  .controller('ResultsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+app.controller('ResultsCtrl', ['$scope', 'tempData', function ($scope, tempData) {
+  console.log('Data', tempData.getData());
+}]);

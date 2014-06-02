@@ -1,40 +1,37 @@
 'use strict';
 
-app.factory('business', ['localCache', '$http', '$q', function (LocalCache, $http, $q) {
-  var getCategories = function() {
+// app.factory('business', ['$scope', 'localCache', '$http', '$q', function ($scope, LocalCache, $http, $q) {
+app.factory('business', function () {
+
+  var business = {};
+  business.getCategories = function() {
     return MOCKDATA.componentCategories.categories;
-  }
+  };
 
 
-  var getData = function() {
+  business.getData = function() {
     return MOCKDATA.assets.assets;
-  }
+  };
 
-  var getDataByType = function(input){
+  business.getDataByType = function(input){
     return _.filter(MOCKDATA.assets.assets, function(item){
-      return item.type == input;
+      return item.type === input;
     });
-  }
-  
-  var getStates = function() {
-    return MOCKDATA.componentStates.states;
-  }
-  
-  var getTypes = function() {
-    return MOCKDATA.componentTypes.types;
-  }
-
-  var getWatches = function() {
-    return MOCKDATA.watchTypes.watches;
-  }
-
-  return {
-    getCategories: getCategories,
-    getData: getData,
-    getDataByType: getDataByType,
-    getStates: getStates,
-    getTypes: getTypes,
-    getWatches: getWatches
   };
   
-}]);
+  business.getStates = function() {
+    return MOCKDATA.componentStates.states;
+  };
+  
+  business.getTypes = function() {
+    return MOCKDATA.componentTypes.types;
+  };
+
+  business.getWatches = function() {
+    return MOCKDATA.watchTypes.watches;
+  };
+
+  return business;
+  
+});
+// }]);
