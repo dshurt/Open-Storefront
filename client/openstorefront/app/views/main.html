@@ -6,10 +6,10 @@
   <div class="center navSearch defaultSearch">
     <form>
       <div class="pull-right searchBoxButton">
-        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-search"></i></button>
+        <button type="submit" class="btn btn-primary pull-right" ng-click="goToSearchWithSearch(searchKey)"><i class="fa fa-search"></i></button>
       </div>
       <div class="navSearchBar">
-        <input type="text" class="form-control typeahead" placeholder="Search">
+        <input type="text" class="form-control typeahead" ng-model="searchKey" placeholder="Search">
       </div>
     </form>
   </div>

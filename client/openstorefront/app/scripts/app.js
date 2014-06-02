@@ -28,7 +28,7 @@ var app = angular
 
 
 
-app.run(function ($rootScope) {
+app.run(['$rootScope', 'tempData', '$location', function ($rootScope, tempData, $location) {
   $rootScope.$on('$routeChangeStart', function (event, next, current) {/* jshint unused:false */
     if (sessionStorage.restorestate === 'true') {
       console.log('Session storage', sessionStorage);
@@ -36,20 +36,24 @@ app.run(function ($rootScope) {
       $rootScope.$broadcast('restorestate');
       sessionStorage.restorestate = false;
     }
+
   });
 
+  $rootScope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
+    tempData.setData({'type': [], 'category': [], 'state': [], 'search': [search]});
+    tempData.saveState();
+    $location.path('/results');
+  };
 
   window.onbeforeunload = function (event) {/* jshint unused:false */
     $rootScope.$broadcast('savestate');
   };
-});
+}]);
 
 app.factory('tempData', ['$rootScope', function($rootScope) {
   var searchService = {};
 
-  searchService.data = {
-    type: ''
-  };
+  searchService.data = {};
 
   searchService.setData = function(item) {
     searchService.data = item;
@@ -60,7 +64,7 @@ app.factory('tempData', ['$rootScope', function($rootScope) {
   };
 
   searchService.restoreState = function () {
-    console.log('Session storage', sessionStorage);
+    // console.log('Session storage', sessionStorage);
     if (sessionStorage.tempData !== undefined && sessionStorage.tempData !== null)
     {
       searchService.data = angular.fromJson(sessionStorage.tempData);
@@ -73,7 +77,7 @@ app.factory('tempData', ['$rootScope', function($rootScope) {
 
   searchService.saveState = function () {
     sessionStorage.tempData = angular.toJson(searchService.getData());
-    console.log('Session storage', sessionStorage);
+    // console.log('Session storage', sessionStorage);
   };
 
 
