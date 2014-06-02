@@ -182,12 +182,7 @@ Once yeoman has finished installing, we then need to install the AngularJS scaff
         $ npm install -g generator-angular
 
 You can now start scaffolding your apps with Yeoman, managing dependencies with Bower, and building & running your application with Grunt!
-
-Note: If you would like to install grung and bower globally to use seperately from the project you can run these lines of code respectively:
-
-        $ npm install -g grunt-cli
-        $ npm install -g bower
-
+Grunt and Bower have also been installed globally, so you should be able to use them in other projects from now on.
 
 
 Building with Grunt
@@ -201,6 +196,8 @@ Running the build
         $ cd ~/projects/Open-Storefront-Project/Open-Storefront/frontend
         $ ls
         app/  bower.json*  Gruntfile.js*  karma.conf.js*  karma-e2e.conf.js*  node_modules/  package.json*  test/
+
+    Remember after checkout to run "npm install" on the root client build directory to pickup project dependancies.
 
 * **Run the build**:
 

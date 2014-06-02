@@ -1,0 +1,47 @@
+.banner{
+  padding: 20px 2px;
+  width: 100%;
+  text-align: center;
+  background-color: #3892d3;
+  font-size: 2.8em;
+  color: white;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+  0px 8px 13px rgba(0,0,0,0.1),
+  0px 18px 23px rgba(0,0,0,0.1);
+  font-weight: bold;
+  -webkit-box-shadow: inset 0px 0px 9px 0px;
+  -moz-box-shadow: inset 0px 0px 9px 0px rgba(68, 68, 68, 0.6);
+  box-shadow: inset 0px 0px 9px 0px rgba(68,68,68,0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navSearchForm, #searchNavButton {
+  display: none !important;
+}
+
+.defaultSearch{
+  padding: 50px 2px;
+}
+.defaultSearch form div input, .defaultSearch form div button{
+  font-size: 1.5em;
+  height: 50px;
+}
+.defaultSearch form div.navSearchBar{
+  margin-right: 45px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .banner{
+    padding: 10px 2px;
+    font-size: 1.8em;
+  }
+  .defaultSearch{
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+  }
+}
