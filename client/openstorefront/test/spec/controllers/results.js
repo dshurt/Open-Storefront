@@ -3,7 +3,7 @@
 describe('Controller: ResultsCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('OpenStorefront'));
+  beforeEach(module('openstorefront'));
 
   var ResultsCtrl,
     scope;

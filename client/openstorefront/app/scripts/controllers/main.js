@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('OpenStorefront')
+angular.module('openstorefront')
   .controller('MainCtrl', function ($scope) {
     
   });
