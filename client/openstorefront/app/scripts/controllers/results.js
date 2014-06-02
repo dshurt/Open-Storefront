@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('openstorefront')
+angular.module('openstorefrontApp')
   .controller('ResultsCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

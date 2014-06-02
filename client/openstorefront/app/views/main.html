@@ -1,36 +1,49 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">Open Storefront</h3>
+
+<div class="banner">
+  {{pageTitle}}
+</div>
+<div class="search">
+  <div class="center navSearch defaultSearch">
+    <form>
+      <div class="pull-right searchBoxButton">
+        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-search"></i></button>
+      </div>
+      <div class="navSearchBar">
+        <input type="text" class="form-control typeahead" placeholder="Search">
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row default-content">
+  <div class="col-sm-4 categories" ng-repeat="item in types" style="padding-right: 30px;">
+    <a ng-click="goToSearch(item.code);">
+      <div style="height: 100%">
+        <div style="width: 64px; float: left">
+          <img src="{{item.src}}" width="64" height="64">
+        </div>
+        <div style="margin-left: 70px;">
+          <span class="item_bold">
+            <span class="listing_short_title_text">{{item.type}}</span>               
+          </span>
+          <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
+        </div>
+      </div>
+    </a>
+  </div>
 </div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<script type="text/javascript">
+$(window).resize(function() {
+  floatBelowTop($('.defaultSearch'));
+});
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+$(window).scroll(function() {
+  floatBelowTop($('.defaultSearch'));
+});
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+$(document).ready(function() {
+  floatBelowTop($('.defaultSearch'));
+});
+</script>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
-
-<div class="footer">
-  <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-</div>
+<link rel="stylesheet" href="styles/landing.css">
