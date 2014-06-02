@@ -121,15 +121,15 @@ For more info on forking, read [Github's help on forking](http://help.github.com
 * **Clone your fork locally:**
 
         # First make a directory to hold the Open-Storefront project
-        $ mkdir Open-Storefront
-        $ cd Open-Storefront
+        $ mkdir Open-Storefront-Project
+        $ cd Open-Storefront-Project
 
         # Then clone the repository you want to clone.
         $ git clone https://github.com/dshurt/Open-Storefront.git
         $ cd Open-Storefront
         $ ls
 
-    * Warning: Always you can clone with the *SSH URL*. It is possible that the *HTTPS URL* can be unreliable.
+    * Warning: You can clone with the *SSH URL*. It is possible that the *HTTPS URL* can be unreliable.
 
     * Note: it's highly recommended to name the cloned directory the same as the repository (which is the default), so the helper scripts work.
 
@@ -165,7 +165,9 @@ A pull request is like a patch file, but easier to apply, more powerful and you'
 ---
 Installing and configuring npm
 ------------------------------
+Installing [node.js](http://nodejs.org/) on your computer will also install the node package manager (npm), but if you'd rather just go straight to the source, you can follow the instructions [here](https://raw.githubusercontent.com/npm/npm/master/README.md) in order to install the npm manually.
 
+No special configuration is required, but details on npm configuration can be found [here](https://www.npmjs.org/doc/cli/npm-config.html)
 
 Building with Grunt
 ===================
