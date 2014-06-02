@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('frontendApp', [
+  .module('OpenStorefront', [
     'ngCookies',
     'ngResource',
     'ngSanitize',

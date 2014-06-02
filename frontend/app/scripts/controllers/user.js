@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('frontendApp')
+angular.module('OpenStorefront')
   .controller('UserCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

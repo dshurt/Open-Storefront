@@ -3,7 +3,7 @@
 describe('Controller: UserCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('frontendApp'));
+  beforeEach(module('OpenStorefront'));
 
   var UserCtrl,
     scope;
