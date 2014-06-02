@@ -25,9 +25,9 @@ please update it using the [markdown syntax](https://github.com/adam-p/markdown-
 Table of content
 ----------------
 
-* **[Source control with Git](#source-control-with-git)**
+* **[Installing Components](#installing-components)**
 
-* **[Building with Maven](#building-with-maven)**
+* **[Building with Grunt](#building-with-grunt)**
 
 * **[Team communication](#team-communication)**
 
@@ -56,7 +56,7 @@ If you don't want to contribute to this project and you know git, Yoeman, Bower,
   * bower
   * grunt
 
-Source control with Git
+Installing Components
 =======================
 
 Installing and configuring git
@@ -150,90 +150,8 @@ For more info on forking, read [Github's help on forking](http://help.github.com
         $ git remote add upstream git@github.com:droolsjbpm/guvnor.git
         $ git fetch upstream
 
-Working with git
-----------------
 
-* First make a topic branch:
-
-        $ git checkout master
-        $ git checkout -b myFirstTopic
-
-    * Don't litter your local `master` branch: keep it equal to `remotes/upstream/master`
-
-    * 1 branch can have only 1 pull request, because the pull requests evolves as you add more commits on that branch.
-
-* Make changes, run, test and document them, then commit them:
-
-        $ git commit -m"Fix typo in documentation"
-
-* Push those commits on your topic branch to your fork
-
-        $ git push origin myFirstTopic
-
-* Get the latest changes from the blessed repository
-
-    * Set your master equal to the blessed master:
-
-            $ git fetch upstream
-            $ git checkout master
-            # Warning: this deletes all changes/commits on your local master branch, but you shouldn't have any!
-            $ git reset --hard upstream/master
-
-    * Start a new topic branch and set the code the same as the blessed master:
-
-        $ git fetch upstream && git checkout -b mySecondTopic && git reset --hard upstream/master
-
-    * If you have a long-running topic branch, merge master into it:
-
-            $ git fetch upstream
-            $ git merge upstream/master
-
-        * If there are merge conflicts:
-
-                $ git mergetool
-                $ git commit
-
-            or
-
-                $ git status
-                $ gedit conflicted-file.txt
-                $ git add conflicted-file.txt
-                $ git commit
-
-            Many people get confused when a merge conflict occurs, because you're *in limbo*.
-            Just fix the merge conflicts and commit (even if the git seems to contain many files),
-            only then is the merge over. Then run `git log` to see what happened.
-            The many files in the merge conflict resolving commit are a side-affect of non-linear history.
-
-* You may delete your topic branch after your pull request is closed (first one deletes remotely, second one locally):
-
-        $ git push origin :myTopicBranch
-        $ git branch -D myTopicBranch
-
-* Tips and tricks
-
-    * To see the details of your local, unpushed commits:
-
-            $ git diff origin...HEAD
-
-    * To run a git command (except clone) over all repositories (only works if you cloned all repositories):
-
-            $ cd ~/projects/droolsjbpm
-            $ droolsjbpm-build-bootstrap/script/git-all.sh push
-
-        * Note: the `git-all.sh` script is working directory independent.
-
-        * Linux tip: Create a symbolic link to the `git-all.sh` script and place it in your `PATH` by linking it in `~/bin`:
-
-                $ ln -s ~/projects/droolsjbpm/droolsjbpm-build-bootstrap/script/git-all.sh ~/bin/droolsjbpm-git
-
-            For command line completion, add the following line in `~/.bashrc`:
-
-                $ complete -o bashdefault -o default -o nospace -F _git droolsjbpm-git
-
-Share your changes with a pull request
---------------------------------------
-
+### Share your changes with a pull request
 A pull request is like a patch file, but easier to apply, more powerful and you'll be credited as the author.
 
 * Creating a pull request
@@ -256,7 +174,12 @@ A pull request is like a patch file, but easier to apply, more powerful and you'
 
         * Or use the button *Merge* if there are no merge conflicts.
 
-Building with Maven
+
+Installing and configuring npm
+------------------------------
+
+
+Building with Grunt
 ===================
 
 All projects use Maven 3 to build all their modules.
