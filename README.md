@@ -183,6 +183,13 @@ Once yeoman has finished installing, we then need to install the AngularJS scaff
 
 You can now start scaffolding your apps with Yeoman, managing dependencies with Bower, and building & running your application with Grunt!
 
+Note: If you would like to install grung and bower globally to use seperately from the project you can run these lines of code respectively:
+
+        $ npm install -g grunt-cli
+        $ npm install -g bower
+
+
+
 Building with Grunt
 ===================
 
