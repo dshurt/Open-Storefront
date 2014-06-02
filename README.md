@@ -169,164 +169,47 @@ Installing [node.js](http://nodejs.org/) on your computer will also install the 
 
 No special configuration is required, but details on npm configuration can be found [here](https://www.npmjs.org/doc/cli/npm-config.html)
 
+---
+Installing and configuring Yoeman, Bower and Grunt
+---------------------------------
+To install Yeoman, simply enter this into your terminal:
+        # The -g installs yoeman globally
+        $ npm install -g yo
+
+Once yeoman has finished installing, we then need to install the AngularJS scaffolding tool for Yeoman:
+        # Once again the -g installs the generator globally so that you can use it anywhere inside a yoeman project
+        $ npm install -g generator-angular
+
+You can now start scaffolding your apps with Yeoman, managing dependencies with Bower, and building & running your application with Grunt!
+
 Building with Grunt
 ===================
-
-All projects use Maven 3 to build all their modules.
-
-Installing Maven
-----------------
-
-* Get Maven
-
-    * [Download Maven](http://maven.apache.org/) and follow the installation instructions.
-
-* Linux
-
-    * Note: the `apt-get` version of maven is probably not up-to-date enough.
-
-    * Linux trick to easily upgrade to future versions later:
-
-        * Unzip maven to `~/opt/build`
-    
-        * Create a version-independent link:
-
-                $ cd ~/opt/build/
-                $ ln -s apache-maven-3.0.3 apache-maven
-
-            Next time you only have to remove the link and recreate the link to the new version.
-
-        * Add this to your `~/.bashrc` file:
-
-                export M3_HOME="~/opt/build/apache-maven"
-                export PATH="$M3_HOME/bin:$PATH"
-
-    * Give more memory to maven, so it can the big projects too:
-
-        * Add this to your `~/.bashrc` file:
-
-            export MAVEN_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=512m"
-
-* Windows:
-
-    * Give more memory to maven, so it can the big projects too:
-
-        * Open menu *Configuration screen*, menu item *System*, tab *Advanced*, button *environment variables*:
-
-            set MAVEN_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=512m"
-
-* Check if maven is installed correctly.
-
-        $ mvn --version
-        Apache Maven 3.0.3 (...)
-        Java version: 1.6.0_24
-
-    Note: the enforcer plugin enforces a minimum maven and java version.
 
 Running the build
 -----------------
 
-* Go into a project's base directory, for example `guvnor`:
+* Go into a project's front end base directory, for example `Open-Storefront/frontend`:
 
-        $ cd ~/projects/droolsjbpm
+        $ cd ~/projects/Open-Storefront-Project/Open-Storefront/frontend
         $ ls
-        drools  droolsjbpm-build-bootstrap  droolsjbpm-build-distribution  droolsjbpm-integration  droolsjbpm-knowledge  droolsjbpm-tools  optaplanner  guvnor
-        $ cd guvnor
-        $ ls
-        ...  guvnor-repository  guvnor-webapp-drools  pom.xml
-
-    Notice you see a `pom.xml` file there. Those `pom.xml` files are the heart of Maven.
-
+        app/  bower.json*  Gruntfile.js*  karma.conf.js*  karma-e2e.conf.js*  node_modules/  package.json*  test/
 * **Run the build**:
 
-        $ mvn clean install -DskipTests
+        $ grunt build
 
     The first build will take a long time, because a lot of dependencies will be downloaded (and cached locally).
 
     It might even fail, if certain servers are offline or experience hiccups.
     In that case, you 'll see an IO error, so just run the build again.
 
-    If you consistently get `Could not transfer artifact ... Connection timed out`
-    and you are behind a non-transparent proxy server,
-    [configure your proxy server in Maven](http://maven.apache.org/settings.html#Proxies).
-
     After the first successful build, any next build should be fast and stable.
-
-* Try running a different profile by using the option `-D<profileActivationProperty>`:
-
-        $ mvn clean install -DskipTests -Dfull
-
-    There are 3 profile activation properties:
-
-    * *none*: Fast, for during development
-
-    * `full`: Slow, but builds everything (including documentation). Used by jenkins and during releases.
-
-    * `soa`: prunes away the non-enterprise stuff
-
-* To run a maven build over all repositories (only works if you cloned all repositories):
-
-        $ cd ~/projects/droolsjbpm
-        $ droolsjbpm-build-bootstrap/script/mvn-all.sh -DskipTests clean install
-
-    * Note: the `mvn-all.sh` script is working directory independent.
-
-* Warning: The first `mvn` build of a day will download the latest SNAPSHOT dependencies of other droolsjbpm projects,
-unless you build all those droolsjbpm projects from source.
-Those SNAPSHOTS were build and deployed last night by jenkins jobs.
-
-    * If you 've pulled all changes (or cloned a repository) today, this is a good thing:
-    it saves you from having to download and build all those other latest droolsjbpm projects from source.
-
-    * If you haven't pulled all changes today, this is probably a bad thing:
-    you 're probably not ready to deal with those new snapshots.
-
-        In that case, add `-nsu` (= `--no-snapshot-updates`) to the `mvn` command to avoid downloading those snapshots:
-
-            $ mvn clean install -DskipTests -nsu
-
-        Note that using `-nsu` will also make the build faster.
 
 Running tests
 -------------
 
-Guvnor uses Arquillian to run tests in a J2EE container and hence tests need to be ran differently to others.
-
-* Guvnor
-
-        $ cd ~/projects/droolsjbpm/guvnor/guvnor-webapp-drools
-        $ mvn integration-test [-Dtest=ATestClassName]
-
-* All other modules
-
-        $ cd ~/projects/droolsjbpm/drools
-        $ mvn test [-Dtest=ATestClassName]
-
-Configuring Maven
------------------
-
-To deploy snapshots and releases to nexus, you need to add this to the file `~/.m2/settings.xml`:
-
-     <settings>
-       ...
-       <servers>
-         <server>
-           <id>jboss-snapshots-repository</id>
-           <username>jboss.org_username</username>
-           <password>jboss.org_password</password>
-         </server>
-         <server>
-           <id>jboss-releases-repository</id>
-           <username>jboss.org_username</username>
-           <password>jboss.org_password</password>
-         </server>
-       </servers>
-       ...
-     </settings>
-
-Furthermore, you'll need nexus rights to be able to do this.
-
-More info in [the JBoss.org guide to get started with Maven](http://community.jboss.org/wiki/MavenGettingStarted-Developers).
+Open-Storefront uses Karma to run tests for the frontend and hence tests need to be ran differently to others.
+        $ cd ~/projects/Open-Storefront-Project/Open-Storefront/frontend
+        $ grunt test
 
 Requirements for dependencies
 -----------------------------
