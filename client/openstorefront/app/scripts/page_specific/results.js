@@ -1,15 +1,28 @@
 'use strict';
 
 /* global setPageHeight, setPageMargin, setRightOpenWidth, openClick:true, 
-   fullClick:true, filtClick:true, resetStyles, floatBelowTop, moveButtons */
+fullClick:true, filtClick:true, resetStyles, floatBelowTop, moveButtons,
+unStretchFilterbutton */
+$('#filtersButton').on('mouseenter', function() {
+  if (!filtClick) {
+    $('.filtersButton').stop(true,true).animate({'margin-left':'0px'}, 200, function(){});
+  }
+});
+$('#filtersButton').on('mouseleave', function() {
+  if (!filtClick) {
+    $('.filtersButton').stop(true,true).animate({'margin-left':'-55px'}, 200, function(){});
+  }
+});
 
 $(document).ready(function(){
+
 
   var details = $('.page2');
   var results = $('.page1');
   var filters = $('.filters');
   if ($(window).width() < 767) {
     if (!fullClick) {
+      unStretchFilterbutton();
       resetStyles(details);
       resetStyles(results);
       resetStyles(filters);
@@ -27,6 +40,7 @@ $(document).ready(function(){
 
   $('#filtersButton').data('offset', '0');
   floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
+  moveButtons($('#showPageRight'), $('.page1'));
 });
 $(window).resize(function() {
   var details = $('.page2');
@@ -34,6 +48,7 @@ $(window).resize(function() {
   var filters = $('.filters');
   if ($(window).width() < 767) {
     if (!fullClick) {
+      unStretchFilterbutton();
       resetStyles(details);
       resetStyles(results);
       resetStyles(filters);
@@ -52,6 +67,7 @@ $(window).resize(function() {
 
   $('#filtersButton').data('offset', '0');
   floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
+  moveButtons($('#showPageRight'), $('.page1'));
 });
 $('.page1').scroll(function() {
   floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);

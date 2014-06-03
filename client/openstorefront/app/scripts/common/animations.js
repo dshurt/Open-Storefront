@@ -62,6 +62,23 @@ var setPageMargin = function (element) {
 };
 
 
+var stretchFilterbutton = function() {
+  var button = $('.filtersButton');
+  button.stop(true, true).animate({
+    'width':'248px',
+    'margin-left': '-250px'
+  }, 200, function() {/*complete animation*/});
+};
+    
+var unStretchFilterbutton = function() {
+  var button = $('.filtersButton');
+  button.stop(true, true).animate({
+    'width':'74px',
+    'margin-left': '-55px'
+  }, 200, function() {/*complete animation*/});
+
+};
+
 var openDetails = function(results, details, windowWidth) {
   var width = 400;
   if (filtClick === 1)
@@ -198,6 +215,7 @@ var fullDetailsToggle = function () {
   var details = $('.page2');
   setTimeout(function() {
     if (fullClick === 0) {
+      unStretchFilterbutton();
       closeFilter(filters, results, details, windowWidth);
       filtClick = 0;
       openFullDetails(results, details, windowWidth);
@@ -232,9 +250,11 @@ var openFiltersToggle = function () {
           openClick = 0;
         }
       }
+      stretchFilterbutton();
       openFilter(filters, results, details, windowWidth);
       filtClick = 1;
     } else {
+      unStretchFilterbutton();
       closeFilter(filters, results, details, windowWidth);
       filtClick = 0;
     }
