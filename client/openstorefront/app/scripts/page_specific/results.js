@@ -1,6 +1,7 @@
 'use strict';
 
-/* global setPageHeight, setPageMargin, setRightOpenWidth, openClick:true, fullClick:true, filtClick:true */
+/* global setPageHeight, setPageMargin, setRightOpenWidth, openClick:true, 
+   fullClick:true, filtClick:true, resetStyles, floatBelowTop, moveButtons */
 
 $(document).ready(function(){
 
@@ -9,9 +10,9 @@ $(document).ready(function(){
   var filters = $('.filters');
   if ($(window).width() < 767) {
     if (!fullClick) {
-      details.attr('style', '');
-      filters.attr('style', '');
-      results.attr('style', '');
+      resetStyles(details);
+      resetStyles(results);
+      resetStyles(filters);
       openClick = 0;
       fullClick = 0;
       filtClick = 0;
@@ -23,6 +24,9 @@ $(document).ready(function(){
   setPageHeight(results);
   setPageHeight(details);
   setPageMargin(details);
+
+  $('#filtersButton').data('offset', '0');
+  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
 });
 $(window).resize(function() {
   var details = $('.page2');
@@ -30,9 +34,9 @@ $(window).resize(function() {
   var filters = $('.filters');
   if ($(window).width() < 767) {
     if (!fullClick) {
-      details.attr('style', '');
-      filters.attr('style', '');
-      results.attr('style', '');
+      resetStyles(details);
+      resetStyles(results);
+      resetStyles(filters);
       openClick = 0;
       fullClick = 0;
       filtClick = 0;
@@ -45,7 +49,15 @@ $(window).resize(function() {
   setPageHeight(filters);
   setPageHeight(results);
   setPageHeight(details);
+
+  $('#filtersButton').data('offset', '0');
+  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
 });
-$(window).scroll(function() {
+$('.page1').scroll(function() {
+  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
+  moveButtons($('#showPageRight'), this);
   // setPageHeight($('.resultsContainer'));
+});
+$('.page2').scroll(function() {
+  moveButtons($('#showPageLeft'), this);
 });

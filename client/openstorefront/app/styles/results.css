@@ -1,4 +1,4 @@
-.resultsContainer {
+body, .resultsContainer {
   overflow: hidden;
 }
 
@@ -15,6 +15,7 @@
   border: 1px orange solid;
   width: 100%;
   position: relative;
+  overflow:auto;
 }
 
 .page2{
@@ -24,6 +25,7 @@
   border-bottom: 1px orange solid;
   margin-left: 100%;
   position: relative;
+  overflow:auto;
 }
 
 .openResults{
@@ -69,4 +71,31 @@
   white-space: normal;
   outline: none;
   font-size: xx-large;
+}
+
+.results {
+  overflow: auto;
+}
+
+.results-content-title{
+  color: #3892d3;
+  padding: 2px 5px;
+  font-size: 23px;
+  /*margin-left:110px;*/
+}
+.results-content-title .popover{
+  position: absolute !important;
+  color: black;
+  font-size: 12px;
+  /*margin-left:110px;*/
+}
+.results-content-title:hover{
+  cursor: pointer;
+  color: #22699c;
+}
+.watch-content-title{
+  color: #ffffff;
+  padding: 2px 5px;
+  font-size: 23px;
+  /*margin-left:110px;*/
 }

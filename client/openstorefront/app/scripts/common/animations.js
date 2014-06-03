@@ -8,17 +8,15 @@ var resetStyles = function(element) {
   element.attr('style', '');
 };
 
-var floatBelowTop = function(element, width) {
-  if ($(window).width() <= width) {
+var floatBelowTop = function(element, width, parent, top) {
+  if (parent.width() <= width) {
 
     var elementPosition = element.data('offset');
-    var fromTop = $(window).scrollTop();
+    var fromTop = parent.scrollTop();
     if (fromTop > elementPosition) {
-      var top = $('.top').height();
       element.css({
         'position': 'fixed',
         'top':  (top) + 'px',
-        'width': '100%',
         'z-index': '1010',
         'padding': '0px',
         'margin': '0px'
@@ -34,8 +32,13 @@ var floatBelowTop = function(element, width) {
 
 var setRightOpenWidth = function(element) {
   var windowWidth;
+  var width = 400;
+  if (filtClick === 1)
+  {
+    width = 650;
+  }
   if (!fullClick) {
-    windowWidth = $(window).width() - 400;
+    windowWidth = $(window).width() - width;
   } else {
     windowWidth = $(window).width();
   }
@@ -52,10 +55,10 @@ var setPageHeight = function(element) {
 };
 
 var setPageMargin = function (element) {
-    var windowHeight = $(window).height() - $('.top').height();
-    element.css({
-      'margin-top': -windowHeight + 'px'
-    });
+  var windowHeight = $(window).height() - $('.top').height();
+  element.css({
+    'margin-top': -windowHeight + 'px'
+  });
 };
 
 
@@ -223,6 +226,12 @@ var openFiltersToggle = function () {
   var details = $('.page2');
   setTimeout(function() {
     if (filtClick === 0) {
+      if (windowWidth <= 992) {
+        if (openClick) {
+          closeDetails(results, details);
+          openClick = 0;
+        }
+      }
       openFilter(filters, results, details, windowWidth);
       filtClick = 1;
     } else {
@@ -257,11 +266,11 @@ var buttonOpen = function() {
       fullDetailsToggle();
     }
   }
-  setTimeout(function () {
-    console.log('openClick', openClick);
-    console.log('fullClick', fullClick);
-    console.log('filtClick', filtClick);
-  }, 400);
+  // setTimeout(function () {
+  //   console.log('openClick', openClick);
+  //   console.log('fullClick', fullClick);
+  //   console.log('filtClick', filtClick);
+  // }, 400);
 };
 
 var buttonClose = function() {
@@ -289,14 +298,23 @@ var buttonClose = function() {
       return;
     }
   }
-  setTimeout(function () {
-    console.log('openClick', openClick);
-    console.log('fullClick', fullClick);
-    console.log('filtClick', filtClick);
-  }, 400);
+  // setTimeout(function () {
+  //   console.log('openClick', openClick);
+  //   console.log('fullClick', fullClick);
+  //   console.log('filtClick', filtClick);
+  // }, 400);
   return;
 };
 
+
+var moveButtons = function (element, parent) {
+  var top = $(parent).scrollTop();
+  var height = ($(parent).height() / 2);
+  var offset = top + height;
+  
+  element.css({'top': offset + 'px'});
+};
 // this line is also added to make jslint happy....
 /* jshint unused:false */
-/* exported floatBelowTop */
+/* exported floatBelowTop, setRightOpenWidth, setPageHeight, closeDetailsFull,
+   openFiltersToggle, buttonOpen, buttonClose, moveButtons, windowWidth */
