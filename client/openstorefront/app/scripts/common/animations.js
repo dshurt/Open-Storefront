@@ -185,10 +185,13 @@ var openWindowToggle = function () {
 
 var fullDetailsToggle = function () {
   var windowWidth = $(window).width();
+  var filters = $('.filters');
   var results = $('.page1');
   var details = $('.page2');
   setTimeout(function() {
     if (fullClick === 0) {
+      closeFilter(filters, results, details, windowWidth);
+      filtClick = 0;
       openFullDetails(results, details, windowWidth);
       fullClick = 1;
     } else if (fullClick === 1) {
