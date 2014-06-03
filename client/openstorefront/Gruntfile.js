@@ -1,6 +1,13 @@
 // Generated on 2014-05-30 using generator-angular 0.8.0
 'use strict';
 
+
+// Code here will be linted with JSHint.
+/* jshint ignore:start */
+// Code here will be linted with ignored by JSHint.
+
+
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -423,3 +430,4 @@ grunt.loadNpmTasks('grunt-war');
     'build'
   ]);
 };
+/* jshint ignore:end */

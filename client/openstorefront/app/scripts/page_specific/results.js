@@ -1,6 +1,6 @@
 'use strict';
 
-/* global setPageHeight, setPageMargin */
+/* global setPageHeight, setPageMargin, setRightOpenWidth */
 
 $(document).ready(function(){
   var details = $('.page2');
