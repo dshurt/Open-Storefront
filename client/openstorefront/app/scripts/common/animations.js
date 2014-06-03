@@ -228,27 +228,56 @@ var openFiltersToggle = function () {
 }
 
 var buttonOpen = function() {
-  if (openClick) {
-    if (fullClick) {
-      return;
-    } else {
-      fullDetailsToggle();
-    }
-  } else {
-    openWindowToggle();
-  }
-  return;
-}
-
-var buttonClose = function() {
-  if (openClick) {
-    if (fullClick) {
-      fullDetailsToggle();
+  if ( $(window).width() > 767 ) {
+    if (openClick) {
+      if (fullClick) {
+        return;
+      } else {
+        fullDetailsToggle();
+      }
     } else {
       openWindowToggle();
     }
-  } else {
     return;
+  }
+  else {
+    if (openClick) {
+      if (fullClick) {
+        return;
+      } else {
+        fullDetailsToggle();
+      }
+    } else {
+      openWindowToggle();
+      fullDetailsToggle();
+    }
+    return;
+  }
+}
+
+var buttonClose = function() {
+  if ( $(window).width() > 767 ) {
+    if (openClick) {
+      if (fullClick) {
+        fullDetailsToggle();
+      } else {
+        openWindowToggle();
+      }
+    } else {
+      return;
+    }
+  }
+  else {
+    if (openClick) {
+      if (fullClick) {
+        fullDetailsToggle();
+        openWindowToggle();
+      } else {
+        openWindowToggle();
+      }
+    } else {
+      return;
+    } 
   }
   return;
 }
