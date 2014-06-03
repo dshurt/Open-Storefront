@@ -18,7 +18,10 @@
 }
 
 .page2{
-  border: 1px orange solid;
+  margin-right: -1px;
+  border-top: 1px orange solid;
+  border-right: 1px orange solid;
+  border-bottom: 1px orange solid;
   margin-left: 100%;
   position: relative;
 }

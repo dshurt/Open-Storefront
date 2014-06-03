@@ -8,8 +8,8 @@
         <i class="fa fa-caret-left"></i> 
       </button>
     </div>
-    <div class="showPage">
-      <button id="showPageRight" class="showPageRight btn btn-primary" onclick="buttonOpen()">
+    <div class="showPage" ng-show="weHaveData">
+      <button id="showPageRight" class="showPageRight btn btn-primary" ng-click="doButtonOpen()">
         <i class="fa fa-caret-left"></i> 
       </button>
     </div>
@@ -17,7 +17,7 @@
   </div>
   <div class='page2' ng-class="{openDetails: isPage1==false}" ng-click="isPage1 = false">
     <div class="showPage">
-      <button id="showPageLeft" class="showPageLeft btn btn-primary" onclick="buttonClose()">
+      <button id="showPageLeft" class="showPageLeft btn btn-primary" ng-click="doButtonClose()">
         <i class="fa fa-caret-right"></i> 
       </button>
     </div>

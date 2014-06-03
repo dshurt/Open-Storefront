@@ -33,7 +33,12 @@ var floatBelowTop = function(element, width) {
 };
 
 var setRightOpenWidth = function(element) {
-  var windowWidth = $(window).width() - 400;
+  var windowWidth;
+  if (!fullClick) {
+    windowWidth = $(window).width() - 400;
+  } else {
+    windowWidth = $(window).width();
+  }
   element.css({
     'width': windowWidth + 'px'
   });
@@ -47,10 +52,10 @@ var setPageHeight = function(element) {
 };
 
 var setPageMargin = function (element) {
-  var windowHeight = $(window).height() - $('.top').height();
-  element.css({
-    'margin-top': -windowHeight + 'px'
-  });
+    var windowHeight = $(window).height() - $('.top').height();
+    element.css({
+      'margin-top': -windowHeight + 'px'
+    });
 };
 
 
@@ -228,6 +233,7 @@ var openFiltersToggle = function () {
 };
 
 var buttonOpen = function() {
+
   if ( $(window).width() > 767 ) {
     if (openClick) {
       if (fullClick) {
@@ -238,7 +244,6 @@ var buttonOpen = function() {
     } else {
       openWindowToggle();
     }
-    return;
   }
   else {
     if (openClick) {
@@ -251,11 +256,16 @@ var buttonOpen = function() {
       openWindowToggle();
       fullDetailsToggle();
     }
-    return;
   }
+  setTimeout(function () {
+    console.log('openClick', openClick);
+    console.log('fullClick', fullClick);
+    console.log('filtClick', filtClick);
+  }, 400);
 };
 
 var buttonClose = function() {
+
   if ( $(window).width() > 767 ) {
     if (openClick) {
       if (fullClick) {
@@ -279,6 +289,11 @@ var buttonClose = function() {
       return;
     }
   }
+  setTimeout(function () {
+    console.log('openClick', openClick);
+    console.log('fullClick', fullClick);
+    console.log('filtClick', filtClick);
+  }, 400);
   return;
 };
 
