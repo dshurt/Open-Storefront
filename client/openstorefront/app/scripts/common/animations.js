@@ -34,8 +34,13 @@ var floatBelowTop = function(element, width) {
 
 var setRightOpenWidth = function(element) {
   var windowWidth;
+  var width = 400;
+  if (filtClick === 1)
+  {
+    width = 650;
+  }
   if (!fullClick) {
-    windowWidth = $(window).width() - 400;
+    windowWidth = $(window).width() - width;
   } else {
     windowWidth = $(window).width();
   }
@@ -52,10 +57,10 @@ var setPageHeight = function(element) {
 };
 
 var setPageMargin = function (element) {
-    var windowHeight = $(window).height() - $('.top').height();
-    element.css({
-      'margin-top': -windowHeight + 'px'
-    });
+  var windowHeight = $(window).height() - $('.top').height();
+  element.css({
+    'margin-top': -windowHeight + 'px'
+  });
 };
 
 
@@ -223,6 +228,12 @@ var openFiltersToggle = function () {
   var details = $('.page2');
   setTimeout(function() {
     if (filtClick === 0) {
+      if (windowWidth <= 992) {
+        if (openClick) {
+          closeDetails(results, details);
+          openClick = 0;
+        }
+      }
       openFilter(filters, results, details, windowWidth);
       filtClick = 1;
     } else {
