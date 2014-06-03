@@ -9,7 +9,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', function ($scope, tempData)
   $scope.searchType = null;
   $scope.showSearch = false;
   $scope.isPage1 = true;
-
+  $scope.weHaveData = true;
 
   /* global isEmpty */
   if (!isEmpty($scope.searchGroup)) {
@@ -37,6 +37,16 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', function ($scope, tempData)
       }
     }
   }
+
+
+  /* global buttonOpen, buttonClose */
+  $scope.doButtonOpen = function() {
+    buttonOpen();
+  };
+
+  $scope.doButtonClose =  function() {
+    buttonClose();
+  };
 
   $scope.$watch(tempData.data, function() {
   });
