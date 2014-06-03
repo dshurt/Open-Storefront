@@ -8,9 +8,11 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', function ($scope, tempData)
   $scope.searchKey = null;
   $scope.searchType = null;
   $scope.showSearch = false;
+  $scope.isPage1 = true;
 
+
+  /* global isEmpty */
   if (!isEmpty($scope.searchGroup)) {
-    console.log($scope.searchGroup)
     if (!isEmpty($scope.searchGroup.category)) {
       $scope.searchKey = $scope.searchGroup.category;
       $scope.showSearch = true;
@@ -36,12 +38,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', function ($scope, tempData)
     }
   }
 
-
-  $scope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
-    tempData.setData({'type': [], 'category': [], 'state': [], 'search': [search]});
-    tempData.saveState();
-    $location.path('/results');
-  };
-
+  $scope.$watch(tempData.data, function() {
+  });
 
 }]);

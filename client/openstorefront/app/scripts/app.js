@@ -28,7 +28,7 @@ var app = angular
 
 
 
-app.run(['$rootScope', 'tempData', '$location', function ($rootScope, tempData, $location) {
+app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, tempData, $location, $route) {
   $rootScope.$on('$routeChangeStart', function (event, next, current) {/* jshint unused:false */
     if (sessionStorage.restorestate === 'true') {
       console.log('Session storage', sessionStorage);
@@ -42,12 +42,26 @@ app.run(['$rootScope', 'tempData', '$location', function ($rootScope, tempData, 
   $rootScope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
     tempData.setData({'type': [], 'category': [], 'state': [], 'search': [search]});
     tempData.saveState();
-    $location.path('/results');
+    if ($location.path() === '/results') {
+      $route.reload();
+    } else {
+      $location.path('/results');
+    }
   };
 
   window.onbeforeunload = function (event) {/* jshint unused:false */
     $rootScope.$broadcast('savestate');
   };
+
+  // Re-apply these functions on route-change
+  $rootScope.$on('$routeChangeStart', function(next, current) { /*jshint unused:false*/
+    setTimeout(function () {
+      $('.searchBar:input[type=\'text\']').on('click', function () {
+        $(this).select();
+      });
+    }, 500);
+  });
+
 }]);
 
 app.factory('tempData', ['$rootScope', function($rootScope) {
@@ -118,5 +132,6 @@ function isEmpty(obj) {
 
   return true;
 }
+
 
 /* exported isEmpty */

@@ -1,7 +1,8 @@
 'use strict';
 
-app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', function ($scope, Business, tempData, $location) {
+app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', '$rootScope', function ($scope, Business, tempData, $location, $rootScope) {
   tempData.restoreState();
+  $scope.searchKey = $rootScope.searchKey;
   $scope._scopename = 'landing';
   $scope.pageTitle = 'DI2E Storefront Catalog';
 
@@ -29,6 +30,10 @@ app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', funct
     tempData.saveState();
     $location.path('/results');
   };
+
+  $scope.$watch('searchKey', function() {
+    $rootScope.searchKey = $scope.searchKey;
+  });
 
   $scope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
     tempData.setData({'type': [], 'category': [], 'state': [], 'search': [search]});
