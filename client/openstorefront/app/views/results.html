@@ -1,1 +1,31 @@
-<p>This is the results view.</p>
+<div class='container-fluid resultsContainer'>
+  <div class="filters">
+    Filters
+  </div>
+  <div class='page1' ng-class="{openResults: isPage1==false}" ng-click="isPage1 = !isPage1">
+    <div class="showPage">
+      <button id="" class=" btn btn-primary" onclick="openFiltersToggle()">
+        <i class="fa fa-caret-left"></i> 
+      </button>
+    </div>
+    <div class="showPage">
+      <button id="showPageRight" class="showPageRight btn btn-primary" onclick="buttonOpen()">
+        <i class="fa fa-caret-left"></i> 
+      </button>
+    </div>
+    PAGE 1
+  </div>
+  <div class='page2' ng-class="{openDetails: isPage1==false}" ng-click="isPage1 = false">
+    <div class="showPage">
+      <button id="showPageLeft" class="showPageLeft btn btn-primary" onclick="buttonClose()">
+        <i class="fa fa-caret-right"></i> 
+      </button>
+    </div>
+    PAGE 2
+  </div>
+  <!-- <p ng-show="showSearch">The search key is: {{searchKey}}, of type '{{searchType}}'</p>
+  <p ng-show="!showSearch">There is no search key</p> -->
+</div>
+
+<link rel="stylesheet" href="styles/results.css">
+<script type="text/javascript" src="scripts/page_specific/results.js"></script>

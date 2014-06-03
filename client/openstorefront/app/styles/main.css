@@ -31,19 +31,12 @@ body {
 
 /***********************************************************************************/
 /*This section is for the navigation css that should remain constant over each page*/
+
+/*This sets up the nav height and width for its fixed position*/
 .defaultSpacer {
   height: 52px;
 }
 .top {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-}
-.navbar {
-  margin-bottom: 0px;
-}
-.top{
   position: fixed;
   top: 0px;
   left: 0px;
@@ -56,6 +49,8 @@ body {
   -moz-box-shadow: 0px 0px 9px 0px rgba(68, 68, 68, 0.6);
   box-shadow: 0px 0px 9px 0px rgba(68,68,68,0.6);
 }
+
+/*These are used to keep the elements on the nav working together nicely*/
 .userNavDropdown, .navSearch{
   padding-left: 10px;
   padding-right: 10px;
@@ -63,7 +58,7 @@ body {
 .userNavDropdown{
   width: 199px;
 }
-.center{
+.center, .navSearch form, .navSearchBar input{
   width: 100%;
   float: none;
 }
@@ -72,20 +67,15 @@ body {
   margin-right:220px;
   width: auto;
 }
-.navSearch form{
-  width: 100%;
+
+/*These change the input and button corner radius to make them fit together*/
+.navSearchBar input{
+  border-radius: 4px 0px 0px 4px;
 }
 .navSearchBar{
   margin-right:38px;
   display: block;
 } 
-.navSearchBar input{
-  width: 100%; 
-  border-radius: 4px 0px 0px 4px;
-}
-.navbar-form{
-  border:none;
-}
 .searchBoxButton{
   width:39px;
   margin-left: -1px; 
@@ -94,6 +84,8 @@ body {
   border-radius: 0px 4px 4px 0px; 
   border-left: none;
 }
+
+/*This changes the height of a navbarbutton so that it doesn't streach the nav*/
 .navButton{
   padding: 6px 10px;
 }

@@ -6,17 +6,23 @@
   <div class="center navSearch defaultSearch">
     <form>
       <div class="pull-right searchBoxButton">
-        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-search"></i></button>
+        <button type="submit" class="btn btn-primary pull-right" ng-click="goToSearchWithSearch(searchKey)"><i class="fa fa-search"></i></button>
       </div>
       <div class="navSearchBar">
-        <input type="text" class="form-control typeahead" placeholder="Search">
+        <input type="text" class="form-control typeahead searchBar" ng-model="searchKey" placeholder="Search">
       </div>
     </form>
   </div>
 </div>
-<div class="row default-content">
-  <div class="col-sm-4 categories" ng-repeat="item in types" style="padding-right: 30px;">
-    <a ng-click="goToSearch(item.code);">
+
+<div class="row defaultContent defaultTitle">
+  <div>
+    {{categoriesTitle}}
+  </div>
+</div>
+<div class="row defaultContent">
+  <div class="col-sm-4 categories" ng-repeat="item in categories" style="padding-right: 30px;">
+    <a ng-click="goToSearchWithCategory(item.code);">
       <div style="height: 100%">
         <div style="width: 64px; float: left">
           <img src="{{item.src}}" width="64" height="64">
@@ -32,17 +38,73 @@
   </div>
 </div>
 
+<div class="defaultSpacer hidden-xs">&nbsp;</div>
+
+<div class="row defaultContent defaultTitle">
+  <div>
+    {{typesTitle}}
+  </div>
+</div>
+<div class="row defaultContent">
+  <div class="col-sm-4 categories" ng-repeat="item in types" style="padding-right: 30px;">
+    <a ng-click="goToSearchWithType(item.code);">
+      <div style="height: 100%">
+        <div style="width: 64px; float: left">
+          <img src="{{item.src}}" width="64" height="64">
+        </div>
+        <div style="margin-left: 70px;">
+          <span class="item_bold">
+            <span class="listing_short_title_text">{{item.type}}</span>               
+          </span>
+          <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="defaultSpacer hidden-xs">&nbsp;</div>
+
+<div class="row defaultContent defaultTitle">
+  <div>
+    {{statesTitle}}
+  </div>
+</div>
+<div class="row defaultContent">
+  <div class="col-sm-4 categories" ng-repeat="item in states" style="padding-right: 30px;">
+    <a ng-click="goToSearchWithState(item.code);">
+      <div style="height: 100%">
+        <div style="width: 64px; float: left">
+          <img src="{{item.src}}" width="64" height="64">
+        </div>
+        <div style="margin-left: 70px;">
+          <span class="item_bold">
+            <span class="listing_short_title_text">{{item.displayType}}</span>               
+          </span>
+          <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
 <script type="text/javascript">
 $(window).resize(function() {
-  floatBelowTop($('.defaultSearch'));
+  setTimeout(function() {
+    $('.defaultSearch').data('offset', $(".defaultSearch").offset().top + parseInt($(".defaultSearch").css('padding-top'), 10) - 52);
+    floatBelowTop($('.defaultSearch'), 768);
+  }, 10); 
 });
 
-$(window).scroll(function() {
-  floatBelowTop($('.defaultSearch'));
+$(window).scroll(function() {  
+  floatBelowTop($('.defaultSearch'), 768);
 });
 
 $(document).ready(function() {
-  floatBelowTop($('.defaultSearch'));
+  setTimeout(function() {
+    $('.defaultSearch').data('offset', $(".defaultSearch").offset().top + parseInt($(".defaultSearch").css('padding-top'), 10) - 52);
+    floatBelowTop($('.defaultSearch'), 768);
+  }, 10); 
 });
 </script>
 
