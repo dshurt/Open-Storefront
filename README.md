@@ -197,6 +197,8 @@ Running the build
         $ ls
         app/  bower.json*  Gruntfile.js*  karma.conf.js*  karma-e2e.conf.js*  node_modules/  package.json*  test/
 
+    Remember after checkout to run "npm install" on the root client build directory to pickup project dependancies.
+
 * **Run the build**:
 
         $ grunt build

@@ -15,13 +15,42 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+grunt.loadNpmTasks('grunt-war');
+
   // Define the configuration for all the tasks
   grunt.initConfig({
+
+     //construct-war
+      war: {
+        target: {
+          options: {
+            war_dist_folder: '<%= yeoman.jvmdist %>',
+            war_verbose: true,
+            war_name: 'openstorefront',
+            webxml_welcome: 'index.html',
+            webxml_display_name: 'Open Storefront',
+            webxml_mime_mapping: [ 
+        { 
+            extension: 'woff', 
+              mime_type: 'application/font-woff' 
+        } ]
+          },
+          files: [
+            {
+              expand: true,
+              cwd: '<%= yeoman.dist %>',
+              src: ['**'],
+              dest: ''
+            }
+          ]
+        }
+      },
 
     // Project settings
     yeoman: {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
+      jvmdist: 'distwar',
       dist: 'dist'
     },
 
@@ -384,7 +413,8 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'war'
   ]);
 
   grunt.registerTask('default', [
