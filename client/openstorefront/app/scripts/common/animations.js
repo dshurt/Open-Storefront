@@ -37,7 +37,7 @@ var setRightOpenWidth = function(element) {
   element.css({
     'width': windowWidth + 'px'
   });
-}
+};
 
 var setPageHeight = function(element) {
   var windowHeight = $(window).height() - $('.top').height();
@@ -68,10 +68,10 @@ var openDetails = function(results, details, windowWidth) {
     'margin-left': '-='+marginAndResults+'px',
     'width': (windowWidth - width) + 'px'
   }, 200 , function() {/*complete animation*/});
-}
+};
 
 var closeDetails = function(results, details) {
-  results.css({'display': 'inherit'}); 
+  results.css({'display': 'inherit'});
   setPageMargin(details);
   results.stop(true, true).animate({
     'width': '100%'
@@ -79,21 +79,21 @@ var closeDetails = function(results, details) {
   details.stop(true, true).animate({
     'width': '0px',
     'margin-left': '100%'
-  }, 200 , function() { details.css({'width': '100%'}) });
-}
+  }, 200 , function() { details.css({'width': '100%'}); });
+};
 
 var openFullDetails = function(results, details, windowWidth) {
   results.stop(true, true).animate({
     'width': '0px',
-  }, 200 , function() { 
-    results.css({'display': 'none'}); 
+  }, 200 , function() {
+    results.css({'display': 'none'});
     details.css({'margin-top': '0px'});
   });
   details.stop(true, true).animate({
     'width': windowWidth + 'px',
     'margin-left': '0px'
   }, 200 , function() {/*complete animation*/});
-}
+};
 
 var closePartialDetails = function(results, details, windowWidth) {
   var width = 400;
@@ -101,7 +101,7 @@ var closePartialDetails = function(results, details, windowWidth) {
   {
     width = 650;
   }
-  results.css({'display': 'inherit'}); 
+  results.css({'display': 'inherit'});
   setPageMargin(details);
   results.stop(true, true).animate({
     'width': width + 'px'
@@ -110,11 +110,11 @@ var closePartialDetails = function(results, details, windowWidth) {
     'width': windowWidth - width + 'px',
     'margin-left': width + 'px'
   }, 200 , function() {/*complete animation*/});
-}
+};
 
 
 var openFilter = function (filters, results, details, windowWidth) {
-  results.css({'display': 'inherit'}); 
+  results.css({'display': 'inherit'});
   filters.css({'display': 'inherit'});
   setPageMargin(details);
   if (openClick === 1) {
@@ -137,10 +137,10 @@ var openFilter = function (filters, results, details, windowWidth) {
       'width': '250px'
     }, 200 , function() {/*complete animation*/});
   }
-}
+};
 
 var closeFilter = function (filters, results, details, windowWidth) {
-  results.css({'display': 'inherit'}); 
+  results.css({'display': 'inherit'});
   setPageMargin(details);
   if (openClick === 1) {
     results.stop(true, true).animate({
@@ -163,7 +163,7 @@ var closeFilter = function (filters, results, details, windowWidth) {
       'width': '0px'
     }, 200 , function() {filters.css({'display': 'none'});});
   }
-}
+};
 
 
 var openWindowToggle = function () {
@@ -197,9 +197,9 @@ var fullDetailsToggle = function () {
     } else if (fullClick === 1) {
       closePartialDetails(results, details, windowWidth);
       fullClick = 0;
-    } 
+    }
   }, 100);
-}
+};
 
 var closeDetailsFull = function () {
   var windowWidth = $(window).width();
@@ -209,7 +209,7 @@ var closeDetailsFull = function () {
     closeDetails(results, details);
     fullClick = 0;
   }, 100);
-}
+};
 
 var openFiltersToggle = function () {
   var windowWidth = $(window).width();
@@ -225,7 +225,7 @@ var openFiltersToggle = function () {
       filtClick = 0;
     }
   }, 100);
-}
+};
 
 var buttonOpen = function() {
   if ( $(window).width() > 767 ) {
@@ -253,7 +253,7 @@ var buttonOpen = function() {
     }
     return;
   }
-}
+};
 
 var buttonClose = function() {
   if ( $(window).width() > 767 ) {
@@ -277,10 +277,10 @@ var buttonClose = function() {
       }
     } else {
       return;
-    } 
+    }
   }
   return;
-}
+};
 
 // this line is also added to make jslint happy....
 /* jshint unused:false */
