@@ -1,6 +1,6 @@
 'use strict';
 
-app.filter('componentFilter', ['business', function(Business)  {
+app.filter('componentFilter', function()  {
   var allChecked = function(collection) {
     var none = _.every(collection, function(item) {
       return (item.checked === false);
@@ -9,7 +9,7 @@ app.filter('componentFilter', ['business', function(Business)  {
       return (item.checked === true);
     });
     return (none || all);
-  }
+  };
 
   return function (input, filters) {
     var out = null;
@@ -18,7 +18,7 @@ app.filter('componentFilter', ['business', function(Business)  {
         var collection = filter.collection;
         var key = filter.key;
         // if the filter isn't being used, or all are checked, we know its true
-        if (!allChecked(collection)) { 
+        if (!allChecked(collection)) {
           // otherwise we return true if it passes some portion of the filter
           return _.some(collection, function(checkedFilter) {
             if (checkedFilter.checked === true) {
@@ -37,4 +37,4 @@ app.filter('componentFilter', ['business', function(Business)  {
     });
     return out;
   };
-}]);
+});

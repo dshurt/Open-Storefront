@@ -24,6 +24,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   $scope.rowsPerPage = 20;
   $scope.pageNumber = 1;
   $scope.maxPageNumber = Math.ceil($scope.data.length / $scope.rowsPerPage);
+  $scope.details = $scope.data[0];
 
   // if (!isEmpty($scope.searchGroup)) {
   //   if (!isEmpty($scope.searchGroup.category)) {
@@ -52,9 +53,6 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   // }
 
 
-  $scope.$on('$includeContentLoaded', function() {
-    setupPopovers();
-  });
 
 
   /* global buttonOpen, buttonClose */
@@ -65,14 +63,6 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   $scope.doButtonClose =  function() {
     buttonClose();
   };
-
-  $scope.$on('$viewContentLoaded', function() {
-    //call onload functions here 
-    setTimeout(function() {
-      setupPopovers();
-    }, 300);
-  });
-
 
   $scope.$watch('pageNumber',function(val, old){ /* jshint unused:false */
     $scope.pageNumber = parseInt(val);
@@ -131,7 +121,6 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     $scope.applyFilters();
   };
 
-  $scope.details = $scope.data[0];
 
   $scope.updateDetails = function(id){
     var temp =  _.where($scope.data, {'id': id})[0];
@@ -150,12 +139,9 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     }
     $scope.data = $scope.filteredTotal.slice((($scope.pageNumber - 1) * $scope.rowsPerPage), ($scope.pageNumber * $scope.rowsPerPage));
 
-
-    // TODO:: FIX THIS BUG WITH POPOVERS NOT SHOWING UP AFTER FILTERING.....
-    // setupPopovers();
-
     $timeout(function() {
-    }, 20);
+      setupPopovers();
+    }, 300);
   };
 }]);
 
