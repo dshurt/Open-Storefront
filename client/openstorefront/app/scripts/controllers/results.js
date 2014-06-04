@@ -177,6 +177,12 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
       $scope.pageNumber = 1;
     }
     $scope.data = $scope.filteredTotal.slice((($scope.pageNumber - 1) * $scope.rowsPerPage), ($scope.pageNumber * $scope.rowsPerPage));
+
+
+    // TODO:: FIX THIS BUG WITH POPOVERS NOT SHOWING UP AFTER FILTERING.....
+    setupPopovers();
+    
+
     $timeout(function() {
     }, 20);
   };
