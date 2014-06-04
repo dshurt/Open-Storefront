@@ -3,38 +3,62 @@
 
 
   <!-- Filters Div -->
-  <div class="filters">
-    <div id="filters">
-      <div class="filterTableDiv firstFilter">
-        <table class="table filterTable">
+  <div id="filters">
+    <div class="filterTableDiv firstFilter">
+      <table class="table filterTable">
+        <tr>
           <th class="filtersTd" ng-click="toggleTypeChecks()">Type</th>
-          <tr class="filtersTr" data-ng-repeat="type in dataTypes">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="filterTableDiv">
-        <table class="table filterTable">
+        </tr>
+        <tr class="filtersTr" data-ng-repeat="type in dataTypes">
+          <td class="filtersTd">
+            <div class="checkbox filterCheckbox">
+              <input type="checkbox" ng-checked="type.checked" ng-model="type.checked" id="{{type.type}}" />
+              <label for="{{type.type}}">{{type.type}}</label>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="filterTableDiv">
+      <table class="table filterTable">
+        <tr>
           <th class="filtersTd" ng-click="toggleCategoryChecks()">Category</th>
-          <tr class="filtersTr" data-ng-repeat="type in categoryTypes">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="filterTableDiv lastFilter">
-        <table class="table filterTable">
+        </tr>
+        <tr class="filtersTr" data-ng-repeat="type in categoryTypes">
+          <td class="filtersTd">
+            <div class="checkbox filterCheckbox">
+              <input type="checkbox" ng-checked="type.checked" ng-model="type.checked" id="{{type.type}}" />
+              <label for="{{type.type}}">{{type.type}}</label>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="filterTableDiv lastFilter">
+      <table class="table filterTable">
+        <tr>
           <th class="filtersTd" ng-click="toggleStateChecks()">State</th>
-          <tr class="filtersTr" data-ng-repeat="type in stateTypes">
-            <td class="filtersTd">
-              <div class="checkbox filterCheckbox"><input ng-change="resetPageTransition()" type="checkbox" ng-checked"type.checked" ng-model="type.checked" id="{{type.type}}"><label for="{{type.type}}">{{type.type}}</label></div>
-            </td>
-          </tr>
-        </table>
-      </div>
+        </tr>
+        <tr class="filtersTr" data-ng-repeat="type in stateTypes">
+          <td class="filtersTd">
+            <div class="checkbox filterCheckbox">
+              <input type="checkbox" ng-checked="type.checked" ng-model="type.checked" id="{{type.type}}">
+              <label for="{{type.type}}">{{type.type}}</label>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="filterTableDiv">
+      <label for="searchFilter">Sort By: </label>
+      <select ng-model="orderProp" class="form-control">
+        <option class="hidden-lg" selected disabled value="" hidden>Sort By</option>
+        <option value="name">Name</option>
+        <option value="age">Last Update</option>
+      </select>
+      <br>
+      <label for="searchFilter">Filter By Text: </label>
+      <input type="text" id="searchFilter" class="form-control typeahead" placeholder="Search" ng-model="query" />
     </div>
   </div>
 

@@ -41,6 +41,9 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   }
 
 
+  $scope.$on('$includeContentLoaded', function() {
+    setupPopovers();
+  });
 
 
   /* global buttonOpen, buttonClose */
