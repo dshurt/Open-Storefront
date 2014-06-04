@@ -2,13 +2,14 @@
 
 app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', '$rootScope', function ($scope, Business, tempData, $location, $rootScope) {
   tempData.restoreState();
-  $scope.searchKey = $rootScope.searchKey;
-  $scope._scopename = 'landing';
-  $scope.pageTitle = 'DI2E Storefront Catalog';
+  $scope.searchKey        = $rootScope.searchKey;
+  $scope._scopename       = 'landing';
+  $scope.pageTitle        = 'DI2E Storefront Catalog';
 
-  $scope.types            = Business.getTypes();
-  $scope.categories       = Business.getCategories();
-  $scope.states           = Business.getStates();
+  $scope.filters          = Business.getFilters();
+  $scope.types            = $scope.filters[0].collection;
+  $scope.categories       = $scope.filters[1].collection;
+  $scope.states           = $scope.filters[2].collection;
   $scope.typesTitle       = 'Browse Types';
   $scope.categoriesTitle  = 'Browse Categories';
   $scope.statesTitle      = 'Browse States';
