@@ -190,6 +190,7 @@ Building with Grunt
 Before Running the Build
 ------------------------
 * First you must make sure you have all of the correct dependencies installed. 
+
         #navigate to client/openstorefront/
         $ cd ~/projects/Open-Storefront-Project/Open-Storefront/client/openstorefront/
         #and run npm install
