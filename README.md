@@ -187,6 +187,13 @@ Grunt and Bower have also been installed globally, so you should be able to use 
 
 Building with Grunt
 ===================
+Before Running the Build
+------------------------
+* First you must make sure you have all of the correct dependencies installed. 
+        #navigate to client/openstorefront/
+        $ cd ~/projects/Open-Storefront-Project/Open-Storefront/client/openstorefront/
+        #and run npm install
+        $ npm install
 
 Running the build
 -----------------
@@ -196,8 +203,6 @@ Running the build
         $ cd ~/projects/Open-Storefront-Project/Open-Storefront/frontend
         $ ls
         app/  bower.json*  Gruntfile.js*  karma.conf.js*  karma-e2e.conf.js*  node_modules/  package.json*  test/
-
-    Remember after checkout to run "npm install" on the root client build directory to pickup project dependancies.
 
 * **Run the build**:
 
