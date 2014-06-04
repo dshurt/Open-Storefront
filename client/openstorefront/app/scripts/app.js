@@ -1,5 +1,7 @@
 'use strict';
 
+/* global setupTypeahead*/
+
 var app = angular
 .module('openstorefrontApp', [
   'ngCookies',
@@ -29,6 +31,7 @@ var app = angular
 
 
 app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, tempData, $location, $route) {
+  // Re-apply these functions on route-change
   $rootScope.$on('$routeChangeStart', function (event, next, current) {/* jshint unused:false */
     if (sessionStorage.restorestate === 'true') {
       console.log('Session storage', sessionStorage);
@@ -36,7 +39,11 @@ app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, 
       $rootScope.$broadcast('restorestate');
       sessionStorage.restorestate = false;
     }
-
+    setTimeout(function () {
+      $('.searchBar:input[type=\'text\']').on('click', function () {
+        $(this).select();
+      });
+    }, 500);
   });
 
   $rootScope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
@@ -53,13 +60,8 @@ app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, 
     $rootScope.$broadcast('savestate');
   };
 
-  // Re-apply these functions on route-change
-  $rootScope.$on('$routeChangeStart', function(next, current) { /*jshint unused:false*/
-    setTimeout(function () {
-      $('.searchBar:input[type=\'text\']').on('click', function () {
-        $(this).select();
-      });
-    }, 500);
+  $rootScope.$on('$viewContentLoaded', function() {
+    setupTypeahead();
   });
 
 }]);

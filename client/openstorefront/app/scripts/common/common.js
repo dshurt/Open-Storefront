@@ -1,5 +1,8 @@
 'use strict';
 
+
+/* exported setupPopovers, setupTypeahead */
+
 // This is where we'll put the document.ready functions that apply globally
 $(document).ready(function() {
 
@@ -7,7 +10,7 @@ $(document).ready(function() {
 
 
 // This is where all of the useful shared functions will go.
-var setupPopovers = function() {  /* exported setupPopovers */
+var setupPopovers = function() {
   if ($('[data-toggle="popover"]').length > 2) {
     $('.lastPopover[data-toggle="popover"]').popover({trigger: 'hover','placement': 'top', 'html': true});
   }
@@ -39,7 +42,7 @@ var substringMatcher = function(objs) {
   };
 };
 
-$( document ).ready(function() {
+var setupTypeahead = function() {
   setTimeout(function() {
     $('.typeahead').typeahead({
       hint: true,
@@ -51,5 +54,6 @@ $( document ).ready(function() {
       displayKey: 'value',
       source: substringMatcher(MOCKDATA.assets.assets)
     });
+    $('.typeahead').toggleClass('typeahead');
   }, 300);
-});
+};
