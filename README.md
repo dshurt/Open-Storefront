@@ -198,6 +198,7 @@ Before Running the Build
 
 * This should create a node_modules folder inside of the client/openstorefront/ directory with all of the node modules you'll need to do a build.
 * It will also create a folder within client/openstorefront/app/ called 'bower_components' with all of the required bower components for the site.
+* NOTE: If bower is not installed correctly (globally), you will run into issues with the npm install creating the bower_components.
 
 Running the build
 -----------------
