@@ -4,45 +4,15 @@
 
   <!-- Filters Div -->
   <div id="filters" class="filters">
-    <div class="filterTableDiv firstFilter">
+    <div ng-class='{lastFilter:$last, firstFilter: $first}' class="filterTableDiv" ng-repeat="filter in filters">
       <table class="table filterTable">
         <tr>
-          <th class="filtersTd" ng-click="toggleTypeChecks()">Type</th>
+          <th class="filtersTd filtersTh" ng-click="toggleChecks(filter.collection)">{{filter.name}}</th>
         </tr>
-        <tr class="filtersTr" data-ng-repeat="type in dataTypes">
+        <tr class="filtersTr" data-ng-repeat="type in filter.collection">
           <td class="filtersTd">
             <div class="checkbox filterCheckbox">
-              <input type="checkbox" ng-checked="type.checked" ng-model="type.checked" id="{{type.type}}" />
-              <label for="{{type.type}}">{{type.type}}</label>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="filterTableDiv">
-      <table class="table filterTable">
-        <tr>
-          <th class="filtersTd" ng-click="toggleCategoryChecks()">Category</th>
-        </tr>
-        <tr class="filtersTr" data-ng-repeat="type in categoryTypes">
-          <td class="filtersTd">
-            <div class="checkbox filterCheckbox">
-              <input type="checkbox" ng-checked="type.checked" ng-model="type.checked" id="{{type.type}}" />
-              <label for="{{type.type}}">{{type.type}}</label>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="filterTableDiv lastFilter">
-      <table class="table filterTable">
-        <tr>
-          <th class="filtersTd" ng-click="toggleStateChecks()">State</th>
-        </tr>
-        <tr class="filtersTr" data-ng-repeat="type in stateTypes">
-          <td class="filtersTd">
-            <div class="checkbox filterCheckbox">
-              <input type="checkbox" ng-checked="type.checked" ng-model="type.checked" id="{{type.type}}">
+              <input type="checkbox" ng-checked="type.checked" ng-model="type.checked" id="{{type.type}}" ng-change="applyFilters()"/>
               <label for="{{type.type}}">{{type.type}}</label>
             </div>
           </td>
@@ -61,6 +31,7 @@
       <input type="text" id="searchFilter" class="form-control typeahead" placeholder="Search" ng-model="query" />
     </div>
   </div>
+  <!-- END Filters Div -->
 
   <!-- Page 1 -->
   <div class='page1' ng-class="{openResults: isPage1==false}" ng-click="isPage1 = !isPage1">
