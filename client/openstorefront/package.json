@@ -1,7 +1,12 @@
 {
   "name": "openstorefront",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "bower" : ""
+  },
+  "scripts": {
+    "postinstall" : "node_modules/.bin/bower install"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-autoprefixer": "~0.4.0",
