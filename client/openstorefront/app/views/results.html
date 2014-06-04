@@ -79,7 +79,224 @@
         <i class="fa fa-caret-right"></i> 
       </button>
     </div>
-    PAGE 2
+    <div class="component-details">
+      <div class="component-title">
+        <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span></h1>
+      </div>
+      <div class="component-div row" style="margin-top: -10px">
+        <div class="col-md-6">
+
+          <p style="margin-top: 5px">
+            <strong>
+              License:
+            </strong>
+            {{details.primaryLicense}}
+          </p>
+          <p style="margin-top: -10px">
+            <strong>
+              Operational Status:
+            </strong>
+            {{details.operationStatus}}
+          </p>
+          <p style="margin-top: -10px">
+            <strong>
+              Evaluation Level:
+            </strong>
+            {{details.conformanceState[0].code}}
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p style="margin-top: 5px; margin-bottom: 0px"><strong>Tags:</strong></p>
+          <div data-ng-repeat="tag in details.assetTags">
+            <p style="margin: 0px 0px 0px 20px">
+              <a href="">
+                {{tag.desc}}
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="component-div-title">Description</div>
+      <div class="component-div">
+        {{details.description}}
+      </div>
+      <div class="component-div-title">Resources</div>
+      <div class="component-div">
+
+        <div class="pull-left" style="width: 95px">
+          <div style="text-align: center; width: 100%">
+            <img src="../../images/icon/tango/text-html.png" alt="">
+          </div>
+          <div style="text-align: center">
+            <a href="">
+              Web Pages
+            </a>
+          </div>
+        </div>
+        <div class="pull-left" style="width: 95px">
+          <div style="text-align: center; width: 100%">
+            <img src="../../images/icon/tango/text-x-script.png" alt="">
+          </div>
+          <div style="text-align: center">
+            <a href="">
+              Binaries
+            </a>
+          </div>
+        </div>
+        <div class="pull-left" style="width: 95px">
+          <div style="text-align: center; width: 100%">
+            <img src="../../images/icon/tango/text-x-generic.png" alt="">
+          </div>
+          <div style="text-align: center">
+            <a href="">
+              Source
+            </a>
+          </div>
+        </div>
+        <div class="pull-left" style="width: 95px">
+          <div style="text-align: center; width: 100%">
+            <img src="../../images/icon/tango/x-office-document.png" alt="">
+          </div>
+          <div style="text-align: center">
+            <a href="">
+              Documentation
+            </a>
+          </div>
+        </div>
+        <div style="position: relative; clear: both"></div>
+      </div>
+      <div class="component-div-title">Evaluation Levels</div>
+      <div class="component-div">
+        <div class="detailSection">
+          <table>
+            <tbody><tr>
+              <td>
+                <a href="" target="_blank">
+                  <img src="../../images/icon/silk/medal_bronze_1.png" title="Evaluated" width="22" height="22"> 
+                  <span class="conformance_badge">Evaluation</span><br>                   
+                </a> 
+              </td>
+              <td style="padding-left: 20px">
+                <a href="" target="_blank">
+                  <img src="../../images/icon/silk/medal_silver_1.png" title="Evaluated" width="22" height="22"> 
+                  <span class="conformance_badge">Conformance Testing</span><br>                    
+                </a>                  
+              </td>
+              <td style="padding-left: 20px">
+                <a href="" target="_blank">
+                  <img src="../../images/icon/silk/medal_gold_1.png" title="Evaluated" width="22" height="22"> 
+                  <span class="conformance_badge">Reference Integration</span><br>                    
+                </a>                  
+              </td>
+            </tr>
+          </tbody></table>              
+        </div>
+      </div>
+      <div class="component-div-title">Relations</div>
+      <div class="component-div">
+        <div>
+          <h3>
+            Component Of:
+          </h3>
+          <div data-ng-repeat="thing in details.componentOf">
+            <a  href="">{{thing.name}}</a>
+          </div>
+          <h3>
+            Sub-Component Of:</h3>
+            <div data-ng-repeat="subComponent in details.subComponents">
+              <a  href="">{{subComponent.name}}</a>
+            </div>
+          </div>
+        </div>
+        <div class="component-div-title">Screenshots/Media</div>
+        <div class="component-div">
+          <div class="detailSection">
+            <img src="../../media/Picture1.png" class="screenshot" onclick="screenshotPopUp('media/Picture1.png')">
+          </div>
+        </div>
+        <div class="component-div-title">Details</div>
+        <div class="component-div">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th style="width: 180px">Resource Type</th>
+              <td>{{details.type}}</td>
+            </tr>
+            <tr>
+              <th style="width: 180px">Metadata Date</th>
+              <td>{{details.releaseDate}}</td>
+            </tr>
+            <tr>
+              <th style="width: 180px">Metadata Created Date</th>
+              <td>{{details.postDate}}</td>
+            </tr>
+            <tr>
+              <th style="width: 180px">Metadata Updated Date</th>
+              <td>{{details.updateDate}}</td>
+            </tr>
+            <tr>
+              <th style="width: 180px">Reference Date(s)</th>
+              <td>5 Minutes</td>
+            </tr>
+            <tr>
+              <th style="width: 180px">Access Level</th>
+              <td>WWW, SIPR, JSWIC</td>
+            </tr>
+            <tr>
+              <th style="width: 180px">ITAR Export Approved</th>
+              <td>No</td>
+            </tr>
+            <tr>
+              <th style="width: 180px">C&amp;A</th>
+              <td>Available</td>
+            </tr>
+          </table>
+        </div>
+        <div class="component-div-title">Comments</div>
+        <div class="component-div">
+          <div style="padding:20px;">
+            <table width="100%">
+              <tbody><tr>
+                <th></th>
+                <th align="left">Great!</th>
+              </tr>
+              <tr>
+                <td width="150px" valign="top">                   
+                  <raty class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="{{details.stats.averageRating}}" number="5" path="images/raty" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+                  </raty>
+
+                  Ted Jones - Developer<br>
+                  3 months + experience<br>
+                </td>
+                <td valign="top">
+                  This was just what I was looking for!  It's well organized and easy to read.
+                </td>
+                <td width="10%">
+                  03/14/2014
+                </td><td>  
+              </td></tr>
+            </tbody></table>
+            <hr>
+            <h3>Your Feeback</h3>             
+            Rating: <select><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><br>
+            Experience with this component?  <select><option>Never used</option><option> &lt; 1 month</option><option>3 months + </option><option>6 months +</option><option>over 1 year</option></select><br>                          
+            Your Role?  <select><option>Consumer</option><option>Developer</option><option>Program Manager</option><option>Other</option></select><br>                          
+            Comments<br>
+            <textarea cols="30"></textarea><br>
+            <button>Post</button> 
+          </div>
+        </div>
+        <div class="component-div-title">Related Components</div>
+        <div class="component-div">
+          <div id="commentsDiv" class="detailSection">
+            <div data-ng-repeat="relatedAsset in details.relatedAssets">
+              <a  href="">{{relatedAsset.name}}</a><br>
+            </div>
+
+            <i>(LINKS TO RELATED COMPONENTS  - determine by system based on Tags) </i>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- End Page 2 -->
 
