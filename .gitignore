@@ -8,3 +8,5 @@
 /server/openstorefront/openstorefront-web/target/
 /client/openstorefront/nbproject/private/
 /client/openstorefront/distwar/
+/client/openstorefront/dist/
+/client/openstorefront/app/bower_components/
