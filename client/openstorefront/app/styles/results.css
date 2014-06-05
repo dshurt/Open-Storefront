@@ -16,7 +16,6 @@ html, .resultsContainer {
 
 .page1{
   /*border: 1px orange solid;*/
-  padding-top: 34px;
   width: 100%;
   position: relative;
   overflow:auto;
@@ -39,6 +38,14 @@ html, .resultsContainer {
   overflow:auto;
 }
 
+.searchTitle {
+  height: 34px;
+  color: #3892d3;
+  text-align: center;
+  font-size: 25px;
+  /*letter-spacing: 10px;*/
+}
+
 .openResults{
 }
 .openDetails{
@@ -56,7 +63,7 @@ html, .resultsContainer {
   -webkit-border-radius: 90px 0 0 90px;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
+  margin-top: -26px;
   left: auto;
   right: 0px;
   z-index: 1000;
