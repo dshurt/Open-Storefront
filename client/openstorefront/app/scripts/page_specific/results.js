@@ -14,7 +14,25 @@ $('#filtersButton').on('mouseleave', function() {
   }
 });
 
+var clicking = false;
+var clickingInside = false;
+
+
 $(document).ready(function(){
+
+
+
+  $('.pagination').mouseleave(function(){
+    var html = $('.page1');
+    html.css('overflow', 'auto');
+    clickingInside = true;
+  });
+
+  $('.pagination').mouseenter(function(){
+    var html = $('.page1'); 
+    html.css('overflow', 'hidden');
+    clickingInside = false;
+  });
 
 
   var details = $('.page2');

@@ -254,6 +254,7 @@ input[type=checkbox]:checked + label{
   height: 40px;
   margin: 0px;
   width: inherit;
+  overflow: hidden;
 }
 .pagination > div{
   position: relative;
