@@ -9,7 +9,8 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
   $scope._scopename = 'results';
   $scope.searchKey = null;
-  $scope.searchType = null;
+  $scope.searchCode = null;
+  $scope.searchTitle = null;
   $scope.showSearch = false;
   $scope.isPage1 = true;
   $scope.weHaveData = true;
@@ -21,36 +22,37 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
   $scope.filteredTotal = $scope.total;
   $scope.data = $scope.total;
-  $scope.rowsPerPage = 5;
+  $scope.rowsPerPage = 10;
   $scope.pageNumber = 1;
   $scope.maxPageNumber = Math.ceil($scope.data.length / $scope.rowsPerPage);
   $scope.details = $scope.data[0];
 
-  // if (!isEmpty($scope.searchGroup)) {
-  //   if (!isEmpty($scope.searchGroup.category)) {
-  //     $scope.searchKey = $scope.searchGroup.category;
-  //     $scope.showSearch = true;
-  //     $scope.searchType = 'category';
-  //   } else if (!isEmpty($scope.searchGroup.type)) {
-  //     $scope.searchKey = $scope.searchGroup.type;
-  //     $scope.showSearch = true;
-  //     $scope.searchType = 'type';
-  //   } else if (!isEmpty($scope.searchGroup.state)) {
-  //     $scope.searchKey = $scope.searchGroup.state;
-  //     $scope.showSearch = true;
-  //     $scope.searchType = 'state';
-  //   } else if (!isEmpty($scope.searchGroup.search)) {
-  //     if ($scope.searchGroup.search[0] !== null) {
-  //       $scope.searchKey = $scope.searchGroup.search;
-  //       $scope.showSearch = true;
-  //       $scope.searchType = 'search';
-  //     } else {
-  //       $scope.searchKey = 'DOALLSEARCH';
-  //       $scope.showSearch = true;
-  //       $scope.searchType = 'all';
-  //     }
-  //   }
-  // }
+
+
+  if (!isEmpty($scope.searchGroup)) {
+    var keys = _.pluck($scope.filters, 'key');
+    if (_.contains(keys, $scope.searchGroup[0].key)) {
+      console.log("We went here...");
+      
+      $scope.searchKey = $scope.searchGroup[0].key;
+      $scope.searchCode = $scope.searchGroup[0].code;
+      $scope.showSearch = true;
+      $scope.searchTitle =  _.where(_.where($scope.filters, {'key': $scope.searchGroup[0].key})[0].collection, {'code': $scope.searchGroup[0].code})[0].type;
+    } else if ($scope.searchGroup[0].key === 'search') {
+      console.log("We Arrived!@");
+      $scope.searchKey = 'DOALLSEARCH';
+      $scope.showSearch = true;
+      $scope.searchTitle = $scope.searchGroup[0].code;
+    } else {
+      $scope.searchKey = 'DOALLSEARCH';
+      $scope.showSearch = true;
+      $scope.searchTitle = 'All';  
+    }
+  } else {
+    $scope.searchKey = 'DOALLSEARCH';
+    $scope.showSearch = true;
+    $scope.searchTitle = 'All';
+  }
 
   $scope.$on('$viewContentLoaded', function(){
     $timeout(function() {
@@ -69,10 +71,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   };
 
   $scope.$watch('pageNumber',function(val, old){ /* jshint unused:false */
-    console.log("Page", $scope.pageNumber);
-    console.log("maxPageNumber", $scope.maxPageNumber);
-    console.log("row", $scope.rowsPerPage);
-    
+
     $scope.pageNumber = parseInt(val);
     if ($scope.pageNumber < 1) {
       $scope.pageNumber = 1;

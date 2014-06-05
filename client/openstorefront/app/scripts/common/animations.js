@@ -312,11 +312,11 @@ var buttonOpen = function() {
       fullDetailsToggle();
     }
   }
-  setTimeout(function () {
-    console.log('openClick', openClick);
-    console.log('fullClick', fullClick);
-    console.log('filtClick', filtClick);
-  }, 400);
+  // setTimeout(function () {
+  //   console.log('openClick', openClick);
+  //   console.log('fullClick', fullClick);
+  //   console.log('filtClick', filtClick);
+  // }, 400);
 };
 
 var buttonClose = function() {
@@ -344,11 +344,11 @@ var buttonClose = function() {
       return;
     }
   }
-  setTimeout(function () {
-    console.log('openClick', openClick);
-    console.log('fullClick', fullClick);
-    console.log('filtClick', filtClick);
-  }, 400);
+  // setTimeout(function () {
+  //   console.log('openClick', openClick);
+  //   console.log('fullClick', fullClick);
+  //   console.log('filtClick', filtClick);
+  // }, 400);
 return;
 };
 
