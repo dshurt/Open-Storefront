@@ -56,9 +56,9 @@ app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, 
     }
   };
 
-  window.onbeforeunload = function (event) {/* jshint unused:false */
+  $rootScope.$on('$locationChangeStart', function(event, newUrl, oldUrl) {/* jshint unused:false */
     $rootScope.$broadcast('savestate');
-  };
+  });
 
   $rootScope.$on('$viewContentLoaded', function() {
     setupTypeahead();

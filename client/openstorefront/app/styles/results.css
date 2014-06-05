@@ -161,7 +161,7 @@ input[type=checkbox]:checked + label{
   border-bottom: 1px lightgray solid;
   border-top: 1px lightgray solid;
   border-right: 1px lightgray solid;
-  margin: 10px 0px;
+  margin: 34px 0px 10px 0px;
   background: white;
 }
 
