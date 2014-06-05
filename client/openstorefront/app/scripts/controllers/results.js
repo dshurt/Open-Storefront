@@ -1,6 +1,6 @@
 'use strict';
 
-/* global isEmpty, setupPopovers */
+/* global isEmpty, setupPopovers, openClick:true, openWindowToggle */
 
 app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$timeout', function ($scope, tempData, Business, $filter, $timeout) {
   tempData.restoreState();
@@ -123,6 +123,9 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
 
   $scope.updateDetails = function(id){
+    if (!openClick) {
+      openWindowToggle();
+    }
     var temp =  _.where($scope.data, {'id': id})[0];
     if (temp)
     {
@@ -131,8 +134,10 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   };
 
   $scope.applyFilters = function() {
-    $scope.filteredTotal = $filter('orderBy')($filter('componentFilter')($filter('filter')($scope.total, $scope.query), $scope.filters), $scope.orderProp);
-    
+    var results =  $filter('orderBy')($filter('componentFilter')($filter('filter')($scope.total, $scope.query), $scope.filters), $scope.orderProp);
+    $scope.filteredTotal = [''];
+    $scope.filteredTotal = results;
+
     $scope.maxPageNumber = Math.ceil($scope.filteredTotal.length / $scope.rowsPerPage);
     if (($scope.pageNumber - 1) * $scope.rowsPerPage <= $scope.filteredTotal.length) {
       $scope.pageNumber = 1;
