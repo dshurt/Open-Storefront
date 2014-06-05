@@ -47,17 +47,17 @@ var setRightOpenWidth = function(element) {
   });
 };
 
-var setPageHeight = function(element) {
+var setPageHeight = function(element, offset) {
   var windowHeight = $(window).height() - $('.top').height();
   element.css({
-    'height': windowHeight + 'px'
+    'height': windowHeight - offset + 'px'
   });
 };
 
-var setPageMargin = function (element) {
+var setPageMargin = function (element, offset) {
   var windowHeight = $(window).height() - $('.top').height();
   element.css({
-    'margin-top': -windowHeight + 'px'
+    'margin-top': -windowHeight + offset + 'px'
   });
 };
 
@@ -69,7 +69,7 @@ var stretchFilterbutton = function() {
     'margin-left': '-250px'
   }, 200, function() {/*complete animation*/});
 };
-    
+
 var unStretchFilterbutton = function() {
   var button = $('.filtersButton');
   button.stop(true, true).animate({
@@ -87,7 +87,7 @@ var openDetails = function(results, details, windowWidth) {
   }
   var marginAndResults = windowWidth - width;
   results.stop(true, true).animate({
-    'width': width + 'px'
+    'width': '400px'
   }, 200 , function() {/*complete animation*/});
   details.stop(true, true).animate({
     'margin-left': '-='+marginAndResults+'px',
@@ -95,11 +95,15 @@ var openDetails = function(results, details, windowWidth) {
   }, 200 , function() {/*complete animation*/});
 };
 
-var closeDetails = function(results, details) {
+var closeDetails = function(results, details, windowWidth) {
   results.css({'display': 'inherit'});
-  setPageMargin(details);
+  setPageMargin(details, 40);
+  var resultsWidth = windowWidth;
+  if (filtClick === 1) {
+    resultsWidth = windowWidth - 250;
+  }
   results.stop(true, true).animate({
-    'width': '100%'
+    'width': resultsWidth + 'px'
   }, 200 , function() {/*complete animation*/});
   details.stop(true, true).animate({
     'width': '0px',
@@ -127,7 +131,7 @@ var closePartialDetails = function(results, details, windowWidth) {
     width = 650;
   }
   results.css({'display': 'inherit'});
-  setPageMargin(details);
+  setPageMargin(details, 40);
   results.stop(true, true).animate({
     'width': width + 'px'
   }, 200 , function() {});
@@ -138,15 +142,18 @@ var closePartialDetails = function(results, details, windowWidth) {
 };
 
 
-var openFilter = function (filters, results, details, windowWidth) {
+var openFilter = function (filters, results, details, paginationDiv, windowWidth) {
+  console.log("paginationDiv", paginationDiv);
   results.css({'display': 'inherit'});
   filters.css({'display': 'inherit'});
-  setPageMargin(details);
+  setPageMargin(details, 40);
   if (openClick === 1) {
     results.stop(true, true).animate({
-      'padding-left': '250px',
-      'width': '650px'
+      'margin-left': '250px',
     }, 200 , function() {});
+    paginationDiv.stop(true, true).animate({
+      'margin-right':'-250px'
+    }, 200, function() {});
     filters.stop(true, true).animate({
       'width': '250px'
     }, 200 , function() {/*complete animation*/});
@@ -156,22 +163,30 @@ var openFilter = function (filters, results, details, windowWidth) {
     }, 200 , function() {});
   } else {
     results.stop(true, true).animate({
-      'padding-left': '250px',
+      'margin-left': '250px',
+      'width': windowWidth - 250 + 'px'
     }, 200 , function() {});
+    paginationDiv.stop(true, true).animate({
+      'margin-right':'-250px'
+    }, 200, function() {});
     filters.stop(true, true).animate({
       'width': '250px'
     }, 200 , function() {/*complete animation*/});
   }
 };
 
-var closeFilter = function (filters, results, details, windowWidth) {
+var closeFilter = function (filters, results, details, paginationDiv, windowWidth) {
+  console.log("paginationDiv", paginationDiv);
+  
   results.css({'display': 'inherit'});
-  setPageMargin(details);
+  setPageMargin(details, 40);
   if (openClick === 1) {
     results.stop(true, true).animate({
-      'padding-left': '0px',
-      'width': '400px'
+      'margin-left': '0px'
     }, 200 , function() {});
+    paginationDiv.stop(true, true).animate({
+      'margin-right':'0px'
+    }, 200, function() {});
     filters.stop(true, true).animate({
       'width': '0px'
     }, 200 , function() {filters.css({'display': 'none'});});
@@ -181,9 +196,12 @@ var closeFilter = function (filters, results, details, windowWidth) {
     }, 200 , function() {});
   } else {
     results.stop(true, true).animate({
-      'padding-left': '0px',
+      'margin-left': '0px',
       'width': '100%'
     }, 200 , function() {});
+    paginationDiv.stop(true, true).animate({
+      'margin-right':'0px'
+    }, 200, function() {});
     filters.stop(true, true).animate({
       'width': '0px'
     }, 200 , function() {filters.css({'display': 'none'});});
@@ -192,6 +210,8 @@ var closeFilter = function (filters, results, details, windowWidth) {
 
 
 var openWindowToggle = function () {
+  moveButtons($('#showPageRight'), $('.page1'));
+  moveButtons($('#showPageLeft'), $('.page2'));
   var windowWidth = $(window).width();
   var results = $('.page1');
   var details = $('.page2');
@@ -201,7 +221,7 @@ var openWindowToggle = function () {
       openDetails(results, details, windowWidth);
       openClick = 1;
     } else {
-      closeDetails(results, details);
+      closeDetails(results, details, windowWidth);
       openClick = 0;
     }
   }, 100);
@@ -209,14 +229,17 @@ var openWindowToggle = function () {
 
 
 var fullDetailsToggle = function () {
+  moveButtons($('#showPageRight'), $('.page1'));
+  moveButtons($('#showPageLeft'), $('.page2'));
   var windowWidth = $(window).width();
   var filters = $('.filters');
   var results = $('.page1');
   var details = $('.page2');
+  var paginationDiv = $('.pagination');
   setTimeout(function() {
     if (fullClick === 0) {
       unStretchFilterbutton();
-      closeFilter(filters, results, details, windowWidth);
+      closeFilter(filters, results, details, paginationDiv, windowWidth);
       filtClick = 0;
       openFullDetails(results, details, windowWidth);
       fullClick = 1;
@@ -228,11 +251,13 @@ var fullDetailsToggle = function () {
 };
 
 var closeDetailsFull = function () {
+  moveButtons($('#showPageRight'), $('.page1'));
+  moveButtons($('#showPageLeft'), $('.page2'));
   var windowWidth = $(window).width();
   var results = $('.page1');
   var details = $('.page2');
   setTimeout(function() {
-    closeDetails(results, details);
+    closeDetails(results, details, windowWidth);
     fullClick = 0;
   }, 100);
 };
@@ -242,20 +267,21 @@ var openFiltersToggle = function () {
   var results = $('.page1');
   var filters = $('.filters');
   var details = $('.page2');
+  var paginationDiv = $('.pagination');
   setTimeout(function() {
     if (filtClick === 0) {
       if (windowWidth <= 992) {
         if (openClick) {
-          closeDetails(results, details);
+          closeDetails(results, details, windowWidth);
           openClick = 0;
         }
       }
       stretchFilterbutton();
-      openFilter(filters, results, details, windowWidth);
+      openFilter(filters, results, details, paginationDiv, windowWidth);
       filtClick = 1;
     } else {
       unStretchFilterbutton();
-      closeFilter(filters, results, details, windowWidth);
+      closeFilter(filters, results, details, paginationDiv, windowWidth);
       filtClick = 0;
     }
   }, 100);
@@ -286,11 +312,11 @@ var buttonOpen = function() {
       fullDetailsToggle();
     }
   }
-  // setTimeout(function () {
-  //   console.log('openClick', openClick);
-  //   console.log('fullClick', fullClick);
-  //   console.log('filtClick', filtClick);
-  // }, 400);
+  setTimeout(function () {
+    console.log('openClick', openClick);
+    console.log('fullClick', fullClick);
+    console.log('filtClick', filtClick);
+  }, 400);
 };
 
 var buttonClose = function() {
@@ -318,19 +344,19 @@ var buttonClose = function() {
       return;
     }
   }
-  // setTimeout(function () {
-  //   console.log('openClick', openClick);
-  //   console.log('fullClick', fullClick);
-  //   console.log('filtClick', filtClick);
-  // }, 400);
-  return;
+  setTimeout(function () {
+    console.log('openClick', openClick);
+    console.log('fullClick', fullClick);
+    console.log('filtClick', filtClick);
+  }, 400);
+return;
 };
 
 
 var moveButtons = function (element, parent) {
   var top = $(parent).scrollTop();
   var height = ($(parent).height() / 2);
-  var offset = top + height;
+  var offset = top + height - 45;
   
   element.css({'top': offset + 'px'});
 };

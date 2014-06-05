@@ -21,7 +21,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
   $scope.filteredTotal = $scope.total;
   $scope.data = $scope.total;
-  $scope.rowsPerPage = 20;
+  $scope.rowsPerPage = 5;
   $scope.pageNumber = 1;
   $scope.maxPageNumber = Math.ceil($scope.data.length / $scope.rowsPerPage);
   $scope.details = $scope.data[0];
@@ -52,8 +52,12 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   //   }
   // }
 
-
-
+  $scope.$on('$viewContentLoaded', function(){
+    $timeout(function() {
+      moveButtons($('#showPageRight'), $('.page1'));
+      moveButtons($('#showPageLeft'), $('.page2'));
+    }, 100);
+  });
 
   /* global buttonOpen, buttonClose */
   $scope.doButtonOpen = function() {
@@ -65,6 +69,10 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   };
 
   $scope.$watch('pageNumber',function(val, old){ /* jshint unused:false */
+    console.log("Page", $scope.pageNumber);
+    console.log("maxPageNumber", $scope.maxPageNumber);
+    console.log("row", $scope.rowsPerPage);
+    
     $scope.pageNumber = parseInt(val);
     if ($scope.pageNumber < 1) {
       $scope.pageNumber = 1;
@@ -74,7 +82,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     }
 
     var page = $scope.pageNumber;
-    if (page < 1 || page === '' || isNaN(page)){
+    if (page < 1 || page === "" || isNaN(page) || page === null){
       page = 1;
     }
 
@@ -92,8 +100,15 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   });
 
   $scope.$watch('rowsPerPage',function(val, old){ /* jshint unused:false */
+    var rowPP = $scope.rowsPerPage;
+    if (rowPP < 1 || rowPP === "" || isNaN(rowPP) || rowPP === null){
+      console.log("rowspp", rowPP);
+      console.log("rowspp", typeof(rowPP));
+      
+      rowPP = 1;
+    }
     $scope.pageNumber = 1;
-    $scope.maxPageNumber = Math.ceil($scope.filteredTotal.length / $scope.rowsPerPage);
+    $scope.maxPageNumber = Math.ceil($scope.filteredTotal.length / rowPP);
     $scope.applyFilters();
   });
 
@@ -139,7 +154,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     $scope.filteredTotal = results;
 
     $scope.maxPageNumber = Math.ceil($scope.filteredTotal.length / $scope.rowsPerPage);
-    if (($scope.pageNumber - 1) * $scope.rowsPerPage <= $scope.filteredTotal.length) {
+    if (($scope.pageNumber - 1) * $scope.rowsPerPage >= $scope.filteredTotal.length) {      
       $scope.pageNumber = 1;
     }
     $scope.data = $scope.filteredTotal.slice((($scope.pageNumber - 1) * $scope.rowsPerPage), ($scope.pageNumber * $scope.rowsPerPage));
