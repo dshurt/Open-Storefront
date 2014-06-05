@@ -309,7 +309,7 @@ grunt.loadNpmTasks('grunt-war');
             '.htaccess',
             '*.html',
             'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
+            'images/**/*.{webp,png}',
             'fonts/*'
           ]
         }, {
@@ -337,7 +337,6 @@ grunt.loadNpmTasks('grunt-war');
       ],
       dist: [
         'copy:styles',
-        'imagemin',
         'svgmin'
       ]
     },
