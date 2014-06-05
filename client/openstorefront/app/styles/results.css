@@ -5,7 +5,8 @@ body, .resultsContainer {
 .filters{
   position: absolute;
   top: 52px;
-  border: 1px orange solid;
+  border: 1px lightgray solid;
+  border-radius: 4px;
   width: 0px;
   left: 0px;
   display: none;
@@ -14,7 +15,7 @@ body, .resultsContainer {
 }
 
 .page1{
-  border: 1px orange solid;
+  /*border: 1px orange solid;*/
   width: 100%;
   position: relative;
   overflow:auto;
@@ -22,9 +23,9 @@ body, .resultsContainer {
 
 .page2{
   margin-right: -1px;
-  border-top: 1px orange solid;
-  border-right: 1px orange solid;
-  border-bottom: 1px orange solid;
+  /*border-top: 1px orange solid;*/
+  /*border-right: 1px orange solid;*/
+  /*border-bottom: 1px orange solid;*/
   margin-left: 100%;
   position: relative;
   overflow:auto;

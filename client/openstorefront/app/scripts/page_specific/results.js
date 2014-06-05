@@ -2,7 +2,7 @@
 
 /* global setPageHeight, setPageMargin, setRightOpenWidth, openClick:true, 
 fullClick:true, filtClick:true, resetStyles, floatBelowTop, moveButtons,
-unStretchFilterbutton */
+unStretchFilterbutton*/
 $('#filtersButton').on('mouseenter', function() {
   if (!filtClick) {
     $('.filtersButton').stop(true,true).animate({'margin-left':'0px'}, 200, function(){});
@@ -39,7 +39,7 @@ $(document).ready(function(){
   setPageMargin(details);
 
   $('#filtersButton').data('offset', '0');
-  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
+  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 52);
   moveButtons($('#showPageRight'), $('.page1'));
 });
 $(window).resize(function() {
@@ -66,11 +66,11 @@ $(window).resize(function() {
   setPageHeight(details);
 
   $('#filtersButton').data('offset', '0');
-  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
+  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 52);
   moveButtons($('#showPageRight'), $('.page1'));
 });
 $('.page1').scroll(function() {
-  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
+  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 52);
   moveButtons($('#showPageRight'), this);
   // setPageHeight($('.resultsContainer'));
 });

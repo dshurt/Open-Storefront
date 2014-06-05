@@ -1,6 +1,6 @@
 'use strict';
 
-/* global isEmpty, setupPopovers */
+/* global isEmpty, setupPopovers, openClick:true, openWindowToggle */
 
 app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$timeout', function ($scope, tempData, Business, $filter, $timeout) {
   tempData.restoreState();
