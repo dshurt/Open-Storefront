@@ -46,7 +46,6 @@ app.controller('UserProfileCtrl', ['$scope', 'business', function($scope, Busine
   {'id':'5','date':'01/08/2014 12:25 pm','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jesse Calhoun'},
   {'id':'6','date':'01/09/2014 8:25 pm','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'JaLayne Calhoun'}
   */];
-  console.log("Data", $scope.data);
   
 
   $scope.removeFromWatches = function(id){
