@@ -1,3 +1,48 @@
+<!-- begin User Profile Modal -->
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">User Profile</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputName3" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputName3" placeholder="First and Last Name" ng-model="userName">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputRole" class="col-sm-3 control-label">Role</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputRole" placeholder="Role" ng-model="userRole">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputMemberSince" class="col-sm-3 control-label">Member Since</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputMemberSince" placeholder="Member Since" ng-model="userMemberSince">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="userEmail">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>            
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end User Profile Modal -->
+
 <br/><br/>
 
 <div class="row default-content">
