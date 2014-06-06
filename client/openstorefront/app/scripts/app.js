@@ -48,7 +48,7 @@ app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, 
 
   $rootScope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
 
-    tempData.setData([ { "key": "search", "code": search } ]);
+    tempData.setData([ { 'key': 'search', 'code': search } ]);
     tempData.saveState();
     if ($location.path() === '/results') {
       $route.reload();
