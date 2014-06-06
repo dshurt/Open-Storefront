@@ -17,6 +17,8 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   $scope.orderProp = '';
   $scope.query = '';
 
+  $scope.noDataMessage = 'You have filtered out all of the results.';
+
   $scope.total = Business.getData();
   $scope.watches = Business.getWatches();
   $scope.showWatchButton = false;

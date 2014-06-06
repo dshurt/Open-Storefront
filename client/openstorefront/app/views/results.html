@@ -82,7 +82,10 @@
         <i class="fa fa-caret-left"></i> 
       </button>
     </div>
-    <div class="page1Content">
+    <div ng-if="data.length == 0">
+      {{noDataMessage}}
+    </div>
+    <div class="page1Content" ng-if="data.length > 0">
       <div class="searchTitle">
         Search &mdash; {{searchTitle}}
       </div>
