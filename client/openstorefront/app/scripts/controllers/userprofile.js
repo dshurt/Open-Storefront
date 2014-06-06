@@ -5,14 +5,16 @@
 app.controller('UserProfileCtrl', ['$scope', 'business', function($scope, Business){
 	$scope._scopename = 'userprofile';
 	/*  $scope.types = Business.getTypes();*/
-	$scope.pageTitle = 'DI2E Storefront Catalog';
-	$scope.defaultTitle = 'Browse Categories';
 
-	$scope.userName = 'John Q. Sample';
-	$scope.userRole = 'Admin';
-	$scope.userMemberSince = '01/10/2012';
-	$scope.userEmail = 'john.q.sample@gmail.com';
-
+  $scope.pageTitle = 'DI2E Storefront Catalog';
+  $scope.defaultTitle = 'Browse Categories';
+  $scope.user = {
+  'userName': 'John Q. Sample',
+  'userRole': 'Admin',
+  'userMemberSince': '01/10/2012',
+  'userEmail': 'john.q.sample@gmail.com'
+  }
+  $scope.userBackup = jQuery.extend(true, {}, $scope.user);
 
   var immageHack = 0;
   var images = [
@@ -47,6 +49,14 @@ app.controller('UserProfileCtrl', ['$scope', 'business', function($scope, Busine
   {'id':'6','date':'01/09/2014 8:25 pm','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'JaLayne Calhoun'}
   */];
   
+  $scope.saveProfileChanges = function () {
+    $scope.userBackup = jQuery.extend(true, {}, $scope.user);
+  };
+
+  $scope.revertProfileChanges = function () {
+    $scope.user = jQuery.extend(true, {}, $scope.userBackup);
+  };
+
 
   $scope.removeFromWatches = function(id){
     var a = _.findWhere($scope.watches, {'id': id});

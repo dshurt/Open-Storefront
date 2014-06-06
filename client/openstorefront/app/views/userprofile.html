@@ -11,30 +11,31 @@
           <div class="form-group">
             <label for="inputName3" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputName3" placeholder="First and Last Name" ng-model="userName">
+              <input type="text" class="form-control" id="inputName3" placeholder="First and Last Name" ng-model="user.userName">
             </div>
           </div>
           <div class="form-group">
             <label for="inputRole" class="col-sm-3 control-label">Role</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputRole" placeholder="Role" ng-model="userRole">
+              <input type="text" class="form-control" id="inputRole" placeholder="Role" ng-model="user.userRole">
             </div>
           </div>
           <div class="form-group">
             <label for="inputMemberSince" class="col-sm-3 control-label">Member Since</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputMemberSince" placeholder="Member Since" ng-model="userMemberSince">
+              <input type="text" class="form-control" id="inputMemberSince" placeholder="Member Since" ng-model="user.userMemberSince">
             </div>
           </div>
           <div class="form-group">
             <label for="inputEmail" class="col-sm-3 control-label">Email</label>
             <div class="col-sm-9">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="userEmail">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="user.userEmail">
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>            
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="revertProfileChanges()">Close</button>
+            <button type="button" class="btn btn-default" ng-click="revertProfileChanges()">Revert Changes</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveProfileChanges()">Save changes</button>            
           </div>
         </form>
       </div>
@@ -56,35 +57,31 @@
 				</div>
 				<br><br>
 			<div>
-				<div ng-init="uProfileStuff = [
-				{id:'1',name:'John Q. Sample', memberSince:'03/01/2014', role:'Administrator',email:'john.q.sample@gmail.com'}
-				]">
-				</div>
-				<div class="col-sm-12" ng-repeat="item in uProfileStuff" style="padding-left:5px;padding-top:0px">
+				<div class="col-sm-12" style="padding-left:5px;padding-top:0px">
 					<form class="form-horizontal" role="form">
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Name:</label>
 							<div class="col-sm-8">
 								<!-- <input type="text" class="form-control"  placeholder="First and Last Name" ng-model="userName"> -->
-								<label class="control-label">{{item.name}}</label>
+								<label class="control-label">{{userBackup.userName}}</label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Role:</label>
 							<div class="col-sm-8">
-								<label class="control-label">{{item.role}}</label>
+								<label class="control-label">{{userBackup.userRole}}</label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Member Since:</label>
 							<div class="col-sm-8">
-								<label class="control-label">{{item.memberSince}}</label>
+								<label class="control-label">{{userBackup.userMemberSince}}</label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Email:</label>
 							<div class="col-sm-8">
-								<label class="control-label">{{item.email}}</label>
+								<label class="control-label">{{userBackup.userEmail}}</label>
 							</div>
 						</div>	
 						<!-- comeback -->
