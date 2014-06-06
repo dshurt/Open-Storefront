@@ -14,6 +14,10 @@ $('#filtersButton').on('mouseleave', function() {
   }
 });
 
+/*********************
+* This handles the empty # of rows per page
+* and empty page number bug
+*********************/
 $('.pagination :input').on('blur', function() {
   console.log("We did it");
 
