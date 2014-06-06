@@ -1,8 +1,8 @@
 'use strict';
 
-/* global setPageHeight, setPageMargin, setRightOpenWidth, openClick:true, 
-fullClick:true, filtClick:true, resetStyles, floatBelowTop, moveButtons,
-unStretchFilterbutton, setLeftOpenWidth*/
+/* global setPageHeight, setPageMargin, setRightOpenWidth, 
+fullClick:true, filtClick:true, floatBelowTop, moveButtons,
+setLeftOpenWidth, resetAnimations, resetAnimGlobals*/
 $('#filtersButton').on('mouseenter', function() {
   if (!filtClick) {
     $('.filtersButton').stop(true,true).animate({'margin-left':'0px'}, 200, function(){});
@@ -33,15 +33,11 @@ $(document).ready(function(){
   var details = $('.page2');
   var results = $('.page1');
   var filters = $('.filters');
+
   if ($(window).width() < 767) {
     if (!fullClick) {
-      unStretchFilterbutton();
-      resetStyles(details);
-      resetStyles(results);
-      resetStyles(filters);
-      openClick = 0;
-      fullClick = 0;
-      filtClick = 0;
+      resetAnimations(details, results, filters);
+      resetAnimGlobals();
     }
   }
   setPageHeight($('.resultsContainer'), 0);
@@ -65,13 +61,8 @@ $(window).resize(function() {
   var filters = $('.filters');
   if ($(window).width() < 767) {
     if (!fullClick) {
-      unStretchFilterbutton();
-      resetStyles(details);
-      resetStyles(results);
-      resetStyles(filters);
-      openClick = 0;
-      fullClick = 0;
-      filtClick = 0;
+      resetAnimations(details, results, filters);
+      resetAnimGlobals();
     }
   } else if (!fullClick){
     setPageMargin(details, 40);

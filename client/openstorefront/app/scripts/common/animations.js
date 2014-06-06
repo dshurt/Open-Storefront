@@ -191,7 +191,7 @@ var openFilter = function (filters, results, details, paginationDiv, windowWidth
 };
 
 var closeFilter = function (filters, results, details, paginationDiv, windowWidth) {
-  
+
   results.css({'display': 'inherit'});
   setPageMargin(details, 40);
   if (openClick === 1) {
@@ -366,7 +366,22 @@ var buttonClose = function() {
   return;
 };
 
+var resetAnimations = function(details, results, filters) {
+  unStretchFilterbutton();
+  resetStyles(details);
+  resetStyles(results);
+  resetStyles(filters);
+
+};
+
+var resetAnimGlobals = function() {
+  openClick = 0;
+  fullClick = 0;
+  filtClick = 0;
+};
+
 // this line is also added to make jslint happy....
 /* jshint unused:false */
-/* exported floatBelowTop, setRightOpenWidth, setPageHeight, closeDetailsFull,
-   openFiltersToggle, buttonOpen, buttonClose, moveButtons, windowWidth */
+/* exported floatBelowTop, setRightOpenWidth, setLeftOpenWidth,
+setPageHeight, resetAnimations, resetAnimGlobals, closeDetailsFull,
+openFiltersToggle, buttonOpen, buttonClose, moveButtons, windowWidth */
