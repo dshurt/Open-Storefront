@@ -88,24 +88,5 @@
   </div>
 </div>
 
-<script type="text/javascript">
-$(window).resize(function() {
-  setTimeout(function() {
-    $('.defaultSearch').data('offset', $(".defaultSearch").offset().top + parseInt($(".defaultSearch").css('padding-top'), 10) - 52);
-    floatBelowTop($('.defaultSearch'), 768, $(window), $('.top').height());
-  }, 10); 
-});
-
-$(window).scroll(function() {  
-  floatBelowTop($('.defaultSearch'), 768, $(window), $('.top').height());
-});
-
-$(document).ready(function() {
-  setTimeout(function() {
-    $('.defaultSearch').data('offset', $(".defaultSearch").offset().top + parseInt($(".defaultSearch").css('padding-top'), 10) - 52);
-    floatBelowTop($('.defaultSearch'), 768, $(window), $('.top').height());
-  }, 10); 
-});
-</script>
-
 <link rel="stylesheet" href="styles/landing.css">
+<script type="text/javascript" src="scripts/page_specific/main.js"></script>
