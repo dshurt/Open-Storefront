@@ -3,6 +3,11 @@
 /* global setPageHeight, setPageMargin, setRightOpenWidth, 
 fullClick:true, filtClick:true, floatBelowTop, moveButtons,
 setLeftOpenWidth, resetAnimations, resetAnimGlobals*/
+
+/**********************
+* This handles the animation for the filter button.
+* on-hover it shifts into view, and then shifts out.
+**********************/
 $('#filtersButton').on('mouseenter', function() {
   if (!filtClick) {
     $('.filtersButton').stop(true,true).animate({'margin-left':'0px'}, 200, function(){});
@@ -26,6 +31,10 @@ $('.pagination :input').on('blur', function() {
   }
 });
 
+/*********************
+* This disables scrolling so that when you drag select, it doesn't scroll
+* down the results page.
+*********************/
 $('.pagination').on('mouseleave', function(){
   var html = $('.page1');
   html.css('overflow', 'auto');
@@ -36,6 +45,22 @@ $('.pagination').on('mouseenter', function(){
   html.css('overflow', 'hidden');
 });
 
+/*********************
+* These croll functions adjust the different buttons that should move with the
+* scroll action on the different pages.
+*********************/
+$('.page1').scroll(function() {
+  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 52);
+  moveButtons($('#showPageRight'), this);
+});
+
+$('.page2').scroll(function() {
+  moveButtons($('#showPageLeft'), this);
+});
+
+/*********************
+* This reszies the paged divs in order to maintain the correct view
+*********************/
 var resizeAnimations = function () {
   var details = $('.page2');
   var results = $('.page1');
@@ -59,20 +84,13 @@ var resizeAnimations = function () {
   floatBelowTop($('#filtersButton'), 3000, $('.page1'), 52);
   moveButtons($('#showPageRight'), $('.page1'));
   moveButtons($('#showPageLeft'), $('.page2'));
-}
+};
 
 $(document).ready(function(){
+  //resize the animations when we load the page
   resizeAnimations();
 });
 $(window).resize(function() {
+  //resize the animations when the window size changes
   resizeAnimations();
-});
-
-$('.page1').scroll(function() {
-  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 52);
-  moveButtons($('#showPageRight'), this);
-});
-
-$('.page2').scroll(function() {
-  moveButtons($('#showPageLeft'), this);
 });

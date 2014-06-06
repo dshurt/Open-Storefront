@@ -1,5 +1,10 @@
 'use strict';
 
+
+/**********************
+* This handles the animation for the filter button.
+* on-hover it shifts into view, and then shifts out.
+**********************/
 var openClick = 0;
 var fullClick = 0;
 var filtClick = 0;
@@ -63,7 +68,7 @@ var setLeftOpenWidth = function(element) {
     if (openClick === 1) {
       windowWidth = 650;
     }
-    windowWidth = windowWidth - 250
+    windowWidth = windowWidth - 250;
   }
 
   element.css({
