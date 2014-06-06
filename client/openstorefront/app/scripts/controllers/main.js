@@ -44,6 +44,5 @@ app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', '$roo
     $location.path('/results');
   };
 
-  resetAnimGlobals();
 
 }]);

@@ -1,6 +1,6 @@
 'use strict';
 
-/* global setupTypeahead*/
+/* global setupTypeahead, resetAnimGlobals*/
 
 var app = angular
 .module('openstorefrontApp', [
@@ -33,8 +33,10 @@ var app = angular
 app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, tempData, $location, $route) {
   // Re-apply these functions on route-change
   $rootScope.$on('$routeChangeStart', function (event, next, current) {/* jshint unused:false */
+    if (current && current.loadedTemplateUrl === 'views/results.html') {
+      resetAnimGlobals();
+    }
     if (sessionStorage.restorestate === 'true') {
-      console.log('Session storage', sessionStorage);
       //let everything know we need to restore state
       $rootScope.$broadcast('restorestate');
       sessionStorage.restorestate = false;
