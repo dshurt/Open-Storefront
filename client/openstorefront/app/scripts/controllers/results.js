@@ -13,7 +13,6 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   $scope.searchTitle = null;
   $scope.showSearch = false;
   $scope.isPage1 = true;
-  $scope.weHaveData = true;
   $scope.filters = Business.getFilters();
   $scope.orderProp = '';
   $scope.query = '';
@@ -28,7 +27,8 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   $scope.rowsPerPage = 10;
   $scope.pageNumber = 1;
   $scope.maxPageNumber = Math.ceil($scope.data.length / $scope.rowsPerPage);
-  $scope.details = $scope.data[0];
+  $scope.details = null;
+  $scope.showDetails = false;
 
 
 
@@ -150,6 +150,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     {
       $scope.details = temp;
     }
+    $scope.showDetails = true;
   };
 
   $scope.addToWatches = function(id){
