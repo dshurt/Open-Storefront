@@ -195,7 +195,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   $scope.updateDetails = function(id){
     $scope.showWatchButton = !!!(_.where($scope.watches, {'id': id}).length);
     if (!openClick) {
-      openWindowToggle();
+      buttonOpen();
     }
     var temp =  _.where($scope.data, {'id': id})[0];
     if (temp)

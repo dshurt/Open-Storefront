@@ -74,9 +74,12 @@ var resizeAnimations = function () {
       resetAnimGlobals();
     }
   } else {
-    setPageMargin(details, -offset);
+    if (!fullClick) {
+      setPageMargin(details, -offset);
+    } else {
+      setPageMargin(details, 0);
+    }
   }
-  setPageMargin(details, 0);
   setPageHeight($('.resultsContainer'), 0);
   setRightOpenWidth(details);
   setLeftOpenWidth(results);
