@@ -123,7 +123,7 @@
     <div class="component-details">
       <div class="container component-title">
         <div class="col-sm-12">
-          <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span></h1>
+          <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches</button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="addToWatches(details.id)">View Watches</button></h1>
         </div>
       </div>
       <div class="component-div row" style="margin-top: -10px">

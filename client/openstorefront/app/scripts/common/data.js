@@ -56,7 +56,7 @@ MOCKDATA.watches = [
     'id': 4,
     'watched': true
   }
-]
+];
 
 MOCKDATA.filters = [];
 

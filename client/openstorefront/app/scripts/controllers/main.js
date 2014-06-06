@@ -14,6 +14,8 @@ app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', '$roo
   $scope.categoriesTitle  = 'Browse Categories';
   $scope.statesTitle      = 'Browse States';
 
+  $scope.watches          = Business.getWatches();
+
   $scope.goToSearchWithType = function(type){ /*jshint unused:false*/
     tempData.setData([ { 'key': 'type', 'code': type } ]);
     tempData.saveState();
@@ -41,5 +43,6 @@ app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', '$roo
     tempData.saveState();
     $location.path('/results');
   };
+
 
 }]);
