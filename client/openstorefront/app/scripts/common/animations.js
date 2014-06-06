@@ -117,9 +117,8 @@ var setPageHeight = function(element, offset) {
 * params: offset -- an integer value detailing the offset from the top
 **********************/
 var setPageMargin = function (element, offset) {
-  var windowHeight = $(window).height() - $('.top').height();
   element.css({
-    'margin-top': -windowHeight + offset + 'px'
+    'margin-top': offset + 'px'
   });
 };
 
@@ -167,6 +166,8 @@ var unStretchFilterbutton = function() {
 * params: windowWidth -- an integer value detailing the window width
 **********************/
 var openDetails = function(results, details, windowWidth) {
+  var offset = $(window).height() - $('.top').height() - 40;
+  setPageMargin(details, -offset);
   var width = 400;
   if (filtClick === 1)
   {
@@ -190,7 +191,8 @@ var openDetails = function(results, details, windowWidth) {
 **********************/
 var closeDetails = function(results, details, windowWidth) {
   results.css({'display': 'inherit'});
-  setPageMargin(details, 40);
+  var offset = $(window).height() - $('.top').height() - 40;
+  setPageMargin(details, -offset);
   var resultsWidth = windowWidth;
   if (filtClick === 1) {
     resultsWidth = windowWidth - 250;
@@ -240,7 +242,8 @@ var closePartialDetails = function(results, details, windowWidth) {
     width = 650;
   }
   results.css({'display': 'inherit'});
-  setPageMargin(details, 40);
+  var offset = $(window).height() - $('.top').height() - 40;
+  setPageMargin(details, -offset);
   results.stop(true, true).animate({
     'width': width + 'px'
   }, 200 , function() {});
@@ -262,7 +265,8 @@ var closePartialDetails = function(results, details, windowWidth) {
 var openFilter = function (filters, results, details, paginationDiv, windowWidth) {
   results.css({'display': 'inherit'});
   filters.css({'display': 'inherit'});
-  setPageMargin(details, 40);
+  var offset = $(window).height() - $('.top').height() - 40;
+  setPageMargin(details, -offset);
   if (openClick === 1) {
     results.stop(true, true).animate({
       'margin-left': '250px',
@@ -302,7 +306,8 @@ var openFilter = function (filters, results, details, paginationDiv, windowWidth
 var closeFilter = function (filters, results, details, paginationDiv, windowWidth) {
 
   results.css({'display': 'inherit'});
-  setPageMargin(details, 40);
+  var offset = $(window).height() - $('.top').height() - 40;
+  setPageMargin(details, -offset);
   if (openClick === 1) {
     results.stop(true, true).animate({
       'margin-left': '0px'
@@ -505,7 +510,7 @@ var buttonClose = function() {
   //   console.log('fullClick', fullClick);
   //   console.log('filtClick', filtClick);
   // }, 400);
-  return;
+return;
 };
 
 /**********************

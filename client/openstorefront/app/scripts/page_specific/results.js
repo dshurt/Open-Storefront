@@ -66,19 +66,23 @@ var resizeAnimations = function () {
   var results = $('.page1');
   var filters = $('.filters');
 
+  var offset = $(window).height() - $('.top').height() - 40;
+
   if ($(window).width() < 767) {
     if (!fullClick) {
       resetAnimations(details, results, filters);
       resetAnimGlobals();
     }
+  } else {
+    setPageMargin(details, -offset);
   }
+  setPageMargin(details, 0);
   setPageHeight($('.resultsContainer'), 0);
   setRightOpenWidth(details);
   setLeftOpenWidth(results);
   setPageHeight(filters, 0);
   setPageHeight(results, 40);
   setPageHeight(details, 0);
-  setPageMargin(details, 40);
 
   $('#filtersButton').data('offset', '0');
   floatBelowTop($('#filtersButton'), 3000, $('.page1'), 52);
