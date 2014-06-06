@@ -1,14 +1,15 @@
 'use strict';
 
 /* global setupTypeahead, resetAnimGlobals*/
+/* exported app */
 
+/***************************************************************
+* This is where THE app is configured
+***************************************************************/
 var app = angular
-.module('openstorefrontApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute',
-])
+// Here we add the dependancies for the app
+.module('openstorefrontApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', ])
+// Here we configure the route provider
 .config(function ($routeProvider) {
   $routeProvider
   .when('/', {
@@ -26,10 +27,21 @@ var app = angular
   .otherwise({
     redirectTo: '/'
   });
-});
-
-app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, tempData, $location, $route) {
-  // Re-apply these functions on route-change
+})
+// here we add the .run function for intial setup and other useful functions
+.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, tempData, $location, $route) {
+  
+  /***************************************************************
+  * This function watches for a route change start and does a few things
+  * params: event -- keeps track of which event is happening
+  * params: next -- The next route we're headed for
+  * params: current -- The current route we're at
+  * 
+  *
+  * This is where we re-apply some functions on route-change
+  *
+  * This might also be where we do our 'is-logged-in' check
+  ***************************************************************/
   $rootScope.$on('$routeChangeStart', function (event, next, current) {/* jshint unused:false */
     if (current && current.loadedTemplateUrl === 'views/results.html') {
       resetAnimGlobals();
@@ -45,9 +57,35 @@ app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, 
       });
     }, 500);
   });
-  
-  $rootScope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
 
+  /***************************************************************
+  * This function  handles events very similar to the event handler for the
+  * route change. I'm not completely positive on the difference, but this is
+  * what was required to trigger the tempData savestate event
+  * params: event -- keeps track of which event is happening
+  * params: newUrl -- The next route we're headed for
+  * params: oldUrl -- The current route we're at
+  ***************************************************************/
+  $rootScope.$on('$locationChangeStart', function(event, newUrl, oldUrl) {/* jshint unused:false */
+    $rootScope.$broadcast('savestate');
+  });
+
+  /***************************************************************
+  * This function is what is called when the view had finally been loaded
+  * So far all it does is set up the typeaheads for each input field with the
+  * class 'typeahead'
+  ***************************************************************/
+  $rootScope.$on('$viewContentLoaded', function() {
+    setupTypeahead();
+  });
+
+  /***************************************************************
+  * This function is used to send the route to the results page whenever someone
+  * uses the search bar in the navigation
+  * params: param name -- param description
+  * returns: Return name -- return description
+  ***************************************************************/
+  $rootScope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
     tempData.setData([ { 'key': 'search', 'code': search } ]);
     tempData.saveState();
     if ($location.path() === '/results') {
@@ -57,31 +95,35 @@ app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, 
     }
   };
 
-  $rootScope.$on('$locationChangeStart', function(event, newUrl, oldUrl) {/* jshint unused:false */
-    $rootScope.$broadcast('savestate');
-  });
 
-  $rootScope.$on('$viewContentLoaded', function() {
-    setupTypeahead();
-  });
+}])
+// This is where we built the tempData factory that is used to transfer data to
+// the results page
+.factory('tempData', ['$rootScope', function($rootScope) {
+  // set up the variables
+  var searchService   = {};
+  searchService.data  = {};
 
-}]);
-
-app.factory('tempData', ['$rootScope', function($rootScope) {
-  var searchService = {};
-
-  searchService.data = {};
-
+  /***************************************************************
+  * This function sets the data in the factory
+  * params: item -- an object to fill the data with
+  ***************************************************************/
   searchService.setData = function(item) {
     searchService.data = item;
   };
 
+  /***************************************************************
+  * This function retrieves the data from the factory
+  * returns: data -- The object that was stored in the tempData
+  ***************************************************************/
   searchService.getData = function() {
     return searchService.data;
   };
 
+  /***************************************************************
+  * This function restores the state by retrieving the session information
+  ***************************************************************/
   searchService.restoreState = function () {
-    // console.log('Session storage', sessionStorage);
     if (sessionStorage.tempData !== undefined && sessionStorage.tempData !== null)
     {
       searchService.data = angular.fromJson(sessionStorage.tempData);
@@ -92,49 +134,20 @@ app.factory('tempData', ['$rootScope', function($rootScope) {
     }
   };
 
+  /***************************************************************
+  * This function saves the state of tempData by storing it in the session
+  * information
+  ***************************************************************/
   searchService.saveState = function () {
     sessionStorage.tempData = angular.toJson(searchService.getData());
-    // console.log('Session storage', sessionStorage);
   };
 
 
+  /***************************************************************
+  * These are event handlers for the custom broadcast events
+  ***************************************************************/
   $rootScope.$on('savestate', searchService.saveState);
   $rootScope.$on('restorestate', searchService.restoreState);
 
   return searchService;
 }]);
-
-
-// Speed up calls to hasOwnProperty
-var hasOwnProperty2 = Object.prototype.hasOwnProperty;
-
-function isEmpty(obj) {
-  // null and undefined are 'empty'
-  if (obj === null) {
-    return true;
-  }
-
-  // Assume if it has a length property with a non-zero value
-  // that that property is correct.
-  if (obj.length > 0) {
-    return false;
-  }
-
-  if (obj.length === 0) {
-    return true;
-  }
-
-  // Otherwise, does it have any properties of its own?
-  // Note that this doesn't handle
-  // toString and valueOf enumeration bugs in IE < 9
-  for (var key in obj) {
-    if (hasOwnProperty2.call(obj, key)) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-
-/* exported isEmpty */

@@ -1,13 +1,13 @@
 'use strict';
 
 app.factory('localCache', function () {
-  //TODO: Add some more cross-browser stuff here.
+  //TODO:: Add some more cross-browser stuff here.
   var cache = window.sessionStorage;
 
   /**
   * Stores the value into the cache.  Will convert objects to strings.
-  * key - a string value
-  * value - string or object.  If object, it is converted to string.
+  * params: key -- a string value
+  * params: value -- string or object.  If object, it is converted to string.
   */
   var save = function (key, value) {
     if (typeof key !== 'string') {
@@ -25,9 +25,9 @@ app.factory('localCache', function () {
 
   /**
   * Retrieves a value from the cache.
-  * key - string value
-  * type - optional parameter.  If it equals "object" a conversion to
-  *        object will occur. "date" will convert it to a JS Date object.
+  * params: key -- string value
+  * params: type -- optional parameter.  If it equals "object" a conversion to
+  *         object will occur. "date" will convert it to a JS Date object.
   */
   var get = function (key, type) {
     if (typeof key !== 'string') {
@@ -44,7 +44,7 @@ app.factory('localCache', function () {
 
   /**
   * Clears out all key/value pairs currently stored.
-  * TODO: Make this a bit less destructive, so that it only wipes I-Learn
+  * TODO:: Make this a bit less destructive, so that it only wipes I-Learn
   *       specific items.
   */
   var clearAll = function () {
@@ -53,7 +53,7 @@ app.factory('localCache', function () {
 
   /**
   * Wipes out one element from the cache.
-  * @param  {String} key The specified element.
+  * params: key -- The specified element.
   */
   var clear = function (key) {
     if (typeof key !== 'string') {
