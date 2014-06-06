@@ -45,7 +45,7 @@ app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, 
       });
     }, 500);
   });
-
+  
   $rootScope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
 
     tempData.setData([ { 'key': 'search', 'code': search } ]);

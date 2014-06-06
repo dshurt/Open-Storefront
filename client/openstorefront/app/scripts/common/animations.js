@@ -2,18 +2,30 @@
 
 
 /**********************
-* This handles the animation for the filter button.
-* on-hover it shifts into view, and then shifts out.
+* These are global variables to handle the open page states
 **********************/
 var openClick = 0;
 var fullClick = 0;
 var filtClick = 0;
 
 
+
+/**********************
+* This function resets an element's styles
+* params: element -- a JQuery object
+**********************/
 var resetStyles = function(element) {
   element.attr('style', '');
 };
 
+
+/**********************
+* This function resets keeps a div floating just below the navigation
+* params: element -- a JQuery object
+* params: width -- under which width does this take affect
+* params: parent -- a JQuery object that contains the element we want to move
+* params: top -- How many pixels from the top are we going to keep this element
+**********************/
 var floatBelowTop = function(element, width, parent, top) {
   if (parent.width() <= width) {
 

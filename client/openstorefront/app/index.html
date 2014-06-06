@@ -26,7 +26,7 @@
   <![endif]-->
 
   <!-- Fixed Navigation -->
-  <div class="top">
+  <div class="top" ng-controller="NavCtrl">
     <div class="navbar navbar-default navigation"> 
       <div class="container-fluid">
 
@@ -45,7 +45,7 @@
           </div>
           <!-- / Nav buttons when collapsed menu is up -->
           <div>
-            <a class="navbar-brand" href="javascript: void(0)"><span class="visible-xs">DI2E </span><span class="hidden-xs">DI2E Storefront Catalog</span></a>
+            <a class="navbar-brand" href="javascript: void(0)" ng-click="goHome()"><span class="visible-xs">DI2E </span><span class="hidden-xs">DI2E Storefront Catalog</span></a>
           </div>
         </div>
         <!-- /Nav header -->
@@ -141,6 +141,7 @@
   
   <script type="text/javascript" src="scripts/page_specific/results.js"></script>
   <script src="scripts/filters/componentfilter.js"></script>
+  <script src="scripts/controllers/nav.js"></script>
   <!-- endbuild -->
 </body>
 </html>
