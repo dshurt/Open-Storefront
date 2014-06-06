@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="openstorefrontApp"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="openstorefrontApp"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="openstorefrontApp"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" ng-app="openstorefrontApp"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <title></title>
@@ -19,71 +19,13 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
-<body >
+<body ng-app="openstorefrontApp">
   <!--[if lt IE 7]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <!-- Fixed Navigation -->
-  <div class="top" ng-controller="NavCtrl">
-    <div class="navbar navbar-default navigation"> 
-      <div class="container-fluid">
-
-        <!-- Nav header -->
-        <div class="navbar-header">
-          <!-- Nav buttons when collapsed menu is up -->
-          <div>
-            <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-              <span class="sr-only">User Panel</span>
-              <span>Jimmy tester <b class="caret"></b></span>
-            </button>
-            <button type="button" class="navbar-toggle navButton" id="searchNavButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle Search</span>
-              <i class="fa fa-search"></i>
-            </button>        
-          </div>
-          <!-- / Nav buttons when collapsed menu is up -->
-          <div>
-            <a class="navbar-brand" href="javascript: void(0)" ng-click="goHome()"><span class="visible-xs">DI2E </span><span class="hidden-xs">DI2E Storefront Catalog</span></a>
-          </div>
-        </div>
-        <!-- /Nav header -->
-
-        <!-- .userNav-collapse -->
-        <div class="collapse navbar-collapse pull-right userNavDropdown">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="javascript: void(0)">Action</a></li>
-                <li><a href="javascript: void(0)">Another action</a></li>
-                <li><a href="javascript: void(0)">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="javascript: void(0)">Separated link</a></li>
-                <!-- <li><a href="#" class="btn btn-md" data-toggle="modal" data-target="#basicModal">User Profile</a></li> -->
-                <li><a href="#/userprofile">User Profile</a></li>
-                <!-- <li><a href="#" data-toggle="modal" data-target="#basicFeedback">Feedback</a></li> -->
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <!-- /.userNav-collapse -->
-
-        <div class="collapse navbar-collapse center navSearch" id="bs-example-navbar-collapse-1">
-          <form class="navbar-form navbar-left navSearchForm" role="search">
-            <div class="pull-right searchBoxButton">
-              <button type="submit" class="btn btn-default pull-right" ng-click="goToSearchWithSearch(searchKey);"><i class="fa fa-search"></i></button>
-            </div>
-            <div class="navSearchBar">
-              <input type="text" class="form-control typeahead searchBar" ng-model="searchKey" placeholder="Search">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div> 
-  </div>
-  <div class="defaultSpacer">&nbsp;</div>
-  <!-- /Fixed Navigation -->
+  <!-- Bring in the navigation -->
+  <div ng-include="'views/nav.html'"></div>
 
 
   <!-- Add your site or application content here -->
@@ -91,15 +33,9 @@
     <!-- Nothing goes here!!! -->
   </div>
 
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <!-- Open-Storefront Analytics -->
   <script>
-  // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  // ga('create', 'UA-XXXXX-X');
-  // ga('send', 'pageview');
+  //this is where we'll put our analytics scripts
   </script>
 
   <!--[if lt IE 9]>
@@ -121,26 +57,31 @@
   <!-- endbuild -->
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <!-- Grab our app -->
   <script type="text/javascript" src="scripts/app.js"></script>
   
+  <!-- Grab our factories -->
   <script type="text/javascript" src="scripts/services/localcache.js"></script>
   <script type="text/javascript" src="scripts/services/business.js"></script>
 
+  <!-- Grab our Directives -->
   <script type="text/javascript" src="scripts/directives/raty.js"></script>
   
+  <!-- Grab our Controller -->
   <script type="text/javascript" src="scripts/controllers/main.js"></script>
   <script type="text/javascript" src="scripts/controllers/userprofile.js"></script>
   <script type="text/javascript" src="scripts/controllers/results.js"></script>
+  <script type="text/javascript" src="scripts/controllers/nav.js"></script>
   
+  <!-- Grab our Common js -->
   <script type="text/javascript" src="scripts/common/animations.js"></script>
   <script type="text/javascript" src="scripts/common/data.js"></script>
   <script type="text/javascript" src="scripts/common/common.js"></script>
   <script type="text/javascript" src="scripts/common/raty.js"></script>
   <script type="text/javascript" src="scripts/common/typeahead.js"></script>
   
-  <script type="text/javascript" src="scripts/page_specific/results.js"></script>
-  <script src="scripts/filters/componentfilter.js"></script>
-  <script src="scripts/controllers/nav.js"></script>
+  <!-- Grab our Filters -->
+  <script type="text/javascript" src="scripts/filters/componentfilter.js"></script>
   <!-- endbuild -->
 </body>
 </html>

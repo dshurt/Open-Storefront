@@ -1,0 +1,58 @@
+<!-- Fixed Navigation -->
+<div class="top" ng-controller="NavCtrl">
+  <div class="navbar navbar-default navigation"> 
+    <div class="container-fluid">
+
+      <!-- Nav header -->
+      <div class="navbar-header">
+        <!-- Nav buttons when collapsed menu is up -->
+        <div>
+          <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">User Panel</span>
+            <span>Jimmy tester <b class="caret"></b></span>
+          </button>
+          <button type="button" class="navbar-toggle navButton" id="searchNavButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle Search</span>
+            <i class="fa fa-search"></i>
+          </button>        
+        </div>
+        <!-- / Nav buttons when collapsed menu is up -->
+        <div>
+          <a class="navbar-brand" href="#/"><span class="visible-xs">DI2E </span><span class="hidden-xs">DI2E Storefront Catalog</span></a>
+        </div>
+      </div>
+      <!-- /Nav header -->
+
+      <!-- .userNav-collapse -->
+      <div class="collapse navbar-collapse pull-right userNavDropdown">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript: void(0)">Action</a></li>
+              <li><a href="javascript: void(0)">Another action</a></li>
+              <li><a href="javascript: void(0)">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript: void(0)">Separated link</a></li>
+              <li><a href="#/userprofile">User Profile</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.userNav-collapse -->
+
+      <div class="collapse navbar-collapse center navSearch" id="bs-example-navbar-collapse-1">
+        <form class="navbar-form navbar-left navSearchForm" role="search">
+          <div class="pull-right searchBoxButton">
+            <button type="submit" class="btn btn-default pull-right" ng-click="goToSearchWithSearch(searchKey);"><i class="fa fa-search"></i></button>
+          </div>
+          <div class="navSearchBar">
+            <input type="text" class="form-control typeahead searchBar" ng-model="searchKey" placeholder="Search">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div> 
+</div>
+<div class="defaultSpacer">&nbsp;</div>
+<!-- /Fixed Navigation -->
