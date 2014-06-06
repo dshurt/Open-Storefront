@@ -47,6 +47,13 @@ var setRightOpenWidth = function(element) {
   });
 };
 
+var setLeftOpenWidth = function(element) {
+  var windowWidth = $(window).width();
+  element.css({
+    'width': (windowWidth - 250) + 'px'
+  });
+};
+
 var setPageHeight = function(element, offset) {
   var windowHeight = $(window).height() - $('.top').height();
   element.css({

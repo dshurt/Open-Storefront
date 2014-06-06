@@ -51,6 +51,9 @@ $(document).ready(function(){
   }
   setPageHeight($('.resultsContainer'), 0);
   setRightOpenWidth(details);
+  if (filtClick === 1) {
+    setLeftOpenWidth(results);
+  }
   setPageHeight(filters, 0);
   setPageHeight(results, 40);
   setPageHeight(details, 0);
@@ -79,6 +82,9 @@ $(window).resize(function() {
     setPageMargin(details, 40);
   }
   setRightOpenWidth(details);
+  if (filtClick === 1) {
+    setLeftOpenWidth(results);
+  }
   setPageHeight($('.resultsContainer'), 0);
   setPageHeight(filters, 0);
   setPageHeight(results, 40);
