@@ -2,12 +2,13 @@
 
 
 /* exported setupPopovers, setupTypeahead */
-// This is where we'll put the document.ready functions that apply globally
-$(document).ready(function() {
-});
 
-
-// This is where all of the useful shared functions will go.
+/*****************************
+* This function sets up the popovers for the results page, but could be 
+* re-used anywhere that you use the data-toggle="popover" attribute on a div
+* It has been configured to give the last popover a different direction in order
+* to avoid page overflow.
+*****************************/
 var setupPopovers = function() {
   if ($('[data-toggle="popover"]').length > 2) {
     $('.lastPopover[data-toggle="popover"]').last().popover({trigger: 'hover','placement': 'top', 'html': true});
@@ -15,7 +16,9 @@ var setupPopovers = function() {
   $('[data-toggle="popover"]').popover({trigger: 'hover','placement': 'bottom', 'html': true});
 };
 
-
+/*****************************
+* This function is used for the typeahead setup.
+*****************************/
 var substringMatcher = function(objs) {
   return function findMatches(q, cb) {
     var matches, substringRegex;
@@ -40,6 +43,9 @@ var substringMatcher = function(objs) {
   };
 };
 
+/*****************************
+* This function is used for the typeahead setup.
+*****************************/
 var setupTypeahead = function() {
   setTimeout(function() {
     $('.typeahead').typeahead({

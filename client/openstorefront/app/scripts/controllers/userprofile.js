@@ -1,31 +1,43 @@
 'use strict';
 
-/*global alert*/
+/*global isEmpty, jQuery*/
 
 app.controller('UserProfileCtrl', ['$scope', 'business', function($scope, Business){
-	$scope._scopename = 'userprofile';
-	/*  $scope.types = Business.getTypes();*/
+  // Set up the controller's varibles
+  $scope._scopename       = 'userprofile';
+  $scope.pageTitle        = 'DI2E Storefront Catalog';
+  $scope.defaultTitle     = 'Browse Categories';
+  $scope.watches          = Business.getWatches();
+  $scope.total            = Business.getData();
+  $scope.feedbackDetails  = [
+    {'id':'1','date':'Jan 4, 2014 8:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jim Calhoun'},
+    {'id':'2','date':'01/05/2014 9:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jill Calhoun'},
+    {'id':'3','date':'01/06/2014 10:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jay Calhoun'}/*,
+    {'id':'4','date':'01/07/2014 11:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jade Calhoun'},
+    {'id':'5','date':'01/08/2014 12:25 pm','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jesse Calhoun'},
+    {'id':'6','date':'01/09/2014 8:25 pm','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'JaLayne Calhoun'}*/
+  ];
+  $scope.user             = {
+    'userName': 'John Q. Sample',
+    'userRole': 'Admin',
+    'userMemberSince': '01/10/2012',
+    'userEmail': 'john.q.sample@gmail.com'
+  };
+  $scope.userBackup       = jQuery.extend(true, {}, $scope.user);
+  var immageHack          = 0;
+  var images              = [
+    'images/wess_logo.png',
+    'images/core-map-api.png',
+    'images/maps-icon.png'
+  ];
 
-  $scope.pageTitle = 'DI2E Storefront Catalog';
-  $scope.defaultTitle = 'Browse Categories';
-  $scope.user = {
-  'userName': 'John Q. Sample',
-  'userRole': 'Admin',
-  'userMemberSince': '01/10/2012',
-  'userEmail': 'john.q.sample@gmail.com'
-  }
-  $scope.userBackup = jQuery.extend(true, {}, $scope.user);
-
-  var immageHack = 0;
-  var images = [
-  'images/wess_logo.png',
-  'images/core-map-api.png',
-  'images/maps-icon.png'
-  ]
-  $scope.watches = Business.getWatches();
-  $scope.total = Business.getData();
+  /***************************************************************
+  * This function takes the watch list, and the total data we got back, and 
+  * grabs the data items that are really on the watch list. This will change
+  * once we actually have a database to query from.
+  ***************************************************************/
   var resetData = function() {
-    $scope.data = new Array();
+    $scope.data = [];
     _.each($scope.watches, function(watch) {
       _.each(_.where($scope.total, {'id': watch.id}), function(component) {
         if (immageHack > 2) {
@@ -37,27 +49,33 @@ app.controller('UserProfileCtrl', ['$scope', 'business', function($scope, Busine
         $scope.data.push(component);
       });
     });
-  }
+  };
   resetData();
 
-  $scope.feedbackDetails = [
-  {'id':'1','date':'Jan 4, 2014 8:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jim Calhoun'},
-  {'id':'2','date':'01/05/2014 9:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jill Calhoun'},
-  {'id':'3','date':'01/06/2014 10:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jay Calhoun'}/*,
-  {'id':'4','date':'01/07/2014 11:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jade Calhoun'},
-  {'id':'5','date':'01/08/2014 12:25 pm','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jesse Calhoun'},
-  {'id':'6','date':'01/09/2014 8:25 pm','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'JaLayne Calhoun'}
-  */];
-  
+  /***************************************************************
+  * This function saves the profile changes in the scope by copying them from
+  * the user variable into the backup variable (this function would be where
+  * you send the saved data to the database to store it)
+  ***************************************************************/
   $scope.saveProfileChanges = function () {
     $scope.userBackup = jQuery.extend(true, {}, $scope.user);
   };
 
+  /***************************************************************
+  * This function reverts the changes in the profile form by just copying back
+  * the details in the backup. This function most likely won't change when
+  * we get a database to work with.
+  ***************************************************************/
   $scope.revertProfileChanges = function () {
     $scope.user = jQuery.extend(true, {}, $scope.userBackup);
   };
 
 
+  /***************************************************************
+  * This function removes a watch from the watch list. It probably won't change
+  * when we get a database to work with.
+  * params: id -- the id of the component we want to take off our watch list.
+  ***************************************************************/
   $scope.removeFromWatches = function(id){
     var a = _.findWhere($scope.watches, {'id': id});
 
