@@ -1,62 +1,90 @@
 'use strict';
 
-/* global isEmpty, setupPopovers, openClick:true, openWindowToggle, moveButtons, fullClick, openFiltersToggle */
+/* global isEmpty, setupPopovers, openClick:true, openWindowToggle, moveButtons,
+fullClick, openFiltersToggle, buttonOpen, buttonClose */
 
 app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$timeout', '$location', function ($scope, tempData, Business, $filter, $timeout, $location) {
+  // So far we're using the tempData factory, but we could easily change this 
+  // to use the localCache factory that has more functions and capabilities
+  // and then combine it with our business factory since that was their original
+  // purpose.
   tempData.restoreState();
-  $scope.searchGroup = tempData.getData();
-  tempData.setData($scope.searchGroup);
 
-  $scope._scopename = 'results';
-  $scope.searchKey = null;
-  $scope.searchCode = null;
-  $scope.searchTitle = null;
-  $scope.showSearch = false;
-  $scope.isPage1 = true;
-  $scope.filters = Business.getFilters();
-  $scope.orderProp = '';
-  $scope.query = '';
+  // Set up the results controller's variables.
+  $scope._scopename       = 'results';
+  $scope.searchGroup      = tempData.getData();
+  $scope.searchKey        = null;
+  $scope.searchCode       = null;
+  $scope.searchTitle      = null;
+  $scope.details          = null;
+  $scope.isPage1          = true;
+  $scope.showSearch       = false;
+  $scope.showWatchButton  = false;
+  $scope.showDetails      = false;
+  $scope.orderProp        = '';
+  $scope.query            = '';
+  $scope.noDataMessage    = 'You have filtered out all of the results.';
+  $scope.filters          = Business.getFilters();
+  $scope.total            = Business.getData();
+  $scope.watches          = Business.getWatches();
 
-  $scope.noDataMessage = 'You have filtered out all of the results.';
+  // These variables are used for the pagination
+  $scope.filteredTotal  = $scope.total;
+  $scope.data           = $scope.total;
+  $scope.rowsPerPage    = 10;
+  $scope.pageNumber     = 1;
+  $scope.maxPageNumber  = Math.ceil($scope.data.length / $scope.rowsPerPage);
 
-  $scope.total = Business.getData();
-  $scope.watches = Business.getWatches();
-  $scope.showWatchButton = false;
+  // currently this is a hack that grabs a short description and adds it to the
+  // component information
+  _.each($scope.data, function(item){
+    item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + '.';
+  });
 
-
-  $scope.filteredTotal = $scope.total;
-  $scope.data = $scope.total;
-  $scope.rowsPerPage = 10;
-  $scope.pageNumber = 1;
-  $scope.maxPageNumber = Math.ceil($scope.data.length / $scope.rowsPerPage);
-  $scope.details = null;
-  $scope.showDetails = false;
-
-
-
+  /*******************************************************************************
+  * This is used to initialize the scope title, key, and code. Once we have a 
+  * database, this is most likely where we'll do the first pull for data.
+  *
+  * TODO:: Add query prameters capabilities for this page so that we don't have
+  * to rely on the local/session storrage to pass us the search key
+  *
+  * TODO:: When we do start using actual transfered searches from the main page
+  * we need to initialize checks on the filters that were sent to us from that
+  * page (or we need to disable the filter all together)
+  *******************************************************************************/
   if (!isEmpty($scope.searchGroup)) {
+    // grab all of the keys in the filters
     var keys = _.pluck($scope.filters, 'key');
-    if (_.contains(keys, $scope.searchGroup[0].key)) {
 
+    if (_.contains(keys, $scope.searchGroup[0].key)) {
+      // if the search group is based on one of those filters do this
       $scope.searchKey = $scope.searchGroup[0].key;
       $scope.searchCode = $scope.searchGroup[0].code;
       $scope.showSearch = true;
       $scope.searchTitle =  _.where(_.where($scope.filters, {'key': $scope.searchGroup[0].key})[0].collection, {'code': $scope.searchGroup[0].code})[0].type;
     } else if ($scope.searchGroup[0].key === 'search') {
+      // Otherwise check to see if it is a search
       $scope.searchKey = 'DOALLSEARCH';
       $scope.showSearch = true;
       $scope.searchTitle = $scope.searchGroup[0].code;
     } else {
+      // In this case, our tempData object exists, but has no useable data
       $scope.searchKey = 'DOALLSEARCH';
       $scope.showSearch = true;
       $scope.searchTitle = 'All';
     }
   } else {
+    // In this case, our tempData doesn't exist
     $scope.searchKey = 'DOALLSEARCH';
     $scope.showSearch = true;
     $scope.searchTitle = 'All';
   }
 
+
+  /*******************************************************************************
+  * This function watches for the view content loaded event and runs a timeout 
+  * function to handle the initial movement of the display buttons.
+  *******************************************************************************/
   $scope.$on('$viewContentLoaded', function(){
     $timeout(function() {
       moveButtons($('#showPageRight'), $('.page1'));
@@ -69,17 +97,11 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     }, 100);
   });
 
-  /* global buttonOpen, buttonClose */
-  $scope.doButtonOpen = function() {
-    buttonOpen();
-  };
-
-  $scope.doButtonClose =  function() {
-    buttonClose();
-  };
-
+  /***************************************************************
+  * This function is used to watch the pagenumber variable. When it changes
+  * we need to readjust the pagination
+  ***************************************************************/
   $scope.$watch('pageNumber',function(val, old){ /* jshint unused:false */
-
     $scope.pageNumber = parseInt(val);
     if ($scope.pageNumber < 1) {
       $scope.pageNumber = 1;
@@ -98,14 +120,10 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
   });
 
-  $scope.$watch('orderProp',function(val, old){ /* jshint unused:false */
-    $scope.applyFilters();
-  });
-
-  $scope.$watch('query',function(val, old){ /* jshint unused:false */
-    $scope.applyFilters();
-  });
-
+  /***************************************************************
+  * This function is used to watch the rowsPerPage variable. When it changes
+  * we need to adjust pagination
+  ***************************************************************/
   $scope.$watch('rowsPerPage',function(val, old){ /* jshint unused:false */
     var rowPP = $scope.rowsPerPage;
     if (rowPP < 1 || rowPP === '' || isNaN(rowPP) || rowPP === null){
@@ -116,11 +134,42 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     $scope.applyFilters();
   });
 
-  _.each($scope.data, function(item){
-    item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + '.';
+  /***************************************************************
+  * This function is used to watch the orderProp variable. When it changes
+  * re-filter the data
+  ***************************************************************/
+  $scope.$watch('orderProp',function(val, old){ /* jshint unused:false */
+    $scope.applyFilters();
   });
-  
-  // function to flip the switch on checkboxes
+
+  /***************************************************************
+  * This function is used to watch the query variable. When it changes
+  * re-filter the data
+  ***************************************************************/
+  $scope.$watch('query',function(val, old){ /* jshint unused:false */
+    $scope.applyFilters();
+  });
+
+  /***************************************************************
+  * This funciton calls the global buttonOpen function that handles page 
+  * flyout animations according to the state to open the details
+  ***************************************************************/
+  $scope.doButtonOpen = function() {
+    buttonOpen();
+  };
+
+  /***************************************************************
+  * This funciton calls the global buttonClose function that handles page 
+  * flyout animations according to the state to close the details
+  ***************************************************************/
+  $scope.doButtonClose =  function() {
+    buttonClose();
+  };
+
+
+  /***************************************************************
+  * This function handles toggleing filter checks per filter heading click.
+  ***************************************************************/
   $scope.toggleChecks = function(collection){
     var master = false;
     var found = _.where(collection, {'checked': true});
@@ -140,7 +189,9 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     $scope.applyFilters();
   };
 
-
+  /***************************************************************
+  * This function updates the details when a component title is clicked on
+  ***************************************************************/
   $scope.updateDetails = function(id){
     $scope.showWatchButton = !!!(_.where($scope.watches, {'id': id}).length);
     if (!openClick) {
@@ -154,6 +205,9 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     $scope.showDetails = true;
   };
 
+  /***************************************************************
+  * This function adds a component to the watch list and toggles the buttons
+  ***************************************************************/
   $scope.addToWatches = function(id){
     var a = _.findWhere($scope.watches, {'id': id});
     if (a === undefined  || isEmpty(a)) {
@@ -163,6 +217,9 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     Business.setWatches($scope.watches);
   };
 
+  /***************************************************************
+  * This function removes a component to the watch list and toggles the buttons
+  ***************************************************************/
   $scope.removeFromWatches = function(id){
     var a = _.findWhere($scope.watches, {'id': id});
 
@@ -174,21 +231,46 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     Business.setWatches($scope.watches);
   };
 
+  /***************************************************************
+  * This function does the route redirection to the user profile path in order
+  * to allow the user to view their watches.
+  ***************************************************************/
   $scope.viewWatches = function () {
     $location.path('/userprofile');
   };
 
+  /***************************************************************
+  * This function applies the filters that have been given to us to filter the
+  * data with
+  ***************************************************************/
   $scope.applyFilters = function() {
-    var results =  $filter('orderBy')($filter('componentFilter')($filter('filter')($scope.total, $scope.query), $scope.filters), $scope.orderProp);
+
+    var results =
+    // We must use recursive filtering or we will get incorrect results
+    // the order DOES matter here.
+    $filter('orderBy')
+    ($filter('componentFilter')
+    ($filter('filter')($scope.total, $scope.query),
+    // filter the data by the query and return the result to the componentFilter input
+    $scope.filters),
+    // then use the componentFilter returned data as the input to the order-by filter
+    $scope.orderProp);
+
+    // make sure we reset the data and then copy over the results  
     $scope.filteredTotal = [''];
     $scope.filteredTotal = results;
 
+    // Do the math required to assure that we have a valid page number and 
+    // maxPageNumber
     $scope.maxPageNumber = Math.ceil($scope.filteredTotal.length / $scope.rowsPerPage);
     if (($scope.pageNumber - 1) * $scope.rowsPerPage >= $scope.filteredTotal.length) {
       $scope.pageNumber = 1;
     }
+
+    // Set the data that will be displayed to the first 'n' results of the filtered data
     $scope.data = $scope.filteredTotal.slice((($scope.pageNumber - 1) * $scope.rowsPerPage), ($scope.pageNumber * $scope.rowsPerPage));
 
+    // after a slight wait, reapply the popovers for the results ratings.
     $timeout(function() {
       setupPopovers();
     }, 300);

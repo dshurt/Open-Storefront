@@ -8,8 +8,6 @@ var openClick = 0;
 var fullClick = 0;
 var filtClick = 0;
 
-
-
 /**********************
 * This function resets an element's styles
 * params: element -- a JQuery object
@@ -17,7 +15,6 @@ var filtClick = 0;
 var resetStyles = function(element) {
   element.attr('style', '');
 };
-
 
 /**********************
 * This function resets keeps a div floating just below the navigation
@@ -48,6 +45,11 @@ var floatBelowTop = function(element, width, parent, top) {
   }
 };
 
+/**********************
+* This function keeps the description flyout buttons in the middle of the screen
+* params: element -- a JQuery object
+* params: parent -- a JQuery object that contains the element we want to move
+**********************/
 var moveButtons = function (element, parent) {
   var top = $(parent).scrollTop();
   var height = ($(parent).height() / 2);
@@ -56,6 +58,10 @@ var moveButtons = function (element, parent) {
   element.css({'top': offset + 'px'});
 };
 
+/**********************
+* This function sets the width of the element to the 'details page' width
+* params: element -- a JQuery object
+**********************/
 var setRightOpenWidth = function(element) {
   var windowWidth;
   var width = 400;
@@ -73,6 +79,10 @@ var setRightOpenWidth = function(element) {
   });
 };
 
+/**********************
+* This function sets the width of the element to the 'results page' width
+* params: element -- a JQuery object
+**********************/
 var setLeftOpenWidth = function(element) {
   var windowWidth = $(window).width();
   
@@ -88,6 +98,11 @@ var setLeftOpenWidth = function(element) {
   });
 };
 
+/**********************
+* This function sets the height of the element to the page height minus the offset
+* params: element -- a JQuery object
+* params: offset -- an integer value detailing the offset from the bottom
+**********************/
 var setPageHeight = function(element, offset) {
   var windowHeight = $(window).height() - $('.top').height();
   element.css({
@@ -95,6 +110,12 @@ var setPageHeight = function(element, offset) {
   });
 };
 
+/**********************
+* This function sets the margin-top of the element to the height of the window 
+* plus the offset
+* params: element -- a JQuery object
+* params: offset -- an integer value detailing the offset from the top
+**********************/
 var setPageMargin = function (element, offset) {
   var windowHeight = $(window).height() - $('.top').height();
   element.css({
@@ -102,7 +123,10 @@ var setPageMargin = function (element, offset) {
   });
 };
 
-
+/**********************
+* This funciton stertches the filter button and moves it left to hover over
+* the filter div.
+**********************/
 var stretchFilterbutton = function() {
   var button = $('.filtersButton');
   button.stop(true, true).animate({
@@ -111,6 +135,10 @@ var stretchFilterbutton = function() {
   }, 200, function() {/*complete animation*/});
 };
 
+/**********************
+* This function unstretches the filters button and moves it back to its original
+* position
+**********************/
 var unStretchFilterbutton = function() {
   var button = $('.filtersButton');
   button.stop(true, true).animate({
@@ -120,6 +148,24 @@ var unStretchFilterbutton = function() {
 
 };
 
+
+
+
+
+
+
+
+
+/******************************************************************************/
+/*This section starts the actual page animations that do the flyout actions*/
+/******************************************************************************/
+/**********************
+* This function does the animation to move the details page open and collapse
+* the results page to 400px
+* params: results -- a JQuery object that contains the results page
+* params: details -- a JQuery object that contains the details page
+* params: windowWidth -- an integer value detailing the window width
+**********************/
 var openDetails = function(results, details, windowWidth) {
   var width = 400;
   if (filtClick === 1)
@@ -136,6 +182,12 @@ var openDetails = function(results, details, windowWidth) {
   }, 200 , function() {/*complete animation*/});
 };
 
+/**********************
+* This function closes the details page and gives results the remaining width
+* params: results -- a JQuery object that contains the results page
+* params: details -- a JQuery object that contains the details page
+* params: windowWidth -- an integer value detailing the window width
+**********************/
 var closeDetails = function(results, details, windowWidth) {
   results.css({'display': 'inherit'});
   setPageMargin(details, 40);
@@ -152,6 +204,14 @@ var closeDetails = function(results, details, windowWidth) {
   }, 200 , function() { details.css({'width': '100%'}); });
 };
 
+
+/**********************
+* This function gives the details the full width of the page and closes the 
+* results page
+* params: results -- a JQuery object that contains the results page
+* params: details -- a JQuery object that contains the details page
+* params: windowWidth -- an integer value detailing the window width
+**********************/
 var openFullDetails = function(results, details, windowWidth) {
   results.stop(true, true).animate({
     'width': '0px',
@@ -165,6 +225,14 @@ var openFullDetails = function(results, details, windowWidth) {
   }, 200 , function() {/*complete animation*/});
 };
 
+
+/**********************
+* This function opens the results back to 400 px and gives the remaining width
+* to the details page
+* params: results -- a JQuery object that contains the results page
+* params: details -- a JQuery object that contains the details page
+* params: windowWidth -- an integer value detailing the window width
+**********************/
 var closePartialDetails = function(results, details, windowWidth) {
   var width = 400;
   if (filtClick === 1)
@@ -183,6 +251,14 @@ var closePartialDetails = function(results, details, windowWidth) {
 };
 
 
+/**********************
+* This function opens the filter panel
+* params: results -- a JQuery object that contains the results page
+* params: details -- a JQuery object that contains the details page
+* params: filters -- a JQuery object that contains the filters page
+* params: pagination -- a JQuery object that contains the pagination div
+* params: windowWidth -- an integer value detailing the window width
+**********************/
 var openFilter = function (filters, results, details, paginationDiv, windowWidth) {
   results.css({'display': 'inherit'});
   filters.css({'display': 'inherit'});
@@ -215,6 +291,14 @@ var openFilter = function (filters, results, details, paginationDiv, windowWidth
   }
 };
 
+/**********************
+* This function closes the filter panel
+* params: results -- a JQuery object that contains the results page
+* params: details -- a JQuery object that contains the details page
+* params: filters -- a JQuery object that contains the filters page
+* params: pagination -- a JQuery object that contains the pagination div
+* params: windowWidth -- an integer value detailing the window width
+**********************/
 var closeFilter = function (filters, results, details, paginationDiv, windowWidth) {
 
   results.css({'display': 'inherit'});
@@ -247,7 +331,9 @@ var closeFilter = function (filters, results, details, paginationDiv, windowWidt
   }
 };
 
-
+/**********************
+* This function Will toggle the open window functions
+**********************/
 var openWindowToggle = function () {
   moveButtons($('#showPageRight'), $('.page1'));
   moveButtons($('#showPageLeft'), $('.page2'));
@@ -266,7 +352,9 @@ var openWindowToggle = function () {
   }, 100);
 };
 
-
+/**********************
+* This function Will toggle the openfull and closepartial functions
+**********************/
 var fullDetailsToggle = function () {
   moveButtons($('#showPageRight'), $('.page1'));
   moveButtons($('#showPageLeft'), $('.page2'));
@@ -289,6 +377,11 @@ var fullDetailsToggle = function () {
   }, 100);
 };
 
+
+/**********************
+* This function will close the details section completely no matter the state
+* of the page
+**********************/
 var closeDetailsFull = function () {
   moveButtons($('#showPageRight'), $('.page1'));
   moveButtons($('#showPageLeft'), $('.page2'));
@@ -301,6 +394,9 @@ var closeDetailsFull = function () {
   }, 100);
 };
 
+/**********************
+* This function will toggle the open state of the filters
+**********************/
 var openFiltersToggle = function () {
   var windowWidth = $(window).width();
   var results = $('.page1');
@@ -325,7 +421,23 @@ var openFiltersToggle = function () {
     }
   }, 100);
 };
+/******************************************************************************/
+/* END actual page animations that do the flyout actions*/
+/******************************************************************************/
 
+
+
+
+
+
+
+
+
+/**********************
+* This function does the next action of the button it is tied to
+* In this case it first toggles open window, and then openfull if both pages 
+* were in a closed state to start with
+**********************/
 var buttonOpen = function() {
 
   if ( $(window).width() > 767 ) {
@@ -358,6 +470,11 @@ var buttonOpen = function() {
   // }, 400);
 };
 
+/**********************
+* This function does the next action of the button it is tied to
+* In this case it first toggles closepartial, then closefull if both pages
+* were in an opened state to start with
+**********************/
 var buttonClose = function() {
 
   if ( $(window).width() > 767 ) {
@@ -391,19 +508,30 @@ var buttonClose = function() {
   return;
 };
 
-var resetAnimations = function(details, results, filters) {
-  unStretchFilterbutton();
-  resetStyles(details);
-  resetStyles(results);
-  resetStyles(filters);
-
-};
-
+/**********************
+* This function resets the global variables containing the state of the window
+**********************/
 var resetAnimGlobals = function() {
   openClick = 0;
   fullClick = 0;
   filtClick = 0;
 };
+
+/**********************
+* This function resets the actual windows by removing their custom styles
+* params: details -- JQuery object that contains the details page
+* params: results -- JQuery object that contains the results page
+* params: filters -- JQuery object that contains the filters page
+**********************/
+var resetAnimations = function(details, results, filters) {
+  unStretchFilterbutton();
+  resetStyles(details);
+  resetStyles(results);
+  resetStyles(filters);
+  resetAnimGlobals();
+};
+
+
 
 // this line is also added to make jslint happy....
 /* jshint unused:false */
