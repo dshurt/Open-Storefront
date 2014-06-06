@@ -23,6 +23,10 @@ app.factory('business', function () {
     });
   };
   
+  business.getWatches = function(){
+    return MOCKDATA.watches;
+  };
+  
 
   return business;
   

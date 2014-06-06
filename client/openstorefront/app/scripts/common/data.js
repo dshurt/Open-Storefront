@@ -26,6 +26,38 @@ MOCKDATA.feedback = {
 
 };
 
+
+MOCKDATA.watches = [
+  {
+    'id': 72,
+    'watched': true
+  },
+  {
+    'id': 1,
+    'watched': true
+  },
+  {
+    'id': 45,
+    'watched': true
+  },
+  {
+    'id': 99,
+    'watched': false
+  },
+  {
+    'id': 66,
+    'watched': true
+  },
+  {
+    'id': 52,
+    'watched': true
+  },
+  {
+    'id': 4,
+    'watched': true
+  }
+]
+
 MOCKDATA.filters = [];
 
 MOCKDATA.filters[0] = {

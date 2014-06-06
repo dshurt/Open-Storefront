@@ -191,6 +191,7 @@ input[type=checkbox]:checked + label{
   border-right: 1px lightgray solid;
   margin: 34px 0px 10px 0px;
   background: white;
+  width: auto;
 }
 
 .component-div-title{
@@ -209,6 +210,7 @@ input[type=checkbox]:checked + label{
   border-right: 1px lightgray solid;
   border-top:0px;
   background-color: white;
+  width: auto;
 }
 
 .screenshot{
