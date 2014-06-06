@@ -1,90 +1,4 @@
-<!-- <p>This is the user profile view. {{pageTitle}}</p>
-
-<div class="banner">
-	{{pageTitle}}
-</div> -->
-<!-- begin User Profile Modal -->
-<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">User Profile</h4>
-			</div>
-			<div class="modal-body">
-				<form class="form-horizontal" role="form">
-					<div class="form-group">
-						<label for="inputName3" class="col-sm-3 control-label">Name</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" id="inputName3" placeholder="First and Last Name" ng-model="userName">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputRole" class="col-sm-3 control-label">Role</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" id="inputRole" placeholder="Role" ng-model="userRole">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputMemberSince" class="col-sm-3 control-label">Member Since</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" id="inputMemberSince" placeholder="Member Since" ng-model="userMemberSince">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputEmail" class="col-sm-3 control-label">Email</label>
-						<div class="col-sm-9">
-							<input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="userEmail">
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>						
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- end User Profile Modal -->
-<div class="top">
-	<div class="navbar navbar-default navigation"> 
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<div>
-					<button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-						<span class="sr-only">User Panel</span>
-						<span>Jimmy tester <b class="caret"></b></span>
-					</button>
-					<button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle Search</span>
-						<i class="fa fa-search"></i>
-					</button>        
-				</div>
-				<div>
-					<a class="navbar-brand" href="#/">DI2E <span class="hidden-small">Storefront Catalog</span></a>
-				</div>
-			</div>
-			<div class="collapse navbar-collapse pull-right userNavDropdown">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#dd" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#/userprofile">User Profile</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div><!-- /.userNav-collapse -->
-		</div>
-	</div> 
-</div>
-
-<!-- <div class="banner">
-	{{pageTitle}}
-</div> -->
- <br/><br/>
-<div class="row default-content">
-</div>	
+<br/><br/>
 
 <div class="row default-content">
 	<div class="col-sm-1">&nbsp;</div>
@@ -148,19 +62,7 @@
 				<h3 class="panel-title watch-content-title">WATCHES</h3>
 			</div>
 			<div class="panel-body">
-				<div ng-init="watches = [
-				{id:'1',name:'VANTAGE WESS OZONE Widget', updated:'03/01/2014', new:'*new',src:'images/wess_logo.png','watched': true},
-				{id:'2',name:'Extensible Mapping Platform (EMP)', updated:'02/28/2014', new:'',src:'images/core-map-api.png','watched': true},
-				{id:'3',name:'JC2CUI Common 2D Map API Widget', updated:'05/28/2014', new:'',src:'images/maps-icon.png','watched': true}
-				]">
-				</div>
-				<div ng-init="watches2 = [
-					{id:'1',name:'VANTAGE WESS OZONE Widget', updated:'03/01/2014', new:'*new',src:'images/wess_logo.png'},
-					{id:'2',name:'Extensible Mapping Platform (EMP)', updated:'02/28/2014', new:'',src:'images/core-map-api.png'},
-					{id:'3',name:'JC2CUI Common 2D Map API Widget', updated:'05/28/2014', new:'',src:'images/maps-icon.png'},
-					]">
-				</div>	
-				<div class="col-sm-4" ng-repeat="item in watches" style="padding-left:60px;padding-top:50px">
+				<div class="col-sm-4" ng-repeat="item in data" style="padding-left:60px;padding-top:50px">
 					<div id="div{{item.id}}" >
 						<div style="height: 100%">
 							<img src="{{item.src}}" width="96" height="96">
@@ -172,7 +74,7 @@
 								</span>
 							</div>
 							<div style="font-size: 12px; color: grey;">Updated: {{item.updated}}</div>
-							<div style="font-size: 12px; color: red; "><label style="cursor:pointer" ng-click="removeWatch()">remove</label></div>
+							<div style="font-size: 12px; color: red; "><label style="cursor:pointer" ng-click="removeFromWatches(item.id)">remove</label></div>
 						</div>
 					</div>
 				</div>
@@ -184,21 +86,12 @@
 				<h3 class="panel-title watch-content-title">COMMENTS</h3>
 			</div>
 			<div class="panel-body">
-				<div ng-init="feedbackdetails = [
-				{id:'1',date:'Jan 4, 2014 8:25 am',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'Jim Calhoun'},
-				{id:'2',date:'01/05/2014 9:25 am',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'Jill Calhoun'},
-				{id:'3',date:'01/06/2014 10:25 am',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'Jay Calhoun'},
-				{id:'4',date:'01/07/2014 11:25 am',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'Jade Calhoun'},
-				{id:'5',date:'01/08/2014 12:25 pm',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'Jesse Calhoun'},
-				{id:'6',date:'01/09/2014 8:25 pm',comments:'This VANTAGE WESS OZONE Widget is really cool',author:'JaLayne Calhoun'}
-				]">
-				</div>
-				<div class="col-sm-12" ng-repeat="item1 in watches" style="padding-left:30px;padding-top:30px">
+				<div class="col-sm-12" ng-repeat="item1 in data" style="padding-left:30px;padding-top:30px">
 					<div style="height: 100%;">
 						<img src="{{item1.src}}" width="40" height="40">
 						<span class="none">{{item1.name}}</span>
 						<div style="padding-left:5px;padding-top:5px">
-							<div ng-repeat="item2 in feedbackdetails" style="padding-left:5px;padding-top:5px">
+							<div ng-repeat="item2 in feedbackDetails" style="padding-left:5px;padding-top:5px">
 								<div style="padding-bottom:15px">
 									<div class="col-sm-9">
 										<span class="none">{{item2.name}}</span>
@@ -207,7 +100,7 @@
 									<div class="col-sm-3">
 										<div class="none">Author: {{item2.author}}</div>
 										<div class="none">Date: {{item2.date}}</div>
-										<div style="font-size: 12px; color: red; "><label style="cursor:pointer" ng-click="removeWatch()">delete comment</label></div>
+										<div style="font-size: 12px; color: red; "><label style="cursor:pointer" ng-click="removeFromWatches(item1.id)">delete comment</label></div>
 									</div>
 									<div>&nbsp;</div>
 								</div>

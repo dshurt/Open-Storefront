@@ -2,7 +2,7 @@
 
 /* global isEmpty, setupPopovers, openClick:true, openWindowToggle, moveButtons, fullClick, openFiltersToggle */
 
-app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$timeout', function ($scope, tempData, Business, $filter, $timeout) {
+app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$timeout', '$location', function ($scope, tempData, Business, $filter, $timeout, $location) {
   tempData.restoreState();
   $scope.searchGroup = tempData.getData();
   tempData.setData($scope.searchGroup);
@@ -172,6 +172,10 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
     $scope.showWatchButton = true;
     Business.setWatches($scope.watches);
+  };
+
+  $scope.viewWatches = function () {
+    $location.path('/userprofile');
   };
 
   $scope.applyFilters = function() {
