@@ -156,7 +156,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
   $scope.addToWatches = function(id){
     var a = _.findWhere($scope.watches, {'id': id});
-    if (a == undefined  || isEmpty(a)) {
+    if (a === undefined  || isEmpty(a)) {
       $scope.watches.push({'id': id, 'watched': true});
     }
     $scope.showWatchButton = false;
@@ -165,12 +165,11 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
   $scope.removeFromWatches = function(id){
     var a = _.findWhere($scope.watches, {'id': id});
-    console.log("a", a);
 
     if (a !== undefined  && !isEmpty(a)) {
       $scope.watches.splice(_.indexOf($scope.watches, a), 1);
     }
-    
+
     $scope.showWatchButton = true;
     Business.setWatches($scope.watches);
   };
