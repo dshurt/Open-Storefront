@@ -15,19 +15,19 @@ app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', '$roo
   $scope.statesTitle      = 'Browse States';
 
   $scope.goToSearchWithType = function(type){ /*jshint unused:false*/
-    tempData.setData([ { "key": "type", "code": type } ]);
+    tempData.setData([ { 'key': 'type', 'code': type } ]);
     tempData.saveState();
     $location.path('/results');
   };
 
   $scope.goToSearchWithCategory = function(type){ /*jshint unused:false*/
-    tempData.setData([ { "key": "categories", "code": type } ]);
+    tempData.setData([ { 'key': 'categories', 'code': type } ]);
     tempData.saveState();
     $location.path('/results');
   };
 
   $scope.goToSearchWithState = function(type){ /*jshint unused:false*/
-    tempData.setData([ { "key": "conformanceState", "code": type } ]);
+    tempData.setData([ { 'key': 'conformanceState', 'code': type } ]);
     tempData.saveState();
     $location.path('/results');
   };
@@ -37,7 +37,7 @@ app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', '$roo
   });
 
   $scope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
-    tempData.setData([ { "key": "search", "code": search } ]);
+    tempData.setData([ { 'key': 'search', 'code': search } ]);
     tempData.saveState();
     $location.path('/results');
   };

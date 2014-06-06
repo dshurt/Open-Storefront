@@ -1,8 +1,8 @@
 'use strict';
 
-/* global setPageHeight, setPageMargin, setRightOpenWidth, openClick:true, 0, 40, 
+/* global setPageHeight, setPageMargin, setRightOpenWidth, openClick:true, 
 fullClick:true, filtClick:true, resetStyles, floatBelowTop, moveButtons,
-unStretchFilterbutton*/
+unStretchFilterbutton, setLeftOpenWidth*/
 $('#filtersButton').on('mouseenter', function() {
   if (!filtClick) {
     $('.filtersButton').stop(true,true).animate({'margin-left':'0px'}, 200, function(){});
@@ -14,9 +14,6 @@ $('#filtersButton').on('mouseleave', function() {
   }
 });
 
-var clicking = false;
-var clickingInside = false;
-
 
 $(document).ready(function(){
 
@@ -25,13 +22,11 @@ $(document).ready(function(){
   $('.pagination').mouseleave(function(){
     var html = $('.page1');
     html.css('overflow', 'auto');
-    clickingInside = true;
   });
 
   $('.pagination').mouseenter(function(){
-    var html = $('.page1'); 
+    var html = $('.page1');
     html.css('overflow', 'hidden');
-    clickingInside = false;
   });
 
 

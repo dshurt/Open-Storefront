@@ -4,6 +4,7 @@ var openClick = 0;
 var fullClick = 0;
 var filtClick = 0;
 
+
 var resetStyles = function(element) {
   element.attr('style', '');
 };
@@ -28,6 +29,14 @@ var floatBelowTop = function(element, width, parent, top) {
   else {
     resetStyles(element);
   }
+};
+
+var moveButtons = function (element, parent) {
+  var top = $(parent).scrollTop();
+  var height = ($(parent).height() / 2);
+  var offset = top + height - 45;
+  
+  element.css({'top': offset + 'px'});
 };
 
 var setRightOpenWidth = function(element) {
@@ -150,7 +159,6 @@ var closePartialDetails = function(results, details, windowWidth) {
 
 
 var openFilter = function (filters, results, details, paginationDiv, windowWidth) {
-  console.log("paginationDiv", paginationDiv);
   results.css({'display': 'inherit'});
   filters.css({'display': 'inherit'});
   setPageMargin(details, 40);
@@ -183,7 +191,6 @@ var openFilter = function (filters, results, details, paginationDiv, windowWidth
 };
 
 var closeFilter = function (filters, results, details, paginationDiv, windowWidth) {
-  console.log("paginationDiv", paginationDiv);
   
   results.css({'display': 'inherit'});
   setPageMargin(details, 40);
@@ -356,17 +363,9 @@ var buttonClose = function() {
   //   console.log('fullClick', fullClick);
   //   console.log('filtClick', filtClick);
   // }, 400);
-return;
+  return;
 };
 
-
-var moveButtons = function (element, parent) {
-  var top = $(parent).scrollTop();
-  var height = ($(parent).height() / 2);
-  var offset = top + height - 45;
-  
-  element.css({'top': offset + 'px'});
-};
 // this line is also added to make jslint happy....
 /* jshint unused:false */
 /* exported floatBelowTop, setRightOpenWidth, setPageHeight, closeDetailsFull,
