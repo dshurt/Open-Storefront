@@ -14,9 +14,16 @@ $('#filtersButton').on('mouseleave', function() {
   }
 });
 
+$('.pagination :input').on('blur', function() {
+  console.log("We did it");
+
+  if (isNaN($(this).val()) || $(this).val() === '') {
+    $(this).val($(this).data('default'));
+    $(this).trigger('input');
+  }
+})
 
 $(document).ready(function(){
-
 
 
   $('.pagination').mouseleave(function(){

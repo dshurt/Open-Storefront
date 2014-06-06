@@ -47,7 +47,7 @@
         </span>
         <!-- <span > <input type="text" name="currentPage" style="width:21px" value="{{pageNumber}}"></span> -->
         <span > 
-          <input type="text" ng-model="pageNumber" min="1" max="{{maxPageNumber}}" style="width:21px">
+          <input type="text"  data-default="1" ng-model="pageNumber" min="1" max="{{maxPageNumber}}" style="width:21px">
         </span>
         <span > 
           of 
@@ -61,7 +61,7 @@
         <span class="glyphicon glyphicon-fast-forward imitateLink"  ng-click="pageNumber=maxPageNumber">&nbsp;
         </span>          
         <span > 
-          <input type="text" ng-model="rowsPerPage" style="width:25px" min="1">
+          <input type="text" data-default="10" ng-model="rowsPerPage" style="width:25px" min="1">
         </span> 
           <!--<select data-ng-model="rowsPerPage">
           <option value="5">5</option>
