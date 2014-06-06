@@ -1,8 +1,8 @@
 'use strict';
 
-/* global setPageHeight, setPageMargin, setRightOpenWidth, openClick:true, 
-fullClick:true, filtClick:true, resetStyles, floatBelowTop, moveButtons,
-unStretchFilterbutton */
+/* global setPageHeight, setPageMargin, setRightOpenWidth, 
+fullClick:true, filtClick:true, floatBelowTop, moveButtons,
+setLeftOpenWidth, resetAnimations, resetAnimGlobals*/
 $('#filtersButton').on('mouseenter', function() {
   if (!filtClick) {
     $('.filtersButton').stop(true,true).animate({'margin-left':'0px'}, 200, function(){});
@@ -14,33 +14,46 @@ $('#filtersButton').on('mouseleave', function() {
   }
 });
 
+
 $(document).ready(function(){
+
+
+
+  $('.pagination').mouseleave(function(){
+    var html = $('.page1');
+    html.css('overflow', 'auto');
+  });
+
+  $('.pagination').mouseenter(function(){
+    var html = $('.page1');
+    html.css('overflow', 'hidden');
+  });
 
 
   var details = $('.page2');
   var results = $('.page1');
   var filters = $('.filters');
+
   if ($(window).width() < 767) {
     if (!fullClick) {
-      unStretchFilterbutton();
-      resetStyles(details);
-      resetStyles(results);
-      resetStyles(filters);
-      openClick = 0;
-      fullClick = 0;
-      filtClick = 0;
+      resetAnimations(details, results, filters);
+      resetAnimGlobals();
     }
   }
-  setPageHeight($('.resultsContainer'));
+  setPageHeight($('.resultsContainer'), 0);
   setRightOpenWidth(details);
-  setPageHeight(filters);
-  setPageHeight(results);
-  setPageHeight(details);
-  setPageMargin(details);
+  if (filtClick === 1) {
+    setLeftOpenWidth(results);
+  }
+  setPageHeight(filters, 0);
+  setPageHeight(results, 40);
+  setPageHeight(details, 0);
+  setPageMargin(details, 40);
 
   $('#filtersButton').data('offset', '0');
-  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
+  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 52);
   moveButtons($('#showPageRight'), $('.page1'));
+  moveButtons($('#showPageLeft'), $('.page2'));
 });
 $(window).resize(function() {
   var details = $('.page2');
@@ -48,31 +61,30 @@ $(window).resize(function() {
   var filters = $('.filters');
   if ($(window).width() < 767) {
     if (!fullClick) {
-      unStretchFilterbutton();
-      resetStyles(details);
-      resetStyles(results);
-      resetStyles(filters);
-      openClick = 0;
-      fullClick = 0;
-      filtClick = 0;
+      resetAnimations(details, results, filters);
+      resetAnimGlobals();
     }
   } else if (!fullClick){
-    setPageMargin(details);
+    setPageMargin(details, 40);
   }
   setRightOpenWidth(details);
-  setPageHeight($('.resultsContainer'));
-  setPageHeight(filters);
-  setPageHeight(results);
-  setPageHeight(details);
+  if (filtClick === 1) {
+    setLeftOpenWidth(results);
+  }
+  setPageHeight($('.resultsContainer'), 0);
+  setPageHeight(filters, 0);
+  setPageHeight(results, 40);
+  setPageHeight(details, 0);
 
   $('#filtersButton').data('offset', '0');
-  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
+  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 52);
   moveButtons($('#showPageRight'), $('.page1'));
+  moveButtons($('#showPageLeft'), $('.page2'));
 });
 $('.page1').scroll(function() {
-  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 53);
+  floatBelowTop($('#filtersButton'), 3000, $('.page1'), 52);
   moveButtons($('#showPageRight'), this);
-  // setPageHeight($('.resultsContainer'));
+  // setPageHeight($('.resultsContainer'), 0);
 });
 $('.page2').scroll(function() {
   moveButtons($('#showPageLeft'), this);

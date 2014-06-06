@@ -4,10 +4,14 @@
 app.factory('business', function () {
 
   var business = {};
-  business.getCategories = function() {
-    return MOCKDATA.componentCategories.categories;
+
+  business.getFilters = function() {
+    return MOCKDATA.filters;
   };
 
+  business.getWatches = function() {
+    return MOCKDATA.watchTypes.watches;
+  };
 
   business.getData = function() {
     return MOCKDATA.assets.assets;
@@ -19,17 +23,15 @@ app.factory('business', function () {
     });
   };
   
-  business.getStates = function() {
-    return MOCKDATA.componentStates.states;
-  };
-  
-  business.getTypes = function() {
-    return MOCKDATA.componentTypes.types;
+  business.getWatches = function(){
+    return MOCKDATA.watches;
   };
 
-  business.getWatches = function() {
-    return MOCKDATA.watchTypes.watches;
+  business.setWatches = function(watches){
+    MOCKDATA.watches = watches;
+    return true;
   };
+  
 
   return business;
   
