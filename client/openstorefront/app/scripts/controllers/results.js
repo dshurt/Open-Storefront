@@ -37,7 +37,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   if (!isEmpty($scope.searchGroup)) {
     var keys = _.pluck($scope.filters, 'key');
     if (_.contains(keys, $scope.searchGroup[0].key)) {
-      
+
       $scope.searchKey = $scope.searchGroup[0].key;
       $scope.searchCode = $scope.searchGroup[0].code;
       $scope.showSearch = true;
@@ -142,7 +142,6 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
 
   $scope.updateDetails = function(id){
-
     $scope.showWatchButton = !!!(_.where($scope.watches, {'id': id}).length);
     if (!openClick) {
       openWindowToggle();
@@ -156,8 +155,22 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   };
 
   $scope.addToWatches = function(id){
-    $scope.watches.push({'id': id, 'watched': true});
+    var a = _.findWhere($scope.watches, {'id': id});
+    if (a === undefined  || isEmpty(a)) {
+      $scope.watches.push({'id': id, 'watched': true});
+    }
     $scope.showWatchButton = false;
+    Business.setWatches($scope.watches);
+  };
+
+  $scope.removeFromWatches = function(id){
+    var a = _.findWhere($scope.watches, {'id': id});
+
+    if (a !== undefined  && !isEmpty(a)) {
+      $scope.watches.splice(_.indexOf($scope.watches, a), 1);
+    }
+
+    $scope.showWatchButton = true;
     Business.setWatches($scope.watches);
   };
 

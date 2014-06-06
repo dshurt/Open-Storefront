@@ -47,7 +47,7 @@
         </span>
         <!-- <span > <input type="text" name="currentPage" style="width:21px" value="{{pageNumber}}"></span> -->
         <span > 
-          <input type="text" ng-model="pageNumber" min="1" max="{{maxPageNumber}}" style="width:21px">
+          <input type="text"  data-default="1" ng-model="pageNumber" min="1" max="{{maxPageNumber}}" style="width:21px">
         </span>
         <span > 
           of 
@@ -61,7 +61,7 @@
         <span class="glyphicon glyphicon-fast-forward imitateLink"  ng-click="pageNumber=maxPageNumber">&nbsp;
         </span>          
         <span > 
-          <input type="text" ng-model="rowsPerPage" style="width:25px" min="1">
+          <input type="text" data-default="10" ng-model="rowsPerPage" style="width:25px" min="1">
         </span> 
           <!--<select data-ng-model="rowsPerPage">
           <option value="5">5</option>
@@ -126,7 +126,8 @@
     <div class="component-details">
       <div class="container component-title">
         <div class="col-sm-12">
-          <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches</button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="addToWatches(details.id)">View Watches</button></h1>
+          <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span>
+            <br><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches <i class="fa fa-thumbs-o-up imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="viewWatches()">View Watches <i class="fa fa-eye imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="removeFromWatches(details.id)">Remove From Watches <i class="fa fa-thumbs-o-down imitateLink"></i></button></h1>
         </div>
       </div>
       <div class="component-div row" style="margin-top: -10px">

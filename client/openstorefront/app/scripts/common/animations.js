@@ -58,8 +58,16 @@ var setRightOpenWidth = function(element) {
 
 var setLeftOpenWidth = function(element) {
   var windowWidth = $(window).width();
+  
+  if (filtClick === 1) {
+    if (openClick === 1) {
+      windowWidth = 650;
+    }
+    windowWidth = windowWidth - 250
+  }
+
   element.css({
-    'width': (windowWidth - 250) + 'px'
+    'width': windowWidth + 'px'
   });
 };
 
