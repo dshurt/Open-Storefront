@@ -91,6 +91,8 @@ var setLeftOpenWidth = function(element) {
       windowWidth = 650;
     }
     windowWidth = windowWidth - 250;
+  } else if (openClick === 1) {
+    windowWidth = 400;
   }
 
   element.css({
@@ -117,9 +119,8 @@ var setPageHeight = function(element, offset) {
 * params: offset -- an integer value detailing the offset from the top
 **********************/
 var setPageMargin = function (element, offset) {
-  var windowHeight = $(window).height() - $('.top').height();
   element.css({
-    'margin-top': -windowHeight + offset + 'px'
+    'margin-top': offset + 'px'
   });
 };
 
@@ -167,6 +168,9 @@ var unStretchFilterbutton = function() {
 * params: windowWidth -- an integer value detailing the window width
 **********************/
 var openDetails = function(results, details, windowWidth) {
+  details.css({'display': 'inherit'});
+  var offset = $(window).height() - $('.top').height() - 40;
+  setPageMargin(details, -offset);
   var width = 400;
   if (filtClick === 1)
   {
@@ -190,7 +194,8 @@ var openDetails = function(results, details, windowWidth) {
 **********************/
 var closeDetails = function(results, details, windowWidth) {
   results.css({'display': 'inherit'});
-  setPageMargin(details, 40);
+  var offset = $(window).height() - $('.top').height() - 40;
+  setPageMargin(details, -offset);
   var resultsWidth = windowWidth;
   if (filtClick === 1) {
     resultsWidth = windowWidth - 250;
@@ -201,7 +206,7 @@ var closeDetails = function(results, details, windowWidth) {
   details.stop(true, true).animate({
     'width': '0px',
     'margin-left': '100%'
-  }, 200 , function() { details.css({'width': '100%'}); });
+  }, 200 , function() { details.css({'width': '100%', 'display': 'none'}); });
 };
 
 
@@ -213,6 +218,7 @@ var closeDetails = function(results, details, windowWidth) {
 * params: windowWidth -- an integer value detailing the window width
 **********************/
 var openFullDetails = function(results, details, windowWidth) {
+  details.css({'display': 'inherit'});
   results.stop(true, true).animate({
     'width': '0px',
   }, 200 , function() {
@@ -240,7 +246,8 @@ var closePartialDetails = function(results, details, windowWidth) {
     width = 650;
   }
   results.css({'display': 'inherit'});
-  setPageMargin(details, 40);
+  var offset = $(window).height() - $('.top').height() - 40;
+  setPageMargin(details, -offset);
   results.stop(true, true).animate({
     'width': width + 'px'
   }, 200 , function() {});
@@ -262,7 +269,8 @@ var closePartialDetails = function(results, details, windowWidth) {
 var openFilter = function (filters, results, details, paginationDiv, windowWidth) {
   results.css({'display': 'inherit'});
   filters.css({'display': 'inherit'});
-  setPageMargin(details, 40);
+  var offset = $(window).height() - $('.top').height() - 40;
+  setPageMargin(details, -offset);
   if (openClick === 1) {
     results.stop(true, true).animate({
       'margin-left': '250px',
@@ -302,7 +310,8 @@ var openFilter = function (filters, results, details, paginationDiv, windowWidth
 var closeFilter = function (filters, results, details, paginationDiv, windowWidth) {
 
   results.css({'display': 'inherit'});
-  setPageMargin(details, 40);
+  var offset = $(window).height() - $('.top').height() - 40;
+  setPageMargin(details, -offset);
   if (openClick === 1) {
     results.stop(true, true).animate({
       'margin-left': '0px'
@@ -343,6 +352,11 @@ var openWindowToggle = function () {
   setTimeout(function() {
     if (openClick === 0)
     {
+      if (windowWidth <= 992) {
+        if (filtClick) {
+          openFiltersToggle();
+        }
+      }
       openDetails(results, details, windowWidth);
       openClick = 1;
     } else {
@@ -407,8 +421,7 @@ var openFiltersToggle = function () {
     if (filtClick === 0) {
       if (windowWidth <= 992) {
         if (openClick) {
-          closeDetails(results, details, windowWidth);
-          openClick = 0;
+          openWindowToggle();
         }
       }
       stretchFilterbutton();
@@ -459,7 +472,7 @@ var buttonOpen = function() {
         fullDetailsToggle();
       }
     } else {
-      openWindowToggle();
+      openClick = 1;
       fullDetailsToggle();
     }
   }
@@ -491,7 +504,7 @@ var buttonClose = function() {
   else {
     if (openClick) {
       if (fullClick) {
-        fullDetailsToggle();
+        fullClick = 0;
         openWindowToggle();
       } else {
         openWindowToggle();
@@ -505,7 +518,7 @@ var buttonClose = function() {
   //   console.log('fullClick', fullClick);
   //   console.log('filtClick', filtClick);
   // }, 400);
-  return;
+return;
 };
 
 /**********************

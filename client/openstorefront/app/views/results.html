@@ -38,37 +38,19 @@
     <!-- Placeholder for the pagination controls -->
     <div class="pagination row row-centered">
       <div style="text-align: center;">
-        <span class="glyphicon glyphicon-fast-backward imitateLink" ng-click="pageNumber=1">&nbsp;
-        </span>
-        <span class="glyphicon glyphicon-chevron-left imitateLink" ng-click="pageNumber=pageNumber-1">&nbsp;
-        </span>
-        <span class="imitateLink">
-          Page 
-        </span>
-        <!-- <span > <input type="text" name="currentPage" style="width:21px" value="{{pageNumber}}"></span> -->
+        <span class="glyphicon glyphicon-fast-backward imitateLink" ng-click="pageNumber=1">&nbsp;</span>
+        <span class="glyphicon glyphicon-chevron-left imitateLink" ng-click="pageNumber=pageNumber-1">&nbsp;</span>
+        <span class="imitateLink"> Page </span>
         <span class="imitateLink"> 
           <input type="text"  data-default="1" ng-model="pageNumber" min="1" max="{{maxPageNumber}}" style="width:21px">
         </span>
+        <span class="imitateLink"> of </span>
+        <span class="imitateLink" ng-bind="maxPageNumber"></span>
+        <span class="glyphicon glyphicon-chevron-right imitateLink" ng-click="pageNumber=pageNumber+1">&nbsp;</span>
+        <span class="glyphicon glyphicon-fast-forward imitateLink"  ng-click="pageNumber=maxPageNumber">&nbsp;</span>          
         <span class="imitateLink"> 
-          of 
-        </span>
-        <!-- <label> {{maxPageNumber}}</label>   -->
-        <span class="imitateLink" ng-bind="maxPageNumber">
-
-        </span>
-        <span class="glyphicon glyphicon-chevron-right imitateLink" ng-click="pageNumber=pageNumber+1">&nbsp;
-        </span>
-        <span class="glyphicon glyphicon-fast-forward imitateLink"  ng-click="pageNumber=maxPageNumber">&nbsp;
-        </span>          
-        <span class="imitateLink"> 
-          <input type="text" data-default="10" ng-model="rowsPerPage" style="width:25px" min="1">
+          <input type="text" data-default="10" ng-model="rowsPerPage" style="width:25px" min="1"> Per page
         </span> 
-          <!--<select data-ng-model="rowsPerPage">
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="20" selected="selected">20</option>
-          <option value="50">50</option>
-        </select> -->
       </div>
     </div>
     <!-- End Placeholder for the pagination controls -->
@@ -115,6 +97,22 @@
     </div>
   </div>
   <!-- End Page 1 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Page 2 -->
   <div class='page2'>
