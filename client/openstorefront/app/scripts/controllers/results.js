@@ -19,6 +19,9 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   $scope.query = '';
 
   $scope.total = Business.getData();
+  $scope.watches = Business.getWatches();
+  $scope.showWatchButton = false;
+
 
   $scope.filteredTotal = $scope.total;
   $scope.data = $scope.total;
@@ -137,6 +140,8 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
 
   $scope.updateDetails = function(id){
+
+    $scope.showWatchButton = !!!(_.where($scope.watches, {'id': id}).length);
     if (!openClick) {
       openWindowToggle();
     }
@@ -145,6 +150,12 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     {
       $scope.details = temp;
     }
+  };
+
+  $scope.addToWatches = function(id){
+    $scope.watches.push({'id': id, 'watched': true});
+    $scope.showWatchButton = false;
+    Business.setWatches($scope.watches);
   };
 
   $scope.applyFilters = function() {

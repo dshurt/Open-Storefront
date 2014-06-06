@@ -26,6 +26,11 @@ app.factory('business', function () {
   business.getWatches = function(){
     return MOCKDATA.watches;
   };
+
+  business.setWatches = function(watches){
+    MOCKDATA.watches = watches;
+    return true;
+  };
   
 
   return business;
