@@ -15,9 +15,9 @@ var app = angular
     templateUrl: 'views/main.html',
     controller: 'MainCtrl'
   })
-  .when('/user', {
-    templateUrl: 'views/user.html',
-    controller: 'UserCtrl'
+  .when('/userprofile', {
+    templateUrl: 'views/userprofile.html',
+    controller: 'UserProfileCtrl'
   })
   .when('/results', {
     templateUrl: 'views/results.html',
@@ -27,8 +27,6 @@ var app = angular
     redirectTo: '/'
   });
 });
-
-
 
 app.run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, tempData, $location, $route) {
   // Re-apply these functions on route-change
