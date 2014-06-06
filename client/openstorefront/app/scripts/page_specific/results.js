@@ -1,7 +1,7 @@
 'use strict';
 
 /* global setPageHeight, setPageMargin, setRightOpenWidth, 
-fullClick:true, filtClick:true, floatBelowTop, moveButtons,
+fullClick:true, filtClick:true, openClick:true, floatBelowTop, moveButtons,
 setLeftOpenWidth, resetAnimations, resetAnimGlobals*/
 
 /**********************
@@ -79,6 +79,15 @@ var resizeAnimations = function () {
     } else {
       setPageMargin(details, 0);
     }
+  }
+  if ($(window).width() <= 992) {
+    if (openClick && filtClick) {
+      var paginationDiv = $('.pagination');
+      var windowWidth = $(window).width();
+      unStretchFilterbutton();
+      closeFilter(filters, results, details, paginationDiv, windowWidth);
+      filtClick = 0;
+    } 
   }
   setPageHeight($('.resultsContainer'), 0);
   setRightOpenWidth(details);

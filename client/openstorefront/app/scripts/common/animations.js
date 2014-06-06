@@ -91,6 +91,8 @@ var setLeftOpenWidth = function(element) {
       windowWidth = 650;
     }
     windowWidth = windowWidth - 250;
+  } else if (openClick === 1) {
+    windowWidth = 400;
   }
 
   element.css({
@@ -350,6 +352,11 @@ var openWindowToggle = function () {
   setTimeout(function() {
     if (openClick === 0)
     {
+      if (windowWidth <= 992) {
+        if (filtClick) {
+          openFiltersToggle();
+        }
+      }
       openDetails(results, details, windowWidth);
       openClick = 1;
     } else {
@@ -414,8 +421,7 @@ var openFiltersToggle = function () {
     if (filtClick === 0) {
       if (windowWidth <= 992) {
         if (openClick) {
-          closeDetails(results, details, windowWidth);
-          openClick = 0;
+          openWindowToggle();
         }
       }
       stretchFilterbutton();
