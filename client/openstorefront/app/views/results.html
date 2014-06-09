@@ -77,7 +77,7 @@
             {{searchDescription}}
             <!-- fa fa-file-text, fa fa-book, fa fa-info-circle-->
             <!-- glyphicon glyphicon-info-sign -->
-            <span><i class="glyphicon glyphicon-info-sign imitateLink"></i></span>
+            <span><i ng-click="openModal('descModal')" class="glyphicon glyphicon-info-sign imitateLink"></i></span>
           </div>
           
         </div>
@@ -105,6 +105,10 @@
       </div>
     </div>
   </div>
+
+  <div modal controller-name="ResultsCtrl" body="views/modalDefaults/body.html" header="views/modalDefaults/header.html" footer="views/modalDefaults/footer.html"  modalId='descModal'>
+  </div>
+
   <!-- End Page 1 -->
 
 

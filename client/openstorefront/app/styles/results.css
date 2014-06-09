@@ -273,3 +273,7 @@ input[type=checkbox]:checked + label{
 .lastFilter{
   padding-bottom: 40px;
 }
+
+.modal-title {
+  color: #3892d3;
+}

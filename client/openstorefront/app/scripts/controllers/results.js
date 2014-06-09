@@ -75,27 +75,35 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
       $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchGroup[0].code})[0];
       $scope.searchType         = $scope.searchGroupItem.name;
       $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
+      $scope.modalTitle         = $scope.searchType + ', ' + $scope.searchColItem.type;
       $scope.searchDescription  = $scope.searchColItem.desc;
+      $scope.modalBody          = $scope.searchColItem.longDesc;
       adjustFilters();
     } else if ($scope.searchGroup[0].key === 'search') {
       // Otherwise check to see if it is a search
       $scope.searchKey          = 'DOALLSEARCH';
       $scope.showSearch         = true;
       $scope.searchTitle        = $scope.searchGroup[0].code;
+      $scope.modalTitle         = $scope.searchGroup[0].code;
       $scope.searchDescription  = 'Search resutls based on the search key: ' + $scope.searchGroup[0].code;
+      $scope.modalBody          = 'The restuls on this page are restricted by an implied filter on words similar to the search key ' + $scope.searchGroup[0].code;
     } else {
       // In this case, our tempData object exists, but has no useable data
       $scope.searchKey          = 'DOALLSEARCH';
       $scope.showSearch         = true;
       $scope.searchTitle        = 'All';
+      $scope.modalTitle         = 'All';
       $scope.searchDescription  = 'Search all results';
+      $scope.modalBody          = 'The results found on this page are not restricted by any implied filters.';
     }
   } else {
     // In this case, our tempData doesn't exist
     $scope.searchKey          = 'DOALLSEARCH';
     $scope.showSearch         = true;
     $scope.searchTitle        = 'All';
+    $scope.modalTitle         = 'All';
     $scope.searchDescription  = 'Search all results';
+    $scope.modalBody          = 'The results found on this page are not restricted by any implied filters.';
   }
 
 

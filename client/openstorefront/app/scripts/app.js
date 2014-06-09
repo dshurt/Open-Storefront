@@ -30,7 +30,7 @@ var app = angular
 })
 // here we add the .run function for intial setup and other useful functions
 .run(['$rootScope', 'tempData', '$location', '$route', function ($rootScope, tempData, $location, $route) {
-  
+
   /***************************************************************
   * This function watches for a route change start and does a few things
   * params: event -- keeps track of which event is happening
@@ -78,6 +78,18 @@ var app = angular
   $rootScope.$on('$viewContentLoaded', function() {
     setupTypeahead();
   });
+
+  /***************************************************************
+  * This function is what is called when the modal event is fired
+  * class 'typeahead'
+  ***************************************************************/
+  $rootScope.$on('$viewModal', function(event, id) {
+    $('#' + id).modal('show');
+  });
+
+  $rootScope.openModal = function(id) {
+    $rootScope.$broadcast('$viewModal', id);
+  }
 
   /***************************************************************
   * This function is used to send the route to the results page whenever someone
