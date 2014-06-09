@@ -17,6 +17,7 @@
 package edu.usu.sdl.opencatalog.web.rest;
 
 import edu.usu.sdl.opencatalog.api.model.jpa.BaseEntity;
+import edu.usu.sdl.opencatalog.doc.APIDescription;
 import edu.usu.sdl.opencatalog.web.viewmodel.RestErrorModel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +33,7 @@ import javax.ws.rs.core.MediaType;
  * @author dshurtleff
  */
 @Path("{version}/Lookup/{type}")
+@APIDescription(description = "Test")
 public class LookupResouce
 	extends BaseResource
 {
