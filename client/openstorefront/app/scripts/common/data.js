@@ -68,6 +68,7 @@ MOCKDATA.filters[0] = {
     'code': 'APPS',
     'type': 'Applications',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/application-xp-terminal.png',
     'checked': false
   },
@@ -75,6 +76,7 @@ MOCKDATA.filters[0] = {
     'code': 'ENTERPRISE',
     'type': 'Enterprise Services',
     'desc': 'Soap, REST, ...',
+    'longDesc': 'Soap, REST, .... This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/world-link.png',
     'checked': false
   },
@@ -82,6 +84,7 @@ MOCKDATA.filters[0] = {
     'code': 'REFDOCS',
     'type': 'Reference Documents',
     'desc': 'Standards, Specifications, and APIs',
+    'longDesc': 'Standards, Specifications, and APIs. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/table-multiple.png',
     'checked': false
   },
@@ -89,6 +92,7 @@ MOCKDATA.filters[0] = {
     'code': 'SOFTLIB',
     'type': 'Software Libraries',
     'desc': 'javascript, java, .net, python',
+    'longDesc': 'javascript, java, .net, python. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/book-link.png',
     'checked': false
   },
@@ -96,6 +100,7 @@ MOCKDATA.filters[0] = {
     'code': 'TOOLS',
     'type': 'Tools',
     'desc': 'Test scripts, Development Tools',
+    'longDesc': 'Test scripts, Development Tools. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/cog.png',
     'checked': false
   },
@@ -103,6 +108,7 @@ MOCKDATA.filters[0] = {
     'code': 'WIDGET',
     'type': 'Widgets',
     'desc': 'Ozone widgets',
+    'longDesc': 'Ozone widgets. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/application-double.png',
     'checked': false
   }
@@ -117,6 +123,7 @@ MOCKDATA.filters[1]= {
     'code': 'VISUAL',
     'type': 'Visualization',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/application-xp-terminal.png',
     'checked': false
   },
@@ -124,6 +131,7 @@ MOCKDATA.filters[1]= {
     'code': 'DATAM',
     'type': 'Data Management',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/world-link.png',
     'checked': false
   },
@@ -131,6 +139,7 @@ MOCKDATA.filters[1]= {
     'code': 'COLLECT',
     'type': 'Collection',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/table-multiple.png',
     'checked': false
   },
@@ -138,6 +147,7 @@ MOCKDATA.filters[1]= {
     'code': 'COLLAB',
     'type': 'Collaboration',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/book-link.png',
     'checked': false
   },
@@ -145,6 +155,7 @@ MOCKDATA.filters[1]= {
     'code': 'SECM',
     'type': 'Security Management',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/cog.png',
     'checked': false
   },
@@ -152,6 +163,7 @@ MOCKDATA.filters[1]= {
     'code': 'PLAN',
     'type': 'Planning and Direction',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/application-double.png',
     'checked': false
   }
@@ -167,6 +179,7 @@ MOCKDATA.filters[2] = {
     'type': 'No Evaluation Planned',
     'displayType': 'No Evaluation',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/application-xp-terminal.png',
     'checked': false
   },
@@ -175,6 +188,7 @@ MOCKDATA.filters[2] = {
     'type': 'Level 0 - Not Assessed',
     'displayType': 'Not Assessed',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/world-link.png',
     'checked': false
   },
@@ -183,6 +197,7 @@ MOCKDATA.filters[2] = {
     'type': 'Level 1 - Checklist Complete',
     'displayType': 'Checklist Complete',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/table-multiple.png',
     'checked': false
   },
@@ -191,6 +206,7 @@ MOCKDATA.filters[2] = {
     'type': 'Level 2 - DI2E Tested',
     'displayType': 'DI2E Tested',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/book-link.png',
     'checked': false
   },
@@ -199,6 +215,7 @@ MOCKDATA.filters[2] = {
     'type': 'Level 3 - DI2E Framework Conformant',
     'displayType': 'DI2E Conformant',
     'desc': 'Redeployable, Middleware',
+    'longDesc': 'Redeployable, Middleware. This is the long description. It is very long so that we can test to see how well the modal works!!! Here is some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'src': 'images/icon/pastel/cog.png',
     'checked': false
   }

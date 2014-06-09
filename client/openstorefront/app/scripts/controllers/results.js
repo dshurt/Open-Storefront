@@ -11,22 +11,23 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   tempData.restoreState();
 
   // Set up the results controller's variables.
-  $scope._scopename       = 'results';
-  $scope.searchGroup      = tempData.getData();
-  $scope.searchKey        = null;
-  $scope.searchCode       = null;
-  $scope.searchTitle      = null;
-  $scope.details          = null;
-  $scope.isPage1          = true;
-  $scope.showSearch       = false;
-  $scope.showWatchButton  = false;
-  $scope.showDetails      = false;
-  $scope.orderProp        = '';
-  $scope.query            = '';
-  $scope.noDataMessage    = 'You have filtered out all of the results.';
-  $scope.filters          = Business.getFilters();
-  $scope.total            = Business.getData();
-  $scope.watches          = Business.getWatches();
+  $scope._scopename         = 'results';
+  $scope.searchGroup        = tempData.getData();
+  $scope.searchKey          = null;
+  $scope.searchCode         = null;
+  $scope.searchTitle        = null;
+  $scope.searchDescription  = null;
+  $scope.details            = null;
+  $scope.isPage1            = true;
+  $scope.showSearch         = false;
+  $scope.showWatchButton    = false;
+  $scope.showDetails        = false;
+  $scope.orderProp          = '';
+  $scope.query              = '';
+  $scope.noDataMessage      = 'You have filtered out all of the results.';
+  $scope.filters            = Business.getFilters();
+  $scope.total              = Business.getData();
+  $scope.watches            = Business.getWatches();
 
   // These variables are used for the pagination
   $scope.filteredTotal  = $scope.total;
@@ -58,26 +59,30 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
 
     if (_.contains(keys, $scope.searchGroup[0].key)) {
       // if the search group is based on one of those filters do this
-      $scope.searchKey = $scope.searchGroup[0].key;
-      $scope.searchCode = $scope.searchGroup[0].code;
-      $scope.showSearch = true;
-      $scope.searchTitle =  _.where(_.where($scope.filters, {'key': $scope.searchGroup[0].key})[0].collection, {'code': $scope.searchGroup[0].code})[0].type;
+      $scope.searchKey          = $scope.searchGroup[0].key;
+      $scope.searchCode         = $scope.searchGroup[0].code;
+      $scope.showSearch         = true;
+      $scope.searchTitle        =  _.where(_.where($scope.filters, {'key': $scope.searchGroup[0].key})[0].collection, {'code': $scope.searchGroup[0].code})[0].type;
+      $scope.searchDescription  =  _.where(_.where($scope.filters, {'key': $scope.searchGroup[0].key})[0].collection, {'code': $scope.searchGroup[0].code})[0].desc;
     } else if ($scope.searchGroup[0].key === 'search') {
       // Otherwise check to see if it is a search
-      $scope.searchKey = 'DOALLSEARCH';
-      $scope.showSearch = true;
-      $scope.searchTitle = $scope.searchGroup[0].code;
+      $scope.searchKey          = 'DOALLSEARCH';
+      $scope.showSearch         = true;
+      $scope.searchTitle        = $scope.searchGroup[0].code;
+      $scope.searchDescription  = 'Search resutls based on the search key: ' + $scope.searchGroup[0].code;
     } else {
       // In this case, our tempData object exists, but has no useable data
-      $scope.searchKey = 'DOALLSEARCH';
-      $scope.showSearch = true;
-      $scope.searchTitle = 'All';
+      $scope.searchKey          = 'DOALLSEARCH';
+      $scope.showSearch         = true;
+      $scope.searchTitle        = 'All';
+      $scope.searchDescription  = 'Search all results';
     }
   } else {
     // In this case, our tempData doesn't exist
-    $scope.searchKey = 'DOALLSEARCH';
-    $scope.showSearch = true;
-    $scope.searchTitle = 'All';
+    $scope.searchKey          = 'DOALLSEARCH';
+    $scope.showSearch         = true;
+    $scope.searchTitle        = 'All';
+    $scope.searchDescription  = 'Search all results';
   }
 
 
@@ -250,7 +255,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     // the order DOES matter here.
     $filter('orderBy')
     ($filter('componentFilter')
-    ($filter('filter')($scope.total, $scope.query),
+      ($filter('filter')($scope.total, $scope.query),
     // filter the data by the query and return the result to the componentFilter input
     $scope.filters),
     // then use the componentFilter returned data as the input to the order-by filter

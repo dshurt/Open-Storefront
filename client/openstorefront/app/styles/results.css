@@ -39,10 +39,16 @@ html, .resultsContainer {
 }
 
 .searchTitle {
-  height: 34px;
   color: #3892d3;
   text-align: center;
   font-size: 25px;
+  /*letter-spacing: 10px;*/
+}
+
+.searchDescription {
+  color: #3892d3;
+  text-align: center;
+  font-size: 14px;
   /*letter-spacing: 10px;*/
 }
 
