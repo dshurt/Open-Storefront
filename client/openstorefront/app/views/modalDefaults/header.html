@@ -1,1 +1,9 @@
-<h4 class="modal-title" id="myModalLabel">{{modalTitle}}</h4>
+<div ng-if="nav.length" class="modal-header-override">
+  <ul class="nav nav-tabs">
+    <li ng-repeat="item in nav" ng-class="{active: nav.Current == item.title}">
+      <a href="javascript: void(0)" ng-click="nav.Current = item.title" data-toggle="tab">{{item.title}}</a>
+    </li>
+  </ul>
+</div>
+
+<h4 ng-if="!nav.length" class="modal-title" id="myModalLabel">{{modalTitle}}</h4>
