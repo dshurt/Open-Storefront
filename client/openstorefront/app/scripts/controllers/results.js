@@ -42,6 +42,15 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + '.';
   });
 
+  /***************************************************************
+  * This function removes the inherent filter (if you click on apps, types no longer applies etc)
+  ***************************************************************/
+  var adjustFilters = function() {
+    $scope.filters = _.reject($scope.filters, function(item) {
+      return item.key === $scope.searchGroup[0].key;
+    });
+  }
+
   /*******************************************************************************
   * This is used to initialize the scope title, key, and code. Once we have a 
   * database, this is most likely where we'll do the first pull for data.
@@ -62,8 +71,12 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
       $scope.searchKey          = $scope.searchGroup[0].key;
       $scope.searchCode         = $scope.searchGroup[0].code;
       $scope.showSearch         = true;
-      $scope.searchTitle        =  _.where(_.where($scope.filters, {'key': $scope.searchGroup[0].key})[0].collection, {'code': $scope.searchGroup[0].code})[0].type;
-      $scope.searchDescription  =  _.where(_.where($scope.filters, {'key': $scope.searchGroup[0].key})[0].collection, {'code': $scope.searchGroup[0].code})[0].desc;
+      $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchGroup[0].key})[0];
+      $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchGroup[0].code})[0];
+      $scope.searchType         = $scope.searchGroupItem.name;
+      $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
+      $scope.searchDescription  = $scope.searchColItem.desc;
+      adjustFilters();
     } else if ($scope.searchGroup[0].key === 'search') {
       // Otherwise check to see if it is a search
       $scope.searchKey          = 'DOALLSEARCH';
@@ -84,6 +97,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     $scope.searchTitle        = 'All';
     $scope.searchDescription  = 'Search all results';
   }
+
 
 
   /*******************************************************************************
