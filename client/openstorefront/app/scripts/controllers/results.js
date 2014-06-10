@@ -3,16 +3,14 @@
 /* global isEmpty, setupPopovers, openClick:true, openWindowToggle, moveButtons,
 fullClick, openFiltersToggle, buttonOpen, buttonClose */
 
-app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$timeout', '$location', function ($scope, tempData, Business, $filter, $timeout, $location) {
+app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', function ($scope, localCache, Business, $filter, $timeout, $location) {
   // So far we're using the tempData factory, but we could easily change this 
   // to use the localCache factory that has more functions and capabilities
   // and then combine it with our business factory since that was their original
   // purpose.
-  tempData.restoreState();
-
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
-  $scope.searchGroup        = tempData.getData();
+  $scope.searchGroup        = localCache.get('searchKey', 'object');
   $scope.searchKey          = null;
   $scope.searchCode         = null;
   $scope.searchTitle        = null;
@@ -28,6 +26,12 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
   $scope.filters            = Business.getFilters();
   $scope.total              = Business.getData();
   $scope.watches            = Business.getWatches();
+
+  
+
+  if ($scope.searchGroup[0] === null) {
+    $scope.searchGroup[0]   = { 'key': 'all', 'code': '' };
+  }
 
   // These variables are used for the pagination
   $scope.filteredTotal  = $scope.total;
@@ -71,8 +75,8 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
       $scope.searchKey          = $scope.searchGroup[0].key;
       $scope.searchCode         = $scope.searchGroup[0].code;
       $scope.showSearch         = true;
-      $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchGroup[0].key})[0];
-      $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchGroup[0].code})[0];
+      $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchKey})[0];
+      $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchCode})[0];
       $scope.searchType         = $scope.searchGroupItem.name;
       $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
       $scope.modalTitle         = $scope.searchType + ', ' + $scope.searchColItem.type;
@@ -86,7 +90,7 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
       $scope.searchTitle        = $scope.searchGroup[0].code;
       $scope.modalTitle         = $scope.searchGroup[0].code;
       $scope.searchDescription  = 'Search resutls based on the search key: ' + $scope.searchGroup[0].code;
-      $scope.modalBody          = 'The restuls on this page are restricted by an implied filter on words similar to the search key ' + $scope.searchGroup[0].code;
+      $scope.modalBody          = 'The restuls on this page are restricted by an implied filter on words similar to the search key \'' + $scope.searchGroup[0].code + '\'';
     } else {
       // In this case, our tempData object exists, but has no useable data
       $scope.searchKey          = 'DOALLSEARCH';

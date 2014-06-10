@@ -1,12 +1,6 @@
 'use strict';
 
-app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', '$rootScope', function ($scope, Business, tempData, $location, $rootScope) {
-  // So far we're using the tempData factory, but we could easily change this 
-  // to use the localCache factory that has more functions and capabilities
-  // and then combine it with our business factory since that was their original
-  // purpose.
-  tempData.restoreState();
-
+app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$rootScope', function ($scope, Business, localCache, $location, $rootScope) {
   // Here we grab the rootScope searchkey in order to preserve the last search
   $scope.searchKey        = $rootScope.searchKey;
   
@@ -32,26 +26,22 @@ app.controller('MainCtrl', ['$scope', 'business', 'tempData', '$location', '$roo
   * params: type -- This is the code of the type that was clicked on
   *******************************************************************************/
   $scope.goToSearchWithType = function(type){ /*jshint unused:false*/
-    tempData.setData([ { 'key': 'type', 'code': type } ]);
-    tempData.saveState();
+    Business.search('type', type);
     $location.path('/results');
   };
 
   $scope.goToSearchWithCategory = function(type){ /*jshint unused:false*/
-    tempData.setData([ { 'key': 'categories', 'code': type } ]);
-    tempData.saveState();
+    Business.search('categories', type);
     $location.path('/results');
   };
 
   $scope.goToSearchWithState = function(type){ /*jshint unused:false*/
-    tempData.setData([ { 'key': 'conformanceState', 'code': type } ]);
-    tempData.saveState();
+    Business.search('conformanceState', type);
     $location.path('/results');
   };
 
   $scope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
-    tempData.setData([ { 'key': 'search', 'code': search } ]);
-    tempData.saveState();
+    Business.search('search', search);
     $location.path('/results');
   };
 

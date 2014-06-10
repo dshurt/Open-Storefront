@@ -74,10 +74,9 @@
             Search &mdash; {{searchTitle}}
           </div>
           <div class="searchDescription">
-            {{searchDescription}}
             <!-- fa fa-file-text, fa fa-book, fa fa-info-circle-->
             <!-- glyphicon glyphicon-info-sign -->
-            <span><i ng-click="openModal('descModal')" class="glyphicon glyphicon-info-sign imitateLink"></i></span>
+            <span ng-click="openModal('descModal')" class="imitateLink" > {{searchDescription}} <i class="glyphicon glyphicon-info-sign"></i></span>
           </div>
           
         </div>
