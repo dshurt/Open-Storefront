@@ -2,13 +2,16 @@
 
 /*global isEmpty, jQuery*/
 
-app.controller('UserProfileCtrl', ['$scope', 'business', function($scope, Business){
+app.controller('UserProfileCtrl', ['$scope', 'business', '$rootScope', function($scope, Business, $rootScope){
   // Set up the controller's varibles
   $scope._scopename       = 'userprofile';
   $scope.pageTitle        = 'DI2E Storefront Catalog';
   $scope.defaultTitle     = 'Browse Categories';
   $scope.watches          = Business.getWatches();
   $scope.total            = Business.getData();
+  $scope.profiletab       = 'views/userprofiletab.html';
+  $scope.watchestab       = 'views/watchestab.html';
+  $scope.feedbacktab       = 'views/feedbacktab.html';
   $scope.feedbackDetails  = [
     {'id':'1','date':'Jan 4, 2014 8:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jim Calhoun'},
     {'id':'2','date':'01/05/2014 9:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jill Calhoun'},
@@ -30,6 +33,31 @@ app.controller('UserProfileCtrl', ['$scope', 'business', function($scope, Busine
     'images/core-map-api.png',
     'images/maps-icon.png'
   ];
+
+ $scope.nav = {
+    'current': null,
+    'bars': [
+    {
+      'title': 'User Profile'
+    },
+    {
+      'title': 'Watches'
+    },
+    {
+      'title': 'Component Feedback'
+    }
+    ]
+  };
+
+$rootScope.$on('$profileModal', function(event) {
+    if ($rootScope.current) {
+      $scope.nav.current = $rootScope.current;
+    } else {
+      $scope.nav.current = "User Profile";
+    }
+    // we re-initialize anything else here
+ 
+  });
 
   /***************************************************************
   * This function takes the watch list, and the total data we got back, and 
