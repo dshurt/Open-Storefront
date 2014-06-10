@@ -63,13 +63,13 @@ MOCKDATA.filters = [];
 MOCKDATA.filters[0] = {
   'name': 'Types',
   'key': 'type',
+  'src': 'images/icon/pastel/application-double.png',
   'collection': [
   {
     'code': 'APPS',
     'type': 'Applications',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for Applications. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/application-xp-terminal.png',
     'checked': false
   },
   {
@@ -77,7 +77,6 @@ MOCKDATA.filters[0] = {
     'type': 'Enterprise Services',
     'desc': 'Soap, REST, ...',
     'longDesc': 'Soap, REST, .... This is the landing page for Enterprise Services. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/world-link.png',
     'checked': false
   },
   {
@@ -85,7 +84,6 @@ MOCKDATA.filters[0] = {
     'type': 'Reference Documents',
     'desc': 'Standards, Specifications, and APIs',
     'longDesc': 'Standards, Specifications, and APIs. This is the landing page for Reference Documents. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/table-multiple.png',
     'checked': false
   },
   {
@@ -93,7 +91,6 @@ MOCKDATA.filters[0] = {
     'type': 'Software Libraries',
     'desc': 'javascript, java, .net, python',
     'longDesc': 'javascript, java, .net, python. This is the landing page for Software Libraries. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/book-link.png',
     'checked': false
   },
   {
@@ -101,7 +98,6 @@ MOCKDATA.filters[0] = {
     'type': 'Tools',
     'desc': 'Test scripts, Development Tools',
     'longDesc': 'Test scripts, Development Tools. This is the landing page for Tools. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/cog.png',
     'checked': false
   },
   {
@@ -109,7 +105,6 @@ MOCKDATA.filters[0] = {
     'type': 'Widgets',
     'desc': 'Ozone widgets',
     'longDesc': 'Ozone widgets. This is the landing page for Widgets. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/application-double.png',
     'checked': false
   }
   ]
@@ -118,13 +113,13 @@ MOCKDATA.filters[0] = {
 MOCKDATA.filters[1]= {
   'name': 'Categories',
   'key': 'categories',
+  'src': 'images/icon/pastel/table-multiple.png',
   'collection': [
   {
     'code': 'VISUAL',
     'type': 'Visualization',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for Visualization. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/application-xp-terminal.png',
     'checked': false
   },
   {
@@ -132,7 +127,6 @@ MOCKDATA.filters[1]= {
     'type': 'Data Management',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for Data Management. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/world-link.png',
     'checked': false
   },
   {
@@ -140,7 +134,6 @@ MOCKDATA.filters[1]= {
     'type': 'Collection',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for Collection. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/table-multiple.png',
     'checked': false
   },
   {
@@ -148,7 +141,6 @@ MOCKDATA.filters[1]= {
     'type': 'Collaboration',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for Collaboration. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/book-link.png',
     'checked': false
   },
   {
@@ -156,7 +148,6 @@ MOCKDATA.filters[1]= {
     'type': 'Security Management',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for Security Management. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/cog.png',
     'checked': false
   },
   {
@@ -164,7 +155,6 @@ MOCKDATA.filters[1]= {
     'type': 'Planning and Direction',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for Planning and Direction. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/application-double.png',
     'checked': false
   }
   ]
@@ -173,6 +163,7 @@ MOCKDATA.filters[1]= {
 MOCKDATA.filters[2] = {
   'name': 'States',
   'key': 'conformanceState',
+  'src': 'images/icon/pastel/cog.png',
   'collection': [
   {
     'code': 'STATENA',
@@ -180,7 +171,6 @@ MOCKDATA.filters[2] = {
     'displayType': 'No Evaluation',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for No Evaluation. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/application-xp-terminal.png',
     'checked': false
   },
   {
@@ -189,7 +179,6 @@ MOCKDATA.filters[2] = {
     'displayType': 'Not Assessed',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for Not Assessed. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/world-link.png',
     'checked': false
   },
   {
@@ -198,7 +187,6 @@ MOCKDATA.filters[2] = {
     'displayType': 'Checklist Complete',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for Checklist Complete. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/table-multiple.png',
     'checked': false
   },
   {
@@ -207,7 +195,6 @@ MOCKDATA.filters[2] = {
     'displayType': 'DI2E Tested',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for DI2E Tested. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/book-link.png',
     'checked': false
   },
   {
@@ -216,7 +203,6 @@ MOCKDATA.filters[2] = {
     'displayType': 'DI2E Conformant',
     'desc': 'Redeployable, Middleware',
     'longDesc': 'Redeployable, Middleware. This is the landing page for DI2E Conformant. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'src': 'images/icon/pastel/cog.png',
     'checked': false
   }
   ]

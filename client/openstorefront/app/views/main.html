@@ -22,7 +22,10 @@
 </div>
 <div class="row defaultContent" ng-repeat="row in filters | partition:3">
   <div class="col-sm-4" ng-repeat="type in row" style="padding-right: 30px;">
-    <div class="defaultGroupTitle">{{type.name}}</div>
+    <div class="defaultGroupTitle">
+      <img src="{{type.src}}" alt="">
+      {{type.name}}
+    </div>
     <ul class="groupItemList">
       <li ng-click="goToSearch(type.key, item.code);" ng-repeat="item in type.collection" class="groupItem imitateLink">
         <span class="item_bold">

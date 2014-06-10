@@ -47,7 +47,6 @@
 }
 
 .defaultGroupTitle{
-  padding-left: 20px;
   padding-top: 20px;
   font-size: 17.6px;
   text-transform: uppercase;
@@ -55,9 +54,9 @@
 }
 
 .listing_short_title_text{
-  font-size: 28px;
+  font-size: 18px;
   text-decoration: none;
-  color: steelblue;
+  color: #0E66A0;
   font-weight: bold;
 }
 
