@@ -31,6 +31,20 @@ app.controller('UserProfileCtrl', ['$scope', 'business', function($scope, Busine
     'images/maps-icon.png'
   ];
 
+ $scope.nav = [
+  {
+    'title': 'User Profile',
+  },
+  {
+    'title': 'Watches',
+  },
+  {
+    'title': 'Component Feedback',
+  }
+  ]
+  $scope.nav.Current = 'User Profile';
+
+
   /***************************************************************
   * This function takes the watch list, and the total data we got back, and 
   * grabs the data items that are really on the watch list. This will change
