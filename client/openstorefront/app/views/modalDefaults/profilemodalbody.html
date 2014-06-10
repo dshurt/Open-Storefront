@@ -1,0 +1,11 @@
+<div ng-switch on="nav.current"> 
+	<div ng-switch-when="User Profile">
+		<div ng-include="profiletab"></div>
+	</div>
+	<div ng-switch-when="Watches">
+		<div ng-include="watchestab"></div>
+	</div>
+	<div ng-switch-when="Component Feedback" >
+		<div ng-include="feedbacktab"></div>
+	</div>
+</div>

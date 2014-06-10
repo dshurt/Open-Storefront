@@ -42,30 +42,40 @@
 .defaultTitle{
   padding-left: 20px;
   padding-top: 20px;
+  font-size: 20.6px;
+  text-transform: uppercase;
+}
+
+.defaultGroupTitle{
+  padding-top: 20px;
   font-size: 17.6px;
   text-transform: uppercase;
   border-bottom: 1px solid #E2E2E2;
 }
 
 .listing_short_title_text{
-  font-size: 28px;
+  font-size: 18px;
   text-decoration: none;
-  color: steelblue;
+  color: #0E66A0;
   font-weight: bold;
 }
 
-.defaultContent .categories{
-  float:left;
+.defaultContent .groupItemList{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.defaultContent .groupItem{
   padding: 5px;
-  height: 120px;
   border-radius: 4px;
 }
 
-.defaultContent .categories:hover{
+.defaultContent .groupItem:hover{
   background-color: lightgray;
 }
 
-.defaultContent .categories a:hover{
+.defaultContent .groupItem a:hover{
   text-decoration: none;
 }
 
