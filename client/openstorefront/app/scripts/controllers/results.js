@@ -76,10 +76,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       $scope.searchCode         = $scope.searchGroup[0].code;
       $scope.showSearch         = true;
       $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchKey})[0];
-      console.log("item", $scope.searchGroupItem);
-      
       $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchCode})[0];
-      console.log("item", $scope.searchColItem);
       $scope.searchType         = $scope.searchGroupItem.name;
       $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
       $scope.modalTitle         = $scope.searchType + ', ' + $scope.searchColItem.type;
@@ -237,6 +234,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       $scope.details = temp;
     }
     $scope.showDetails = true;
+    $scope.getEvaluationState();
   };
 
   /***************************************************************
@@ -271,6 +269,21 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   ***************************************************************/
   $scope.viewWatches = function () {
     $location.path('/userprofile');
+  };
+
+  /***************************************************************
+  * This function does the route redirection to the user profile path in order
+  * to allow the user to view their watches.
+  ***************************************************************/
+  $scope.getEvaluationState = function () {
+    if ($scope.details) {
+      var code = $scope.details.conformanceState[0].code;
+      var stateFilter = _.where($scope.filters, {'key': 'conformanceState'})[0];
+      var item = _.where(stateFilter.collection, {'code': code})[0];
+      console.log("stateFilter", stateFilter.collection);
+      return item.type;      
+    }
+    return '';
   };
 
   /***************************************************************

@@ -159,7 +159,7 @@
               <strong>
                 Evaluation Level:
               </strong>
-              {{details.conformanceState[0].code}}
+              {{getEvaluationState()}}
             </p>
           </div>
         </div>
@@ -427,12 +427,9 @@
     <div class="component-div-title">Comments</div>
     <div class="container component-div">
       <div class="col-sm-12">
-        <h3>Make a comment</h3>             
-        Experience with this component?  <select><option>Never used</option><option> &lt; 1 month</option><option>3 months + </option><option>6 months +</option><option>over 1 year</option></select><br>                          
-        Your Role?  <select><option>Consumer</option><option>Developer</option><option>Program Manager</option><option>Other</option></select><br>                          
-        Comments<br>
+        Add a comment<br>
         <textarea cols="30"></textarea><br>
-        <button>Post</button> 
+        <button class="btn btn-primary">Post</button> 
       </div>
     </div>
   </div>
