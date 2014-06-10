@@ -26,22 +26,22 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   * params: type -- This is the code of the type that was clicked on
   *******************************************************************************/
   $scope.goToSearchWithType = function(type){ /*jshint unused:false*/
-    localCache.save('searchKey', [ { 'key': 'type', 'code': type } ]);
+    Business.search('type', type);
     $location.path('/results');
   };
 
   $scope.goToSearchWithCategory = function(type){ /*jshint unused:false*/
-    localCache.save('searchKey', [ { 'key': 'categories', 'code': type } ]);
+    Business.search('categories', type);
     $location.path('/results');
   };
 
   $scope.goToSearchWithState = function(type){ /*jshint unused:false*/
-    localCache.save('searchKey', [ { 'key': 'conformanceState', 'code': type } ]);
+    Business.search('conformanceState', type);
     $location.path('/results');
   };
 
   $scope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
-    localCache.save('searchKey', [ { 'key': 'search', 'code': search } ]);
+    Business.search('search', search);
     $location.path('/results');
   };
 

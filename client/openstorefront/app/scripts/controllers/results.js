@@ -27,6 +27,8 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   $scope.total              = Business.getData();
   $scope.watches            = Business.getWatches();
 
+  
+
   if ($scope.searchGroup[0] === null) {
     $scope.searchGroup[0]   = { 'key': 'all', 'code': '' };
   }
@@ -73,8 +75,8 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       $scope.searchKey          = $scope.searchGroup[0].key;
       $scope.searchCode         = $scope.searchGroup[0].code;
       $scope.showSearch         = true;
-      $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchGroup[0].key})[0];
-      $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchGroup[0].code})[0];
+      $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchKey})[0];
+      $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchCode})[0];
       $scope.searchType         = $scope.searchGroupItem.name;
       $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
       $scope.modalTitle         = $scope.searchType + ', ' + $scope.searchColItem.type;
