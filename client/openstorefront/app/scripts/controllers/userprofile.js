@@ -55,6 +55,7 @@ $rootScope.$on('$profileModal', function(event) {
     } else {
       $scope.nav.current = "User Profile";
     }
+    resetData();
     // we re-initialize anything else here
  
   });
