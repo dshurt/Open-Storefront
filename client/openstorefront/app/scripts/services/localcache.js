@@ -1,8 +1,15 @@
 'use strict';
 
 app.factory('localCache', function () {
-  //TODO:: Add some more cross-browser stuff here.
-  var cache = window.sessionStorage;
+  //Cross compatibility is provided by the sessionpolyfill.js file.
+  var cache = null;
+  if (window.sessionStorage) {
+    cache = window.sessionStorage;
+  } else if (window.localStorage) {
+    cache = window.localStorage;
+  } else {
+    cache = localStorage;
+  }
 
   /**
   * Stores the value into the cache.  Will convert objects to strings.
