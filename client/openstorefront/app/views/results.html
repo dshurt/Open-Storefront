@@ -121,8 +121,28 @@
           </div>
         </div>
         <div class="component-div row" style="margin-top: -10px">
-          <div class="col-md-6">
+          <div class="col-md-4">
+            <p style="margin-top: 5px; margin-bottom: 0px"><strong>Categories:</strong></p>
+            <div data-ng-repeat="tag in details.categories">
+              <p style="margin: 0px 0px 0px 20px">
+                <a href="">
+                  {{tag.desc}}
+                </a>
+              </p>
+            </div>
 
+          </div>
+          <div class="col-md-4">
+            <p style="margin-top: 5px; margin-bottom: 0px"><strong>Features:</strong></p>
+            <div data-ng-repeat="tag in details.features">
+              <p style="margin: 0px 0px 0px 20px">
+                <a href="">
+                  {{tag.desc}}
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
             <p style="margin-top: 5px">
               <strong>
                 License:
@@ -141,16 +161,6 @@
               </strong>
               {{details.conformanceState[0].code}}
             </p>
-          </div>
-          <div class="col-md-6">
-            <p style="margin-top: 5px; margin-bottom: 0px"><strong>Tags:</strong></p>
-            <div data-ng-repeat="tag in details.assetTags">
-              <p style="margin: 0px 0px 0px 20px">
-                <a href="">
-                  {{tag.desc}}
-                </a>
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -335,18 +345,7 @@
         </div>
       </div>
     </div>
-    <div class="component-div-title">Component Feedback</div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        <h3>Your Feeback</h3>             
-        Rating: <select><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><br>
-        Experience with this component?  <select><option>Never used</option><option> &lt; 1 month</option><option>3 months + </option><option>6 months +</option><option>over 1 year</option></select><br>                          
-        Your Role?  <select><option>Consumer</option><option>Developer</option><option>Program Manager</option><option>Other</option></select><br>                          
-        Comments<br>
-        <textarea cols="30"></textarea><br>
-        <button>Post</button> 
-      </div>
-    </div>
+    
     <div class="component-div-title">Relations</div>
     <div class="container component-div">
       <div class="col-sm-12">
@@ -358,7 +357,7 @@
             <a  href="">{{thing.name}}</a>
           </div>
           <h3>
-            Sub-Component Of:
+            Sub-Components:
           </h3>
           <div data-ng-repeat="subComponent in details.subComponents">
             <a  href="">{{subComponent.name}}</a>
@@ -413,7 +412,7 @@
         </table>
       </div>
     </div>
-    <div class="component-div-title">Related Components</div>
+    <!-- <div class="component-div-title">Related Components</div>
     <div class="container component-div">
       <div class="col-sm-12">
         <div id="commentsDiv" class="detailSection">
@@ -423,6 +422,17 @@
 
           <i>(LINKS TO RELATED COMPONENTS  - determine by system based on Tags) </i>
         </div>
+      </div>
+    </div> -->
+    <div class="component-div-title">Comments</div>
+    <div class="container component-div">
+      <div class="col-sm-12">
+        <h3>Make a comment</h3>             
+        Experience with this component?  <select><option>Never used</option><option> &lt; 1 month</option><option>3 months + </option><option>6 months +</option><option>over 1 year</option></select><br>                          
+        Your Role?  <select><option>Consumer</option><option>Developer</option><option>Program Manager</option><option>Other</option></select><br>                          
+        Comments<br>
+        <textarea cols="30"></textarea><br>
+        <button>Post</button> 
       </div>
     </div>
   </div>
