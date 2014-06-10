@@ -3,7 +3,7 @@
 /* global isEmpty, setupPopovers, openClick:true, openWindowToggle, moveButtons,
 fullClick, openFiltersToggle, buttonOpen, buttonClose */
 
-app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', function ($scope, localCache, Business, $filter, $timeout, $location) {
+app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope) {
   // So far we're using the tempData factory, but we could easily change this 
   // to use the localCache factory that has more functions and capabilities
   // and then combine it with our business factory since that was their original
@@ -306,5 +306,9 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       setupPopovers();
     }, 300);
   };
+
+  $rootScope.$on('$descModal', function(event) {
+    // re-initialize the modal content here if we must
+  });
 }]);
 

@@ -31,6 +31,10 @@ var app = angular
 // here we add the .run function for intial setup and other useful functions
 .run(['$rootScope', 'localCache', '$location', '$route', function ($rootScope, localCache, $location, $route) {
 
+  //We must initialize global scope variables.
+  $rootScope.Current = null;
+
+
   /***************************************************************
   * This function watches for a route change start and does a few things
   * params: event -- keeps track of which event is happening
@@ -75,7 +79,9 @@ var app = angular
     $('#' + id).modal('show');
   });
 
-  $rootScope.openModal = function(id) {
+  $rootScope.openModal = function(id, current) {
+    $rootScope.current = current;
+    $rootScope.$broadcast('$' + id);
     $rootScope.$broadcast('$viewModal', id);
   }
 
