@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.opencatalog.web.rest;
+package edu.usu.sdl.opencatalog.web.rest.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

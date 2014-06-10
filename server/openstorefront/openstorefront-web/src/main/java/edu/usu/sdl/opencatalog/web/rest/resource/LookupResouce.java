@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.opencatalog.web.rest;
+package edu.usu.sdl.opencatalog.web.rest.resource;
 
 import edu.usu.sdl.opencatalog.api.model.jpa.BaseEntity;
 import edu.usu.sdl.opencatalog.doc.APIDescription;

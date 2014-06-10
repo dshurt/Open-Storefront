@@ -14,17 +14,34 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.opencatalog.web.rest;
+package edu.usu.sdl.opencatalog.web.rest.resource;
 
-import edu.usu.sdl.opencatalog.api.OpenCatalogService;
-import edu.usu.sdl.opencatalog.web.util.ServiceProxy;
+import edu.usu.sdl.opencatalog.api.model.jpa.Test;
+import java.util.ArrayList;
+import java.util.List;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
  * @author dshurtleff
  */
-public abstract class BaseResource
+@Path("test")
+public class TestResource
 {
-	protected final OpenCatalogService service = ServiceProxy.getProxy();	
+	
+	@GET
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	public List<Test> getTest()
+	{
+		Test test = new Test();
+		test.setCode("Hello");
+		test.setDescription("World");
+		List<Test> tests = new ArrayList<>();
+		tests.add(test);
+		return tests;
+	}
 	
 }
