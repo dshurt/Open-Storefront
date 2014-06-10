@@ -1,9 +1,9 @@
-<div ng-if="nav.length" class="modal-header-override">
+<div ng-if="nav.bars.length" class="modal-header-override">
   <ul class="nav nav-tabs">
-    <li ng-repeat="item in nav" ng-class="{active: nav.Current == item.title}">
-      <a href="javascript: void(0)" ng-click="nav.Current = item.title" data-toggle="tab">{{item.title}}</a>
+    <li ng-repeat="item in nav.bars" ng-class="{active: nav.current == item.title}">
+      <a href="javascript: void(0)" ng-click="nav.current = item.title" data-toggle="tab">{{item.title}}</a>
     </li>
   </ul>
 </div>
 
-<h4 ng-if="!nav.length" class="modal-title" id="myModalLabel">{{modalTitle}}</h4>
+<h4 ng-if="!nav.bars.length" class="modal-title" id="myModalLabel">{{modalTitle}}</h4>
