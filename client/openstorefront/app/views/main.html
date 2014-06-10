@@ -15,77 +15,25 @@
   </div>
 </div>
 
-<div class="row defaultContent imitateLink defaultTitle">
+<div class="row defaultContent defaultTitle">
   <div>
-    {{categoriesTitle}}
+    Browse Components By:
   </div>
 </div>
-<div class="row defaultContent imitateLink">
-  <div class="col-sm-4 categories" ng-repeat="item in categories" style="padding-right: 30px;">
-    <a ng-click="goToSearchWithCategory(item.code);">
-      <div style="height: 100%">
-        <div style="width: 64px; float: left">
-          <img src="{{item.src}}" width="64" height="64">
-        </div>
-        <div style="margin-left: 70px;">
-          <span class="item_bold">
-            <span class="listing_short_title_text">{{item.type}}</span>               
-          </span>
-          <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
-        </div>
-      </div>
-    </a>
+<div class="row defaultContent" ng-repeat="row in filters | partition:3">
+  <div class="col-sm-4" ng-repeat="type in row" style="padding-right: 30px;">
+    <div class="defaultGroupTitle">{{type.name}}</div>
+    <ul class="groupItemList">
+      <li ng-click="goToSearch(type.key, item.code);" ng-repeat="item in type.collection" class="groupItem imitateLink">
+        <span class="item_bold">
+          <span class="listing_short_title_text">{{item.type}}</span>               
+        </span>
+        <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
+      </li>
+    </ul>
   </div>
-</div>
-
-<div class="defaultSpacer hidden-xs">&nbsp;</div>
-
-<div class="row defaultContent imitateLink defaultTitle">
-  <div>
-    {{typesTitle}}
-  </div>
-</div>
-<div class="row defaultContent imitateLink">
-  <div class="col-sm-4 categories" ng-repeat="item in types" style="padding-right: 30px;">
-    <a ng-click="goToSearchWithType(item.code);">
-      <div style="height: 100%">
-        <div style="width: 64px; float: left">
-          <img src="{{item.src}}" width="64" height="64">
-        </div>
-        <div style="margin-left: 70px;">
-          <span class="item_bold">
-            <span class="listing_short_title_text">{{item.type}}</span>               
-          </span>
-          <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
-        </div>
-      </div>
-    </a>
-  </div>
-</div>
-
-<div class="defaultSpacer hidden-xs">&nbsp;</div>
-
-<div class="row defaultContent imitateLink defaultTitle">
-  <div>
-    {{statesTitle}}
-  </div>
-</div>
-<div class="row defaultContent imitateLink">
-  <div class="col-sm-4 categories" ng-repeat="item in states" style="padding-right: 30px;">
-    <a ng-click="goToSearchWithState(item.code);">
-      <div style="height: 100%">
-        <div style="width: 64px; float: left">
-          <img src="{{item.src}}" width="64" height="64">
-        </div>
-        <div style="margin-left: 70px;">
-          <span class="item_bold">
-            <span class="listing_short_title_text">{{item.displayType}}</span>               
-          </span>
-          <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
-        </div>
-      </div>
-    </a>
-  </div>
+  <hr>
+  <div class="defaultSpacer hidden-xs">&nbsp;</div>
 </div>
 
 <link rel="stylesheet" href="styles/landing.css">
