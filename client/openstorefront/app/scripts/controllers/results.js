@@ -76,7 +76,10 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       $scope.searchCode         = $scope.searchGroup[0].code;
       $scope.showSearch         = true;
       $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchKey})[0];
+      console.log("item", $scope.searchGroupItem);
+      
       $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchCode})[0];
+      console.log("item", $scope.searchColItem);
       $scope.searchType         = $scope.searchGroupItem.name;
       $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
       $scope.modalTitle         = $scope.searchType + ', ' + $scope.searchColItem.type;
