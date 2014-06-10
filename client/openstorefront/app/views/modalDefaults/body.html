@@ -1,2 +1,9 @@
-<div ng-bind-html="modalBody">
+<div ng-if="nav.bars.length">
+  <div ng-repeat="item in nav.bars" ng-if="item.title === nav.current">
+    <div ng-include="item.include"></div>
+  </div>
+</div>
+<div ng-if="!nav.bars.length">
+  <div ng-bind-html="modalBody">
+  </div>
 </div>
