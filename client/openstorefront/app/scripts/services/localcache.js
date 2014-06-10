@@ -1,7 +1,7 @@
 'use strict';
 
 app.factory('localCache', function () {
-  //TODO:: Add some more cross-browser stuff here.
+  //Cross compatibility is provided by the sessionpolyfill.js file.
   var cache = null;
   if (window.sessionStorage) {
     cache = window.sessionStorage;
