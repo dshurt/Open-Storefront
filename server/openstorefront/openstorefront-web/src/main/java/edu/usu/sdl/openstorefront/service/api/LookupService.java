@@ -14,33 +14,35 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.service.api;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
+import edu.usu.sdl.openstorefront.model.jpa.BaseEntity;
+import java.util.List;
 
 
 /**
- *
+ *  This service handles system tables 
  * @author dshurtleff
  */
-public class DocProcessorTest
-{
+public interface LookupService
+{	
 	
-	@Test
-	public void testProcessor()
-	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
+	/**
+	 * This return only active
+	 * @see findLookup(Class<T> lookTableClass, boolean all);
+	 * @param <T>
+	 * @param lookTableClass
+	 * @return 
+	 */
+	public <T extends BaseEntity>  List<T> findLookup(Class<T> lookTableClass);
+	
+	/**
+	 *  Find items for a given Look up resource
+	 * @param <T>
+	 * @param lookTableClass
+	 * @param all - default to just active
+	 * @return 
+	 */
+	public <T extends BaseEntity>  List<T> findLookup(Class<T> lookTableClass, boolean all);
 		
-	}
-	
-	
 }

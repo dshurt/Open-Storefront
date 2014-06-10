@@ -14,33 +14,21 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.web.rest.resource;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
 
 /**
  *
  * @author dshurtleff
  */
-public class DocProcessorTest
+@Path("{version}/login")
+public class LoginResource
 {
-	
-	@Test
-	public void testProcessor()
+	@GET
+	public String login()
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
+		return "Login";
 	}
-	
-	
 }

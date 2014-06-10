@@ -14,33 +14,44 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.web.viewmodel;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- *
+ * Use for passing back friendly error messages
  * @author dshurtleff
  */
-public class DocProcessorTest
+public class RestErrorModel
+	implements Serializable
 {
-	
-	@Test
-	public void testProcessor()
+	private boolean success = false;
+	private Map<String, String> errors = new HashMap<>();
+
+	public RestErrorModel()
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
 	}
-	
+
+	public boolean getSuccess()
+	{
+		return success;
+	}
+
+	public void setSuccess(boolean success)
+	{
+		this.success = success;
+	}
+
+	public Map<String, String> getErrors()
+	{
+		return errors;
+	}
+
+	public void setErrors(Map<String, String> errors)
+	{
+		this.errors = errors;
+	}
 	
 }

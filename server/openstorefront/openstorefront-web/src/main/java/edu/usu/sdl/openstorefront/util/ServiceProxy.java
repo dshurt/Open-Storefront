@@ -14,33 +14,33 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
-
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
+package edu.usu.sdl.openstorefront.util;
 
 
+import edu.usu.sdl.openstorefront.service.ServiceProxyFactory;
+import edu.usu.sdl.openstorefront.service.api.OpenStorefrontService;
 
 /**
- *
+ * This the main service entry point
  * @author dshurtleff
  */
-public class DocProcessorTest
+public class ServiceProxy
 {
-	
-	@Test
-	public void testProcessor()
-	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
+
+
+	private ServiceProxy(){}
 		
+	public static OpenStorefrontService getProxy()
+	{
+		return getServiceProxy();
 	}
 	
+	public static OpenStorefrontService getServiceProxy()
+	{
+		OpenStorefrontService service = ServiceProxyFactory.getProxy();
+		return service;
+	}
+	
+
 	
 }

@@ -14,33 +14,41 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
-
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+package edu.usu.sdl.openstorefront.web.tool;
 
 /**
  *
  * @author dshurtleff
  */
-public class DocProcessorTest
+public class BaseAssetLookup
 {
-	
-	@Test
-	public void testProcessor()
+	private String code;
+	private String desc;
+
+	public BaseAssetLookup()
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
 	}
+
+	public String getCode()
+	{
+		return code;
+	}
+
+	public void setCode(String code)
+	{
+		this.code = code;
+	}
+
+	public String getDesc()
+	{
+		return desc;
+	}
+
+	public void setDesc(String desc)
+	{
+		this.desc = desc;
+	}
+	
 	
 	
 }

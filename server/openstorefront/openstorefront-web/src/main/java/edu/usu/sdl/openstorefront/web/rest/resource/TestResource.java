@@ -14,33 +14,34 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.web.rest.resource;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import edu.usu.sdl.openstorefront.model.jpa.Test;
+import java.util.ArrayList;
+import java.util.List;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
  * @author dshurtleff
  */
-public class DocProcessorTest
+@Path("test")
+public class TestResource
 {
 	
-	@Test
-	public void testProcessor()
+	@GET
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	public List<Test> getTest()
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
+		Test test = new Test();
+		test.setCode("Hello");
+		test.setDescription("World");
+		List<Test> tests = new ArrayList<>();
+		tests.add(test);
+		return tests;
 	}
-	
 	
 }

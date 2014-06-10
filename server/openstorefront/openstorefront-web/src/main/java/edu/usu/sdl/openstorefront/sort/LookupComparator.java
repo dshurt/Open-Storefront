@@ -14,33 +14,24 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.sort;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import edu.usu.sdl.openstorefront.model.jpa.LookupEntity;
+import java.util.Comparator;
 
 /**
- *
+ * 
  * @author dshurtleff
+ * @param <T>
  */
-public class DocProcessorTest
+public class LookupComparator <T extends LookupEntity>
+	implements Comparator<T>
 {
-	
-	@Test
-	public void testProcessor()
+
+	@Override
+	public int compare(T t, T t1)
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
+		return t.getDescription().compareToIgnoreCase(t1.getDescription());
 	}
-	
 	
 }

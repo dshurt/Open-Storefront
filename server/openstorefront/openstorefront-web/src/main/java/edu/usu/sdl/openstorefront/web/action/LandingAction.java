@@ -14,32 +14,24 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.web.action;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import javax.enterprise.inject.Default;
+import net.sourceforge.stripes.action.ForwardResolution;
+import net.sourceforge.stripes.action.Resolution;
 
 /**
  *
  * @author dshurtleff
  */
-public class DocProcessorTest
+public class LandingAction
+	extends BaseAction
 {
-	
-	@Test
-	public void testProcessor()
+
+	@Default
+	public Resolution landing()
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
+		return new ForwardResolution("/WEB-INF/securepages/landing.jsp");
 	}
 	
 	

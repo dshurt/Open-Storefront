@@ -14,33 +14,39 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
-
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+package edu.usu.sdl.openstorefront.web.tool;
 
 /**
  *
  * @author dshurtleff
  */
-public class DocProcessorTest
+public class AssetComponent
 {
-	
-	@Test
-	public void testProcessor()
+	private long assetId;
+	private String name;
+
+	public AssetComponent()
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
 	}
 	
+	public long getAssetId()
+	{
+		return assetId;
+	}
+
+	public void setAssetId(long assetId)
+	{
+		this.assetId = assetId;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
 	
 }

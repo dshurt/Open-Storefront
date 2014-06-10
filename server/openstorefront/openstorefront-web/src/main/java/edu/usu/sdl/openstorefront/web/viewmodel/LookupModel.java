@@ -13,34 +13,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package edu.usu.sdl.openstorefront.web.viewmodel;
 
-package edu.usu.sdl.openstorefront.test;
-
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import java.io.Serializable;
 
 /**
  *
  * @author dshurtleff
  */
-public class DocProcessorTest
+public class LookupModel
+	implements Serializable
 {
-	
-	@Test
-	public void testProcessor()
+	private String code;
+	private String description;
+
+	public LookupModel()
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
 	}
-	
-	
+
+	public String getCode()
+	{
+		return code;
+	}
+
+	public void setCode(String code)
+	{
+		this.code = code;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
+	}
+
 }

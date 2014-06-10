@@ -14,33 +14,30 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.web.client;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 
 /**
- *
+ *  Handle common client behavior
  * @author dshurtleff
  */
-public class DocProcessorTest
+public abstract class BaseRestServiceImpl
 {
+	protected final ServiceConfig serviceConfig;
 	
-	@Test
-	public void testProcessor()
+	public BaseRestServiceImpl(ServiceConfig serviceConfig)
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
+		this.serviceConfig = serviceConfig;
 	}
 	
+	protected WebTarget getRestTarget(String service)
+	{
+		Client client = ClientBuilder.newClient().register(new BasicAuthenticator(serviceConfig.getUsername(), serviceConfig.getPassword()));
+		WebTarget webTarget = client.target(serviceConfig.getServerUrl() + serviceConfig.getVersion() +"/" + service);
+		return webTarget;
+	}
 	
 }

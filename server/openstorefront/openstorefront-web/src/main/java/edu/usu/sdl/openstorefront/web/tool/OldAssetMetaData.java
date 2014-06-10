@@ -14,33 +14,42 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.web.tool;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  *
  * @author dshurtleff
  */
-public class DocProcessorTest
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class OldAssetMetaData
 {
-	
-	@Test
-	public void testProcessor()
+	private String name;
+	private String value;
+
+	public OldAssetMetaData()
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
 	}
-	
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public String getValue()
+	{
+		return value;
+	}
+
+	public void setValue(String value)
+	{
+		this.value = value;
+	}
 	
 }

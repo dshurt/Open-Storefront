@@ -14,33 +14,53 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.security;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import java.io.Serializable;
 
 /**
  *
  * @author dshurtleff
  */
-public class DocProcessorTest
+public class OpenAmUser
+	implements Serializable
 {
-	
-	@Test
-	public void testProcessor()
+	private String username;
+	private String tokenId;	
+	private boolean admin;
+
+	public OpenAmUser()
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
-		
 	}
-	
-	
+
+	public String getUsername()
+	{
+		return username;
+	}
+
+	public void setUsername(String username)
+	{
+		this.username = username;
+	}
+
+	public String getTokenId()
+	{
+		return tokenId;
+	}
+
+	public void setTokenId(String tokenId)
+	{
+		this.tokenId = tokenId;
+	}
+
+	public boolean isAdmin()
+	{
+		return admin;
+	}
+
+	public void setAdmin(boolean admin)
+	{
+		this.admin = admin;
+	}
+
 }

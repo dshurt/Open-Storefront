@@ -14,33 +14,21 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.model.jpa;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import java.io.Serializable;
 
 /**
  *
  * @author dshurtleff
  */
-public class DocProcessorTest
+public abstract class BaseEntity
+	implements Serializable
 {
-	
-	@Test
-	public void testProcessor()
-	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
+	public static final String ACTIVE_STATUS = "A";
+	public static final String INACTIVE_STATUS = "I";
 		
-	}
 	
+	public abstract void setActiveStatus(String activeStatus);
 	
 }

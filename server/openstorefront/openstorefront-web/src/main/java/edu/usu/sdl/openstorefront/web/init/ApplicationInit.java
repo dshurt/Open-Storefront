@@ -14,33 +14,31 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.web.init;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
-import org.junit.Test;
-
-
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
 /**
  *
  * @author dshurtleff
  */
-public class DocProcessorTest
+@WebListener
+public class ApplicationInit
+	implements ServletContextListener
 {
-	
-	@Test
-	public void testProcessor()
+
+	@Override
+	public void contextInitialized(ServletContextEvent sce)
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
 		
 	}
-	
+
+	@Override
+	public void contextDestroyed(ServletContextEvent sce)
+	{
+		
+	}
 	
 }

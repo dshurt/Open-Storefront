@@ -18,6 +18,7 @@
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<shiro.verison>1.2.3</shiro.verison>	
+		<jackson.verison>2.3.2</jackson.verison>	
 	</properties>
     
 	<dependencies>
@@ -32,10 +33,47 @@
 			<version>05Nov2002</version>
 		</dependency>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>openstorefront-api</artifactId>
-			<version>${project.version}-SNAPSHOT</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.verison}</version>
+		</dependency>    		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.verison}</version>
+		</dependency>    						
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.verison}</version>
 		</dependency>
+		
+		<!-- Test Dependancies -->
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.7</version>
+			<scope>test</scope>	
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-moxy</artifactId>
+			<version>2.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>2.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json</artifactId>
+			<version>2.0-m05-1</version>
+			<scope>test</scope>
+		</dependency>		
+		
 		  <dependency>
 			  <!-- jsoup HTML parser library @ http://jsoup.org/ -->
 			  <groupId>org.jsoup</groupId>
