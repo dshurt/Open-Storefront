@@ -117,7 +117,7 @@
       <div class="container component-title">
         <div class="col-sm-12">
           <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span>
-            <br><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches <i class="fa fa-thumbs-o-up imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="viewWatches()">View Watches <i class="fa fa-eye imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="removeFromWatches(details.id)">Remove From Watches <i class="fa fa-thumbs-o-down imitateLink"></i></button></h1>
+            <br><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches <i class="fa fa-thumbs-o-up imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="openModal('profileModal', 'Watches')">View Watches <i class="fa fa-eye imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="removeFromWatches(details.id)">Remove From Watches <i class="fa fa-thumbs-o-down imitateLink"></i></button></h1>
           </div>
         </div>
         <div class="component-div row" style="margin-top: -10px">
