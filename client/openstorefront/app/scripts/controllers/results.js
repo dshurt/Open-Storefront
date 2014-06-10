@@ -51,20 +51,6 @@ app.controller('ResultsCtrl', ['$scope', 'tempData', 'business', '$filter', '$ti
     });
   }
 
-  // $scope.nav = [
-  // {
-  //   'title': 'User Profile',
-  // },
-  // {
-  //   'title': 'Watches',
-  // },
-  // {
-  //   'title': 'Component Feedback',
-  // }
-  // ]
-  // $scope.nav.Current = 'User Profile';
-
-
   /*******************************************************************************
   * This is used to initialize the scope title, key, and code. Once we have a 
   * database, this is most likely where we'll do the first pull for data.
