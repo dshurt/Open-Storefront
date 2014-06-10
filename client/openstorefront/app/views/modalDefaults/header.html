@@ -1,6 +1,6 @@
 <div ng-if="nav.bars.length" class="modal-header-override">
   <ul class="nav nav-tabs">
-    <li ng-repeat="item in nav.bars" ng-class="{active: nav.current == item.title}">
+    <li ng-repeat="item in nav.bars" ng-class="{active: nav.current == item.title, firstNav: $first}" >
       <a href="javascript: void(0)" ng-click="nav.current = item.title" data-toggle="tab">{{item.title}}</a>
     </li>
   </ul>
