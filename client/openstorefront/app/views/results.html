@@ -117,7 +117,7 @@
       <div class="container component-title">
         <div class="col-sm-12">
           <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span>
-            <br><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches <i class="fa fa-thumbs-o-up imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="viewWatches()">View Watches <i class="fa fa-eye imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="removeFromWatches(details.id)">Remove From Watches <i class="fa fa-thumbs-o-down imitateLink"></i></button></h1>
+            <br><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches <i class="fa fa-thumbs-o-up imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="openModal('profileModal', 'Watches')">View Watches <i class="fa fa-eye imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="removeFromWatches(details.id)">Remove From Watches <i class="fa fa-thumbs-o-down imitateLink"></i></button></h1>
           </div>
         </div>
         <div class="component-div row" style="margin-top: -10px">
@@ -159,7 +159,7 @@
               <strong>
                 Evaluation Level:
               </strong>
-              {{details.conformanceState[0].code}}
+              {{getEvaluationState()}}
             </p>
           </div>
         </div>
@@ -427,12 +427,9 @@
     <div class="component-div-title">Comments</div>
     <div class="container component-div">
       <div class="col-sm-12">
-        <h3>Make a comment</h3>             
-        Experience with this component?  <select><option>Never used</option><option> &lt; 1 month</option><option>3 months + </option><option>6 months +</option><option>over 1 year</option></select><br>                          
-        Your Role?  <select><option>Consumer</option><option>Developer</option><option>Program Manager</option><option>Other</option></select><br>                          
-        Comments<br>
+        Add a comment<br>
         <textarea cols="30"></textarea><br>
-        <button>Post</button> 
+        <button class="btn btn-primary">Post</button> 
       </div>
     </div>
   </div>

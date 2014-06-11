@@ -9,9 +9,6 @@ app.controller('UserProfileCtrl', ['$scope', 'business', '$rootScope', function(
   $scope.defaultTitle     = 'Browse Categories';
   $scope.watches          = Business.getWatches();
   $scope.total            = Business.getData();
-  $scope.profiletab       = 'views/userprofiletab.html';
-  $scope.watchestab       = 'views/watchestab.html';
-  $scope.feedbacktab       = 'views/feedbacktab.html';
   $scope.feedbackDetails  = [
     {'id':'1','date':'Jan 4, 2014 8:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jim Calhoun'},
     {'id':'2','date':'01/05/2014 9:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jill Calhoun'},
@@ -38,13 +35,16 @@ app.controller('UserProfileCtrl', ['$scope', 'business', '$rootScope', function(
     'current': null,
     'bars': [
     {
-      'title': 'User Profile'
+      'title': 'User Profile',
+      'include': 'views/userprofiletab.html'
     },
     {
-      'title': 'Watches'
+      'title': 'Watches',
+      'include': 'views/watchestab.html'
     },
     {
-      'title': 'Component Feedback'
+      'title': 'Component Feedback',
+      'include': 'views/feedbacktab.html'
     }
     ]
   };
@@ -55,6 +55,7 @@ $rootScope.$on('$profileModal', function(event) {
     } else {
       $scope.nav.current = "User Profile";
     }
+    resetData();
     // we re-initialize anything else here
  
   });

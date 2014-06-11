@@ -16,7 +16,7 @@
 
 package edu.usu.sdl.openstorefront.test;
 
-import edu.usu.sdl.opencatalog.web.rest.LookupResouce;
+import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import junit.framework.TestCase;
