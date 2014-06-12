@@ -1,3 +1,18 @@
+/* 
+* Copyright 2014 Space Dynamics Laboratory - Utah State University Research Foundation.
+*
+* Licensed under the Apache License, Version 2.0 (the 'License');
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an 'AS IS' BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 'use strict';
 
 app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$rootScope', function ($scope, Business, localCache, $location, $rootScope) {
@@ -26,6 +41,8 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   * params: type -- This is the code of the type that was clicked on
   *******************************************************************************/
   $scope.goToSearch = function(searchType, searchKey){ /*jshint unused:false*/
+    console.log("We tried");
+    
     Business.search(searchType, searchKey);
     $location.path('/results');
   };
