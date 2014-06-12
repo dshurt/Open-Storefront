@@ -310,7 +310,8 @@ grunt.loadNpmTasks('grunt-war');
             '*.html',
             'views/{,*/}*.html',
             'images/**/*.{webp,png}',
-            'fonts/*'
+            'bower_components/fontawesome/fonts/*',
+            'bower_components/bootstrap/dist/fonts/*'
           ]
         }, {
           expand: true,
