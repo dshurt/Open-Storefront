@@ -63,10 +63,11 @@ var app = angular
   * This might also be where we do our 'is-logged-in' check
   ***************************************************************/
   $rootScope.$on('$routeChangeStart', function (event, next, current) {/* jshint unused:false */
-    updateMainTypeahead();
-    updateNavTypeahead();
     if (current && current.loadedTemplateUrl === 'views/results.html') {
       resetAnimGlobals();
+      updateNavTypeahead();
+    } else if (current && current.loadedTemplateUrl === 'views/main.html') {
+      updateMainTypeahead();
     }
     setTimeout(function () {
       $('.searchBar:input[type=\'text\']').on('click', function () {
