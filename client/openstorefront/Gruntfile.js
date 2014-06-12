@@ -68,18 +68,18 @@ grunt.loadNpmTasks('grunt-war');
         tasks: ['bowerInstall']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/scripts/**/*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: true
         }
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['test/spec/**/*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+        files: ['<%= yeoman.app %>/styles/**/*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
       },
       gruntfile: {
@@ -139,13 +139,13 @@ grunt.loadNpmTasks('grunt-war');
       },
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/{,*/}*.js'
+        '<%= yeoman.app %>/scripts/**/*.js'
       ],
       test: {
         options: {
           jshintrc: 'test/.jshintrc'
         },
-        src: ['test/spec/{,*/}*.js']
+        src: ['test/spec/**/*.js']
       }
     },
 
@@ -173,7 +173,7 @@ grunt.loadNpmTasks('grunt-war');
         files: [{
           expand: true,
           cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
+          src: '**/*.css',
           dest: '.tmp/styles/'
         }]
       }
@@ -192,9 +192,8 @@ grunt.loadNpmTasks('grunt-war');
       dist: {
         files: {
           src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            '<%= yeoman.dist %>/scripts/**/*.js',
+            '<%= yeoman.dist %>/styles/**/*.css',
             '<%= yeoman.dist %>/styles/fonts/*'
           ]
         }
@@ -205,7 +204,7 @@ grunt.loadNpmTasks('grunt-war');
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
+      html: ['<%= yeoman.app %>/index.html','<%= yeoman.app %>/views/results.html', '<%= yeoman.app %>/views/main.html'],
       options: {
         dest: '<%= yeoman.dist %>',
         flow: {
@@ -222,8 +221,8 @@ grunt.loadNpmTasks('grunt-war');
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+      html: ['<%= yeoman.dist %>/**/*.html'],
+      css: ['<%= yeoman.dist %>/styles/**/*.css'],
       options: {
         assetsDirs: ['<%= yeoman.dist %>']
       }
@@ -241,7 +240,7 @@ grunt.loadNpmTasks('grunt-war');
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
+          src: '**/*.{png,jpg,jpeg,gif}',
           dest: '<%= yeoman.dist %>/images'
         }]
       }
@@ -252,7 +251,7 @@ grunt.loadNpmTasks('grunt-war');
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
+          src: '**/*.svg',
           dest: '<%= yeoman.dist %>/images'
         }]
       }
@@ -269,7 +268,7 @@ grunt.loadNpmTasks('grunt-war');
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
+          src: ['*.html', 'views/**/*.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -308,24 +307,21 @@ grunt.loadNpmTasks('grunt-war');
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
-            'images/**/*.{webp,png}',
+            'views/**/*.html',
+            'images/**/*.png',
             'fonts/*',
             'bower_components/fontawesome/fonts/*',
             'bower_components/bootstrap/dist/fonts/*',
+            'styles/*.css',
+            'scripts/common/*.js'
           ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
         }]
       },
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
-        src: '{,*/}*.css'
+        src: '**/*.css'
       }
     },
 
@@ -350,21 +346,21 @@ grunt.loadNpmTasks('grunt-war');
     //   dist: {
     //     files: {
     //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= yeoman.app %>/styles/{,*/}*.css'
+    //         '.tmp/styles/**/*.css',
+    //         '<%= yeoman.app %>/styles/**/*.css'
     //       ]
     //     }
     //   }
     // },
-    uglify: {
-      dist: {
-        files: {
-          '<%= yeoman.dist %>/scripts/scripts.js': [
-            '<%= yeoman.dist %>/scripts/*.js'
-          ]
-        }
-      }
-    },
+    // uglify: {
+    //   dist: {
+    //     files: {
+    //       '<%= yeoman.dist %>/scripts/scripts.js': [
+    //         '<%= yeoman.dist %>/scripts/*.js'
+    //       ]
+    //     }
+    //   }
+    // },
     // concat: {
     //   dist: {}
     // },
