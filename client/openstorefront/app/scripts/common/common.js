@@ -18,6 +18,15 @@
 
 /* exported setupPopovers, setupTypeahead, isEmpty */
 
+var updateNavTypeahead = function() {
+  $('[ng-model="searchKey"]').trigger('input').trigger('change').trigger('keydown');
+};
+
+var updateMainTypeahead = function() {
+  $('.mainSearch[ng-model="searchKey"]').trigger('input').trigger('change').trigger('keydown');
+};
+
+
 /*****************************
 * This function sets up the popovers for the results page, but could be 
 * re-used anywhere that you use the data-toggle="popover" attribute on a div

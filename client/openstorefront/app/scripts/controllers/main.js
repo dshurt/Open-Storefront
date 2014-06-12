@@ -15,7 +15,7 @@
 */
 'use strict';
 
-app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$rootScope', function ($scope, Business, localCache, $location, $rootScope) {
+app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$rootScope', '$timeout', function ($scope, Business, localCache, $location, $rootScope, $timeout) {
   // Here we grab the rootScope searchkey in order to preserve the last search
   $scope.searchKey  = $rootScope.searchKey;
   
@@ -41,8 +41,11 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   * params: type -- This is the code of the type that was clicked on
   *******************************************************************************/
   $scope.goToSearch = function(searchType, searchKey){ /*jshint unused:false*/
-    Business.search(searchType, searchKey);
-    $location.path('/results');
+    updateMainTypeahead();
+    $timeout(function() {
+      Business.search(searchType, searchKey);
+      $location.path('/results');
+    }, 200);
   };
 
   /*******************************************************************************
@@ -55,6 +58,7 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
     $rootScope.searchKey = $scope.searchKey;
   });
 
+  // this calls the setup for the page-specific js
   setupMain();
 
 }]);

@@ -27,6 +27,7 @@ app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'localCache', '$
   
 
   $scope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
+    updateNavTypeahead();
     localCache.save('searchKey', [ { 'key': 'search', 'code': search } ]);
     if($location.path() === '/results') {
       $route.reload();
