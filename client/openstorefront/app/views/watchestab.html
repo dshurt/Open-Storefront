@@ -16,32 +16,34 @@ limitations under the License.
 <div>
 	<div class="row default-content">
 		<div class="col-sm-12">
-<!-- 			<div class="panel panel-primary"> -->
-				<!-- Watches panel -->
-				<div class="panel panel-primary">
-					<div class="panel-heading text-center">
-						<h3 class="panel-title watch-content-title">WATCHES</h3>
-					</div>
-					<div class="panel-body">
-						<div class="col-sm-4" ng-repeat="item in data" style="padding-left:60px;padding-top:50px">
-							<div id="div{{item.id}}" >
-								<div style="height: 100%">
-									<img src="{{item.src}}" width="96" height="96">
-									<div style="margin-left: 10px;">
-										<span class="item_bold">
-											<a href="#/results" 
-											<span class="none">{{item.name}}</span><span style="font-size: 12px; color: red;vertical-align:super">{{item.new}}</span>
-										</a>
-									</span>
-								</div>
-								<div style="font-size: 12px; color: grey;">Updated: {{item.updateDate}}</div>
-								<div style="font-size: 12px; color: red; "><label style="cursor:pointer" ng-click="removeFromWatches(item.id)">remove</label></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-<!-- 		</div> -->
-	</div>
-</div>
+      <!-- 			<div class="panel panel-primary"> -->
+      <!-- Watches panel -->
+      <div class="panel panel-primary">
+        <div class="panel-heading text-center">
+          <h3 class="panel-title watch-content-title">WATCHES</h3>
+        </div>
+        <div class="panel-body">
+          <div class="col-sm-4" ng-repeat="item in data" style="padding-left:60px;padding-top:50px">
+            <div id="div{{item.id}}" >
+              <div style="height: 100%">
+                <img src="{{item.src}}" width="96" height="96">
+                <div style="margin-left: 10px;">
+                  <span class="item_bold">
+                    <a href="#/results"> 
+                      <span class="none">{{item.name}}</span><span style="font-size: 12px; color: red;vertical-align:super">{{item.new}}</span>
+                    </a>
+                  </span>
+                </div>
+                <div style="font-size: 12px; color: grey;">Updated: {{item.updateDate}}
+                </div>
+                <div style="font-size: 12px; color: red; "><label style="cursor:pointer" ng-click="removeFromWatches(item.id)">remove</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 		</div> -->
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
