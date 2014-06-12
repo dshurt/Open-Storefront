@@ -16,36 +16,37 @@
 'use strict';
 
 /*global floatBelowTop*/
+var setupMain = function() {
+  /***************************************************************
+  * This function handles the default-search offset on resizing the window
+  ***************************************************************/
+  $(window).resize(function() {
+    if ($('.defaultSearch')) {
+      setTimeout(function() {
+        $('.defaultSearch').data('offset', $('.defaultSearch').offset().top + parseInt($('.defaultSearch').css('padding-top'), 10) - 52);
+        floatBelowTop($('.defaultSearch'), 768, $(window), $('.top').height());
+      }, 10);
+    }
+  });
 
-/***************************************************************
-* This function handles the default-search offset on resizing the window
-***************************************************************/
-$(window).resize(function() {
-  if ($('.defaultSearch').length > 0) {
-    setTimeout(function() {
-      $('.defaultSearch').data('offset', $('.defaultSearch').offset().top + parseInt($('.defaultSearch').css('padding-top'), 10) - 52);
+  /***************************************************************
+  * This function handles the default-search offset on scrolling
+  ***************************************************************/
+  $(window).scroll(function() {
+    if ($('.defaultSearch')) {
       floatBelowTop($('.defaultSearch'), 768, $(window), $('.top').height());
-    }, 10);
-  }
-});
+    }
+  });
 
-/***************************************************************
-* This function handles the default-search offset on scrolling
-***************************************************************/
-$(window).scroll(function() {
-  if ($('.defaultSearch').length > 0) {
-    floatBelowTop($('.defaultSearch'), 768, $(window), $('.top').height());
-  }
-});
-
-/***************************************************************
-* This function handles the default-search offset on load
-***************************************************************/
-$(document).ready(function() {
-  if ($('.defaultSearch').length > 0) {
-    setTimeout(function() {
-      $('.defaultSearch').data('offset', $('.defaultSearch').offset().top + parseInt($('.defaultSearch').css('padding-top'), 10) - 52);
-      floatBelowTop($('.defaultSearch'), 768, $(window), $('.top').height());
-    }, 10);
-  }
-});
+  /***************************************************************
+  * This function handles the default-search offset on load
+  ***************************************************************/
+  $(document).ready(function() {
+    if ($('.defaultSearch')) {
+      setTimeout(function() {
+        $('.defaultSearch').data('offset', $('.defaultSearch').offset().top + parseInt($('.defaultSearch').css('padding-top'), 10) - 52);
+        floatBelowTop($('.defaultSearch'), 768, $(window), $('.top').height());
+      }, 10);
+    }
+  });
+}

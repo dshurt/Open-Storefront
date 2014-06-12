@@ -19,14 +19,10 @@
 fullClick, openFiltersToggle, buttonOpen, buttonClose */
 
 app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope) {
-  // So far we're using the tempData factory, but we could easily change this 
-  // to use the localCache factory that has more functions and capabilities
-  // and then combine it with our business factory since that was their original
-  // purpose.
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
   $scope.searchGroup        = localCache.get('searchKey', 'object');
-  $scope.searchKey          = null;
+  $scope.searchKey          = $rootScope.searchKey;
   $scope.searchCode         = null;
   $scope.searchTitle        = null;
   $scope.searchDescription  = null;
@@ -41,8 +37,6 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   $scope.filters            = Business.getFilters();
   $scope.total              = Business.getData();
   $scope.watches            = Business.getWatches();
-
-  
 
   if ($scope.searchGroup[0] === null) {
     $scope.searchGroup[0]   = { 'key': 'all', 'code': '' };
@@ -295,7 +289,6 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       var code = $scope.details.conformanceState[0].code;
       var stateFilter = _.where($scope.filters, {'key': 'conformanceState'})[0];
       var item = _.where(stateFilter.collection, {'code': code})[0];
-      console.log("stateFilter", stateFilter.collection);
       return item.type;      
     }
     return '';
@@ -341,5 +334,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   $rootScope.$on('$descModal', function(event) {
     // re-initialize the modal content here if we must
   });
+
+  setupResults();
 }]);
 

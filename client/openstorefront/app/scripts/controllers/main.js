@@ -55,4 +55,6 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
     $rootScope.searchKey = $scope.searchKey;
   });
 
+  setupMain();
+
 }]);

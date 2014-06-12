@@ -90,9 +90,9 @@ grunt.loadNpmTasks('grunt-war');
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/**/*.html',
+          '.tmp/styles/**/*.css',
+          '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -310,8 +310,9 @@ grunt.loadNpmTasks('grunt-war');
             '*.html',
             'views/{,*/}*.html',
             'images/**/*.{webp,png}',
+            'fonts/*',
             'bower_components/fontawesome/fonts/*',
-            'bower_components/bootstrap/dist/fonts/*'
+            'bower_components/bootstrap/dist/fonts/*',
           ]
         }, {
           expand: true,
@@ -355,15 +356,15 @@ grunt.loadNpmTasks('grunt-war');
     //     }
     //   }
     // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
+    uglify: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/scripts/scripts.js': [
+            '<%= yeoman.dist %>/scripts/*.js'
+          ]
+        }
+      }
+    },
     // concat: {
     //   dist: {}
     // },
