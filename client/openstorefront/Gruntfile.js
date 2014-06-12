@@ -313,7 +313,7 @@ grunt.loadNpmTasks('grunt-war');
             'bower_components/fontawesome/fonts/*',
             'bower_components/bootstrap/dist/fonts/*',
             'styles/*.css',
-            'scripts/common/*.js'
+            'scripts/common-min/*.js'
           ]
         }]
       },
