@@ -17,15 +17,7 @@
 
 app.factory('localCache', function () {
   //Cross compatibility is provided by the sessionpolyfill.js file.
-  var cache = null;
-  if (window.sessionStorage) {
-    cache = window.sessionStorage;
-  } else if (window.localStorage) {
-    cache = window.localStorage;
-  } else {
-    cache = localStorage;
-  }
-
+  var cache = window.sessionStorage;
   /**
   * Stores the value into the cache.  Will convert objects to strings.
   * params: key -- a string value

@@ -6,7 +6,6 @@ Edited by: Jonathan Law
    Note: Added session storrage polyfill
 */
 (function(){
-  var window = this;
   // check to see if we have localStorage or not
   if( !window.localStorage ){   
 

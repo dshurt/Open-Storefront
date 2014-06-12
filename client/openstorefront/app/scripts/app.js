@@ -65,11 +65,6 @@ var app = angular
     if (current && current.loadedTemplateUrl === 'views/results.html') {
       resetAnimGlobals();
     }
-    if (sessionStorage.restorestate === 'true') {
-      //let everything know we need to restore state
-      $rootScope.$broadcast('restorestate');
-      sessionStorage.restorestate = false;
-    }
     setTimeout(function () {
       $('.searchBar:input[type=\'text\']').on('click', function () {
         $(this).select();

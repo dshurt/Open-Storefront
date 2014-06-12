@@ -61,14 +61,13 @@ app.factory('business', ['localCache', function (localCache) {
         // we take a quarter of a minute before the search expires
         if (timeDiff < expireTime * .25)
         {
-          reCallRequired = false;
           return searchKey;
         } else {
-          throw new Error('A callback is required for this function.');
+          throw new Error('The searchKey has expired.');
           return null
         }
       } else {
-        throw new Error('A callback is required for this function.');
+        throw new Error('The searchKey has not been set.');
         return null;
       }
     } else if (!type && key) {
@@ -80,7 +79,7 @@ app.factory('business', ['localCache', function (localCache) {
       localCache.save('searchKey-time', new Date());
       return key;
     } else {
-      throw new Error('A callback is required for this function.');
+      throw new Error('There was an unexpected & unknown error.');
       return null;
     }
   };

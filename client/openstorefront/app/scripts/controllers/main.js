@@ -41,8 +41,6 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   * params: type -- This is the code of the type that was clicked on
   *******************************************************************************/
   $scope.goToSearch = function(searchType, searchKey){ /*jshint unused:false*/
-    console.log("We tried");
-    
     Business.search(searchType, searchKey);
     $location.path('/results');
   };
@@ -56,5 +54,7 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   $scope.$watch('searchKey', function() {
     $rootScope.searchKey = $scope.searchKey;
   });
+
+  setupMain();
 
 }]);

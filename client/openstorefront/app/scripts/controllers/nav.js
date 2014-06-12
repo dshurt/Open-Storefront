@@ -42,6 +42,9 @@ app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'localCache', '$
   * params: param name -- param description
   * returns: Return name -- return description
   *******************************************************************************/
+  $rootScope.$watch('searchKey', function() {
+    $scope.searchKey = $rootScope.searchKey;
+  });
   $scope.$watch('searchKey', function() {
     $rootScope.searchKey = $scope.searchKey;
   });
