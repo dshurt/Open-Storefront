@@ -18,7 +18,7 @@
 angular.module('openstorefrontApp')
 .directive('modal', function () {
   return {
-    restrict: "AE",
+    restrict: 'AE',
     scope: {},
     controller: '@',
     name: 'controllerName',

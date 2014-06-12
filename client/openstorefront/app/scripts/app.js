@@ -15,7 +15,8 @@
 */
 'use strict';
 
-/* global setupTypeahead, resetAnimGlobals*/
+/* global setupTypeahead, resetAnimGlobals, updateMainTypeahead,
+updateNavTypeahead */
 /* exported app */
 
 /***************************************************************
@@ -44,7 +45,7 @@ var app = angular
   });
 })
 // here we add the .run function for intial setup and other useful functions
-.run(['$rootScope', 'localCache', '$location', '$route', function ($rootScope, localCache, $location, $route) {
+.run(['$rootScope', 'localCache', '$location', '$route', function ($rootScope, localCache, $location, $route) {/* jshint unused: false*/
 
   //We must initialize global scope variables.
   $rootScope.Current = null;
@@ -62,6 +63,8 @@ var app = angular
   * This might also be where we do our 'is-logged-in' check
   ***************************************************************/
   $rootScope.$on('$routeChangeStart', function (event, next, current) {/* jshint unused:false */
+    updateMainTypeahead();
+    updateNavTypeahead();
     if (current && current.loadedTemplateUrl === 'views/results.html') {
       resetAnimGlobals();
     }
@@ -93,7 +96,7 @@ var app = angular
     $rootScope.current = current;
     $rootScope.$broadcast('$' + id);
     $rootScope.$broadcast('$viewModal', id);
-  }
+  };
 
 
 }]);

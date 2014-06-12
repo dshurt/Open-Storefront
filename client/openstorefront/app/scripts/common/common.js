@@ -16,14 +16,14 @@
 'use strict';
 
 
-/* exported setupPopovers, setupTypeahead, isEmpty */
+/* exported setupPopovers, setupTypeahead, isEmpty, updateNavTypeahead, updateMainTypeahead */
 
 var updateNavTypeahead = function() {
-  $('[ng-model="searchKey"]').trigger('input').trigger('change').trigger('keydown');
+  $('[ng-model=\'searchKey\']').trigger('input').trigger('change').trigger('keydown');
 };
 
 var updateMainTypeahead = function() {
-  $('.mainSearch[ng-model="searchKey"]').trigger('input').trigger('change').trigger('keydown');
+  $('.mainSearch[ng-model=\'searchKey\']').trigger('input').trigger('change').trigger('keydown');
 };
 
 
@@ -34,10 +34,10 @@ var updateMainTypeahead = function() {
 * to avoid page overflow.
 *****************************/
 var setupPopovers = function() {
-  if ($('[data-toggle="popover"]').length > 2) {
-    $('.lastPopover[data-toggle="popover"]').last().popover({trigger: 'hover','placement': 'top', 'html': true});
+  if ($('[data-toggle=\'popover\']').length > 2) {
+    $('.lastPopover[data-toggle=\'popover\']').last().popover({trigger: 'hover','placement': 'top', 'html': true});
   }
-  $('[data-toggle="popover"]').popover({trigger: 'hover','placement': 'bottom', 'html': true});
+  $('[data-toggle=\'popover\']').popover({trigger: 'hover','placement': 'bottom', 'html': true});
 };
 
 /*****************************
@@ -66,19 +66,6 @@ var substringMatcher = function(objs) {
     cb(matches);
   };
 };
-
-
-$('.typeahead').on("keypress", function() {
-  $(this).trigger('input').trigger('change').trigger('keydown');
-})
-
-$('.typeahead').on("change", function() {
-  $(this).trigger('input').trigger('change').trigger('keydown');
-})
-
-$('.typeahead').on("blur", function() {
-  $(this).trigger('input').trigger('change').trigger('keydown');
-})
 
 /*****************************
 * This function is used for the typeahead setup.

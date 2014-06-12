@@ -5,9 +5,17 @@ Dual licensed under the MIT or GPL licenses.
 Edited by: Jonathan Law
    Note: Added session storrage polyfill
 */
+
+'use strict';
+
+
+
+// Code here will be linted with JSHint.
+/* jshint ignore:start */
+// Code here will be linted with ignored by JSHint.
 (function(){
   // check to see if we have localStorage or not
-  if( !window.localStorage ){   
+  if( !window.localStorage ){
 
     // globalStorage
     // non-standard: Firefox 2+
@@ -23,17 +31,17 @@ Edited by: Jonathan Law
     // userData
     // non-standard: IE 5+
     // http://msdn.microsoft.com/en-us/library/ms531424(v=vs.85).aspx
-    var div = document.createElement( "div" ),
-    attrKey = "localStorage";
-    div.style.display = "none";
-    document.getElementsByTagName( "head" )[ 0 ].appendChild( div );
+    var div = document.createElement( 'div' ),
+    attrKey = 'localStorage';
+    div.style.display = 'none';
+    document.getElementsByTagName( 'head' )[ 0 ].appendChild( div );
     if ( div.addBehavior ) {
-      div.addBehavior( "#default#userdata" );
-      //div.style.behavior = "url('#default#userData')";
+      div.addBehavior( '#default#userdata' );
+      //div.style.behavior = 'url('#default#userData')';
 
-      var localStorage = window["localStorage"] = {
-        "length":0,
-        "setItem":function( key , value ){
+      var localStorage = window.localStorage = {
+        'length':0,
+        'setItem':function( key , value ){
           div.load( attrKey );
           key = cleanKey(key );
 
@@ -44,13 +52,13 @@ Edited by: Jonathan Law
 
           div.save( attrKey );
         },
-        "getItem":function( key ){
+        'getItem':function( key ){
           div.load( attrKey );
           key = cleanKey(key );
           return div.getAttribute( key );
 
         },
-        "removeItem":function( key ){
+        'removeItem':function( key ){
           div.load( attrKey );
           key = cleanKey(key );
           div.removeAttribute( key );
@@ -62,7 +70,7 @@ Edited by: Jonathan Law
           }
         },
 
-        "clear":function(){
+        'clear':function(){
           div.load( attrKey );
           var i = 0;
           while ( attr = div.XMLDocument.documentElement.attributes[ i++ ] ) {
@@ -70,9 +78,9 @@ Edited by: Jonathan Law
           }
           div.save( attrKey );
           this.length=0;
-        }, 
+        },
 
-        "key":function( key ){
+        'key':function( key ){
           div.load( attrKey );
           return div.XMLDocument.documentElement.attributes[ key ];
         }
@@ -83,15 +91,15 @@ Edited by: Jonathan Law
       // http://www.w3.org/TR/REC-xml/#NT-Name
       // simplified to assume the starting character is valid
       cleanKey = function( key ){
-        return key.replace( /[^-._0-9A-Za-z\xb7\xc0-\xd6\xd8-\xf6\xf8-\u037d\u37f-\u1fff\u200c-\u200d\u203f\u2040\u2070-\u218f]/g, "-" );
+        return key.replace( /[^-._0-9A-Za-z\xb7\xc0-\xd6\xd8-\xf6\xf8-\u037d\u37f-\u1fff\u200c-\u200d\u203f\u2040\u2070-\u218f]/g, '-' );
       };
 
 
       div.load( attrKey );
-      localStorage["length"] = div.XMLDocument.documentElement.attributes.length;
-    } 
-  } 
-  if( !window.sessionStorage ){   
+      localStorage.length = div.XMLDocument.documentElement.attributes.length;
+    }
+  }
+  if( !window.sessionStorage ){
 
     // globalStorage
     // non-standard: Firefox 2+
@@ -107,17 +115,17 @@ Edited by: Jonathan Law
     // userData
     // non-standard: IE 5+
     // http://msdn.microsoft.com/en-us/library/ms531424(v=vs.85).aspx
-    var div = document.createElement( "div" ),
-    attrKey = "sessionStorage";
-    div.style.display = "none";
-    document.getElementsByTagName( "head" )[ 0 ].appendChild( div );
+    var div = document.createElement( 'div' ),
+    attrKey = 'sessionStorage';
+    div.style.display = 'none';
+    document.getElementsByTagName( 'head' )[ 0 ].appendChild( div );
     if ( div.addBehavior ) {
-      div.addBehavior( "#default#userdata" );
-      //div.style.behavior = "url('#default#userData')";
+      div.addBehavior( '#default#userdata' );
+      //div.style.behavior = 'url('#default#userData')';
 
-      var sessionStorage = window["sessionStorage"] = {
-        "length":0,
-        "setItem":function( key , value ){
+      var sessionStorage = window.sessionStorage = {
+        'length':0,
+        'setItem':function( key , value ){
           div.load( attrKey );
           key = cleanKey(key );
 
@@ -128,13 +136,13 @@ Edited by: Jonathan Law
 
           div.save( attrKey );
         },
-        "getItem":function( key ){
+        'getItem':function( key ){
           div.load( attrKey );
           key = cleanKey(key );
           return div.getAttribute( key );
 
         },
-        "removeItem":function( key ){
+        'removeItem':function( key ){
           div.load( attrKey );
           key = cleanKey(key );
           div.removeAttribute( key );
@@ -146,7 +154,7 @@ Edited by: Jonathan Law
           }
         },
 
-        "clear":function(){
+        'clear':function(){
           div.load( attrKey );
           var i = 0;
           while ( attr = div.XMLDocument.documentElement.attributes[ i++ ] ) {
@@ -154,9 +162,9 @@ Edited by: Jonathan Law
           }
           div.save( attrKey );
           this.length=0;
-        }, 
+        },
 
-        "key":function( key ){
+        'key':function( key ){
           div.load( attrKey );
           return div.XMLDocument.documentElement.attributes[ key ];
         }
@@ -167,12 +175,14 @@ Edited by: Jonathan Law
       // http://www.w3.org/TR/REC-xml/#NT-Name
       // simplified to assume the starting character is valid
       cleanKey = function( key ){
-        return key.replace( /[^-._0-9A-Za-z\xb7\xc0-\xd6\xd8-\xf6\xf8-\u037d\u37f-\u1fff\u200c-\u200d\u203f\u2040\u2070-\u218f]/g, "-" );
+        return key.replace( /[^-._0-9A-Za-z\xb7\xc0-\xd6\xd8-\xf6\xf8-\u037d\u37f-\u1fff\u200c-\u200d\u203f\u2040\u2070-\u218f]/g, '-' );
       };
 
 
       div.load( attrKey );
-      sessionStorage["length"] = div.XMLDocument.documentElement.attributes.length;
-    } 
-  } 
+      sessionStorage.length = div.XMLDocument.documentElement.attributes.length;
+    }
+  }
 })();
+
+/* jshint ignore:end */

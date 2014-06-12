@@ -15,25 +15,29 @@
 */
 'use strict';
 
-app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'localCache', '$route', function ($scope, $location, $rootScope, localCache, $route) { /*jshint unused: false*/
+/*global updateNavTypeahead*/
+
+app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'localCache', '$route', '$timeout', function ($scope, $location, $rootScope, localCache, $route, $timeout) { /*jshint unused: false*/
 
   /*******************************************************************************
   * This Controller gives us a place to add functionality to the navbar
   *******************************************************************************/
-  $scope._scopename = 'nav'; 
+  $scope._scopename = 'nav';
 
   // Here we grab the rootScope searchkey in order to preserve the last search
   $scope.searchKey = $rootScope.searchKey;
   
 
-  $scope.goToSearchWithSearch = function(search){ /*jshint unused:false*/
+  $scope.goToSearchWithSearch = function(){ /*jshint unused:false*/
     updateNavTypeahead();
-    localCache.save('searchKey', [ { 'key': 'search', 'code': search } ]);
-    if($location.path() === '/results') {
-      $route.reload();
-    } else {
-      $location.path('/results');
-    }
+    $timeout(function() {
+      localCache.save('searchKey', [ { 'key': 'search', 'code': $scope.searchKey } ]);
+      if($location.path() === '/results') {
+        $route.reload();
+      } else {
+        $location.path('/results');
+      }
+    }, 200);
   };
 
 

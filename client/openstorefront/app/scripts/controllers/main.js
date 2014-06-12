@@ -15,6 +15,8 @@
 */
 'use strict';
 
+/*global updateMainTypeahead, setupMain*/
+
 app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$rootScope', '$timeout', function ($scope, Business, localCache, $location, $rootScope, $timeout) {
   // Here we grab the rootScope searchkey in order to preserve the last search
   $scope.searchKey  = $rootScope.searchKey;
@@ -26,26 +28,22 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   // grab the custom filters (aka groups).
   $scope.filters    = Business.getFilters();
 
-  // currently this is hard coded, but this controller could be adjusted 
-  // to do all of this dynamically.
-  // $scope.types            = $scope.filters[0].collection;
-  // $scope.categories       = $scope.filters[1].collection;
-  // $scope.states           = $scope.filters[2].collection;
-  // $scope.typesTitle       = 'Browse Types';
-  // $scope.categoriesTitle  = 'Browse Categories';
-  // $scope.statesTitle      = 'Browse States';
-
   /*******************************************************************************
   * This and the following functions send the user to the search filling the 
   * data object with the search key 
   * params: type -- This is the code of the type that was clicked on
   *******************************************************************************/
   $scope.goToSearch = function(searchType, searchKey){ /*jshint unused:false*/
-    updateMainTypeahead();
-    $timeout(function() {
+    if (searchType === 'search') {
+      updateMainTypeahead();
+      $timeout(function() {
+        Business.search(searchType, $scope.searchKey);
+        $location.path('/results');
+      }, 200);
+    } else {
       Business.search(searchType, searchKey);
       $location.path('/results');
-    }, 200);
+    }
   };
 
   /*******************************************************************************
