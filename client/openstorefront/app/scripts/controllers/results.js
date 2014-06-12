@@ -15,7 +15,7 @@
 */
 'use strict';
 
-/* global isEmpty, setupPopovers, openClick:true, openWindowToggle, moveButtons,
+/* global isEmpty, setupPopovers, openClick:true, setupResults, moveButtons,
 fullClick, openFiltersToggle, buttonOpen, buttonClose */
 
 app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope) {
@@ -62,7 +62,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     $scope.filters = _.reject($scope.filters, function(item) {
       return item.key === $scope.searchGroup[0].key;
     });
-  }
+  };
 
   /*******************************************************************************
   * This is used to initialize the scope title, key, and code. Once we have a 
@@ -289,7 +289,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       var code = $scope.details.conformanceState[0].code;
       var stateFilter = _.where($scope.filters, {'key': 'conformanceState'})[0];
       var item = _.where(stateFilter.collection, {'code': code})[0];
-      return item.type;      
+      return item.type;
     }
     return '';
   };
@@ -331,7 +331,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     }, 300);
   };
 
-  $rootScope.$on('$descModal', function(event) {
+  $rootScope.$on('$descModal', function(event) { /*jshint unused: false*/
     // re-initialize the modal content here if we must
   });
 

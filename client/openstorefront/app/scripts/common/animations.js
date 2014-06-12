@@ -15,6 +15,7 @@
 */
 'use strict';
 
+/*globals openFiltersToggle:true*/
 
 /**********************
 * These are global variables to handle the open page states
@@ -528,12 +529,12 @@ var buttonClose = function() {
       return;
     }
   }
+  return;
   // setTimeout(function () {
   //   console.log('openClick', openClick);
   //   console.log('fullClick', fullClick);
   //   console.log('filtClick', filtClick);
   // }, 400);
-return;
 };
 
 /**********************

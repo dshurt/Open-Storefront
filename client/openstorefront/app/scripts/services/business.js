@@ -15,8 +15,7 @@
 */
 'use strict';
 
-// app.factory('business', ['$scope', 'localCache', '$http', '$q', function ($scope, LocalCache, $http, $q) {
-app.factory('business', ['localCache', function (localCache) {
+app.factory('business', ['localCache', '$http', '$q', function (localCache, $http, $q) { /*jshint unused: false*/
   // 60 seconds until expiration
   var expireTime = 60 * 1000;
   var business = {};
@@ -49,9 +48,6 @@ app.factory('business', ['localCache', function (localCache) {
   };
   
   business.search = function(type, key){
-    // if (!_.isFunction(callback)) {
-      // throw new Error('A callback is required for this function.');
-    // }
     if (!(type && key)) {
       var reCallRequired = true;
       var searchKey = localCache.get('searchKey', 'object');
@@ -59,16 +55,14 @@ app.factory('business', ['localCache', function (localCache) {
         var cacheTime = localCache.get('searchKey-time', 'date');
         var timeDiff = new Date() - cacheTime;
         // we take a quarter of a minute before the search expires
-        if (timeDiff < expireTime * .25)
+        if (timeDiff < expireTime * 0.25)
         {
           return searchKey;
         } else {
           throw new Error('The searchKey has expired.');
-          return null
         }
       } else {
         throw new Error('The searchKey has not been set.');
-        return null;
       }
     } else if (!type && key) {
       localCache.save('searchKey', [ { 'key': 'search', 'code': key } ]);
@@ -80,7 +74,6 @@ app.factory('business', ['localCache', function (localCache) {
       return key;
     } else {
       throw new Error('There was an unexpected & unknown error.');
-      return null;
     }
   };
 
