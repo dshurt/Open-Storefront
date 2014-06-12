@@ -15,8 +15,7 @@
 */
 'use strict';
 
-/* global setupTypeahead, resetAnimGlobals, updateMainTypeahead,
-updateNavTypeahead */
+/* global setupTypeahead, resetAnimGlobals */
 /* exported app */
 
 /***************************************************************
@@ -65,10 +64,8 @@ var app = angular
   $rootScope.$on('$routeChangeStart', function (event, next, current) {/* jshint unused:false */
     if (current && current.loadedTemplateUrl === 'views/results.html') {
       resetAnimGlobals();
-      updateNavTypeahead();
-    } else if (current && current.loadedTemplateUrl === 'views/main.html') {
-      updateMainTypeahead();
     }
+
     setTimeout(function () {
       $('.searchBar:input[type=\'text\']').on('click', function () {
         $(this).select();

@@ -52,6 +52,9 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   * params: param name -- param description
   * returns: Return name -- return description
   *******************************************************************************/
+  $rootScope.$watch('searchKey', function() {
+    $scope.searchKey = $rootScope.searchKey;
+  });
   $scope.$watch('searchKey', function() {
     $rootScope.searchKey = $scope.searchKey;
   });

@@ -40,6 +40,14 @@ app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'localCache', '$
     }, 200);
   };
 
+  $scope.sendHome = function(){ /*jshint unused:false*/
+    updateNavTypeahead();
+    $timeout(function() {
+      localCache.save('searchKey', [ { 'key': 'search', 'code': $scope.searchKey } ]);
+      $location.path('/');
+    }, 200);
+  };
+
 
   /*******************************************************************************
   * This function sets the rootScope's search key so that if you did it in the
