@@ -43,7 +43,7 @@ var hasOwnProperty2 = Object.prototype.hasOwnProperty;
 ***************************************************************/
 function isEmpty(obj) {
   // null and undefined are 'empty'
-  if (obj === null) {
+  if (obj === null || obj === undefined) {
     return true;
   }
 
