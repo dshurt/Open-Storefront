@@ -55,14 +55,12 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   * are not currently in the list of tags. Otherwise, it will look at the
   * string and do a substring search.
   ***************************************************************/
-  $scope.checkTagsList = function(query) {
+  $scope.checkTagsList = function(query, list) {
     var deferred = $q.defer();
     var subList = null;
     if (query === ' ') {
       subList = _.reject($scope.tagsList, function(item) {
-        console.log('Found?', !!!(_.where($scope.details.assetTags, {'text': item}).length));
-        
-        return !!(_.where($scope.details.assetTags, {'text': item}).length);
+        return !!(_.where(list, {'text': item}).length);
       });
     } else {
       subList = _.filter($scope.tagsList, function(item) {
@@ -425,10 +423,12 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     // We must use recursive filtering or we will get incorrect results
     // the order DOES matter here.
     $filter('orderBy')
+    ($filter('tagFilter')
     ($filter('componentFilter')
       ($filter('filter')($scope.total, $scope.query),
     // filter the data by the query and return the result to the componentFilter input
     $scope.filters),
+    $scope.tagsFilter),
     // then use the componentFilter returned data as the input to the order-by filter
     $scope.orderProp);
 
