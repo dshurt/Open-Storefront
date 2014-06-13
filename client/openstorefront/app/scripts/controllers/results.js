@@ -18,9 +18,37 @@
 /* global isEmpty, setupPopovers, openClick:true, setupResults, moveButtons,
 fullClick, openFiltersToggle, buttonOpen, buttonClose*/
 
-app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope) {
+app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', '$q', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope, $q) {
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
+  $scope.tagsList = [
+  'Application',
+  'Data Transformation',
+  'Data Validation',
+  'Development Tool',
+  'Enterprise Services',
+  'IDE',
+  'Image Search',
+  'Image Mapping',
+  'Java',
+  'Planning and Direction',
+  'Reference Document',
+  'Reference Documentation',
+  'Software Libraries',
+  'Software Library',
+  'Visualization',
+  'Widget',
+  'Widgets'
+  ];
+
+  $scope.checkTagsList = function(query) { 
+    var deferred = $q.defer();
+    var subList = _.filter($scope.tagsList, function(item) {
+      return item.indexOf(query) > -1;
+    })
+    deferred.resolve(subList);
+    return deferred.promise;
+  };
 
   /***************************************************************
   * This function is called once we have the search request from the business layer

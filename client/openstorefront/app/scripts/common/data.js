@@ -373,22 +373,26 @@ MOCKDATA.assets = {
     'evaluated': true,
     'tested': true,
     'integrated': true,
-    'tags': [
+    'assetTags': [
     {
       'code': 'IDE',
-      'desc': 'IDE'
+      'desc': 'IDE',
+      'text': 'IDE'
     },
     {
       'code': 'JAVA',
-      'desc': ' Java'
+      'desc': 'Java',
+      'text': 'Java'
     },
     {
       'code': 'TOOL',
-      'desc': 'Development Tool'
+      'desc': 'Development Tool',
+      'text': 'Development Tool'
     },
     {
       'code': 'APP',
-      'desc': ' Application'
+      'desc': 'Application',
+      'text': 'Application'
     }
     ],
     'assetIcon': 'image/pastel/cog.png',
@@ -488,19 +492,23 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'IMGSRCH',
-      'desc': 'Image Search'
+      'desc': 'Image Search',
+      'text': 'Image Search'
     },
     {
       'code': 'VIZ',
-      'desc': ' Visualization'
+      'desc': 'Visualization',
+      'text': 'Visualization'
     },
     {
       'code': 'IMGMAP',
-      'desc': ' Image Mapping'
+      'desc': 'Image Mapping',
+      'text': 'Image Mapping'
     },
     {
       'code': 'WIG',
-      'desc': ' Widget'
+      'desc': 'Widget',
+      'text': 'Widget'
     }
     ],
     'assetIcon': 'image/wess_logo.png',
@@ -584,7 +592,8 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'REF',
-      'desc': 'Reference Document'
+      'desc': 'Reference Document',
+      'text': 'Reference Document'
     }
     ],
     'assetIcon': null,
@@ -666,17 +675,19 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'IMGSRCH',
-      'desc': 'Image Search'
+      'desc': 'Image Search',
+      'text': 'Image Search'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'SOFTLIB',
-      'desc': 'Software Library'
-    }
-    ],
+      'desc': 'Software Library',
+      'text': 'Software Library'
+    }],
     'assetIcon': null,
     'componentOf': [],
     'subComponents': [],
@@ -758,15 +769,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'APPS',
-      'desc': 'Application'
+      'desc': 'Application',
+      'text': 'Application'
     }
     ],
     'assetIcon': null,
@@ -849,15 +863,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'APPS',
-      'desc': 'Application'
+      'desc': 'Application',
+      'text': 'Application'
     }
     ],
     'assetIcon': null,
@@ -944,15 +961,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'APPS',
-      'desc': 'Application'
+      'desc': 'Application',
+      'text': 'Application'
     }
     ],
     'assetIcon': null,
@@ -1022,7 +1042,8 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'APPS',
-      'desc': 'Application'
+      'desc': 'Application',
+      'text': 'Application'
     }
     ],
     'assetIcon': null,
@@ -1097,15 +1118,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'APPS',
-      'desc': 'Application'
+      'desc': 'Application',
+      'text': 'Application'
     }
     ],
     'assetIcon': null,
@@ -1192,15 +1216,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'SOFTLIB',
-      'desc': 'Software Libraries'
+      'desc': 'Software Libraries',
+      'text': 'Software Libraries'
     }
     ],
     'assetIcon': null,
@@ -1289,15 +1316,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'SOFTLIB',
-      'desc': 'Software Libraries'
+      'desc': 'Software Libraries',
+      'text': 'Software Libraries'
     }
     ],
     'assetIcon': null,
@@ -1376,15 +1406,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'SOFTLIB',
-      'desc': 'Software Libraries'
+      'desc': 'Software Libraries',
+      'text': 'Software Libraries'
     }
     ],
     'assetIcon': null,
@@ -1471,15 +1504,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'ENTERPRISE',
-      'desc': 'Enterprise Services'
+      'desc': 'Enterprise Services',
+      'text': 'Enterprise Services'
     }
     ],
     'assetIcon': null,
@@ -1562,15 +1598,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'WIDGET',
-      'desc': 'Widgets'
+      'desc': 'Widgets',
+      'text': 'Widgets'
     }
     ],
     'assetIcon': null,
@@ -1644,15 +1683,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'WIDGET',
-      'desc': 'Widgets'
+      'desc': 'Widgets',
+      'text': 'Widgets'
     }
     ],
     'assetIcon': null,
@@ -1723,15 +1765,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'REFDOCS',
-      'desc': 'Reference Documentation'
+      'desc': 'Reference Documentation',
+      'text': 'Reference Documentation'
     }
     ],
     'assetIcon': null,
@@ -1805,15 +1850,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'WIDGET',
-      'desc': 'Widgets'
+      'desc': 'Widgets',
+      'text': 'Widgets'
     }
     ],
     'assetIcon': null,
@@ -1891,19 +1939,23 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'PLAN',
-      'desc': 'Planning and Direction'
+      'desc': 'Planning and Direction',
+      'text': 'Planning and Direction'
     },
     {
       'code': 'SOFTLIB',
-      'desc': 'Software Libraries'
+      'desc': 'Software Libraries',
+      'text': 'Software Libraries'
     }
     ],
     'assetIcon': null,
@@ -1981,15 +2033,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'APPS',
-      'desc': 'Applications'
+      'desc': 'Applications',
+      'text': 'Applications'
     }
     ],
     'assetIcon': null,
@@ -2068,15 +2123,18 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'WIDGET',
-      'desc': 'Widgets'
+      'desc': 'Widgets',
+      'text': 'Widgets'
     }
     ],
     'assetIcon': null,
@@ -2150,19 +2208,23 @@ MOCKDATA.assets = {
     'assetTags': [
     {
       'code': 'IMGSRCH',
-      'desc': 'Image Search'
+      'desc': 'Image Search',
+      'text': 'Image Search'
     },
     {
       'code': 'DATAV',
-      'desc': 'Data Validation'
+      'desc': 'Data Validation',
+      'text': 'Data Validation'
     },
     {
       'code': 'DATAT',
-      'desc': 'Data Transformation'
+      'desc': 'Data Transformation',
+      'text': 'Data Transformation'
     },
     {
       'code': 'APPS',
-      'desc': 'Application'
+      'desc': 'Application',
+      'text': 'Application'
     }
     ],
     'assetIcon': null,

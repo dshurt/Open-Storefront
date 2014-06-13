@@ -23,7 +23,7 @@
 ***************************************************************/
 var app = angular
 // Here we add the dependancies for the app
-.module('openstorefrontApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap'])
+.module('openstorefrontApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap', 'ngTagsInput'])
 // Here we configure the route provider
 .config(function ($routeProvider) {
   $routeProvider
