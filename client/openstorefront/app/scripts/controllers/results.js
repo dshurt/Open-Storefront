@@ -39,7 +39,13 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     'Software Library',
     'Visualization',
     'Widget',
-    'Widgets'
+    'Widgets',
+    '#architecture',
+    '#developement',
+    '#maps',
+    '#pluggable',
+    '#trending',
+    '#webdesign'
   //
   ];
 
