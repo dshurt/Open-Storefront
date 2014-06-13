@@ -16,92 +16,109 @@
 'use strict';
 
 /* global isEmpty, setupPopovers, openClick:true, setupResults, moveButtons,
-fullClick, openFiltersToggle, buttonOpen, buttonClose */
+fullClick, openFiltersToggle, buttonOpen, buttonClose*/
 
 app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope) {
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
-  $scope.searchGroup        = localCache.get('searchKey', 'object');
-  $scope.searchKey          = $rootScope.searchKey;
-  $scope.searchCode         = null;
-  $scope.searchTitle        = null;
-  $scope.searchDescription  = null;
-  $scope.details            = null;
-  $scope.isPage1            = true;
-  $scope.showSearch         = false;
-  $scope.showWatchButton    = false;
-  $scope.showDetails        = false;
-  $scope.orderProp          = '';
-  $scope.query              = '';
-  $scope.noDataMessage      = 'You have filtered out all of the results.';
-  $scope.filters            = Business.getFilters();
-  $scope.total              = Business.getData();
-  $scope.watches            = Business.getWatches();
-
-  if ($scope.searchGroup[0] === null) {
-    $scope.searchGroup[0]   = { 'key': 'all', 'code': '' };
-  }
-
-  // These variables are used for the pagination
-  $scope.filteredTotal  = $scope.total;
-  $scope.data           = $scope.total;
-  $scope.rowsPerPage    = 10;
-  $scope.pageNumber     = 1;
-  $scope.maxPageNumber  = Math.ceil($scope.data.length / $scope.rowsPerPage);
-
-  // currently this is a hack that grabs a short description and adds it to the
-  // component information
-  _.each($scope.data, function(item){
-    item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + '.';
-  });
 
   /***************************************************************
-  * This function removes the inherent filter (if you click on apps, types no longer applies etc)
+  * This function is called once we have the search request from the business layer
   ***************************************************************/
-  var adjustFilters = function() {
-    $scope.filters = _.reject($scope.filters, function(item) {
-      return item.key === $scope.searchGroup[0].key;
-    });
-  };
+  $scope.reAdjust = function(key) {
+    $scope.searchGroup        = key;
+    $scope.searchKey          = $rootScope.searchKey;
+    $scope.searchCode         = null;
+    $scope.searchTitle        = null;
+    $scope.searchDescription  = null;
+    $scope.details            = null;
+    $scope.isPage1            = true;
+    $scope.showSearch         = false;
+    $scope.showWatchButton    = false;
+    $scope.showDetails        = false;
+    $scope.orderProp          = '';
+    $scope.query              = '';
+    $scope.noDataMessage      = 'You have filtered out all of the results.';
+    $scope.filters            = Business.getFilters();
+    $scope.total              = Business.getData();
+    $scope.watches            = Business.getWatches();
 
-  /*******************************************************************************
-  * This is used to initialize the scope title, key, and code. Once we have a 
-  * database, this is most likely where we'll do the first pull for data.
-  *
-  * TODO:: Add query prameters capabilities for this page so that we don't have
-  * to rely on the local/session storrage to pass us the search key
-  *
-  * TODO:: When we do start using actual transfered searches from the main page
-  * we need to initialize checks on the filters that were sent to us from that
-  * page (or we need to disable the filter all together)
-  *******************************************************************************/
-  if (!isEmpty($scope.searchGroup)) {
-    // grab all of the keys in the filters
-    var keys = _.pluck($scope.filters, 'key');
+    $scope.typeahead  = null;
 
-    if (_.contains(keys, $scope.searchGroup[0].key)) {
-      // if the search group is based on one of those filters do this
-      $scope.searchKey          = $scope.searchGroup[0].key;
-      $scope.searchCode         = $scope.searchGroup[0].code;
-      $scope.showSearch         = true;
-      $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchKey})[0];
-      $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchCode})[0];
-      $scope.searchType         = $scope.searchGroupItem.name;
-      $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
-      $scope.modalTitle         = $scope.searchType + ', ' + $scope.searchColItem.type;
-      $scope.searchDescription  = $scope.searchColItem.desc;
-      $scope.modalBody          = $scope.searchColItem.longDesc;
-      adjustFilters();
-    } else if ($scope.searchGroup[0].key === 'search') {
-      // Otherwise check to see if it is a search
-      $scope.searchKey          = 'DOALLSEARCH';
-      $scope.showSearch         = true;
-      $scope.searchTitle        = $scope.searchGroup[0].code;
-      $scope.modalTitle         = $scope.searchGroup[0].code;
-      $scope.searchDescription  = 'Search resutls based on the search key: ' + $scope.searchGroup[0].code;
-      $scope.modalBody          = 'The restuls on this page are restricted by an implied filter on words similar to the search key \'' + $scope.searchGroup[0].code + '\'';
+
+    /***************************************************************
+    * Set up typeahead, and then watch for selection made
+    ***************************************************************/
+    if ($rootScope.typeahead) {
+      $scope.typeahead  = $rootScope.typeahead;
     } else {
-      // In this case, our tempData object exists, but has no useable data
+      $scope.typeahead  = Business.typeahead(Business.getData, 'name');
+    }
+
+
+    // These variables are used for the pagination
+    $scope.filteredTotal  = $scope.total;
+    $scope.data           = $scope.total;
+    $scope.rowsPerPage    = 10;
+    $scope.pageNumber     = 1;
+    $scope.maxPageNumber  = Math.ceil($scope.data.length / $scope.rowsPerPage);
+
+    // currently this is a hack that grabs a short description and adds it to the
+    // component information
+    _.each($scope.data, function(item){
+      item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + '.';
+    });
+
+
+
+    /*******************************************************************************
+    * This is used to initialize the scope title, key, and code. Once we have a 
+    * database, this is most likely where we'll do the first pull for data.
+    *
+    * TODO:: Add query prameters capabilities for this page so that we don't have
+    * to rely on the local/session storrage to pass us the search key
+    *
+    * TODO:: When we do start using actual transfered searches from the main page
+    * we need to initialize checks on the filters that were sent to us from that
+    * page (or we need to disable the filter all together)
+    *******************************************************************************/
+    if (!isEmpty($scope.searchGroup)) {
+      // grab all of the keys in the filters
+      var keys = _.pluck($scope.filters, 'key');
+
+      if (_.contains(keys, $scope.searchGroup[0].key)) {
+        // if the search group is based on one of those filters do this
+        $scope.searchKey          = $scope.searchGroup[0].key;
+        $scope.searchCode         = $scope.searchGroup[0].code;
+        $scope.showSearch         = true;
+        $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchKey})[0];
+        $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchCode})[0];
+        $scope.searchType         = $scope.searchGroupItem.name;
+        $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
+        $scope.modalTitle         = $scope.searchType + ', ' + $scope.searchColItem.type;
+        $scope.searchDescription  = $scope.searchColItem.desc;
+        $scope.modalBody          = $scope.searchColItem.longDesc;
+        adjustFilters();
+      } else if ($scope.searchGroup[0].key === 'search') {
+
+        // Otherwise check to see if it is a search
+        $scope.searchKey          = 'DOALLSEARCH';
+        $scope.showSearch         = true;
+        $scope.searchTitle        = $scope.searchGroup[0].code;
+        $scope.modalTitle         = $scope.searchGroup[0].code;
+        $scope.searchDescription  = 'Search resutls based on the search key: ' + $scope.searchGroup[0].code;
+        $scope.modalBody          = 'The restuls on this page are restricted by an implied filter on words similar to the search key \'' + $scope.searchGroup[0].code + '\'';
+      } else {
+        // In this case, our tempData object exists, but has no useable data
+        $scope.searchKey          = 'DOALLSEARCH';
+        $scope.showSearch         = true;
+        $scope.searchTitle        = 'All';
+        $scope.modalTitle         = 'All';
+        $scope.searchDescription  = 'Search all results';
+        $scope.modalBody          = 'The results found on this page are not restricted by any implied filters.';
+      }
+    } else {
+      // In this case, our tempData doesn't exist
       $scope.searchKey          = 'DOALLSEARCH';
       $scope.showSearch         = true;
       $scope.searchTitle        = 'All';
@@ -109,17 +126,57 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       $scope.searchDescription  = 'Search all results';
       $scope.modalBody          = 'The results found on this page are not restricted by any implied filters.';
     }
-  } else {
-    // In this case, our tempData doesn't exist
-    $scope.searchKey          = 'DOALLSEARCH';
-    $scope.showSearch         = true;
-    $scope.searchTitle        = 'All';
-    $scope.modalTitle         = 'All';
-    $scope.searchDescription  = 'Search all results';
-    $scope.modalBody          = 'The results found on this page are not restricted by any implied filters.';
-  }
+  };
+
+  /***************************************************************
+  * This function grabs the search key and resets the page in order to update the search
+  ***************************************************************/
+  var callSearch = function() {
+    Business.search(false, false, true).then(
+    //This is the success function on returning a value from the business layer 
+    function(key) {
+      if (key === null || key === undefined) {
+        $scope.reAdjust([{ 'key': 'all', 'code': '' }]);
+      } else {
+        $scope.reAdjust(key);
+      }
+    },
+    // This is the failure function that handles a returned error
+    function(error) {
+      console.error('Error', error);
+      $scope.reAdjust([{ 'key': 'all', 'code': '' }]);
+    });
+  };
 
 
+  /***************************************************************
+  * Event for callSearch caught here. This is triggered by the nav
+  * search bar when you are already on the results page.
+  ***************************************************************/
+  $scope.$on('$callSearch', function(event) {/*jshint unused: false*/
+    callSearch();
+  });
+
+
+  /***************************************************************
+  * Catch the enter/select event here for typeahead
+  ***************************************************************/
+  $scope.$on('$typeahead.select', function(event, value, index) {/*jshint unused: false*/
+    $scope.applyFilters();
+  });
+
+  /***************************************************************
+  * This function removes the inherent filter (if you click on apps, types no longer applies etc)
+  ***************************************************************/
+  var adjustFilters = function() {
+    console.log('$scope.searchGroup', $scope.searchGroup[0].key);
+    
+    if ($scope.searchGroup[0].key) {
+      $scope.filters = _.reject($scope.filters, function(item) {
+        return item.key === $scope.searchGroup[0].key;
+      });
+    }
+  };
 
   /*******************************************************************************
   * This function watches for the view content loaded event and runs a timeout 
@@ -155,7 +212,11 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       page = 1;
     }
 
-    $scope.data = $scope.filteredTotal.slice(((page - 1) * $scope.rowsPerPage), (page * $scope.rowsPerPage));
+    if ($scope.filteredTotal) {
+      $scope.data = $scope.filteredTotal.slice(((page - 1) * $scope.rowsPerPage), (page * $scope.rowsPerPage));
+    } else {
+      $scope.data = [];
+    }
     $scope.applyFilters();
 
   });
@@ -188,6 +249,10 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   ***************************************************************/
   $scope.$watch('query',function(val, old){ /* jshint unused:false */
     $scope.applyFilters();
+  });
+
+  $scope.$on('$descModal', function(event) { /*jshint unused: false*/
+    // re-initialize the modal content here if we must
   });
 
   /***************************************************************
@@ -299,7 +364,6 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   * data with
   ***************************************************************/
   $scope.applyFilters = function() {
-
     var results =
     // We must use recursive filtering or we will get incorrect results
     // the order DOES matter here.
@@ -331,10 +395,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     }, 300);
   };
 
-  $rootScope.$on('$descModal', function(event) { /*jshint unused: false*/
-    // re-initialize the modal content here if we must
-  });
-
+  callSearch();
   setupResults();
 }]);
 

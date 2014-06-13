@@ -53,19 +53,19 @@ limitations under the License.
               <li><a href="javascript: void(0)" ng-click="openModal('profileModal', 'Watches')">Watches</a></li>   
               <li><a href="javascript: void(0)" ng-click="openModal('profileModal', 'Component Feedback')">Component Feedback</a></li>   
             </ul></li>
-              
+
           </li>
         </ul>
       </div>
       <!-- /.userNav-collapse -->
 
       <div class="collapse navbar-collapse center navSearch" id="bs-example-navbar-collapse-1">
-        <form class="navbar-form navbar-left navSearchForm" role="search">
+        <form class="navbar-form navbar-left navSearchForm" role="search" ng-submit="goToSearch()">
           <div class="pull-right searchBoxButton">
-            <button type="submit" class="btn btn-default pull-right" ng-click="goToSearchWithSearch(searchKey);"><i class="fa fa-search"></i></button>
+            <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-search"></i></button>
           </div>
           <div class="navSearchBar">
-            <input type="text" class="form-control typeahead searchBar" ng-model="searchKey" placeholder="Search">
+            <input type="text" class="form-control searchBar" ng-model="searchKey" ng-options="key for key in typeahead" placeholder="Search" bs-typeahead autofocus>
           </div>
         </form>
       </div>

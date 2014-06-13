@@ -15,9 +15,7 @@
 */
 'use strict';
 
-/*global updateNavTypeahead*/
-
-app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'localCache', '$route', '$timeout', function ($scope, $location, $rootScope, localCache, $route, $timeout) { /*jshint unused: false*/
+app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'business', '$route', '$timeout', function ($scope, $location, $rootScope, Business, $route, $timeout) { /*jshint unused: false*/
 
   /*******************************************************************************
   * This Controller gives us a place to add functionality to the navbar
@@ -25,27 +23,43 @@ app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'localCache', '$
   $scope._scopename = 'nav';
 
   // Here we grab the rootScope searchkey in order to preserve the last search
-  $scope.searchKey = $rootScope.searchKey;
+  $scope.searchkey = $rootScope.searchkey;
+  
+  $scope.typeahead  = null;
+
+
+  /***************************************************************
+  * Set up typeahead, and then watch for selection made
+  ***************************************************************/
+  if ($rootScope.typeahead) {
+    $scope.typeahead  = $rootScope.typeahead;
+  } else {
+    $scope.typeahead  = Business.typeahead(Business.getData, 'name');
+  }
+
+  /***************************************************************
+  * Catch the enter/select event here
+  ***************************************************************/
+  $scope.$on('$typeahead.select', function(event, value, index) {
+    $scope.goToSearch();
+    $scope.$apply();
+  });
   
 
-  $scope.goToSearchWithSearch = function(){ /*jshint unused:false*/
-    updateNavTypeahead();
-    $timeout(function() {
-      localCache.save('searchKey', [ { 'key': 'search', 'code': $scope.searchKey } ]);
+  $scope.goToSearch = function(){ /*jshint unused:false*/
+    $rootScope.searchkey = $scope.searchkey;
+    Business.search('search', $scope.searchKey, true).then(function (key) {
       if($location.path() === '/results') {
-        $route.reload();
+        $rootScope.$broadcast('$callSearch');
       } else {
         $location.path('/results');
       }
-    }, 200);
+    });
   };
 
   $scope.sendHome = function(){ /*jshint unused:false*/
-    updateNavTypeahead();
-    $timeout(function() {
-      localCache.save('searchKey', [ { 'key': 'search', 'code': $scope.searchKey } ]);
-      $location.path('/');
-    }, 200);
+    Business.search('search', $scope.searchKey);
+    $location.path('/');
   };
 
 

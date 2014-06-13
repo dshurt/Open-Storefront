@@ -15,11 +15,30 @@
 */
 'use strict';
 
-/*global updateMainTypeahead, setupMain*/
+/*global setupMain*/
 
-app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$rootScope', '$timeout', function ($scope, Business, localCache, $location, $rootScope, $timeout) {
+app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$rootScope', '$timeout', function ($scope, Business, localCache, $location, $rootScope, $timeout) {/*jshint unused: false*/
   // Here we grab the rootScope searchkey in order to preserve the last search
   $scope.searchKey  = $rootScope.searchKey;
+  $scope.typeahead  = null;
+
+
+  /***************************************************************
+  * Set up typeahead, and then watch for selection made
+  ***************************************************************/
+  if ($rootScope.typeahead) {
+    $scope.typeahead  = $rootScope.typeahead;
+  } else {
+    $scope.typeahead  = Business.typeahead(Business.getData, 'name');
+  }
+
+  /***************************************************************
+  * Catch the enter/select event here
+  ***************************************************************/
+  $scope.$on('$typeahead.select', function(event, value, index) {
+    $scope.goToSearch('search', $scope.searchkey);
+    $scope.$apply();
+  });
   
   // Set up the main controller's variables.
   $scope._scopename = 'main';
@@ -35,15 +54,13 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   *******************************************************************************/
   $scope.goToSearch = function(searchType, searchKey){ /*jshint unused:false*/
     if (searchType === 'search') {
-      updateMainTypeahead();
-      $timeout(function() {
-        Business.search(searchType, $scope.searchKey);
-        $location.path('/results');
-      }, 200);
+      console.log('Search save', Business.search(searchType, $scope.searchKey));
+      $location.path('/results');
     } else {
       Business.search(searchType, searchKey);
       $location.path('/results');
     }
+    return;
   };
 
   /*******************************************************************************
