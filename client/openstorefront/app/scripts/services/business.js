@@ -46,35 +46,75 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
     MOCKDATA.watches = watches;
     return true;
   };
+
+  business.typeahead = function(target, pluckItem){
+    var collection = null;
+    var result = localCache.get('typeahead', 'object');
+    if (result) {
+      var cacheTime = localCache.get('typeahead-time', 'date');
+      var timeDiff = new Date() - cacheTime;
+      // expire time is set to a day here
+      if (timeDiff < expireTime * 1440) {
+        return result;
+      } else if (target) {
+        collection = target();
+        if (pluckItem !== undefined && pluckItem !== null) {
+          collection = _.pluck(collection, pluckItem);
+        }
+      } else {
+        collection = _.pluck(this.getData(), 'name');
+      }
+    } else {
+      collection = _.pluck(this.getData(), 'name');
+    }
+    if (collection) {
+      localCache.save('typeahead', collection);
+      localCache.save('typeahead-time', new Date());
+      return collection;
+    } else {
+      throw new Error('We need a new target in order to refresh the data');
+    }
+  };
   
-  business.search = function(type, key){
+  business.search = function(type, key, wait){
+    var deferred = $q.defer();
+    var searchKey = null;
     if (!(type && key)) {
       var reCallRequired = true;
-      var searchKey = localCache.get('searchKey', 'object');
+      searchKey = localCache.get('searchKey', 'object');
       if (searchKey) {
         var cacheTime = localCache.get('searchKey-time', 'date');
         var timeDiff = new Date() - cacheTime;
         // we take a quarter of a minute before the search expires
-        if (timeDiff < expireTime * 0.25)
+        if (timeDiff < expireTime * 1440)
         {
-          return searchKey;
+          deferred.resolve(searchKey);
         } else {
-          throw new Error('The searchKey has expired.');
+          deferred.reject('The searchKey has expired.');
+          searchKey = null;
         }
       } else {
-        throw new Error('The searchKey has not been set.');
+        deferred.reject('The search key has not been set. Search has been reset to Default.');
+        searchKey = null;
       }
     } else if (!type && key) {
       localCache.save('searchKey', [ { 'key': 'search', 'code': key } ]);
       localCache.save('searchKey-time', new Date());
-      return key;
+      searchKey = key;
+      deferred.resolve(searchKey);
     } else if (type && key) {
       localCache.save('searchKey', [ { 'key': type, 'code': key } ]);
       localCache.save('searchKey-time', new Date());
-      return key;
+      searchKey = key;
+      deferred.resolve(searchKey);
     } else {
-      throw new Error('There was an unexpected & unknown error.');
+      deferred.reject('There was an unexpected or unknownn error.');
+      searchKey = null;
     }
+    if (wait) {
+      return deferred.promise;
+    }
+    return searchKey;
   };
 
 

@@ -15,7 +15,7 @@
 */
 'use strict';
 
-/* global setupTypeahead, resetAnimGlobals */
+/* global resetAnimGlobals */
 /* exported app */
 
 /***************************************************************
@@ -23,7 +23,7 @@
 ***************************************************************/
 var app = angular
 // Here we add the dependancies for the app
-.module('openstorefrontApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', ])
+.module('openstorefrontApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap'])
 // Here we configure the route provider
 .config(function ($routeProvider) {
   $routeProvider
@@ -44,7 +44,7 @@ var app = angular
   });
 })
 // here we add the .run function for intial setup and other useful functions
-.run(['$rootScope', 'localCache', '$location', '$route', function ($rootScope, localCache, $location, $route) {/* jshint unused: false*/
+.run(['$rootScope', 'localCache', 'business', '$location', '$route', function ($rootScope, localCache, Business, $location, $route) {/* jshint unused: false*/
 
   //We must initialize global scope variables.
   $rootScope.Current = null;
@@ -79,7 +79,7 @@ var app = angular
   * class 'typeahead'
   ***************************************************************/
   $rootScope.$on('$viewContentLoaded', function() {
-    setupTypeahead();
+    $rootScope.typeahead = Business.typeahead();
   });
 
   /***************************************************************

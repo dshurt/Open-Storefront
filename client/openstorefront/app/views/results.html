@@ -19,7 +19,18 @@ limitations under the License.
 
   <!-- Filters Div -->
   <div id="filters" class="filters">
-    <div ng-class='{lastFilter:$last, firstFilter: $first}' class="filterTableDiv" ng-repeat="filter in filters">
+    <div class="filterTableDiv firstFilter">
+      <label for="searchFilter">Sort By: </label>
+      <select ng-model="orderProp" class="form-control">
+        <option class="hidden-lg" selected disabled value="" hidden>Sort By</option>
+        <option value="name">Name</option>
+        <option value="age">Last Update</option>
+      </select>
+      <br>
+      <label for="searchFilter">Filter By Text: </label>
+      <input type="text" id="searchFilter" class="form-control" placeholder="Search" ng-model="query" ng-options="key for key in typeahead" bs-typeahead/>
+    </div>
+    <div ng-class='{lastFilter:$last}' class="filterTableDiv" ng-repeat="filter in filters">
       <table class="table filterTable">
         <tr>
           <th class="filtersTd filtersTh" ng-click="toggleChecks(filter.collection)">{{filter.name}}</th>
@@ -33,17 +44,6 @@ limitations under the License.
           </td>
         </tr>
       </table>
-    </div>
-    <div class="filterTableDiv">
-      <label for="searchFilter">Sort By: </label>
-      <select ng-model="orderProp" class="form-control">
-        <option class="hidden-lg" selected disabled value="" hidden>Sort By</option>
-        <option value="name">Name</option>
-        <option value="age">Last Update</option>
-      </select>
-      <br>
-      <label for="searchFilter">Filter By Text: </label>
-      <input type="text" id="searchFilter" class="form-control typeahead" placeholder="Search" ng-model="query" />
     </div>
   </div>
   <!-- END Filters Div -->

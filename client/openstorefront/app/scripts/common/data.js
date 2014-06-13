@@ -558,7 +558,7 @@ MOCKDATA.assets = {
     ],
     'conformanceState': [
     {
-      'code': 'NA - No Eval Planned'
+      'code': 'STATENA'
     }
     ],
     'releasedDate': '08/18/2012',
