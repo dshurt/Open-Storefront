@@ -97,17 +97,14 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
 
 
   // These variables are used for the pagination
-  $scope.filteredTotal  = $scope.total;
-  $scope.data           = $scope.total;
+  $scope.filteredTotal  = null;
+  $scope.data           = null;
   $scope.rowsPerPage    = 10;
   $scope.pageNumber     = 1;
   $scope.maxPageNumber  = 1;
 
   // currently this is a hack that grabs a short description and adds it to the
   // component information
-  _.each($scope.data, function(item){
-    item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + '.';
-  });
 
 
   /***************************************************************
@@ -119,7 +116,12 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     $scope.filters            = Business.getFilters();
     $scope.total              = Business.getData();
     $scope.watches            = Business.getWatches();
+    $scope.filteredTotal      = $scope.total;
+    $scope.data               = $scope.total;
 
+    _.each($scope.data, function(item){
+      item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + '.';
+    });
     /*******************************************************************************
     * This is used to initialize the scope title, key, and code. Once we have a 
     * database, this is most likely where we'll do the first pull for data.
