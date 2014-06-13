@@ -44,7 +44,7 @@ var app = angular
   });
   tagsInputConfigProvider
   .setDefaults('tagsInput', {
-    placeholder: 'Add a tag'
+    placeholder: 'Add a tag (single space for suggestions)'
     // Use this to disable the addition of tags outside the tag cloud:
     // addOnEnter: false
   })
