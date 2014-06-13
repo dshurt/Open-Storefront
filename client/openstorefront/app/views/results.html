@@ -178,6 +178,14 @@ limitations under the License.
             </p>
           </div>
         </div>
+        <div class="component-div row" style="margin-top: -10px">
+          <div class="col-sm-12">
+            <strong>
+              Tags:
+            </strong>
+            <tags-input class="bootstrap" ng-model="details.assetTags" replace-spaces-with-dashes="true"><auto-complete source="checkTagsList($query)"></auto-complete></tags-input>
+          </div>
+        </div>
       </div>
       <div class="component-div-title">Description</div>
       <div class="container component-div">
@@ -360,7 +368,7 @@ limitations under the License.
         </div>
       </div>
     </div>
-    
+
     <div class="component-div-title">Relations</div>
     <div class="container component-div">
       <div class="col-sm-12">
