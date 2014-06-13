@@ -43,11 +43,26 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   //
   ];
 
+  /***************************************************************
+  * This function is looked at for auto suggestions for the tag list
+  * if a ' ' is the user's entry, it will auto suggest the next 20 tags that
+  * are not currently in the list of tags. Otherwise, it will look at the
+  * string and do a substring search.
+  ***************************************************************/
   $scope.checkTagsList = function(query) {
     var deferred = $q.defer();
-    var subList = _.filter($scope.tagsList, function(item) {
-      return item.indexOf(query) > -1;
-    });
+    var subList = null;
+    if (query === ' ') {
+      subList = _.reject($scope.tagsList, function(item) {
+        console.log('Found?', !!!(_.where($scope.details.assetTags, {'text': item}).length));
+        
+        return !!(_.where($scope.details.assetTags, {'text': item}).length);
+      });
+    } else {
+      subList = _.filter($scope.tagsList, function(item) {
+        return item.toLowerCase().indexOf(query.toLowerCase()) > -1;
+      });
+    }
     deferred.resolve(subList);
     return deferred.promise;
   };
