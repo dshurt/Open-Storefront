@@ -22,33 +22,78 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
   $scope.tagsList = [
-  'Application',
-  'Data Transformation',
-  'Data Validation',
-  'Development Tool',
-  'Enterprise Services',
-  'IDE',
-  'Image Search',
-  'Image Mapping',
-  'Java',
-  'Planning and Direction',
-  'Reference Document',
-  'Reference Documentation',
-  'Software Libraries',
-  'Software Library',
-  'Visualization',
-  'Widget',
-  'Widgets'
+    //
+    'Application',
+    'Data Transformation',
+    'Data Validation',
+    'Development Tool',
+    'Enterprise Services',
+    'IDE',
+    'Image Search',
+    'Image Mapping',
+    'Java',
+    'Planning and Direction',
+    'Reference Document',
+    'Reference Documentation',
+    'Software Libraries',
+    'Software Library',
+    'Visualization',
+    'Widget',
+    'Widgets'
+  //
   ];
 
-  $scope.checkTagsList = function(query) { 
+  $scope.checkTagsList = function(query) {
     var deferred = $q.defer();
     var subList = _.filter($scope.tagsList, function(item) {
       return item.indexOf(query) > -1;
-    })
+    });
     deferred.resolve(subList);
     return deferred.promise;
   };
+
+  $scope.searchCode         = null;
+  $scope.searchTitle        = null;
+  $scope.searchDescription  = null;
+  $scope.details            = null;
+  $scope.isPage1            = true;
+  $scope.showSearch         = false;
+  $scope.showWatchButton    = false;
+  $scope.showDetails        = false;
+  $scope.orderProp          = '';
+  $scope.query              = '';
+  $scope.noDataMessage      = 'You have filtered out all of the results.';
+  $scope.typeahead          = null;
+  $scope.searchGroup        = null;
+  $scope.searchKey          = null;
+  $scope.filters            = null;
+  $scope.total              = null;
+  $scope.watches            = null;
+
+
+  /***************************************************************
+  * Set up typeahead, and then watch for selection made
+  ***************************************************************/
+  if ($rootScope.typeahead) {
+    $scope.typeahead  = $rootScope.typeahead;
+  } else {
+    $scope.typeahead  = Business.typeahead(Business.getData, 'name');
+  }
+
+
+  // These variables are used for the pagination
+  $scope.filteredTotal  = $scope.total;
+  $scope.data           = $scope.total;
+  $scope.rowsPerPage    = 10;
+  $scope.pageNumber     = 1;
+  $scope.maxPageNumber  = 1;
+
+  // currently this is a hack that grabs a short description and adds it to the
+  // component information
+  _.each($scope.data, function(item){
+    item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + '.';
+  });
+
 
   /***************************************************************
   * This function is called once we have the search request from the business layer
@@ -56,48 +101,9 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   $scope.reAdjust = function(key) {
     $scope.searchGroup        = key;
     $scope.searchKey          = $rootScope.searchKey;
-    $scope.searchCode         = null;
-    $scope.searchTitle        = null;
-    $scope.searchDescription  = null;
-    $scope.details            = null;
-    $scope.isPage1            = true;
-    $scope.showSearch         = false;
-    $scope.showWatchButton    = false;
-    $scope.showDetails        = false;
-    $scope.orderProp          = '';
-    $scope.query              = '';
-    $scope.noDataMessage      = 'You have filtered out all of the results.';
     $scope.filters            = Business.getFilters();
     $scope.total              = Business.getData();
     $scope.watches            = Business.getWatches();
-
-    $scope.typeahead  = null;
-
-
-    /***************************************************************
-    * Set up typeahead, and then watch for selection made
-    ***************************************************************/
-    if ($rootScope.typeahead) {
-      $scope.typeahead  = $rootScope.typeahead;
-    } else {
-      $scope.typeahead  = Business.typeahead(Business.getData, 'name');
-    }
-
-
-    // These variables are used for the pagination
-    $scope.filteredTotal  = $scope.total;
-    $scope.data           = $scope.total;
-    $scope.rowsPerPage    = 10;
-    $scope.pageNumber     = 1;
-    $scope.maxPageNumber  = Math.ceil($scope.data.length / $scope.rowsPerPage);
-
-    // currently this is a hack that grabs a short description and adds it to the
-    // component information
-    _.each($scope.data, function(item){
-      item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + '.';
-    });
-
-
 
     /*******************************************************************************
     * This is used to initialize the scope title, key, and code. Once we have a 
@@ -154,6 +160,8 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       $scope.searchDescription  = 'Search all results';
       $scope.modalBody          = 'The results found on this page are not restricted by any implied filters.';
     }
+
+    $scope.applyFilters();
   };
 
   /***************************************************************
@@ -378,7 +386,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   * to allow the user to view their watches.
   ***************************************************************/
   $scope.getEvaluationState = function () {
-    if ($scope.details) {
+    if ($scope.details && $scope.details.conformanceState !== undefined) {
       var code = $scope.details.conformanceState[0].code;
       var stateFilter = _.where($scope.filters, {'key': 'conformanceState'})[0];
       var item = _.where(stateFilter.collection, {'code': code})[0];
