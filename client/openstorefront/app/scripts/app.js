@@ -49,7 +49,7 @@ var app = angular
     // addOnEnter: false
   })
   .setDefaults('autoComplete', {
-    maxResultsToShow: 20
+    maxResultsToShow: 15
     // debounceDelay: 1000
   })
   .setActiveInterpolation('tagsInput', {
