@@ -25,7 +25,7 @@ var app = angular
 // Here we add the dependancies for the app
 .module('openstorefrontApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap', 'ngTagsInput'])
 // Here we configure the route provider
-.config(function ($routeProvider) {
+.config(function ($routeProvider, tagsInputConfigProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'views/main.html',
@@ -41,6 +41,21 @@ var app = angular
   })
   .otherwise({
     redirectTo: '/'
+  });
+  tagsInputConfigProvider
+  .setDefaults('tagsInput', {
+    placeholder: 'Add a tag'
+    // Use this to disable the addition of tags outside the tag cloud:
+    // addOnEnter: false
+  })
+  .setDefaults('autoComplete', {
+    maxResultsToShow: 20
+    // debounceDelay: 1000
+  })
+  .setActiveInterpolation('tagsInput', {
+    placeholder: true,
+    addOnEnter: true,
+    removeTagSymbol: true
   });
 })
 // here we add the .run function for intial setup and other useful functions

@@ -205,8 +205,6 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   * This function removes the inherent filter (if you click on apps, types no longer applies etc)
   ***************************************************************/
   var adjustFilters = function() {
-    console.log('$scope.searchGroup', $scope.searchGroup[0].key);
-    
     if ($scope.searchGroup[0].key) {
       $scope.filters = _.reject($scope.filters, function(item) {
         return item.key === $scope.searchGroup[0].key;
