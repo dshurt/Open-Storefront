@@ -17,8 +17,10 @@
 
 /* global setPageHeight, setPageMargin, setRightOpenWidth, 
 fullClick:true, filtClick:true, openClick:true, floatBelowTop, moveButtons,
-setLeftOpenWidth, resetAnimations, resetAnimGlobals*/
+setLeftOpenWidth, resetAnimations, resetAnimGlobals, unStretchFilterbutton,
+closeFilter */
 
+/* exported setupResults */
 var setupResults = function(){
   /**********************
   * This handles the animation for the filter button.
@@ -103,7 +105,7 @@ var setupResults = function(){
         unStretchFilterbutton();
         closeFilter(filters, results, details, paginationDiv, windowWidth);
         filtClick = 0;
-      } 
+      }
     }
     setPageHeight($('.resultsContainer'), 0);
     setRightOpenWidth(details);
@@ -126,4 +128,4 @@ var setupResults = function(){
     //resize the animations when the window size changes
     resizeAnimations();
   });
-}
+};

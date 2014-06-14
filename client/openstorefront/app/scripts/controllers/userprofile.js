@@ -25,12 +25,15 @@ app.controller('UserProfileCtrl', ['$scope', 'business', '$rootScope', function(
   $scope.watches          = Business.getWatches();
   $scope.total            = Business.getData();
   $scope.feedbackDetails  = [
+    //
     {'id':'1','date':'Jan 4, 2014 8:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jim Calhoun'},
     {'id':'2','date':'01/05/2014 9:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jill Calhoun'},
-    {'id':'3','date':'01/06/2014 10:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jay Calhoun'}/*,
+    {'id':'3','date':'01/06/2014 10:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jay Calhoun'}
+    /*,
     {'id':'4','date':'01/07/2014 11:25 am','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jade Calhoun'},
     {'id':'5','date':'01/08/2014 12:25 pm','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'Jesse Calhoun'},
     {'id':'6','date':'01/09/2014 8:25 pm','comments':'This VANTAGE WESS OZONE Widget is really cool','author':'JaLayne Calhoun'}*/
+  //
   ];
   $scope.user             = {
     'userName': 'John Q. Sample',
@@ -41,38 +44,42 @@ app.controller('UserProfileCtrl', ['$scope', 'business', '$rootScope', function(
   $scope.userBackup       = jQuery.extend(true, {}, $scope.user);
   var immageHack          = 0;
   var images              = [
+    //
     'images/wess_logo.png',
     'images/core-map-api.png',
     'images/maps-icon.png'
+  //
   ];
 
- $scope.nav = {
+  $scope.nav = {
     'current': null,
     'bars': [
-    {
-      'title': 'User Profile',
-      'include': 'views/userprofiletab.html'
-    },
-    {
-      'title': 'Watches',
-      'include': 'views/watchestab.html'
-    },
-    {
-      'title': 'Component Feedback',
-      'include': 'views/feedbacktab.html'
-    }
+      //
+      {
+        'title': 'User Profile',
+        'include': 'views/userprofiletab.html'
+      },
+      {
+        'title': 'Watches',
+        'include': 'views/watchestab.html'
+      },
+      {
+        'title': 'Component Feedback',
+        'include': 'views/feedbacktab.html'
+      }
+    //
     ]
   };
 
-$rootScope.$on('$profileModal', function(event) {
+  $rootScope.$on('$profileModal', function(event) { /*jshint unused: false*/
     if ($rootScope.current) {
       $scope.nav.current = $rootScope.current;
     } else {
-      $scope.nav.current = "User Profile";
+      $scope.nav.current = 'User Profile';
     }
     resetData();
     // we re-initialize anything else here
- 
+
   });
 
   /***************************************************************

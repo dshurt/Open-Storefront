@@ -15,9 +15,30 @@
 */
 'use strict';
 
-app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$rootScope', function ($scope, Business, localCache, $location, $rootScope) {
+/*global setupMain*/
+
+app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$rootScope', '$timeout', function ($scope, Business, localCache, $location, $rootScope, $timeout) {/*jshint unused: false*/
   // Here we grab the rootScope searchkey in order to preserve the last search
   $scope.searchKey  = $rootScope.searchKey;
+  $scope.typeahead  = null;
+
+
+  /***************************************************************
+  * Set up typeahead, and then watch for selection made
+  ***************************************************************/
+  if ($rootScope.typeahead) {
+    $scope.typeahead  = $rootScope.typeahead;
+  } else {
+    $scope.typeahead  = Business.typeahead(Business.getData, 'name');
+  }
+
+  /***************************************************************
+  * Catch the enter/select event here
+  ***************************************************************/
+  $scope.$on('$typeahead.select', function(event, value, index) {
+    $scope.goToSearch('search', $scope.searchkey);
+    $scope.$apply();
+  });
   
   // Set up the main controller's variables.
   $scope._scopename = 'main';
@@ -26,23 +47,20 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   // grab the custom filters (aka groups).
   $scope.filters    = Business.getFilters();
 
-  // currently this is hard coded, but this controller could be adjusted 
-  // to do all of this dynamically.
-  // $scope.types            = $scope.filters[0].collection;
-  // $scope.categories       = $scope.filters[1].collection;
-  // $scope.states           = $scope.filters[2].collection;
-  // $scope.typesTitle       = 'Browse Types';
-  // $scope.categoriesTitle  = 'Browse Categories';
-  // $scope.statesTitle      = 'Browse States';
-
   /*******************************************************************************
   * This and the following functions send the user to the search filling the 
   * data object with the search key 
   * params: type -- This is the code of the type that was clicked on
   *******************************************************************************/
   $scope.goToSearch = function(searchType, searchKey){ /*jshint unused:false*/
-    Business.search(searchType, searchKey);
-    $location.path('/results');
+    if (searchType === 'search') {
+      console.log('Search save', Business.search(searchType, $scope.searchKey));
+      $location.path('/results');
+    } else {
+      Business.search(searchType, searchKey);
+      $location.path('/results');
+    }
+    return;
   };
 
   /*******************************************************************************
@@ -51,10 +69,14 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   * params: param name -- param description
   * returns: Return name -- return description
   *******************************************************************************/
+  $rootScope.$watch('searchKey', function() {
+    $scope.searchKey = $rootScope.searchKey;
+  });
   $scope.$watch('searchKey', function() {
     $rootScope.searchKey = $scope.searchKey;
   });
 
+  // this calls the setup for the page-specific js
   setupMain();
 
 }]);

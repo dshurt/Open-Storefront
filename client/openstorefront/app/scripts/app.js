@@ -15,7 +15,7 @@
 */
 'use strict';
 
-/* global setupTypeahead, resetAnimGlobals*/
+/* global resetAnimGlobals */
 /* exported app */
 
 /***************************************************************
@@ -23,9 +23,9 @@
 ***************************************************************/
 var app = angular
 // Here we add the dependancies for the app
-.module('openstorefrontApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', ])
+.module('openstorefrontApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap', 'ngTagsInput'])
 // Here we configure the route provider
-.config(function ($routeProvider) {
+.config(function ($routeProvider, tagsInputConfigProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'views/main.html',
@@ -42,9 +42,24 @@ var app = angular
   .otherwise({
     redirectTo: '/'
   });
+  tagsInputConfigProvider
+  .setDefaults('tagsInput', {
+    placeholder: 'Add a tag (single space for suggestions)'
+    // Use this to disable the addition of tags outside the tag cloud:
+    // addOnEnter: false
+  })
+  .setDefaults('autoComplete', {
+    maxResultsToShow: 15
+    // debounceDelay: 1000
+  })
+  .setActiveInterpolation('tagsInput', {
+    placeholder: true,
+    addOnEnter: true,
+    removeTagSymbol: true
+  });
 })
 // here we add the .run function for intial setup and other useful functions
-.run(['$rootScope', 'localCache', '$location', '$route', function ($rootScope, localCache, $location, $route) {
+.run(['$rootScope', 'localCache', 'business', '$location', '$route', function ($rootScope, localCache, Business, $location, $route) {/* jshint unused: false*/
 
   //We must initialize global scope variables.
   $rootScope.Current = null;
@@ -65,6 +80,7 @@ var app = angular
     if (current && current.loadedTemplateUrl === 'views/results.html') {
       resetAnimGlobals();
     }
+
     setTimeout(function () {
       $('.searchBar:input[type=\'text\']').on('click', function () {
         $(this).select();
@@ -78,7 +94,7 @@ var app = angular
   * class 'typeahead'
   ***************************************************************/
   $rootScope.$on('$viewContentLoaded', function() {
-    setupTypeahead();
+    $rootScope.typeahead = Business.typeahead();
   });
 
   /***************************************************************
@@ -93,7 +109,7 @@ var app = angular
     $rootScope.current = current;
     $rootScope.$broadcast('$' + id);
     $rootScope.$broadcast('$viewModal', id);
-  }
+  };
 
 
 }]);

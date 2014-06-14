@@ -28,6 +28,7 @@ limitations under the License.
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css({.tmp,app}) styles/main.css -->
@@ -68,6 +69,9 @@ limitations under the License.
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+  <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+  <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -93,20 +97,23 @@ limitations under the License.
   <!-- Grab our Filters -->
   <script type="text/javascript" src="scripts/filters/componentfilter.js"></script>
   <script type="text/javascript" src="scripts/filters/partition.js"></script>
+  <script type="text/javascript" src="scripts/filters/tagfilter.js"></script>
 
   <!-- Grab our page-specific stuff -->
   <script type="text/javascript" src="scripts/page_specific/main.js"></script>
   <script type="text/javascript" src="scripts/page_specific/results.js"></script>
+
+  <!-- Grab our common js -->
+  <script type="text/javascript" src="scripts/common/animations.js"></script>
+  <script type="text/javascript" src="scripts/common/common.js"></script>
+  <script type="text/javascript" src="scripts/common/sessionpolyfill.js"></script>
+  <script src="scripts/directives/enterevent.js"></script>
   <!-- endbuild -->
 
   <!-- THINGS IN THIS SECTION WILL NOT BE MINIFIED -->
   <!-- Grab our Common js -->
-  <script type="text/javascript" src="scripts/common/animations.js"></script>
-  <script type="text/javascript" src="scripts/common/common.js"></script>
+  <script type="text/javascript" src="scripts/common-min/raty.js"></script>
   <script type="text/javascript" src="scripts/common/data.js"></script>
-  <script type="text/javascript" src="scripts/common/raty.js"></script>
-  <script type="text/javascript" src="scripts/common/sessionpolyfill.js"></script>
-  <script type="text/javascript" src="scripts/common/typeahead.js"></script>
   <!-- THINGS IN THIS SECTION WILL NOT BE MINIFIED -->
 
   <!-- This is the results description modal (the contents are handled in this controller) -->
