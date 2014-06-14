@@ -33,7 +33,7 @@ import javax.ws.rs.core.MediaType;
  * @author dshurtleff
  */
 @Path("{version}/Lookup/{type}")
-@APIDescription(description = "Test")
+@APIDescription("Test")
 public class LookupResouce
 	extends BaseResource
 {

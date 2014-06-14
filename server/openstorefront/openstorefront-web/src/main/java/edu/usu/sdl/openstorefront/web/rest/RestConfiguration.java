@@ -23,7 +23,7 @@ import javax.ws.rs.core.Application;
  *
  * @author dshurtleff
  */
-@ApplicationPath("service")
+@ApplicationPath("api/resource")
 public class RestConfiguration
 	extends Application
 {

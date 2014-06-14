@@ -48,7 +48,7 @@ public abstract class BaseAction
 	
 	protected static  ObjectMapper objectMapper =  new ObjectMapper();
 	
-	protected ActionBeanContext actionBeanContext;
+	protected ActionBeanContext context;
 	protected String projectId;
 		
 	protected final OpenStorefrontService service = ServiceProxy.getProxy();	
@@ -186,13 +186,13 @@ public abstract class BaseAction
 	@Override
 	public void setContext(ActionBeanContext abc)
 	{
-		actionBeanContext = abc;
+		context = abc;
 	}
 
 	@Override
 	public ActionBeanContext getContext()
 	{
-		return actionBeanContext;
+		return context;
 	}
 
 	public String getProjectId()

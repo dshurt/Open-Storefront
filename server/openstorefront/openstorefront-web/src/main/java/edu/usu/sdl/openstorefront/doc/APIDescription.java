@@ -31,5 +31,5 @@ import java.lang.annotation.Target;
 @Documented
 public @interface APIDescription
 {
-		String description();
+		String value();
 }
