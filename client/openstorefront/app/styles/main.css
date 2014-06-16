@@ -235,6 +235,20 @@ span.twitter-typeahead {
 /************************************************ 
 *************************************************/
 
+.chromeframe {
+  text-align: center;
+  background: #d63d3d;
+  padding: 20px;
+  border:1px solid darkgray;
+}
+
+.chromeframe a{
+  color: inherit;
+}
+
+.chromeframe a:hover{
+  color: #ffffff;
+}
 
 .boxsizingBorder {
   width:100%;
