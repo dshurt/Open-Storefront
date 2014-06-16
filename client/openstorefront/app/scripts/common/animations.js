@@ -236,7 +236,7 @@ var closeDetails = function(results, details, windowWidth) {
 var openFullDetails = function(results, details, windowWidth) {
   details.css({'display': 'inherit'});
   results.stop(true, true).animate({
-    'width': '0px',
+    'width': '0px'
   }, 200 , function() {
     results.css({'display': 'none'});
     details.css({'margin-top': '0px'});
@@ -289,7 +289,7 @@ var openFilter = function (filters, results, details, paginationDiv, windowWidth
   setPageMargin(details, -offset);
   if (openClick === 1) {
     results.stop(true, true).animate({
-      'margin-left': '250px',
+      'margin-left': '250px'
     }, 200 , function() {});
     paginationDiv.stop(true, true).animate({
       'margin-right':'-250px'
