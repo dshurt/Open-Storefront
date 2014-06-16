@@ -188,6 +188,33 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     toggleclass(id, className);
   };
 
+
+  $scope.setupModal = function(classNames) {
+    var deferred = $q.defer();
+    if (classNames !== '') {
+      $scope.classes = classNames;
+      $scope.nav = {
+        'current': 'Reviews',
+        'bars': [
+          {
+            'title': 'Reviews',
+            'include': 'views/reviews/reviews.html'
+          },
+          {
+            'title': 'Write a Review',
+            'include': 'views/reviews/newfeedback.html'
+          }
+        ]
+      };
+      deferred.resolve();
+    } else {
+      $scope.classes = '';
+      $scope.nav = '';
+      deferred.resolve();
+    }
+    return deferred.promise;
+  };
+
   /***************************************************************
   * Event for callSearch caught here. This is triggered by the nav
   * search bar when you are already on the results page.
