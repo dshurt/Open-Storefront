@@ -17,6 +17,10 @@ html, .resultsContainer {
   overflow: hidden;
 }
 
+.filterBack {
+  background: white;
+}
+
 .filters{
   position: absolute;
   top: 52px;
