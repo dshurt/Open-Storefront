@@ -379,6 +379,14 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   };
 
   /***************************************************************
+  * This function saves a component's tags
+  ***************************************************************/
+  $scope.saveTags = function(id, tags){
+    Business.saveTags(id, tags);
+    $scope.applyFilters();
+  };
+
+  /***************************************************************
   * This function removes a component to the watch list and toggles the buttons
   ***************************************************************/
   $scope.removeFromWatches = function(id){

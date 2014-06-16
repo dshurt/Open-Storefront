@@ -31,7 +31,7 @@ limitations under the License.
       <input type="text" id="searchFilter" class="form-control" placeholder="Search" ng-model="query" ng-options="key for key in typeahead" bs-typeahead/>
       <br>
       <label for="tagsFilter">Filter By Tag: </label>
-      <tags-input class="bootstrap" min-length="1" ng-model="tagsFilter" replace-spaces-with-dashes="false" add-from-autocomplete-only="true" on-tag-added="applyFilters()" on-tag-removed="applyFilters()"><auto-complete min-length="1" source="checkTagsList($query, tagsFilter)"></auto-complete></tags-input>
+      <tags-input class="bootstrap" min-length="1" ng-model="tagsFilter" replace-spaces-with-dashes="false" add-from-autocomplete-only="true" on-tag-added="applyFilters();" on-tag-removed="applyFilters();"><auto-complete min-length="1" source="checkTagsList($query, tagsFilter)"></auto-complete></tags-input>
     </div>
     <div ng-class='{lastFilter:$last}' class="filterTableDiv" ng-repeat="filter in filters">
       <table class="table filterTable">
@@ -186,7 +186,7 @@ limitations under the License.
             <strong>
               Tags:
             </strong>
-            <tags-input class="bootstrap" min-length="1" ng-model="details.assetTags" replace-spaces-with-dashes="false"><auto-complete min-length="1" source="checkTagsList($query, details.assetTags)"></auto-complete></tags-input>
+            <tags-input class="bootstrap" min-length="1" ng-model="details.assetTags" replace-spaces-with-dashes="false" on-tag-added="saveTags(details.id, details.assetTags);" on-tag-removed="saveTags(details.id, details.assetTags);"><auto-complete min-length="1" source="checkTagsList($query, details.assetTags)"></auto-complete></tags-input>
           </div>
         </div>
       </div>
