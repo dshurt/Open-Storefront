@@ -42,40 +42,19 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
     return MOCKDATA.watches;
   };
 
+  business.saveTags = function(id, tags) {
+    var a = _.findWhere(MOCKDATA.assets.assets, {'id': id});
+    if (a === undefined  || isEmpty(a)) {
+      a.assetTags = tags;
+    }
+    return true;
+  }
+
   business.setWatches = function(watches){
     MOCKDATA.watches = watches;
     return true;
   };
 
-  business.typeahead = function(target, pluckItem){
-    var collection = null;
-    var result = localCache.get('typeahead', 'object');
-    if (result) {
-      var cacheTime = localCache.get('typeahead-time', 'date');
-      var timeDiff = new Date() - cacheTime;
-      // expire time is set to a day here
-      if (timeDiff < expireTime * 1440) {
-        return result;
-      } else if (target) {
-        collection = target();
-        if (pluckItem !== undefined && pluckItem !== null) {
-          collection = _.pluck(collection, pluckItem);
-        }
-      } else {
-        collection = _.pluck(this.getData(), 'name');
-      }
-    } else {
-      collection = _.pluck(this.getData(), 'name');
-    }
-    if (collection) {
-      localCache.save('typeahead', collection);
-      localCache.save('typeahead-time', new Date());
-      return collection;
-    } else {
-      throw new Error('We need a new target in order to refresh the data');
-    }
-  };
-  
   business.search = function(type, key, wait){
     var deferred = $q.defer();
     var searchKey = null;
@@ -116,6 +95,36 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
     }
     return searchKey;
   };
+
+  business.typeahead = function(target, pluckItem){
+    var collection = null;
+    var result = localCache.get('typeahead', 'object');
+    if (result) {
+      var cacheTime = localCache.get('typeahead-time', 'date');
+      var timeDiff = new Date() - cacheTime;
+      // expire time is set to a day here
+      if (timeDiff < expireTime * 1440) {
+        return result;
+      } else if (target) {
+        collection = target();
+        if (pluckItem !== undefined && pluckItem !== null) {
+          collection = _.pluck(collection, pluckItem);
+        }
+      } else {
+        collection = _.pluck(this.getData(), 'name');
+      }
+    } else {
+      collection = _.pluck(this.getData(), 'name');
+    }
+    if (collection) {
+      localCache.save('typeahead', collection);
+      localCache.save('typeahead-time', new Date());
+      return collection;
+    } else {
+      throw new Error('We need a new target in order to refresh the data');
+    }
+  };
+  
 
 
   return business;
