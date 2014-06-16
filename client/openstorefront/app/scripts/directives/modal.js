@@ -59,12 +59,6 @@ angular.module('openstorefrontApp')
         scope.classes = attrs.modalclasses;
       }
 
-      scope.$watch('body', function() {
-        console.log('Body Changed');
-        console.log('Body', scope.body);
-        
-      });
-
     }
   };
 });
