@@ -16,7 +16,7 @@
 'use strict';
 
 
-/* exported setupPopovers, setupTypeahead, isEmpty*/
+/* exported setupPopovers, setupTypeahead, isEmpty, toggleclass*/
 
 /*****************************
 * This function sets up the popovers for the results page, but could be 
@@ -29,6 +29,12 @@ var setupPopovers = function() {
     $('.lastPopover[data-toggle=\'popover\']').last().popover({trigger: 'hover','placement': 'top', 'html': true});
   }
   $('[data-toggle=\'popover\']').popover({trigger: 'hover','placement': 'bottom', 'html': true});
+};
+
+
+
+var toggleclass = function(id, className) {
+  $('#'+id).toggleClass(className);
 };
 
 /***************************************************************

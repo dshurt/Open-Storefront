@@ -16,13 +16,14 @@
 'use strict';
 
 /* global isEmpty, setupPopovers, openClick:true, setupResults, moveButtons,
-fullClick, openFiltersToggle, buttonOpen, buttonClose*/
+fullClick, openFiltersToggle, buttonOpen, buttonClose, toggleclass*/
 
 app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', '$q', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope, $q) {
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
   $scope.tagsList           = Business.getTagsList();
   $scope.tagsList.sort();
+
   /***************************************************************
   * This function is looked at for auto suggestions for the tag list
   * if a ' ' is the user's entry, it will auto suggest the next 20 tags that
@@ -179,6 +180,13 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     });
   };
 
+  /***************************************************************
+  * This function is used by the reviews section in the details to remove
+  * and add the ellipsis
+  ***************************************************************/
+  $scope.toggleclass = function(id, className) {
+    toggleclass(id, className);
+  };
 
   /***************************************************************
   * Event for callSearch caught here. This is triggered by the nav

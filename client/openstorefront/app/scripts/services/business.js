@@ -42,7 +42,7 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
   
   business.getTagsList = function(){
     return MOCKDATA.tagsList;
-  }
+  };
 
   business.getWatches = function(){
     return MOCKDATA.watches;
@@ -140,7 +140,7 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
       }
     });
     MOCKDATA.tagsList.sort();
-  }
+  };
   
 
 
