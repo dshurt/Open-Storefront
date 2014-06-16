@@ -234,6 +234,10 @@ width: 100%;
   width: auto;
 }
 
+.component-div.full,
+.component-div-title.full{
+  border-left: 1px lightgray solid;
+}
 .screenshot{
   width: 300px;
 }
