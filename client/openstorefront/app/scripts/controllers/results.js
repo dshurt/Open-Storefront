@@ -63,6 +63,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   $scope.filters            = null;
   $scope.total              = null;
   $scope.watches            = null;
+  $scope.ratingsFilter      = 0;
 
 
   /***************************************************************
@@ -315,6 +316,17 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     $scope.applyFilters();
   });
 
+  /***************************************************************
+  * This function is used to watch the query variable. When it changes
+  * re-filter the data
+  ***************************************************************/
+  $scope.$watch('ratingsFilter',function(val, old){ /* jshint unused:false */
+    console.log('Ratings changed');
+    
+    $scope.applyFilters();
+
+  });
+
   $scope.$on('$descModal', function(event) { /*jshint unused: false*/
     // re-initialize the modal content here if we must
   });
@@ -440,12 +452,14 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     // We must use recursive filtering or we will get incorrect results
     // the order DOES matter here.
     $filter('orderBy')
+    ($filter('ratingFilter')
     ($filter('tagFilter')
     ($filter('componentFilter')
       ($filter('filter')($scope.total, $scope.query),
     // filter the data by the query and return the result to the componentFilter input
     $scope.filters),
     $scope.tagsFilter),
+    $scope.ratingsFilter),
     // then use the componentFilter returned data as the input to the order-by filter
     $scope.orderProp);
 
