@@ -27,7 +27,9 @@ angular.module('openstorefrontApp')
       var parent = scope.$parent;
 
       parent.$on('updateBody', function(event) { /* jshint unused: false */
-        scope.nav = parent.nav;
+        if (parent.nav !== undefined && parent.nav !== null) {
+          scope.nav = parent.nav;
+        }
         scope.body = null;
         scope.body = 'views/modalDefaults/body.html';
         if (parent.classes !== undefined && parent.classes !== null) {
