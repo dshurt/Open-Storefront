@@ -15,6 +15,8 @@
 */
 'use strict';
 
+/*global isEmpty*/
+
 app.factory('business', ['localCache', '$http', '$q', function (localCache, $http, $q) { /*jshint unused: false*/
   // 60 seconds until expiration
   var expireTime = 60 * 1000;
@@ -48,7 +50,7 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
       a.assetTags = tags;
     }
     return true;
-  }
+  };
 
   business.setWatches = function(watches){
     MOCKDATA.watches = watches;
