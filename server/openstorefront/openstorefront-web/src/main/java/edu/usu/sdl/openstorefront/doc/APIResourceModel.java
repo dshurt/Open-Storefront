@@ -16,23 +16,24 @@
 
 package edu.usu.sdl.openstorefront.doc;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author dshurtleff
  */
-public class APIDocModel
+public class APIResourceModel
 {
 	private String resourceName;
 	private String resourceDescription;
 	private String className;
-	private String restMethod;
-	private String methodDescription;
 	private String resourcePath;
-	private String methodPath;
-	private String returnObject;
-	private String requiresAdmin;
+	private boolean requireAdmin;
+	private List<APIParamModel> resourceParams = new ArrayList<>();
+	private List<APIMethodModel> methods = new ArrayList<>();
 
-	public APIDocModel()
+	public APIResourceModel()
 	{
 	}
 
@@ -66,25 +67,6 @@ public class APIDocModel
 		this.className = className;
 	}
 
-	public String getRestMethod()
-	{
-		return restMethod;
-	}
-
-	public void setRestMethod(String restMethod)
-	{
-		this.restMethod = restMethod;
-	}
-
-	public String getMethodDescription()
-	{
-		return methodDescription;
-	}
-
-	public void setMethodDescription(String methodDescription)
-	{
-		this.methodDescription = methodDescription;
-	}
 
 	public String getResourcePath()
 	{
@@ -96,34 +78,34 @@ public class APIDocModel
 		this.resourcePath = resourcePath;
 	}
 
-	public String getMethodPath()
+	public boolean getRequireAdmin()
 	{
-		return methodPath;
+		return requireAdmin;
 	}
 
-	public void setMethodPath(String methodPath)
+	public void setRequireAdmin(boolean requireAdmin)
 	{
-		this.methodPath = methodPath;
+		this.requireAdmin = requireAdmin;
 	}
 
-	public String getReturnObject()
+	public List<APIParamModel> getResourceParams()
 	{
-		return returnObject;
+		return resourceParams;
 	}
 
-	public void setReturnObject(String returnObject)
+	public void setResourceParams(List<APIParamModel> resourceParams)
 	{
-		this.returnObject = returnObject;
+		this.resourceParams = resourceParams;
 	}
 
-	public String getRequiresAdmin()
+	public List<APIMethodModel> getMethods()
 	{
-		return requiresAdmin;
+		return methods;
 	}
 
-	public void setRequiresAdmin(String requiresAdmin)
+	public void setMethods(List<APIMethodModel> methods)
 	{
-		this.requiresAdmin = requiresAdmin;
+		this.methods = methods;
 	}
 
 }

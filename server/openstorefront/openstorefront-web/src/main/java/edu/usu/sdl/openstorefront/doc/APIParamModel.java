@@ -20,15 +20,16 @@ package edu.usu.sdl.openstorefront.doc;
  *
  * @author dshurtleff
  */
-public class APIdocParamModel
+public class APIParamModel
 {
 	private String parameterName;
 	private String parameterDescription;
 	private boolean required;
 	private String defaultValue;
 	private String restrictions;
-
-	public APIdocParamModel()
+	private String parameterType;
+	
+	public APIParamModel()
 	{
 	}
 
@@ -81,8 +82,15 @@ public class APIdocParamModel
 	{
 		this.restrictions = restrictions;
 	}
-	
-	
-	
-	
+
+	public String getParameterType()
+	{
+		return parameterType;
+	}
+
+	public void setParameterType(String parameterType)
+	{
+		this.parameterType = parameterType;
+	}
+		
 }
