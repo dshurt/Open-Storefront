@@ -26,36 +26,63 @@ MOCKDATA.feedback = {
 
 };
 
+MOCKDATA.tagsList = [
+  //
+  'Application',
+  'Data Transformation',
+  'Data Validation',
+  'Development Tool',
+  'Enterprise Services',
+  'IDE',
+  'Image Search',
+  'Image Mapping',
+  'Java',
+  'Planning and Direction',
+  'Reference Document',
+  'Reference Documentation',
+  'Software Libraries',
+  'Software Library',
+  'Visualization',
+  'Widget',
+  'Widgets',
+  '#architecture',
+  '#developement',
+  '#maps',
+  '#pluggable',
+  '#trending',
+  '#webdesign'
+//
+];
 
 MOCKDATA.watches = [
-  {
-    'id': 72,
-    'watched': true
-  },
-  {
-    'id': 1,
-    'watched': true
-  },
-  {
-    'id': 45,
-    'watched': true
-  },
-  {
-    'id': 99,
-    'watched': false
-  },
-  {
-    'id': 66,
-    'watched': true
-  },
-  {
-    'id': 52,
-    'watched': true
-  },
-  {
-    'id': 4,
-    'watched': true
-  }
+{
+  'id': 72,
+  'watched': true
+},
+{
+  'id': 1,
+  'watched': true
+},
+{
+  'id': 45,
+  'watched': true
+},
+{
+  'id': 99,
+  'watched': false
+},
+{
+  'id': 66,
+  'watched': true
+},
+{
+  'id': 52,
+  'watched': true
+},
+{
+  'id': 4,
+  'watched': true
+}
 ];
 
 MOCKDATA.filters = [];

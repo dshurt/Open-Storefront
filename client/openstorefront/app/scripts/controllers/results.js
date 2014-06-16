@@ -21,34 +21,8 @@ fullClick, openFiltersToggle, buttonOpen, buttonClose*/
 app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', '$q', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope, $q) {
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
-  $scope.tagsList = [
-    //
-    'Application',
-    'Data Transformation',
-    'Data Validation',
-    'Development Tool',
-    'Enterprise Services',
-    'IDE',
-    'Image Search',
-    'Image Mapping',
-    'Java',
-    'Planning and Direction',
-    'Reference Document',
-    'Reference Documentation',
-    'Software Libraries',
-    'Software Library',
-    'Visualization',
-    'Widget',
-    'Widgets',
-    '#architecture',
-    '#developement',
-    '#maps',
-    '#pluggable',
-    '#trending',
-    '#webdesign'
-  //
-  ];
-
+  $scope.tagsList           = Business.getTagsList();
+  $scope.tagsList.sort();
   /***************************************************************
   * This function is looked at for auto suggestions for the tag list
   * if a ' ' is the user's entry, it will auto suggest the next 20 tags that
