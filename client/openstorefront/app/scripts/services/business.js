@@ -15,6 +15,8 @@
 */
 'use strict';
 
+/*global isEmpty*/
+
 app.factory('business', ['localCache', '$http', '$q', function (localCache, $http, $q) { /*jshint unused: false*/
   // 60 seconds until expiration
   var expireTime = 60 * 1000;
@@ -38,17 +40,22 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
     });
   };
   
+  business.getTagsList = function(){
+    return MOCKDATA.tagsList;
+  }
+
   business.getWatches = function(){
     return MOCKDATA.watches;
   };
 
   business.saveTags = function(id, tags) {
     var a = _.findWhere(MOCKDATA.assets.assets, {'id': id});
+    business.updateTagCloud(tags);
     if (a === undefined  || isEmpty(a)) {
       a.assetTags = tags;
     }
     return true;
-  }
+  };
 
   business.setWatches = function(watches){
     MOCKDATA.watches = watches;
@@ -124,6 +131,16 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
       throw new Error('We need a new target in order to refresh the data');
     }
   };
+
+  business.updateTagCloud = function(tags) {
+    console.log('tags', tags);
+    _.each(tags, function(tag) {
+      if (!_.contains(MOCKDATA.tagsList, tag.text)) {
+        MOCKDATA.tagsList.push(tag.text);
+      }
+    });
+    MOCKDATA.tagsList.sort();
+  }
   
 
 
