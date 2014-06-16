@@ -311,7 +311,7 @@ limitations under the License.
           <raty id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="4" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
           </raty>
           <strong style="font-size: 14px;">&dash;I would recommend this component&dash;</strong>
-          <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-1', 'detailsReview')"><i class='fa fa-ellipsis-h'></i></button></div>
+          <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-1', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
         </H3>
       </div>
       <div class="col-sm-6">
@@ -338,7 +338,7 @@ limitations under the License.
         </p>
       </div>
       <div class="col-sm-12">
-        <div id="detailsReview-1" class="detailsReview">
+        <div id="detailsReview-1" class="detailsPadding detailsReview">
           <p>
             This is my review commentary. Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut.
           </p>
@@ -355,7 +355,7 @@ limitations under the License.
           <raty id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="1" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
           </raty>
           <strong style="font-size: 14px;">&dash;I would NOT recommend this component&dash;</strong>
-          <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-2', 'detailsReview')"><i class='fa fa-ellipsis-h'></i></button></div>
+          <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-2', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
         </H3>
       </div>
       <div class="col-sm-6">
@@ -382,12 +382,12 @@ limitations under the License.
         </p>
       </div>
       <div class="col-sm-12">
-        <div id="detailsReview-2" class="detailsReview">
-          <p>
-            This is my negative review commentary. Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
+        <div id="detailsReview-2" class="detailsPadding detailsReview">
+          <p> 
+            This is my negative review commentary. <!--Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
           </p>
           <p>
-            Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut.
+            Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut. -->
           </p>
         </div>
       </div>
