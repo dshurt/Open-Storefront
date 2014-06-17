@@ -273,8 +273,8 @@ span.twitter-typeahead {
 
 /*  Use these instead if you want to use FontAwesome instead of the raty font
 The rest work the same
-
-.cancel-on-png:before {
+*/
+/*.cancel-on-png:before {
   content: "\f057";
 }
 
@@ -283,7 +283,8 @@ The rest work the same
 }
 */
 
-
+/*Use these instead if you want to use the raty font instead of the FontAwesome
+font. The rest are the same*/
 .cancel-on-png:before {
   content: "\e600";
 }
