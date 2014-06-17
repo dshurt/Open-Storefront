@@ -9,6 +9,9 @@
  *
  */
 
+// Code here will be linted with JSHint.
+/* jshint ignore:start */
+// Code here will be linted with ignored by JSHint.
 ;
 (function($) {
   'use strict';
@@ -644,3 +647,7 @@
   };
 
 })(jQuery);
+
+
+/* jshint ignore:end */
+

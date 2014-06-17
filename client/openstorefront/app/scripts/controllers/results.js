@@ -197,14 +197,16 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       $scope.nav = {
         'current': 'Reviews',
         'bars': [
-        {
-          'title': 'Reviews',
-          'include': 'views/reviews/reviews.html'
-        },
-        {
-          'title': 'Write a Review',
-          'include': 'views/reviews/newfeedback.html'
-        }
+          //
+          {
+            'title': 'Reviews',
+            'include': 'views/reviews/reviews.html'
+          },
+          {
+            'title': 'Write a Review',
+            'include': 'views/reviews/newfeedback.html'
+          }
+        //  
         ]
       };
       deferred.resolve();
