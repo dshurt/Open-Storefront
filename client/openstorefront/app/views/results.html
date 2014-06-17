@@ -41,7 +41,7 @@ limitations under the License.
       <raty class="average-raty" id="filterRating" style="min-width:110px; height: 100%;" score="{{ratingsFilter}}" ng-model="ratingsFilter" number="5" path="../../images/raty/">
       </raty>
     </div>
-    <div ng-class='{lastFilter:$last}' class="filterTableDiv" ng-repeat="filter in filters">
+    <div class="filterTableDiv" ng-repeat="filter in filters">
       <table class="table filterTable">
         <tr>
           <th class="filtersTd filtersTh" ng-click="toggleChecks(filter.collection)">{{filter.name}}</th>
@@ -55,6 +55,9 @@ limitations under the License.
           </td>
         </tr>
       </table>
+    </div>
+    <div class="lastFilter">
+      <button class="btn red btn-default col-sm-12" ng-click="clearFilters()">Clear Filters</button>
     </div>
   </div>
   <!-- END Filters Div -->

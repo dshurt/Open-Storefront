@@ -358,18 +358,26 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   /***************************************************************
   * This function handles toggleing filter checks per filter heading click.
   ***************************************************************/
-  $scope.toggleChecks = function(collection){
-    var master = false;
+  $scope.toggleChecks = function(collection, override){
+    var master = false
+    if (override === undefined || override === null || override === '') {
+      override = false;
+    }
+
     var found = _.where(collection, {'checked': true});
     
-    if (!isEmpty(found)) {
-      if (found.length !== collection.length) {
-        master = true;
-      } else {
-        master = false;
-      }
+    if (override) {
+      master = false;
     } else {
-      master = true;
+      if (!isEmpty(found)) {
+        if (found.length !== collection.length) {
+          master = true;
+        } else {
+          master = false;
+        }
+      } else {
+        master = true;
+      }
     }
     _.each(collection, function(item){
       item.checked = master;
@@ -450,12 +458,24 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     return '';
   };
 
+  $scope.clearFilters = function() {
+    $scope.orderProp = "";
+    $scope.ratingsFilter = null;
+    $scope.tagsFilter = null;
+    $scope.query = null;
+    _.each($scope.filters, function(item) {
+      $scope.toggleChecks(item.collection, true);
+    });
+    $scope.applyFilters();
+
+  }
+
   /***************************************************************
   * This function applies the filters that have been given to us to filter the
   * data with
   ***************************************************************/
   $scope.applyFilters = function() {
-    
+
     var results =
     // We must use recursive filtering or we will get incorrect results
     // the order DOES matter here.
