@@ -189,10 +189,9 @@ html, .resultsContainer {
   input[type=checkbox] + label{
     color: inherit;
   }
-  input[type=checkbox]:checked + label{
+  input[type=checkbox]:checked + label,  input[type=checkbox]:checked + span{
     color: #3892d3;
   }
-
 
   .filterCheckbox{
     margin: 2px 0px !important;

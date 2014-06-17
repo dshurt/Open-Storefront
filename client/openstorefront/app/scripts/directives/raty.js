@@ -31,10 +31,11 @@ app.directive('raty', function () {
           imagePath = attrs.path;
         }
 
-        scope.$watch(scope[attrs.ngmodel], function() {
-          console.log('The score changed');
-          
-        });
+        if (scope[attrs.ngmodel] !== undefined && scope[attrs.ngmodel] !== null && scope[attrs.ngmodel] !== '') {
+          scope.$watch(scope[attrs.ngmodel], function() {
+            // console.log('The score changed');
+          });
+        }
 
         $(elem).raty({
         // cancel      : false                                          // Creates a cancel button to cancel the rating.
@@ -71,12 +72,12 @@ app.directive('raty', function () {
         // targetText  : ''                                             // Default text setted on target.
         // targetType  : 'hint'                                         // Option to choose if target will receive hint o 'score' type.
         // starType    : 'img'                                          // The type of the star, img as default, could also be whatever element
-          
-          score: attrs.score,
-          number: attrs.number,
-          path: imagePath,
-          readOnly: readOnly,
-          cancel  : !readOnly,
+        
+        score: attrs.score,
+        number: attrs.number,
+        path: imagePath,
+        readOnly: readOnly,
+        cancel  : !readOnly,
           // cancelOff : 'cancel-custom-off.png',
           // cancelOn  : 'cancel-custom-on.png',
           noRatedMsg : 'This component hasn not been rated yet',
@@ -89,7 +90,7 @@ app.directive('raty', function () {
             scope.$apply();
           }
         });
-      }, true);
-    }
-  };
+}, true);
+}
+};
 });
