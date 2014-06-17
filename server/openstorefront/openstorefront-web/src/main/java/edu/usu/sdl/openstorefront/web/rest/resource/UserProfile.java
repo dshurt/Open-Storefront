@@ -30,7 +30,8 @@ import javax.ws.rs.PathParam;
  * @author dshurtleff
  */
 @Path("userprofiles/{id}")
-@APIDescription("A user profile contain information about the user and user specific data. A user profile is created at the time the user logins in.")
+@APIDescription("A user profile contain information about the user and user specific data. A user profile is created at the time the user logins in.<br>"
+		           + "Note: id can be set to \"CURRENTUSER\" to perform operations on the currently logged in user.")
 public class UserProfile
 {
 	private static final String DEFAULT_USER = "CURRENTUSER";

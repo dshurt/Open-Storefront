@@ -28,6 +28,7 @@ public class APIParamModel
 	private String defaultValue;
 	private String restrictions;
 	private String parameterType;
+	private String fieldName;
 	
 	public APIParamModel()
 	{
@@ -91,6 +92,16 @@ public class APIParamModel
 	public void setParameterType(String parameterType)
 	{
 		this.parameterType = parameterType;
+	}
+
+	public String getFieldName()
+	{
+		return fieldName;
+	}
+
+	public void setFieldName(String fieldName)
+	{
+		this.fieldName = fieldName;
 	}
 		
 }

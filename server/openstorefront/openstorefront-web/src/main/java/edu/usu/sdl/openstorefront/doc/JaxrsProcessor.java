@@ -30,6 +30,7 @@ import javax.ws.rs.MatrixParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -74,54 +75,61 @@ public class JaxrsProcessor
 		{
 			APIParamModel paramModel  = new APIParamModel();
 			paramModel.setParameterName(field.getName());
-			
-			aPIDescription = (APIDescription) field.getAnnotation(APIDescription.class);
-			if (aPIDescription != null)
-			{
-				paramModel.setParameterDescription(aPIDescription.value());
-			}
-			
-			ParameterRestrictions restrictions = (ParameterRestrictions) field.getAnnotation(ParameterRestrictions.class);
-			if (restrictions != null)
-			{
-				paramModel.setRestrictions(restrictions.value());				
-			}			
-			
-			RequiredParam requiredParam = (RequiredParam) field.getAnnotation(RequireAdmin.class);
-			if (requiredParam != null)
-			{
-				paramModel.setRequired(true);				
-			}			
-			
-			DefaultValue defaultValue = (DefaultValue) field.getAnnotation(DefaultValue.class);
-			if (requiredParam != null)
-			{
-				paramModel.setDefaultValue(defaultValue.value());				
-			}			
-			
+
 			QueryParam queryParam = (QueryParam) field.getAnnotation(QueryParam.class);
-			FormParam formParam = (FormParam) field.getAnnotation(FormParam.class);			
+			FormParam formParam = (FormParam) field.getAnnotation(FormParam.class);
 			MatrixParam matrixParam = (MatrixParam) field.getAnnotation(MatrixParam.class);
 			PathParam pathParam = (PathParam) field.getAnnotation(PathParam.class);
-			
+
 			if (queryParam != null)
 			{
-				paramModel.setParameterType(QueryParam.class.getSimpleName());				
+				paramModel.setParameterType(QueryParam.class.getSimpleName());
+				paramModel.setParameterName(queryParam.value());
 			}
 			if (formParam != null)
 			{
-				paramModel.setParameterType(FormParam.class.getSimpleName());				
+				paramModel.setParameterType(FormParam.class.getSimpleName());
+				paramModel.setParameterName(formParam.value());
 			}
 			if (matrixParam != null)
 			{
-				paramModel.setParameterType(MatrixParam.class.getSimpleName());				
-			}			
+				paramModel.setParameterType(MatrixParam.class.getSimpleName());
+				paramModel.setParameterName(matrixParam.value());
+			}
 			if (pathParam != null)
 			{
-				paramModel.setParameterType(PathParam.class.getSimpleName());				
-			}			
-			
-			resourceModel.getResourceParams().add(paramModel);
+				paramModel.setParameterType(PathParam.class.getSimpleName());
+			}
+
+			if (StringUtils.isNotBlank(paramModel.getParameterType()))
+			{
+
+				aPIDescription = (APIDescription) field.getAnnotation(APIDescription.class);
+				if (aPIDescription != null)
+				{
+					paramModel.setParameterDescription(aPIDescription.value());
+				}
+
+				ParameterRestrictions restrictions = (ParameterRestrictions) field.getAnnotation(ParameterRestrictions.class);
+				if (restrictions != null)
+				{
+					paramModel.setRestrictions(restrictions.value());
+				}
+
+				RequiredParam requiredParam = (RequiredParam) field.getAnnotation(RequireAdmin.class);
+				if (requiredParam != null)
+				{
+					paramModel.setRequired(true);
+				}
+
+				DefaultValue defaultValue = (DefaultValue) field.getAnnotation(DefaultValue.class);
+				if (requiredParam != null)
+				{
+					paramModel.setDefaultValue(defaultValue.value());
+				}
+
+				resourceModel.getResourceParams().add(paramModel);
+			}
 		}
 		
 		//methods
