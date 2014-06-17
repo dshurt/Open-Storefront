@@ -15,8 +15,7 @@
 */
 'use strict';
 
-angular.module('openstorefrontApp')
-.directive('raty', function () {
+app.directive('raty', function () {
   return {
     restrict: 'AE',
     link: function(scope, elem, attrs) {
