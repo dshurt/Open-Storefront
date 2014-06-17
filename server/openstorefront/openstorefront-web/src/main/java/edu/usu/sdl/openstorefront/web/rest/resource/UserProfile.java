@@ -21,6 +21,7 @@ import edu.usu.sdl.openstorefront.doc.RequireAdmin;
 import edu.usu.sdl.openstorefront.web.rest.model.UserProfileView;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -37,11 +38,13 @@ public class UserProfile
 	private static final String DEFAULT_USER = "CURRENTUSER";
 	
 	@PathParam("id")
+	@DefaultValue(DEFAULT_USER)
 	private String userId;
 	
 	@GET
 	@APIDescription("Get a list of user profiles or an user profile matching Id. ")
 	@RequireAdmin
+	
 	public List<UserProfileView> userProfiles()
 	{
 		List<UserProfileView> userProfileViews = new ArrayList<>();

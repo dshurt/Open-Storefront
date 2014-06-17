@@ -30,24 +30,61 @@ h1{
 
 table{
 	border: 1px black solid;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 table td,th {
 	padding-left: 5px;
 	padding-right: 5px;
+	
 }
 
 th {
 	color: white;
-	background-color: slategrey;
+	text-shadow: 2px 2px 2px black;
+	background-color: steelblue;
 	border: 1px lightgray solid;
 }
 td {
 border: 1px lightgray solid;		
-}	
+}
+
+tr:nth-child(odd) {
+	background-color: #eeeeee
+}
+
+tr:nth-child(even) {
+	background-color: white;
+}
+
 
 .apilist{
 	padding: 5px;
 }
 
+.resource-admin{
+	font-weight: bold;
+	background-color: red;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	text-align: center;	
+	padding: 3px;
+	border-radius: 3px;
+}
 
+.GET{
+	
+}
+
+.POST{
+	
+}
+
+.PUT{
+	
+}
+
+.DELETE{
+	
+}

@@ -22,5 +22,7 @@ package edu.usu.sdl.openstorefront.util;
  */
 public class OpenStorefrontConstant
 {
+	public static final String SORT_ASCENDING = "ASC";
+	public static final String SORT_DESCENDING = "DSC";
 	
 }

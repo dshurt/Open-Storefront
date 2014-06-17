@@ -26,10 +26,13 @@ import java.util.List;
 public class APIMethodModel
 {
 	private List<APIParamModel> methodParams = new ArrayList<>();
+	private String restMethod;
 	private String methodPath;
 	private String returnObject;
 	private String description;
 	private boolean requireAdmin;
+	private String producesTypes;
+	private String consumesTypes;
 
 	public APIMethodModel()
 	{
@@ -83,6 +86,36 @@ public class APIMethodModel
 	public void setRequireAdmin(boolean requireAdmin)
 	{
 		this.requireAdmin = requireAdmin;
+	}
+
+	public String getRestMethod()
+	{
+		return restMethod;
+	}
+
+	public void setRestMethod(String restMethod)
+	{
+		this.restMethod = restMethod;
+	}
+
+	public String getProducesTypes()
+	{
+		return producesTypes;
+	}
+
+	public void setProducesTypes(String producesTypes)
+	{
+		this.producesTypes = producesTypes;
+	}
+
+	public String getConsumesTypes()
+	{
+		return consumesTypes;
+	}
+
+	public void setConsumesTypes(String consumesTypes)
+	{
+		this.consumesTypes = consumesTypes;
 	}
 	
 	

@@ -25,9 +25,14 @@ limitations under the License.
         <title>API Details</title>
     </head>
     <body>
-        <a href="index.html">Back to Index</a><br>
+        <a href="index.jsp">Back to Index</a><br>
        <h1>${actionBean.resourceModel.resourceName}</h1>
 	      ${actionBean.resourceModel.resourceDescription}<br>
+	<c:if test="${!empty actionBean.resourceModel.requireAdmin}">
+		<br>
+		<span class="resource-admin">Requires Admin Privilege</span>	  
+	</c:if>	  
+	
 	<h3>Resource Path: ${actionBean.resourceModel.resourcePath}</h3>
 	<c:if test="${!empty actionBean.resourceModel.resourceParams}">
 		<h3>Resource Parameters: </h3>	  
@@ -36,7 +41,7 @@ limitations under the License.
 				<th>Parameter</th>
 				<th>Description</th>
 				<th>Required</th>
-				<th>Defaults</th>
+				<th>Default Value</th>
 				<th>Restrictions</th>
 				<th>Parameter Type</th>
 			</tr>		
@@ -55,16 +60,52 @@ limitations under the License.
 	</c:if>
 	<c:if test="${!empty actionBean.resourceModel.methods}">
 		<h2>Methods</h2>
-		<table width="100%" border="1">
+		<table width="100%">
 			<tr>
 				<th style='text-align: left;'>Method</th>
-				<th style='text-align: left;'>Security</th>
+				<th style='text-align: left;'>Requires Admin</th>
 				<th style='text-align: left;'>Description</th>
 				<th style='text-align: left;'>Path</th>
 				<th style='text-align: left;'>Parameters</th>				
-				<th style='text-align: left;'>Accept/Return Object</th>
+				<th style='text-align: left;'>Produces/Consumes Type(s)</th>
 			</tr>		
-		
+			<c:forEach var="item" items="${actionBean.resourceModel.methods}">
+			<tr>
+				<td><span class="${item.restMethod}">${item.restMethod}</span></td>
+				<td>${item.requireAdmin}</td>
+				<td>${item.description}</td>
+				<td>${actionBean.resourceModel.resourcePath}${item.methodPath}</td>
+				<td>
+					<c:if test="${!empty item.methodParams}">
+					<table>
+						<tr>
+							<th>Parameter</th>
+							<th>Description</th>
+							<th>Required</th>
+							<th>Defaults</th>
+							<th>Restrictions</th>
+							<th>Parameter Type</th>
+						</tr>		
+						<c:forEach var="item" items="${item.methodParams}">
+						<tr>
+							<td>${item.parameterName}</td>
+							<td>${item.parameterDescription}</td>
+							<td>${item.required}</td>
+							<td>${item.defaultValue}</td>
+							<td>${item.restrictions}</td>
+							<td>${item.parameterType}</td>				
+						</tr>
+						</c:forEach>
+					</table> 					
+					</c:if>
+				</td>
+				<td>
+					${item.producesTypes}
+					${item.consumesTypes}
+				</td>				
+			</tr>				
+			</c:forEach>
+		</table> 
 			
 	</c:if>
 	
