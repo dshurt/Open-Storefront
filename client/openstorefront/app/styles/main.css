@@ -307,6 +307,20 @@ The rest work the same
 
 
 
+.red.btn-default{
+  font-weight: bold;
+}
+
+.red.btn-default:hover,
+.red.btn-default:focus,
+.red.btn-default:active,
+.red.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  color: #333;
+  background-color: #c44848;
+  border-color: #555555;
+}
+
 
 
 

@@ -31,6 +31,11 @@ app.directive('raty', function () {
           imagePath = attrs.path;
         }
 
+        scope.$watch(scope[attrs.ngmodel], function() {
+          console.log('The score changed');
+          
+        });
+
         $(elem).raty({
         // cancel      : false                                          // Creates a cancel button to cancel the rating.
         // cancelClass : 'raty-cancel'                                  // Name of cancel's class.
