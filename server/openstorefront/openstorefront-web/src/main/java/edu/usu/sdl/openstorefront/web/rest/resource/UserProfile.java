@@ -25,6 +25,8 @@ import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
@@ -44,7 +46,7 @@ public class UserProfile
 	@GET
 	@APIDescription("Get a list of user profiles or an user profile matching Id. ")
 	@RequireAdmin
-	
+	@Produces({MediaType.APPLICATION_JSON})
 	public List<UserProfileView> userProfiles()
 	{
 		List<UserProfileView> userProfileViews = new ArrayList<>();
