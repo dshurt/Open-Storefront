@@ -21,7 +21,20 @@ angular.module('openstorefrontApp')
     restrict: 'AE',
     link: function(scope, elem, attrs) {
       attrs.$observe('score', function(data) { /*jshint unused:false*/
-        $(elem).raty({score: attrs.score, number: attrs.number, path: attrs.path});
+        var readOnly = false;
+        if (attrs.readOnly !== undefined && attrs.readOnly !== null){
+          readOnly = true;
+        }
+        $(elem).raty({
+          score: attrs.score, 
+          number: attrs.number, 
+          path: attrs.path,
+          readOnly: readOnly,
+          click: function(score, event) {
+            scope[attrs.ngModel] = score;
+            scope.$apply();
+          }
+        });
       }, true);
     }
   };

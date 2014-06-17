@@ -16,38 +16,13 @@
 'use strict';
 
 /* global isEmpty, setupPopovers, openClick:true, setupResults, moveButtons,
-fullClick, openFiltersToggle, buttonOpen, buttonClose*/
+fullClick, openFiltersToggle, buttonOpen, buttonClose, toggleclass*/
 
 app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', '$q', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope, $q) {
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
-  $scope.tagsList = [
-    //
-    'Application',
-    'Data Transformation',
-    'Data Validation',
-    'Development Tool',
-    'Enterprise Services',
-    'IDE',
-    'Image Search',
-    'Image Mapping',
-    'Java',
-    'Planning and Direction',
-    'Reference Document',
-    'Reference Documentation',
-    'Software Libraries',
-    'Software Library',
-    'Visualization',
-    'Widget',
-    'Widgets',
-    '#architecture',
-    '#developement',
-    '#maps',
-    '#pluggable',
-    '#trending',
-    '#webdesign'
-  //
-  ];
+  $scope.tagsList           = Business.getTagsList();
+  $scope.tagsList.sort();
 
   /***************************************************************
   * This function is looked at for auto suggestions for the tag list
@@ -88,6 +63,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   $scope.filters            = null;
   $scope.total              = null;
   $scope.watches            = null;
+  $scope.ratingsFilter      = 0;
 
 
   /***************************************************************
@@ -205,6 +181,40 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     });
   };
 
+  /***************************************************************
+  * This function is used by the reviews section in the details to remove
+  * and add the ellipsis
+  ***************************************************************/
+  $scope.toggleclass = function(id, className) {
+    toggleclass(id, className);
+  };
+
+
+  $scope.setupModal = function(classNames) {
+    var deferred = $q.defer();
+    if (classNames !== '') {
+      $scope.classes = classNames;
+      $scope.nav = {
+        'current': 'Reviews',
+        'bars': [
+          {
+            'title': 'Reviews',
+            'include': 'views/reviews/reviews.html'
+          },
+          {
+            'title': 'Write a Review',
+            'include': 'views/reviews/newfeedback.html'
+          }
+        ]
+      };
+      deferred.resolve();
+    } else {
+      $scope.classes = '';
+      $scope.nav = '';
+      deferred.resolve();
+    }
+    return deferred.promise;
+  };
 
   /***************************************************************
   * Event for callSearch caught here. This is triggered by the nav
@@ -306,6 +316,17 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     $scope.applyFilters();
   });
 
+  /***************************************************************
+  * This function is used to watch the query variable. When it changes
+  * re-filter the data
+  ***************************************************************/
+  $scope.$watch('ratingsFilter',function(val, old){ /* jshint unused:false */
+    console.log('Ratings changed');
+    
+    $scope.applyFilters();
+
+  });
+
   $scope.$on('$descModal', function(event) { /*jshint unused: false*/
     // re-initialize the modal content here if we must
   });
@@ -379,6 +400,14 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   };
 
   /***************************************************************
+  * This function saves a component's tags
+  ***************************************************************/
+  $scope.saveTags = function(id, tags){
+    Business.saveTags(id, tags);
+    $scope.applyFilters();
+  };
+
+  /***************************************************************
   * This function removes a component to the watch list and toggles the buttons
   ***************************************************************/
   $scope.removeFromWatches = function(id){
@@ -423,12 +452,14 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     // We must use recursive filtering or we will get incorrect results
     // the order DOES matter here.
     $filter('orderBy')
+    ($filter('ratingFilter')
     ($filter('tagFilter')
     ($filter('componentFilter')
       ($filter('filter')($scope.total, $scope.query),
     // filter the data by the query and return the result to the componentFilter input
     $scope.filters),
     $scope.tagsFilter),
+    $scope.ratingsFilter),
     // then use the componentFilter returned data as the input to the order-by filter
     $scope.orderProp);
 

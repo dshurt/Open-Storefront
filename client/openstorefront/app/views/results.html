@@ -18,7 +18,7 @@ limitations under the License.
 
 
   <!-- Filters Div -->
-  <div id="filters" class="filters">
+  <div id="filters" class="filters filterBack">
     <div class="filterTableDiv firstFilter">
       <label for="searchFilter">Sort By: </label>
       <select ng-model="orderProp" class="form-control">
@@ -31,7 +31,12 @@ limitations under the License.
       <input type="text" id="searchFilter" class="form-control" placeholder="Search" ng-model="query" ng-options="key for key in typeahead" bs-typeahead/>
       <br>
       <label for="tagsFilter">Filter By Tag: </label>
-      <tags-input class="bootstrap" min-length="1" ng-model="tagsFilter" replace-spaces-with-dashes="false" add-from-autocomplete-only="true" on-tag-added="applyFilters()" on-tag-removed="applyFilters()"><auto-complete min-length="1" source="checkTagsList($query, tagsFilter)"></auto-complete></tags-input>
+      <tags-input class="bootstrap" min-length="1" ng-model="tagsFilter" replace-spaces-with-dashes="false" add-from-autocomplete-only="true" on-tag-added="applyFilters();" on-tag-removed="applyFilters();"><auto-complete min-length="1" source="checkTagsList($query, tagsFilter)"></auto-complete></tags-input>
+      <br>
+      <label for="ratingsFilter">Filter By Rating: </label>
+      <br>
+      <raty id="filterRating" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="{{ratingsFilter}}" ng-model="ratingsFilter" number="5" path="../../images/raty/">
+      </raty>
     </div>
     <div ng-class='{lastFilter:$last}' class="filterTableDiv" ng-repeat="filter in filters">
       <table class="table filterTable">
@@ -94,7 +99,7 @@ limitations under the License.
           <div class="searchDescription">
             <!-- fa fa-file-text, fa fa-book, fa fa-info-circle-->
             <!-- glyphicon glyphicon-info-sign -->
-            <span ng-click="openModal('descModal')" class="imitateLink" > {{searchDescription}} <i class="glyphicon glyphicon-info-sign"></i></span>
+            <span ng-click="setupModal(''); openModal('descModal'); " class="imitateLink" > {{searchDescription}} <i class="glyphicon glyphicon-info-sign"></i></span>
           </div>
           
         </div>
@@ -108,7 +113,7 @@ limitations under the License.
                       <div ng-click="updateDetails(item.id)" id="{{item.id}}">
                         {{item.name}}
                       </div>
-                      <raty ng-class='{lastPopover:$last}' class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="{{item.stats.averageRating}}" number="5" path="../../images/raty/" data-container="body" data-toggle="popover" data-content="Average rating: {{item.stats.averageRating}} of {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
+                      <raty read-only ng-class='{lastPopover:$last}' class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="{{item.stats.averageRating}}" number="5" path="../../images/raty/" data-container="body" data-toggle="popover" data-content="Average rating: {{item.stats.averageRating}} of {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
                     </div>
                     <div class="results-content-description">
                       {{item.shortdescription}}
@@ -186,7 +191,7 @@ limitations under the License.
             <strong>
               Tags:
             </strong>
-            <tags-input class="bootstrap" min-length="1" ng-model="details.assetTags" replace-spaces-with-dashes="false"><auto-complete min-length="1" source="checkTagsList($query, details.assetTags)"></auto-complete></tags-input>
+            <tags-input class="bootstrap" min-length="1" ng-model="details.assetTags" replace-spaces-with-dashes="false" on-tag-added="saveTags(details.id, details.assetTags);" on-tag-removed="saveTags(details.id, details.assetTags);"><auto-complete min-length="1" source="checkTagsList($query, details.assetTags)"></auto-complete></tags-input>
           </div>
         </div>
       </div>
@@ -278,7 +283,7 @@ limitations under the License.
       <div class="container component-div">
         <div class="col-sm-12">
           <div class="col-sm-6">
-            <raty class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="4" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+            <raty read-only class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="3" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
             </raty>
           </span>
           <span class="pull-left" style="margin-bottom: 10px;"><strong>210 out of 269 (78%)</strong> reviewers would recommend this component.</span>
@@ -307,68 +312,92 @@ limitations under the License.
     <div class="component-div-title">Component Reviews</div>
     <div class="container component-div">
       <div class="col-sm-12">
-        <H3>A good IDE</H3>
-        <raty class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="{{details.stats.averageRating}}" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-        </raty>
+        <H3 style="margin-top: 0px"><strong>A good IDE &mdash;</strong>
+          <raty read-only id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="4" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+          </raty>
+          <strong style="font-size: 14px;">&dash;I would recommend this component&dash;</strong>
+          <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-1', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
+        </H3>
+      </div>
+      <div class="col-sm-6">
         <p style="font-size: 12px;">
           <strong>Johnny</strong><br />
           <strong>Location: </strong> USSTRATCOM <strong>Level of Expertise: </strong> Developer <br />
           September 13, 2013
         </p>
       </div>
-      <div class="col-sm-9">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut.
-        </p>
-        <p>
-          Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
-        </p>
-        <p>
-          <strong>Pros</strong><br />
-          reliable, free
-        </p>
-        <p>
-          <strong>Cons</strong><br />
-          bulky, poor documentation
-        </p>
-        <p>
-          <strong>I would recommend this component</strong>
-        </p>
+      <div class="col-sm-6">
+        <div class="col-sm-6">
+          <p>
+            <strong>Pros</strong><br />
+            <a href="">reliable</a>,
+            <a href="">free</a>
+          </p>
+        </div>
+        <div class="col-sm-6">
+          <p>
+            <strong>Cons</strong><br />
+            <a href="">bulky</a>,
+            <a href="">poor documentation</a>
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div id="detailsReview-1" class="detailsPadding detailsReview">
+          <p><strong>Comments: </strong>
+            This is my review commentary. Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut.
+          </p>
+          <p>
+            Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
+          </p>
+        </div>
       </div>
       <!-- Start of right column for user review -->
-      <div class="col-sm-3" style="">
-        <div class="clearfix">
-          <div><strong>Features:</strong></div>
-          <div class="pull-left">          
-            <raty class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="3" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-            </raty>
-          </div>
-          <div class="pull-left" style="margin-left: 10px;">3 / 5</div>
+    </div>
+    <div class="container component-div">
+      <div class="col-sm-12">
+        <H3 style="margin-top: 0px"><strong>A bad IDE &mdash;</strong>
+          <raty read-only id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="1" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+          </raty>
+          <strong style="font-size: 14px;">&dash;I would NOT recommend this component&dash;</strong>
+          <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-2', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
+        </H3>
+      </div>
+      <div class="col-sm-6">
+        <p style="font-size: 12px;">
+          <strong>Bobby</strong><br />
+          <strong>Location: </strong> USSTRATCOM <strong>Level of Expertise: </strong> Program Manager <br />
+          May 14, 2012
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <div class="col-sm-6">
+          <p>
+            <strong>Pros</strong><br />
+            <a href="">Compact</a>,
+            <a href="">Documented</a>
+          </p>
         </div>
-        <div class="clearfix">
-          <div><strong>Design:</strong></div>
-          <div class="pull-left">          
-            <raty class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="4" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-            </raty>
-          </div>
-          <div class="pull-left" style="margin-left: 10px;">4 / 5</div>
+        <div class="col-sm-6">
+          <p>
+            <strong>Cons</strong><br />
+            <a href="">Unreliable</a>,
+            <a href="">Steep learning curve</a>
+          </p>
         </div>
-        <div class="clearfix">
-          <div><strong>Quality:</strong></div>
-          <div class="pull-left">          
-            <raty class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="5" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-            </raty>
-          </div>
-          <div class="pull-left" style="margin-left: 10px;">5 / 5</div>
+      </div>
+      <div class="col-sm-12">
+        <div id="detailsReview-2" class="detailsPadding detailsReview">
+          <p><strong>Comments: </strong> 
+            This is my negative review commentary. I hated my experience with this product. I do not reccomend it!!!<!--Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
+          </p>
+          <p>
+            Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut. -->
+          </p>
         </div>
-        <div class="clearfix">
-          <div><strong>Ease of use:</strong></div>
-          <div class="pull-left">          
-            <raty class="pull-left" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="3" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-            </raty>
-          </div>
-          <div class="pull-left" style="margin-left: 10px;">3 / 5</div>
-        </div>
+      </div>
+      <div class="col-sm-12">
+        <button class="btn btn-primary" ng-click="setupModal('fullWidthModal').then(openModal('descModal')); ">See All Reviews <i class="fa fa-star-half-full"></i></button>
       </div>
     </div>
 

@@ -15,6 +15,8 @@
 */
 'use strict';
 
+/*global isEmpty*/
+
 app.factory('business', ['localCache', '$http', '$q', function (localCache, $http, $q) { /*jshint unused: false*/
   // 60 seconds until expiration
   var expireTime = 60 * 1000;
@@ -38,8 +40,21 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
     });
   };
   
+  business.getTagsList = function(){
+    return MOCKDATA.tagsList;
+  };
+
   business.getWatches = function(){
     return MOCKDATA.watches;
+  };
+
+  business.saveTags = function(id, tags) {
+    var a = _.findWhere(MOCKDATA.assets.assets, {'id': id});
+    business.updateTagCloud(tags);
+    if (a === undefined  || isEmpty(a)) {
+      a.assetTags = tags;
+    }
+    return true;
   };
 
   business.setWatches = function(watches){
@@ -47,35 +62,6 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
     return true;
   };
 
-  business.typeahead = function(target, pluckItem){
-    var collection = null;
-    var result = localCache.get('typeahead', 'object');
-    if (result) {
-      var cacheTime = localCache.get('typeahead-time', 'date');
-      var timeDiff = new Date() - cacheTime;
-      // expire time is set to a day here
-      if (timeDiff < expireTime * 1440) {
-        return result;
-      } else if (target) {
-        collection = target();
-        if (pluckItem !== undefined && pluckItem !== null) {
-          collection = _.pluck(collection, pluckItem);
-        }
-      } else {
-        collection = _.pluck(this.getData(), 'name');
-      }
-    } else {
-      collection = _.pluck(this.getData(), 'name');
-    }
-    if (collection) {
-      localCache.save('typeahead', collection);
-      localCache.save('typeahead-time', new Date());
-      return collection;
-    } else {
-      throw new Error('We need a new target in order to refresh the data');
-    }
-  };
-  
   business.search = function(type, key, wait){
     var deferred = $q.defer();
     var searchKey = null;
@@ -116,6 +102,46 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
     }
     return searchKey;
   };
+
+  business.typeahead = function(target, pluckItem){
+    var collection = null;
+    var result = localCache.get('typeahead', 'object');
+    if (result) {
+      var cacheTime = localCache.get('typeahead-time', 'date');
+      var timeDiff = new Date() - cacheTime;
+      // expire time is set to a day here
+      if (timeDiff < expireTime * 1440) {
+        return result;
+      } else if (target) {
+        collection = target();
+        if (pluckItem !== undefined && pluckItem !== null) {
+          collection = _.pluck(collection, pluckItem);
+        }
+      } else {
+        collection = _.pluck(this.getData(), 'name');
+      }
+    } else {
+      collection = _.pluck(this.getData(), 'name');
+    }
+    if (collection) {
+      localCache.save('typeahead', collection);
+      localCache.save('typeahead-time', new Date());
+      return collection;
+    } else {
+      throw new Error('We need a new target in order to refresh the data');
+    }
+  };
+
+  business.updateTagCloud = function(tags) {
+    console.log('tags', tags);
+    _.each(tags, function(tag) {
+      if (!_.contains(MOCKDATA.tagsList, tag.text)) {
+        MOCKDATA.tagsList.push(tag.text);
+      }
+    });
+    MOCKDATA.tagsList.sort();
+  };
+  
 
 
   return business;

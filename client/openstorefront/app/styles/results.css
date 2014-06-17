@@ -17,6 +17,10 @@ html, .resultsContainer {
   overflow: hidden;
 }
 
+.filterBack {
+  background: white;
+}
+
 .filters{
   position: absolute;
   top: 52px;
@@ -143,68 +147,68 @@ html, .resultsContainer {
   color: #ffffff;
   padding: 2px 5px;
   font-size: 23px;
-}*/
+  }*/
 
-.filtersTd{
-  padding: 0px 8px !important;
-  border: 0px transparent!important;
-}
+  .filtersTd{
+    padding: 0px 8px !important;
+    border: 0px transparent!important;
+  }
 
-input[type=checkbox] + label{
-  color: inherit;
-}
-input[type=checkbox]:checked + label{
-  color: #3892d3;
-}
-
-
-.filterCheckbox{
-  margin: 2px 0px !important;
-}
-
-.filterTable{
-  margin-bottom: 0px !important;
-}
-
-.filterTableDiv{
-  margin: 10px;
-}
-.firstFilter{
-  margin: 50px 10px 10px 10px;
-}
-
-#filtersButton{
-  position: fixed; 
-  top: 52px; 
-  z-index: 1010; 
-  padding: 0px; 
-  margin: 0px;
-}
-
-.filtersButton{
-  position: relative;
-  z-index: 1009;
-  margin-left: -55px;
-}
-
-.filtersButton i{
-  position: relative;
-  right: -5px;
-  padding-right: 2px;
-}
-
-#resultsTable tr td{
-  padding: 8px 18px;
-}
+  input[type=checkbox] + label{
+    color: inherit;
+  }
+  input[type=checkbox]:checked + label{
+    color: #3892d3;
+  }
 
 
-.filtersTh {
-  cursor: pointer;
-}
+  .filterCheckbox{
+    margin: 2px 0px !important;
+  }
+
+  .filterTable{
+    margin-bottom: 0px !important;
+  }
+
+  .filterTableDiv{
+    margin: 10px;
+  }
+  .firstFilter{
+    margin: 50px 10px 10px 10px;
+  }
+
+  #filtersButton{
+    position: fixed; 
+    top: 52px; 
+    z-index: 1010; 
+    padding: 0px; 
+    margin: 0px;
+  }
+
+  .filtersButton{
+    position: relative;
+    z-index: 1009;
+    margin-left: -55px;
+  }
+
+  .filtersButton i{
+    position: relative;
+    right: -5px;
+    padding-right: 2px;
+  }
+
+  #resultsTable tr td{
+    padding: 8px 18px;
+  }
+
+
+  .filtersTh {
+    cursor: pointer;
+  }
 
 /*.component-details{
-  position: absolute;
-  width: 100%;
+position: absolute;
+width: 100%;
 }*/
 .component-title{
   border-bottom: 1px lightgray solid;
@@ -234,6 +238,10 @@ input[type=checkbox]:checked + label{
   width: auto;
 }
 
+.component-div.full,
+.component-div-title.full{
+  border-left: 1px lightgray solid;
+}
 .screenshot{
   width: 300px;
 }
@@ -291,4 +299,56 @@ input[type=checkbox]:checked + label{
 
 .modal-title {
   color: #3892d3;
+}
+
+.detailsReview {
+  position: relative;
+
+  max-height: 40px;
+  overflow: hidden;
+
+  background: white;
+}
+
+.detailsPadding::before {
+  content: '';
+  float: right;
+  height: 40px;
+}
+.detailsReview::before {
+  content: '';
+
+  float: right;
+  height: 20px;
+}
+
+.detailsReview p::before {
+  content: "\2026";
+
+  float: right;
+  clear: right;
+}
+
+.detailsReview p::after {
+  content: '';
+
+  position: absolute;
+
+  display: inline-block;
+  width: 100%;
+  height: 15px;
+
+  background: inherit;
+}
+
+.detailsReview::after {
+  content: '';
+
+  position: absolute;
+
+  display: block;
+  width: 100%;
+  height: 30px;
+
+  background: inherit; 
 }

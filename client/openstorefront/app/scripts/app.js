@@ -108,6 +108,7 @@ var app = angular
   $rootScope.openModal = function(id, current) {
     $rootScope.current = current;
     $rootScope.$broadcast('$' + id);
+    $rootScope.$broadcast('updateBody');
     $rootScope.$broadcast('$viewModal', id);
   };
 
