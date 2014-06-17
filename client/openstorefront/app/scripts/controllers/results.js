@@ -453,6 +453,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   * data with
   ***************************************************************/
   $scope.applyFilters = function() {
+    
     var results =
     // We must use recursive filtering or we will get incorrect results
     // the order DOES matter here.

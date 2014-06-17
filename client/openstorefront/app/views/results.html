@@ -23,7 +23,10 @@ limitations under the License.
       <label for="searchFilter">Sort By: </label>
       <select ng-model="orderProp" class="form-control">
         <option class="hidden-lg" selected disabled value="" hidden>Sort By</option>
-        <option value="name">Name</option>
+        <option value="+name">Name (A-Z)</option>
+        <option value="-name">Name (Z-A)</option>
+        <option value="-stats.averageRating">Rating (high-low)</option>
+        <option value="+stats.averageRating">Rating (low-high)</option>
         <option value="age">Last Update</option>
       </select>
       <br>
@@ -285,112 +288,115 @@ limitations under the License.
       <div class="container component-div">
         <div class="col-sm-12">
           <div class="col-sm-6">
-            <raty read-only class="pull-left large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="3" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+            <div class="row">
+              <raty read-only class="pull-left large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="3" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+              </raty>
+            </div>
+            <div class="row">
+              <span class="pull-left" style="margin-bottom: 10px;"><strong>210 out of 269 (78%)</strong> reviewers would recommend this component.</span>
+              <button class="btn btn-primary" ng-click="setupModal('fullWidthModal').then(openModal('descModal', 'Write a Review')); ">Write a Review<i class="fa fa-star-half-full"></i></button>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <ul class="list-unstyled">
+              <li><strong>Pros</strong></li>
+              <li><a href="">well tested</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(95)</span></li>
+              <li><a href="">active development</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(45)</span></li>
+              <li><a href="">reliable</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(26)</span></li>
+              <li><a href="">open source</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(15)</span></li>
+            </ul>
+          </div>
+          <div class="col-sm-3">
+            <ul class="list-unstyled">
+              <li><strong>Cons</strong></li>
+              <li><a href="">bulky</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(25)</span></li>
+              <li><a href="">security concerns</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(18)</span></li>
+              <li><a href="">difficult installation</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(13)</span></li>
+              <li><a href="">poor documentation</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(7)</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="component-div-title">Component Reviews</div>
+      <div class="container component-div">
+        <div class="col-sm-12">
+          <H3 style="margin-top: 0px"><strong>A good IDE &mdash;</strong>
+            <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="4" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
             </raty>
-          </span>
-          <span class="pull-left" style="margin-bottom: 10px;"><strong>210 out of 269 (78%)</strong> reviewers would recommend this component.</span>
-          <button class="btn btn-primary" ng-click="setupModal('fullWidthModal').then(openModal('descModal', 'Write a Review')); ">Write a Review<i class="fa fa-star-half-full"></i></button>
+            <strong style="font-size: 14px;">&dash;I would recommend this component&dash;</strong>
+            <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-1', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
+          </H3>
         </div>
-        <div class="col-sm-3">
-          <ul class="list-unstyled">
-            <li><strong>Pros</strong></li>
-            <li><a href="">well tested</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(95)</span></li>
-            <li><a href="">active development</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(45)</span></li>
-            <li><a href="">reliable</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(26)</span></li>
-            <li><a href="">open source</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(15)</span></li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <ul class="list-unstyled">
-            <li><strong>Cons</strong></li>
-            <li><a href="">bulky</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(25)</span></li>
-            <li><a href="">security concerns</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(18)</span></li>
-            <li><a href="">difficult installation</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(13)</span></li>
-            <li><a href="">poor documentation</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(7)</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="component-div-title">Component Reviews</div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        <H3 style="margin-top: 0px"><strong>A good IDE &mdash;</strong>
-          <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="4" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-          </raty>
-          <strong style="font-size: 14px;">&dash;I would recommend this component&dash;</strong>
-          <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-1', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
-        </H3>
-      </div>
-      <div class="col-sm-6">
-        <p style="font-size: 12px;">
-          <strong>Johnny</strong><br />
-          <strong>Location: </strong> USSTRATCOM <strong>Level of Expertise: </strong> Developer <br />
-          September 13, 2013
-        </p>
-      </div>
-      <div class="col-sm-6">
         <div class="col-sm-6">
-          <p>
-            <strong>Pros</strong><br />
-            <a href="">reliable</a>,
-            <a href="">free</a>
+          <p style="font-size: 12px;">
+            <strong>Johnny</strong><br />
+            <strong>Location: </strong> USSTRATCOM <strong>Level of Expertise: </strong> Developer <br />
+            September 13, 2013
           </p>
         </div>
         <div class="col-sm-6">
-          <p>
-            <strong>Cons</strong><br />
-            <a href="">bulky</a>,
-            <a href="">poor documentation</a>
-          </p>
+          <div class="col-sm-6">
+            <p>
+              <strong>Pros</strong><br />
+              <a href="">reliable</a>,
+              <a href="">free</a>
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <p>
+              <strong>Cons</strong><br />
+              <a href="">bulky</a>,
+              <a href="">poor documentation</a>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="col-sm-12">
-        <div id="detailsReview-1" class="detailsPadding detailsReview">
-          <p><strong>Comments: </strong>
-            This is my review commentary. Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut.
-          </p>
-          <p>
-            Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
-          </p>
+        <div class="col-sm-12">
+          <div id="detailsReview-1" class="detailsPadding detailsReview">
+            <p><strong>Comments: </strong>
+              This is my review commentary. Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut.
+            </p>
+            <p>
+              Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
+            </p>
+          </div>
         </div>
+        <!-- Start of right column for user review -->
       </div>
-      <!-- Start of right column for user review -->
-    </div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        <H3 style="margin-top: 0px"><strong>A bad IDE &mdash;</strong>
-          <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="1" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-          </raty>
-          <strong style="font-size: 14px;">&dash;I would NOT recommend this component&dash;</strong>
-          <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-2', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
-        </H3>
-      </div>
-      <div class="col-sm-6">
-        <p style="font-size: 12px;">
-          <strong>Bobby</strong><br />
-          <strong>Location: </strong> USSTRATCOM <strong>Level of Expertise: </strong> Program Manager <br />
-          May 14, 2012
-        </p>
-      </div>
-      <div class="col-sm-6">
-        <div class="col-sm-6">
-          <p>
-            <strong>Pros</strong><br />
-            <a href="">Compact</a>,
-            <a href="">Documented</a>
-          </p>
+      <div class="container component-div">
+        <div class="col-sm-12">
+          <H3 style="margin-top: 0px"><strong>A bad IDE &mdash;</strong>
+            <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="1" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+            </raty>
+            <strong style="font-size: 14px;">&dash;I would NOT recommend this component&dash;</strong>
+            <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-2', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
+          </H3>
         </div>
         <div class="col-sm-6">
-          <p>
-            <strong>Cons</strong><br />
-            <a href="">Unreliable</a>,
-            <a href="">Steep learning curve</a>
+          <p style="font-size: 12px;">
+            <strong>Bobby</strong><br />
+            <strong>Location: </strong> USSTRATCOM <strong>Level of Expertise: </strong> Program Manager <br />
+            May 14, 2012
           </p>
         </div>
-      </div>
-      <div class="col-sm-12">
-        <div id="detailsReview-2" class="detailsPadding detailsReview">
-          <p><strong>Comments: </strong> 
+        <div class="col-sm-6">
+          <div class="col-sm-6">
+            <p>
+              <strong>Pros</strong><br />
+              <a href="">Compact</a>,
+              <a href="">Documented</a>
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <p>
+              <strong>Cons</strong><br />
+              <a href="">Unreliable</a>,
+              <a href="">Steep learning curve</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div id="detailsReview-2" class="detailsPadding detailsReview">
+            <p><strong>Comments: </strong> 
             This is my negative review commentary. I hated my experience with this product. I do not reccomend it!!!<!--Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
           </p>
           <p>
