@@ -37,11 +37,12 @@ limitations under the License.
   <!-- endbuild -->
 </head>
 <body ng-app="openstorefrontApp">
+
   <!-- Bring in the navigation -->
   <div ng-include="'views/nav.html'"></div>
   <!--[if lt IE 9]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please switch to <strong><a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></strong> or <strong><a href="https://www.google.com/intl/en-US/chrome/browser/">Chrome</a></strong>, or <strong><a href="http://browsehappy.com/">upgrade your browser</a></strong> to improve your experience</p>
-    <![endif]-->
+  <![endif]-->
 
 
   <!-- Add your site or application content here -->
@@ -107,17 +108,17 @@ limitations under the License.
   <script type="text/javascript" src="scripts/common/animations.js"></script>
   <script type="text/javascript" src="scripts/common/common.js"></script>
   <script type="text/javascript" src="scripts/common/sessionpolyfill.js"></script>
+  <script type="text/javascript" src="scripts/common/raty.js"></script>
   <script src="scripts/directives/enterevent.js"></script>
   <script src="scripts/filters/ratingfilter.js"></script>
   <!-- endbuild -->
 
   <!-- THINGS IN THIS SECTION WILL NOT BE MINIFIED -->
   <!-- Grab our Common js -->
-  <script type="text/javascript" src="scripts/common-min/raty.js"></script>
-  <script type="text/javascript" src="scripts/common/data.js"></script>
+  <script type="text/javascript" src="scripts/common-min/data.js"></script>
   <!-- THINGS IN THIS SECTION WILL NOT BE MINIFIED -->
 
-  <!-- This is the results description modal (the contents are handled in this controller) -->
+  <!-- This is the profile modal -->
   <div modal controller-name="UserProfileCtrl" modalId='profileModal' modalclasses="fullWidthModal">
   </div>
 
