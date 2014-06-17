@@ -359,7 +359,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   * This function handles toggleing filter checks per filter heading click.
   ***************************************************************/
   $scope.toggleChecks = function(collection, override){
-    var master = false
+    var master = false;
     if (override === undefined || override === null || override === '') {
       override = false;
     }
@@ -458,8 +458,12 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     return '';
   };
 
+  /***************************************************************
+  * This function resets the filters in the results page in order to clear
+  * the filters as quickly as possible
+  ***************************************************************/
   $scope.clearFilters = function() {
-    $scope.orderProp = "";
+    $scope.orderProp = '';
     $scope.ratingsFilter = null;
     $scope.tagsFilter = null;
     $scope.query = null;
@@ -467,8 +471,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       $scope.toggleChecks(item.collection, true);
     });
     $scope.applyFilters();
-
-  }
+  };
 
   /***************************************************************
   * This function applies the filters that have been given to us to filter the
