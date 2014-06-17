@@ -197,14 +197,14 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       $scope.nav = {
         'current': 'Reviews',
         'bars': [
-          {
-            'title': 'Reviews',
-            'include': 'views/reviews/reviews.html'
-          },
-          {
-            'title': 'Write a Review',
-            'include': 'views/reviews/newfeedback.html'
-          }
+        {
+          'title': 'Reviews',
+          'include': 'views/reviews/reviews.html'
+        },
+        {
+          'title': 'Write a Review',
+          'include': 'views/reviews/newfeedback.html'
+        }
         ]
       };
       deferred.resolve();
@@ -321,14 +321,19 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   * re-filter the data
   ***************************************************************/
   $scope.$watch('ratingsFilter',function(val, old){ /* jshint unused:false */
-    console.log('Ratings changed');
-    
     $scope.applyFilters();
-
   });
 
   $scope.$on('$descModal', function(event) { /*jshint unused: false*/
     // re-initialize the modal content here if we must
+    if ($scope.nav !== undefined && $scope.nav !== null) {
+
+      if ($rootScope.current) {
+        $scope.nav.current = $rootScope.current;
+      } else {
+        $scope.nav.current = 'Reviews';
+      }
+    }
   });
 
   /***************************************************************
@@ -453,13 +458,13 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     // the order DOES matter here.
     $filter('orderBy')
     ($filter('ratingFilter')
-    ($filter('tagFilter')
-    ($filter('componentFilter')
-      ($filter('filter')($scope.total, $scope.query),
+      ($filter('tagFilter')
+        ($filter('componentFilter')
+          ($filter('filter')($scope.total, $scope.query),
     // filter the data by the query and return the result to the componentFilter input
     $scope.filters),
-    $scope.tagsFilter),
-    $scope.ratingsFilter),
+          $scope.tagsFilter),
+        $scope.ratingsFilter),
     // then use the componentFilter returned data as the input to the order-by filter
     $scope.orderProp);
 
