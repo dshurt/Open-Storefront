@@ -13,10 +13,6 @@ app.directive('componentList', function () {
       scope._scopename = 'componentList';
       scope.listOfClasses = attrs.classList;
       console.log('scop', scope.data);
-      
-      // console.log('Attrs', attrs);
-      // console.log('scope', scope);
-      scope.clickCallback('test');
     }
   };
 });
