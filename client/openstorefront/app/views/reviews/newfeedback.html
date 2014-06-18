@@ -10,6 +10,21 @@
       <strong>Title: </strong>
       <input type="text" class="form-control" style="width: auto; display:inline-block" placeholder="Enter Review Title Here">
     </div>
+    <div class="col-sm-12">
+      &nbsp;
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label class="control-label"><i class="fa fa-calendar"></i> <i class="fa fa-arrows-h"></i> <i class="fa fa-calendar"></i> Date Range of Usage Experience</label>
+        <div class="form-group" style=" display:inline-block">
+          <input type="text" class="form-control" style="width: auto; display:inline-block" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker>
+        </div>
+        <i class="fa fa-arrows-h"></i>
+        <div class="form-group" style=" display:inline-block">
+          <input type="text" class="form-control" style="width: auto; display:inline-block" ng-model="untilDate" data-min-date="{{fromDate}}" placeholder="Until" bs-datepicker>
+        </div>
+      </div>
+    </div>
     <div>
       <div class="col-sm-6">
         <strong>Pros: </strong>
