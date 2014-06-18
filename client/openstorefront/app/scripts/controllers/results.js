@@ -22,7 +22,21 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
   $scope.tagsList           = Business.getTagsList();
+  $scope.prosConsList       = Business.getProsConsList();
   $scope.tagsList.sort();
+
+  $scope.lastUsed = new Date();
+
+  $scope.expertise = [
+    //
+    {"value":"1", 'label': 'Less than 1 month'},
+    {"value":"2", 'label': 'Less than 3 months'},
+    {"value":"3", 'label': 'Less than 6 months'},
+    {"value":"4", 'label': 'Less than 1 year'},
+    {"value":"5", 'label': 'Less than 3 years'},
+    {"value":"6", 'label': 'More than 3 years'}
+  //
+  ];
 
   /***************************************************************
   * This function is looked at for auto suggestions for the tag list
@@ -30,15 +44,15 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   * are not currently in the list of tags. Otherwise, it will look at the
   * string and do a substring search.
   ***************************************************************/
-  $scope.checkTagsList = function(query, list) {
+  $scope.checkTagsList = function(query, list, source) {
     var deferred = $q.defer();
     var subList = null;
     if (query === ' ') {
-      subList = _.reject($scope.tagsList, function(item) {
+      subList = _.reject(source, function(item) {
         return !!(_.where(list, {'text': item}).length);
       });
     } else {
-      subList = _.filter($scope.tagsList, function(item) {
+      subList = _.filter(source, function(item) {
         return item.toLowerCase().indexOf(query.toLowerCase()) > -1;
       });
     }
