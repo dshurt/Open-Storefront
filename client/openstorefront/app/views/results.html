@@ -38,7 +38,7 @@ limitations under the License.
       <br>
       <label for="ratingsFilter">Filter By Rating: </label>
       <br>
-      <raty class="average-raty" id="filterRating" style="min-width:110px; height: 100%;" score="{{ratingsFilter}}" ng-model="ratingsFilter" number="5" path="../../images/raty/">
+      <raty class="average-raty" id="filterRating" style="min-width:110px; height: 100%;" score="{{ratingsFilter}}" ng-model="ratingsFilter" number="5" path="images/raty/">
       </raty>
     </div>
     <div class="filterTableDiv" ng-repeat="filter in filters">
@@ -121,7 +121,7 @@ limitations under the License.
                           {{item.name}}
                         </div>
                       </div>
-                      <raty read-only ng-class='{lastPopover:$last}' class="pull-left average-raty" id="star{{$index}}" style="min-width:110px; height: 100%;" score="{{item.stats.averageRating}}" number="5" path="../../images/raty/" data-container="body" data-toggle="popover" data-content="Average rating: {{item.stats.averageRating}} of {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
+                      <raty read-only ng-class='{lastPopover:$last}' class="pull-left average-raty" id="star{{$index}}" style="min-width:110px; height: 100%;" score="{{item.stats.averageRating}}" number="5" path="images/raty/" data-container="body" data-toggle="popover" data-content="Average rating: {{item.stats.averageRating}} of {{item.stats.numberRatings}}<br>Comments: {{item.stats.comments}}<br>Views: {{item.stats.views}}"></raty>
                     </div>
                     <div class="results-content-description">
                       {{item.shortdescription}}
@@ -215,7 +215,7 @@ limitations under the License.
 
           <div class="pull-left" style="width: 95px">
             <div style="text-align: center; width: 100%">
-              <img src="../../images/icon/tango/text-html.png" alt="">
+              <img src="images/icon/tango/text-html.png" alt="">
             </div>
             <div style="text-align: center">
               <a href="">
@@ -225,7 +225,7 @@ limitations under the License.
           </div>
           <div class="pull-left" style="width: 95px">
             <div style="text-align: center; width: 100%">
-              <img src="../../images/icon/tango/text-x-script.png" alt="">
+              <img src="images/icon/tango/text-x-script.png" alt="">
             </div>
             <div style="text-align: center">
               <a href="">
@@ -235,7 +235,7 @@ limitations under the License.
           </div>
           <div class="pull-left" style="width: 95px">
             <div style="text-align: center; width: 100%">
-              <img src="../../images/icon/tango/text-x-generic.png" alt="">
+              <img src="images/icon/tango/text-x-generic.png" alt="">
             </div>
             <div style="text-align: center">
               <a href="">
@@ -245,7 +245,7 @@ limitations under the License.
           </div>
           <div class="pull-left" style="width: 95px">
             <div style="text-align: center; width: 100%">
-              <img src="../../images/icon/tango/x-office-document.png" alt="">
+              <img src="images/icon/tango/x-office-document.png" alt="">
             </div>
             <div style="text-align: center">
               <a href="">
@@ -265,19 +265,19 @@ limitations under the License.
                 <tr>
                   <td>
                     <a href="" target="_blank">
-                      <img src="../../images/icon/silk/medal_bronze_1.png" title="Evaluated" width="22" height="22"> 
+                      <img src="images/icon/silk/medal_bronze_1.png" title="Evaluated" width="22" height="22"> 
                       <span class="conformance_badge">Evaluation</span><br>                   
                     </a> 
                   </td>
                   <td style="padding-left: 20px">
                     <a href="" target="_blank">
-                      <img src="../../images/icon/silk/medal_silver_1.png" title="Evaluated" width="22" height="22"> 
+                      <img src="images/icon/silk/medal_silver_1.png" title="Evaluated" width="22" height="22"> 
                       <span class="conformance_badge">Conformance Testing</span><br>                    
                     </a>                  
                   </td>
                   <td style="padding-left: 20px">
                     <a href="" target="_blank">
-                      <img src="../../images/icon/silk/medal_gold_1.png" title="Evaluated" width="22" height="22"> 
+                      <img src="images/icon/silk/medal_gold_1.png" title="Evaluated" width="22" height="22"> 
                       <span class="conformance_badge">Reference Integration</span><br>                    
                     </a>                  
                   </td>
@@ -292,7 +292,7 @@ limitations under the License.
         <div class="col-sm-12">
           <div class="col-sm-6">
             <div class="row">
-              <raty read-only class="pull-left large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="3" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+              <raty read-only class="pull-left large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="3" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
               </raty>
             </div>
             <div class="row">
@@ -326,7 +326,7 @@ limitations under the License.
       <div class="container component-div">
         <div class="col-sm-12">
           <H3 style="margin-top: 0px"><strong>A good IDE &mdash;</strong>
-            <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="4" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+            <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="4" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
             </raty>
             <strong style="font-size: 14px;">&dash;I would recommend this component&dash;</strong>
             <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-1', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
@@ -372,7 +372,7 @@ limitations under the License.
       <div class="container component-div">
         <div class="col-sm-12">
           <H3 style="margin-top: 0px"><strong>A bad IDE &mdash;</strong>
-            <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="1" number="5" path="../../images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+            <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="1" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
             </raty>
             <strong style="font-size: 14px;">&dash;I would NOT recommend this component&dash;</strong>
             <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-2', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
