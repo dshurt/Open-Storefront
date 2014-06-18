@@ -12,7 +12,6 @@ app.directive('componentList', function () {
     link: function postLink(scope, element, attrs) {
       scope._scopename = 'componentList';
       scope.listOfClasses = attrs.classList;
-      console.log('scop', scope.data);
     }
   };
 });

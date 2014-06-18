@@ -1,44 +1,62 @@
 <div class="row">
   <div class="col-sm-12">
-    <div class="col-sm-12">
-      <h3> How many stars:&nbsp; 
-        <raty class="large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="0" number="5" path="../../images/raty/">
-        </raty>
-      </h3>
+    <div class="row">
+      <div class="col-sm-12">
+        <h3> How many stars:&nbsp; 
+          <raty class="large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="0" number="5" path="../../images/raty/">
+          </raty>
+        </h3>
+      </div>
     </div>
-    <div class="col-sm-12">
-      <strong>Title:&nbsp;</strong>
-      <input type="text" class="form-control" style="width: auto; display:inline-block" placeholder="Enter Review Title Here">
-    </div>
-    <div class="col-sm-12">
-      &nbsp;
-    </div>
-    <div class="col-sm-12">
-      <label>Level of Expertise:&nbsp;</label>
-      <button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="level.label for level in expertise" data-animation="am-flip-x" bs-select>
-        Action <span class="caret"></span>
-      </button>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row" style="margin:0px;">
+          <strong>Title:&nbsp;</strong>
+        </div>
+        <input type="text" class="form-control" style="width: auto; display:inline-block" placeholder="Enter Review Title Here">
+      </div>
     </div>
     <div class="col-sm-12">
       &nbsp;
     </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row" style="margin:0px;">
+          <label>Level of Expertise:&nbsp;</label>
+        </div>
+        <button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="level.label for level in expertise" data-animation="am-flip-x" bs-select>
+          Action <span class="caret"></span>
+        </button>
+      </div>
+    </div>
     <div class="col-sm-12">
-      <div class="form-group">
-        <label class="control-label"></i> Last Used:&nbsp;</label>
-        <div class="form-group" style=" display:inline-block">
-          <input type="text" class="form-control" style="width: auto; display:inline-block" data-date-format="MM-yyyy" data-start-view="2" data-min-view="1" autoclose="true" ng-model="lastUsed" data-max-date="{{untilDate}}" placeholder="Last Used" bs-datepicker> 
-          <i class="fa fa-calendar"></i> <span><small>Defaults to "The Present"</small></span>
+      &nbsp;
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <div class="row" style="margin:0px;">
+            <label class="control-label"></i> Last Used:&nbsp;</label>
+          </div>
+          <div class="form-group" style=" display:inline-block">
+            <input type="text" class="form-control" style="width: auto; display:inline-block" data-date-format="MM-yyyy" data-start-view="2" data-min-view="1" autoclose="true" ng-model="lastUsed" data-max-date="{{untilDate}}" placeholder="Last Used" bs-datepicker> 
+            &nbsp;<i class="fa fa-calendar"></i> <span><small>Defaults to "The Present"</small></span>
+          </div>
         </div>
       </div>
     </div>
     <div>
-      <div class="col-sm-6">
-        <strong>Pros: </strong>
-        <tags-input class="bootstrap" min-length="1" ng-model="reviewPros" add-from-autocomplete-only="true" replace-spaces-with-dashes="false" on-tag-added="" on-tag-removed=""><auto-complete min-length="1" source="checkTagsList($query, reviewPros, prosConsList.pros)"></auto-complete></tags-input>
+      <div class="row">
+        <div class="col-sm-12">
+          <strong>Pros: </strong>
+          <tags-input class="bootstrap" min-length="1" ng-model="reviewPros" add-from-autocomplete-only="true" replace-spaces-with-dashes="false" on-tag-added="" on-tag-removed=""><auto-complete min-length="1" source="checkTagsList($query, reviewPros, prosConsList.pros)"></auto-complete></tags-input>
+        </div>
       </div>
-      <div class="col-sm-6">
-        <strong>Cons: </strong>
-        <tags-input class="bootstrap" min-length="1" ng-model="reviewCons" add-from-autocomplete-only="true" replace-spaces-with-dashes="false" on-tag-added="" on-tag-removed=""><auto-complete min-length="1" source="checkTagsList($query, reviewCons, prosConsList.cons)"></auto-complete></tags-input>
+      <div class="row">
+        <div class="col-sm-12">
+          <strong>Cons: </strong>
+          <tags-input class="bootstrap" min-length="1" ng-model="reviewCons" add-from-autocomplete-only="true" replace-spaces-with-dashes="false" on-tag-added="" on-tag-removed=""><auto-complete min-length="1" source="checkTagsList($query, reviewCons, prosConsList.cons)"></auto-complete></tags-input>
+        </div>
       </div>
     </div>
     <div>
