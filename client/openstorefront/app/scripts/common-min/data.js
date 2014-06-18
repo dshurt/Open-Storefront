@@ -54,6 +54,29 @@ MOCKDATA.tagsList = [
 //
 ];
 
+MOCKDATA.prosConsList = {
+  'pros':[
+    //
+    'Well tested',
+    'Active Development',
+    'Reliable',
+    'Open Source',
+    'Compact',
+    'Well Tested'
+  //
+  ],
+  'cons':[
+    //
+    'Poorly Tested',
+    'Security Concerns',
+    'Difficult Installation',
+    'Poor Documentation',
+    'Bulky',
+    'Legacy system'
+  //
+  ]
+};
+
 MOCKDATA.watches = [
 {
   'id': 72,
