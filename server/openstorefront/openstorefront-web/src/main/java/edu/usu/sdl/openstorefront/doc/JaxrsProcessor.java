@@ -16,14 +16,23 @@
 
 package edu.usu.sdl.openstorefront.doc;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import edu.usu.sdl.openstorefront.web.rest.RestConfiguration;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.CookieParam;
@@ -58,7 +67,7 @@ public class JaxrsProcessor
 		APIResourceModel resourceModel = new APIResourceModel();
 		
 		resourceModel.setClassName(resource.getName());
-		resourceModel.setResourceName(resource.getSimpleName());
+		resourceModel.setResourceName(String.join(" ", StringUtils.splitByCharacterTypeCamelCase(resource.getSimpleName())));
 		
 		APIDescription aPIDescription = (APIDescription) resource.getAnnotation(APIDescription.class);
 		if (aPIDescription != null)
@@ -66,10 +75,14 @@ public class JaxrsProcessor
 			resourceModel.setResourceDescription(aPIDescription.value());
 		}
 		
+		//base path
+		ApplicationPath basePath = (ApplicationPath) RestConfiguration.class.getAnnotation(ApplicationPath.class);
+		
+		
 		Path path = (Path) resource.getAnnotation(Path.class);
 		if (path != null)
 		{
-			resourceModel.setResourcePath(path.value());
+			resourceModel.setResourcePath(basePath.value() + "/" + path.value());
 		}		
 		
 		RequireAdmin requireAdmin = (RequireAdmin) resource.getAnnotation(RequireAdmin.class);
@@ -86,11 +99,13 @@ public class JaxrsProcessor
 		ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 		objectMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+		int methodId = 0;
 		for (Method method : resource.getDeclaredMethods())
 		{
 
 			APIMethodModel methodModel = new APIMethodModel();
-			
+			methodModel.setId(methodId++);
+						
 			//rest method
 			List<String> restMethods = new ArrayList<>();			
 			GET getMethod = (GET) method.getAnnotation(GET.class);
@@ -147,17 +162,28 @@ public class JaxrsProcessor
 				methodModel.setRequireAdmin(true);
 			}
 
-//			try
-//			{
-//				//FIX ME: We need to capture more info
-//				methodModel.setReturnObject(objectMapper.writeValueAsString(method.getReturnType().newInstance()));
-//				
-//				
-//			}
-//			catch (InstantiationException | IllegalAccessException | JsonProcessingException ex)
-//			{
-//				log.log(Level.WARNING, null, ex);
-//			}
+			try
+			{
+				if (!(method.getReturnType().getSimpleName().equals(Void.class.getSimpleName())))
+				{
+					APIValueModel valueModel = new APIValueModel();
+					valueModel.setReturnObject(objectMapper.writeValueAsString(method.getReturnType().newInstance()));
+					mapValueField(valueModel.getReturnFields(), method.getReturnType().getDeclaredFields());
+					
+					ProduceType produceType = (ProduceType) method.getAnnotation(ProduceType.class);
+					if (produceType != null)
+					{
+						valueModel.setTypeObject(objectMapper.writeValueAsString(produceType.value().newInstance()));
+						mapValueField(valueModel.getTypeFields(), produceType.value().getDeclaredFields());							
+					}					
+
+					methodModel.setResponseObject(valueModel);					
+				}
+			}
+			catch (InstantiationException | IllegalAccessException | JsonProcessingException ex)
+			{
+				log.log(Level.WARNING, null, ex);
+			}
 			
 			
 			//method parameters	
@@ -166,6 +192,63 @@ public class JaxrsProcessor
 			resourceModel.getMethods().add(methodModel);
 		}	
 		return resourceModel;
+	}
+	
+	private static void mapValueField(List<APIValueFieldModel> fieldModels,  Field fields[])
+	{
+		for (Field field : fields)
+		{
+			APIValueFieldModel fieldModel = new APIValueFieldModel();			
+			fieldModel.setFieldName(field.getName());
+			
+			NotNull requiredParam = (NotNull) field.getAnnotation(NotNull.class);
+			if (requiredParam != null)
+			{
+				fieldModel.setRequired(true);
+			}
+			
+			ParamTypeDescription description = (ParamTypeDescription) field.getAnnotation(ParamTypeDescription.class);
+			if (description != null)
+			{
+				fieldModel.setType(description.value());				
+			}			
+			
+			StringBuilder validation = new StringBuilder();
+			
+			ValidationRequirement validationRequirement = (ValidationRequirement) field.getAnnotation(ValidationRequirement.class);
+			if (validationRequirement != null)
+			{
+				validation.append(validationRequirement.value()).append("<br>");
+			}			
+			
+			Min min = (Min) field.getAnnotation(Min.class);
+			if (min != null)
+			{
+				validation.append("Min Value: ").append(min.value()).append("<br>");				
+			}
+			
+			Max max = (Max) field.getAnnotation(Max.class);
+			if (max != null)
+			{
+				validation.append("Max Value: ").append(max.value()).append("<br>");				
+			}
+			
+			Size size = (Size) field.getAnnotation(Size.class);
+			if (size != null)
+			{
+				validation.append("Min Length: ").append(size.min()).append(" Max Length: ").append(size.max()).append("<br>");				
+			}
+			
+			Pattern pattern = (Pattern) field.getAnnotation(Pattern.class);
+			if (pattern != null)
+			{
+				validation.append("Needs to Match: ").append(pattern.regexp()).append("<br>");				
+			}
+			
+			fieldModel.setValidation(validation.toString());
+			
+			fieldModels.add(fieldModel);
+		}
 	}
 	
 	private static void mapMethodParameters(List<APIParamModel> parameterList, Parameter parameters[])
@@ -234,7 +317,7 @@ public class JaxrsProcessor
 					paramModel.setRestrictions(restrictions.value());
 				}
 
-				RequiredParam requiredParam = (RequiredParam) parameter.getAnnotation(RequireAdmin.class);
+				RequiredParam requiredParam = (RequiredParam) parameter.getAnnotation(RequiredParam.class);
 				if (requiredParam != null)
 				{
 					paramModel.setRequired(true);
@@ -251,7 +334,6 @@ public class JaxrsProcessor
 			parameterList.add(paramModel);
 		}		
 	}
-	
 	
 	private static void mapParameters(List<APIParamModel> parameterList,  Field fields[])
 	{
@@ -320,7 +402,7 @@ public class JaxrsProcessor
 					paramModel.setRestrictions(restrictions.value());
 				}
 
-				RequiredParam requiredParam = (RequiredParam) field.getAnnotation(RequireAdmin.class);
+				RequiredParam requiredParam = (RequiredParam) field.getAnnotation(RequiredParam.class);
 				if (requiredParam != null)
 				{
 					paramModel.setRequired(true);

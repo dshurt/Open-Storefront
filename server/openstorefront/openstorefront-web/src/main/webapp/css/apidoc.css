@@ -20,12 +20,79 @@ limitations under the License.
 
 body{
 	padding: 20px;
+	font-family: Helvetica, Verdana, Arial, sans-serif;	
+	margin: 0px;
+	background-color: white;	
 }
+
+.header{
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	color: black;
+	width: 100%;
+	z-index: 99;
+	background-color: lightgrey;
+	-webkit-box-shadow: 0px 0px 9px 0px; rgba(68, 68, 68, 0.6);
+	-moz-box-shadow: 0px 0px 9px 0px rgba(68, 68, 68, 0.6);
+	 box-shadow: 0px 0px 9px 0px rgba(68,68,68,0.6);	
+}
+
+.footer{
+	position: fixed;
+	background-color: white;
+	color: black;
+	width: 100%;
+	left: 0px;
+	opacity: 0.8;
+	z-index: 99;
+	bottom: 0px;
+	-webkit-box-shadow: 0 22px 9px 23px rgba(68, 68, 68, 0.6);
+	-moz-box-shadow: 0 22px 9px 23px rgba(68, 68, 68, 0.6);
+	 box-shadow: 0px 22px 9px 23px rgba(68,68,68,0.6);
+}
+
+.api-title{
+	float: left;
+	font-size: 24px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	text-shadow: 2px 2px 2px grey;	
+}
+
+.api-guide{
+	left:0px;
+	position: fixed;
+	top: 0px;
+	margin-top: 45px;
+	padding-left: 10px;
+	border-right: 1px solid #dadfe5;
+	overflow: hidden;
+	overflow-y: auto;
+	width: 200px;
+	height: 10000px;
+	z-index: 25;	
+}
+
+.api-doc{
+	background: white;
+	margin-top: 25px;
+	margin-left: 200px;
+	min-width: 750px;		
+}
+
+ul{
+	list-style: none;
+}
+
+
 h1{
 	float: left;
 	width: 100%;
 	margin: 0px;	
 	text-align: center;
+	text-shadow: 2px 2px 2px grey;
 }
 
 table{
@@ -47,7 +114,8 @@ th {
 	border: 1px lightgray solid;
 }
 td {
-border: 1px lightgray solid;		
+border: 1px lightgray solid;	
+padding: 5px;
 }
 
 tr:nth-child(odd) {
@@ -74,17 +142,62 @@ tr:nth-child(even) {
 }
 
 .GET{
-	
+	font-weight: bold;
+	background-color: green;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	text-align: center;	
+	padding: 3px;
+	border-radius: 3px;	
 }
 
 .POST{
-	
+	font-weight: bold;
+	background-color: orange;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	text-align: center;	
+	padding: 3px;
+	border-radius: 3px;		
 }
 
 .PUT{
-	
+	font-weight: bold;
+	background-color: yellow;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	text-align: center;	
+	padding: 3px;
+	border-radius: 3px;		
 }
 
 .DELETE{
-	
+	font-weight: bold;
+	background-color: red;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	text-align: center;	
+	padding: 3px;
+	border-radius: 3px;			
+}
+
+.returnInfo{
+	border: 1px solid lightgray;
+	border-radius: 5px;	
+}
+
+.resourcePath{
+	font-weight: bold;
+}
+
+.returnInfo-title{
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	text-align: center;
+	background-color: darkslategrey;
+}
+
+.returnInfo-contents{
+	padding: 20px;
+	display: none;
 }

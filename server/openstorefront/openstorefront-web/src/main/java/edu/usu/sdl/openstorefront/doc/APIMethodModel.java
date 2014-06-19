@@ -27,12 +27,13 @@ public class APIMethodModel
 {
 	private List<APIParamModel> methodParams = new ArrayList<>();
 	private String restMethod;
-	private String methodPath;
-	private String returnObject;
+	private String methodPath;	
 	private String description;
 	private boolean requireAdmin;
 	private String producesTypes;
 	private String consumesTypes;
+	private APIValueModel responseObject;	
+	private long id;
 
 	public APIMethodModel()
 	{
@@ -46,16 +47,6 @@ public class APIMethodModel
 	public void setMethodPath(String methodPath)
 	{
 		this.methodPath = methodPath;
-	}
-
-	public String getReturnObject()
-	{
-		return returnObject;
-	}
-
-	public void setReturnObject(String returnObject)
-	{
-		this.returnObject = returnObject;
 	}
 
 	public String getDescription()
@@ -116,6 +107,26 @@ public class APIMethodModel
 	public void setConsumesTypes(String consumesTypes)
 	{
 		this.consumesTypes = consumesTypes;
+	}
+
+	public APIValueModel getResponseObject()
+	{
+		return responseObject;
+	}
+
+	public void setResponseObject(APIValueModel responseObject)
+	{
+		this.responseObject = responseObject;
+	}
+
+	public long getId()
+	{
+		return id;
+	}
+
+	public void setId(long id)
+	{
+		this.id = id;
 	}
 	
 	

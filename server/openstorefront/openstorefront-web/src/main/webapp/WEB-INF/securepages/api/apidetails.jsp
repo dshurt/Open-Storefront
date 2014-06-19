@@ -22,10 +22,13 @@ limitations under the License.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="css/apidoc.css" rel="stylesheet" type="text/css"/>
+	<script src="script/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
         <title>API Details</title>
     </head>
     <body>
-        <a href="index.jsp">Back to Index</a><br>
+	<script type="text/javascript">			
+		var toggleDetails = new Array();
+	</script>			
        <h1>${actionBean.resourceModel.resourceName}</h1>
 	      ${actionBean.resourceModel.resourceDescription}<br>
 	<c:if test="${!empty actionBean.resourceModel.requireAdmin}">
@@ -62,8 +65,8 @@ limitations under the License.
 		<h2>Methods</h2>
 		<table width="100%">
 			<tr>
-				<th style='text-align: left;'>Method</th>
-				<th style='text-align: left;'>Requires Admin</th>
+				<th style='text-align: center;'>Method</th>
+				<th style='text-align: center;'>Requires Admin</th>
 				<th style='text-align: left;'>Description</th>
 				<th style='text-align: left;'>Path</th>
 				<th style='text-align: left;'>Parameters</th>				
@@ -71,13 +74,13 @@ limitations under the License.
 			</tr>		
 			<c:forEach var="item" items="${actionBean.resourceModel.methods}">
 			<tr>
-				<td><span class="${item.restMethod}">${item.restMethod}</span></td>
-				<td>${item.requireAdmin}</td>
+				<td align="center"><span class="${item.restMethod}">${item.restMethod}</span></td>
+				<td align="center">${item.requireAdmin}</td>
 				<td>${item.description}</td>
-				<td>${actionBean.resourceModel.resourcePath}${item.methodPath}</td>
+				<td><span class="resourcePath">${actionBean.resourceModel.resourcePath}${item.methodPath}</span></td>
 				<td>
 					<c:if test="${!empty item.methodParams}">
-					<table>
+					<table width="100%">
 						<tr>
 							<th>Parameter</th>
 							<th>Description</th>
@@ -86,14 +89,14 @@ limitations under the License.
 							<th>Restrictions</th>
 							<th>Parameter Type</th>
 						</tr>		
-						<c:forEach var="item" items="${item.methodParams}">
+						<c:forEach var="methodParam" items="${item.methodParams}">
 						<tr>
-							<td>${item.parameterName}</td>
-							<td>${item.parameterDescription}</td>
-							<td>${item.required}</td>
-							<td>${item.defaultValue}</td>
-							<td>${item.restrictions}</td>
-							<td>${item.parameterType}</td>				
+							<td>${methodParam.parameterName}</td>
+							<td>${methodParam.parameterDescription}</td>
+							<td>${methodParam.required}</td>
+							<td>${methodParam.defaultValue}</td>
+							<td>${methodParam.restrictions}</td>
+							<td>${methodParam.parameterType}</td>				
 						</tr>
 						</c:forEach>
 					</table> 					
@@ -103,11 +106,90 @@ limitations under the License.
 					${item.producesTypes}
 					${item.consumesTypes}
 				</td>				
-			</tr>				
+			</tr>		
+			<c:if test="${item.responseObject != null}">
+				<tr>
+					<td colspan="6">
+						<div class="returnInfo">
+							<div id="rtitle-${item.id}" class="returnInfo-title"
+								 onmouseover="this.style.cursor='pointer';" onmouseout="this.style.cursor='default';"
+								 onclick="if (toggleDetails[${item.id}]){ $('#rinfo-${item.id}').show('slow');  $('#rtitle-${item.id}').html('[-] Response/Consumed Object');  toggleDetails[${item.id}]=false; }else{ $('#rinfo-${item.id}').hide('slow'); $('#rtitle-${item.id}').html('[+] Response/Consumed Object');  toggleDetails[${item.id}]=true;}  ">	
+								[+] Response/Consumed Object
+							</div>
+							<script  type="text/javascript">			
+								toggleDetails[${item.id}] = true;
+							</script>								
+							<div id="rinfo-${item.id}" class="returnInfo-contents">
+								<c:if test="${item.responseObject.returnObject != null}">
+									<pre>
+${item.responseObject.returnObject}									
+									</pre>								
+									<table>
+										<tr>
+											<th style='text-align: left;'>Field Name</th>
+											<th style='text-align: center;'>Required</th>
+											<th style='text-align: left;'>Type</th>
+											<th style='text-align: left;'>Notes</th>
+										</tr>
+										<c:forEach var="field" items="${item.responseObject.returnFields}">
+										<tr>
+											<td>
+												${field.fieldName}
+											</td>
+											<td align="center">
+												${field.required}
+											</td>
+											<td>
+												${field.type}
+											</td>
+											<td>
+												${field.validation}
+											</td>										
+										</tr>
+										</c:forEach>
+									</table>								
+								</c:if>
+								<c:if test="${item.responseObject.typeObject != null}">
+									<h3>Data Type Details</h3>
+									<pre>
+${item.responseObject.typeObject}									
+									</pre>								
+									<table>
+										<tr>
+											<th style='text-align: left;'>Field Name</th>
+											<th style='text-align: center;'>Required</th>
+											<th style='text-align: left;'>Type</th>
+											<th style='text-align: left;'>Notes</th>
+										</tr>
+										<c:forEach var="field" items="${item.responseObject.typeFields}">
+										<tr>
+											<td>
+												${field.fieldName}
+											</td>
+											<td  align="center">
+												${field.required}
+											</td>
+											<td>
+												${field.type}
+											</td>
+											<td>
+												${field.validation}
+											</td>										
+										</tr>
+										</c:forEach>
+									</table>								
+								</c:if>
+							</div>
+						</div>
+							
+					</td>					
+				</tr>	
+			</c:if>
 			</c:forEach>
 		</table> 
 			
 	</c:if>
+	
 	
 	   
     </body>

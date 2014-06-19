@@ -14,18 +14,22 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.web.rest;
+package edu.usu.sdl.openstorefront.doc;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  *
  * @author dshurtleff
  */
-@ApplicationPath("api/v1/resource")
-public class RestConfiguration
-	extends Application
+@Target({ElementType.FIELD, ElementType.PARAMETER})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface ValidationRequirement
 {
-	
+	String value();
 }

@@ -18,17 +18,12 @@ package edu.usu.sdl.openstorefront.web.action;
 
 import edu.usu.sdl.openstorefront.doc.APIResourceModel;
 import edu.usu.sdl.openstorefront.doc.JaxrsProcessor;
-import edu.usu.sdl.openstorefront.exception.OpenStorefrontRuntimeException;
-import edu.usu.sdl.openstorefront.model.jpa.BaseEntity;
-import edu.usu.sdl.openstorefront.web.viewmodel.RestErrorModel;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import net.sourceforge.stripes.action.DefaultHandler;
 import net.sourceforge.stripes.action.ErrorResolution;
 import net.sourceforge.stripes.action.ForwardResolution;
+import net.sourceforge.stripes.action.HandlesEvent;
 import net.sourceforge.stripes.action.Resolution;
 import net.sourceforge.stripes.validation.Validate;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -39,12 +34,15 @@ public class APIAction
 {
 	private static final Logger log = Logger.getLogger(APIAction.class.getName());
 	
-	@Validate(required = true)
+	@Validate(required = true, on="API")
 	private String resourceClass;
+	
+	@Validate(required = true, on="Page")
+	private String page;
 			
 	private APIResourceModel resourceModel;
 	
-	@DefaultHandler
+	@HandlesEvent("API")
 	public Resolution apiDetails()
 	{		
 		try
@@ -58,6 +56,18 @@ public class APIAction
 		return new ForwardResolution("/WEB-INF/securepages/api/apidetails.jsp");
 	}
 
+	@HandlesEvent("Page")
+	public Resolution apiPage()			
+	{
+		page = page.replace("../", "");
+		if (page.equalsIgnoreCase("apidetails.jsp"))
+		{
+			page = "404";
+		}
+		return new ForwardResolution("/WEB-INF/securepages/api/" + page + ".jsp");
+	}
+	
+	
 	public String getResourceClass()
 	{
 		return resourceClass;
@@ -76,6 +86,16 @@ public class APIAction
 	public void setResourceModel(APIResourceModel resourceModel)
 	{
 		this.resourceModel = resourceModel;
+	}
+
+	public String getPage()
+	{
+		return page;
+	}
+
+	public void setPage(String page)
+	{
+		this.page = page;
 	}
 	
 }

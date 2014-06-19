@@ -16,13 +16,62 @@
 
 package edu.usu.sdl.openstorefront.doc;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author dshurtleff
  */
 public class APIValueModel
 {
-	String returnObject;
-	
-	
+	private String returnObject;
+	private String typeObject;
+	private List<APIValueFieldModel> returnFields = new ArrayList<>();
+	private List<APIValueFieldModel> typeFields = new ArrayList<>();
+
+	public APIValueModel()
+	{
+	}
+
+	public String getReturnObject()
+	{
+		return returnObject;
+	}
+
+	public void setReturnObject(String returnObject)
+	{
+		this.returnObject = returnObject;
+	}
+
+	public String getTypeObject()
+	{
+		return typeObject;
+	}
+
+	public void setTypeObject(String typeObject)
+	{
+		this.typeObject = typeObject;
+	}
+
+	public List<APIValueFieldModel> getReturnFields()
+	{
+		return returnFields;
+	}
+
+	public void setReturnFields(List<APIValueFieldModel> returnFields)
+	{
+		this.returnFields = returnFields;
+	}
+
+	public List<APIValueFieldModel> getTypeFields()
+	{
+		return typeFields;
+	}
+
+	public void setTypeFields(List<APIValueFieldModel> typeFields)
+	{
+		this.typeFields = typeFields;
+	}
+
 }

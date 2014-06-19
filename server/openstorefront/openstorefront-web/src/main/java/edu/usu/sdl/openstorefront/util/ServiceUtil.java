@@ -16,6 +16,8 @@
 
 package edu.usu.sdl.openstorefront.util;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.logging.Level;
@@ -28,8 +30,15 @@ import org.apache.commons.beanutils.BeanUtils;
  */
 public class ServiceUtil
 {
+	private static final ObjectMapper objectMapper = new ObjectMapper();
 	
-	public static  String printObject(Object o)
+	public static ObjectMapper defaultObjectMapper()
+	{
+		objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+		return objectMapper;
+	}
+	
+	public static String printObject(Object o)
 	{
 		StringBuilder sb = new StringBuilder();
 		

@@ -17,7 +17,10 @@
 package edu.usu.sdl.openstorefront.web.rest.resource;
 
 import edu.usu.sdl.openstorefront.doc.APIDescription;
+import edu.usu.sdl.openstorefront.doc.ProduceType;
 import edu.usu.sdl.openstorefront.doc.RequireAdmin;
+import edu.usu.sdl.openstorefront.doc.RequiredParam;
+import edu.usu.sdl.openstorefront.web.rest.model.RestListResponse;
 import edu.usu.sdl.openstorefront.web.rest.model.UserProfileView;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,28 +35,41 @@ import javax.ws.rs.core.MediaType;
  *
  * @author dshurtleff
  */
-@Path("userprofiles/{id}")
+@Path("userprofiles")
 @APIDescription("A user profile contain information about the user and user specific data. A user profile is created at the time the user logins in.<br>"
 		           + "Note: id can be set to \"CURRENTUSER\" to perform operations on the currently logged in user.")
 public class UserProfile
 {
 	private static final String DEFAULT_USER = "CURRENTUSER";
 	
-	@PathParam("id")
-	@DefaultValue(DEFAULT_USER)
-	private String userId;
-	
 	@GET
-	@APIDescription("Get a list of user profiles or an user profile matching Id. ")
+	@APIDescription("Get a list of user profiles")
 	@RequireAdmin
 	@Produces({MediaType.APPLICATION_JSON})
-	public List<UserProfileView> userProfiles()
+	@ProduceType(UserProfileView.class)
+	public RestListResponse userProfiles()
 	{
+		RestListResponse restListResponse = new RestListResponse();
+		
 		List<UserProfileView> userProfileViews = new ArrayList<>();
 	
 		
-		return userProfileViews;
+		return restListResponse;
 	}
 	
-	
+	@GET
+	@APIDescription("Gets user profile specified by id")
+	@RequireAdmin
+	@Produces({MediaType.APPLICATION_JSON})
+	@Path("/{id}")
+	public UserProfileView userProfile(
+			@PathParam("id") 
+			@DefaultValue(DEFAULT_USER) 
+			@RequiredParam		
+			String userId)
+	{
+		UserProfileView userProfileView = new UserProfileView();
+		
+		return userProfileView;
+	}
 }

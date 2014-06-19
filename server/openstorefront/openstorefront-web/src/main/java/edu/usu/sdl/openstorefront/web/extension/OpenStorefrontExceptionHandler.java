@@ -18,6 +18,7 @@ package edu.usu.sdl.openstorefront.web.extension;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.usu.sdl.openstorefront.exception.OpenStorefrontRuntimeException;
+import edu.usu.sdl.openstorefront.util.ServiceUtil;
 import edu.usu.sdl.openstorefront.web.viewmodel.SystemErrorModel;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -59,7 +60,7 @@ public class OpenStorefrontExceptionHandler
 		
 		systemErrorModel.setMessage(error.getLocalizedMessage());			
 		
-		final ObjectMapper objectMapper =  new ObjectMapper();		 
+		final ObjectMapper objectMapper =  ServiceUtil.defaultObjectMapper();
 		return new StreamingResolution(MediaType.APPLICATION_JSON) {
 
 			@Override
