@@ -14,6 +14,7 @@
 * limitations under the License.
 */
 .banner{
+  font-family: WideLatin;
   padding: 20px 2px;
   width: 100%;
   text-align: center;
@@ -23,7 +24,6 @@
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
   0px 8px 13px rgba(0,0,0,0.1),
   0px 18px 23px rgba(0,0,0,0.1);
-  font-weight: bold;
   -webkit-box-shadow: inset 0px 0px 9px 0px;
   -moz-box-shadow: inset 0px 0px 9px 0px rgba(68, 68, 68, 0.6);
   box-shadow: inset 0px 0px 9px 0px rgba(68,68,68,0.6);
@@ -96,9 +96,6 @@
 
 
 
-.navbar-brand{
-  font-family: WideLatin;
-}
 
 
 @media screen and (max-width: 768px) {
