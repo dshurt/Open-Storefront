@@ -94,6 +94,13 @@
   text-decoration: none;
 }
 
+
+
+.navbar-brand{
+  font-family: WideLatin;
+}
+
+
 @media screen and (max-width: 768px) {
   .banner{
     padding: 10px 2px;
