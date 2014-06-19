@@ -1,136 +1,62 @@
 <div class="row">
   <div class="col-sm-12">
-    <div class="col-sm-12">
-      <h3> How many stars: 
-        <raty class="large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="0" number="5" path="../../images/raty/">
-        </raty>
-      </h3>
+    <div class="row">
+      <div class="col-sm-12">
+        <h3> How many stars:&nbsp; 
+          <raty class="large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="0" number="5" path="../../images/raty/">
+          </raty>
+        </h3>
+      </div>
     </div>
-    <div class="col-sm-12">
-      <strong>Title: </strong>
-      <input type="text" class="form-control" style="width: auto; display:inline-block" placeholder="Enter Review Title Here">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row" style="margin:0px;">
+          <strong>Title:&nbsp;</strong>
+        </div>
+        <input type="text" class="form-control" style="width: auto; display:inline-block;" placeholder="Enter Review Title Here">
+      </div>
     </div>
     <div class="col-sm-12">
       &nbsp;
     </div>
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label class="control-label"><i class="fa fa-calendar"></i> <i class="fa fa-arrows-h"></i> <i class="fa fa-calendar"></i> Date Range of Usage Experience</label>
-        <div class="form-group" style=" display:inline-block">
-          <input type="text" class="form-control" style="width: auto; display:inline-block" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row" style="margin:0px;">
+          <label>Level of Expertise:&nbsp;</label>
         </div>
-        <i class="fa fa-arrows-h"></i>
-        <div class="form-group" style=" display:inline-block">
-          <input type="text" class="form-control" style="width: auto; display:inline-block" ng-model="untilDate" data-min-date="{{fromDate}}" placeholder="Until" bs-datepicker>
+        <button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="level.label for level in expertise" data-animation="am-flip-x" bs-select>
+          Action <span class="caret"></span>
+        </button>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      &nbsp;
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <div class="row" style="margin:0px;">
+            <label class="control-label"></i> Last Used:&nbsp;</label>
+          </div>
+          <div class="form-group" style=" display:inline-block">
+            <input type="text" class="form-control" style="width: auto; display:inline-block;" data-date-format="MM-yyyy" data-start-view="2" data-min-view="1" autoclose="true" ng-model="lastUsed" data-max-date="{{untilDate}}" placeholder="Last Used" bs-datepicker> 
+            &nbsp;<i class="fa fa-calendar"></i> <span><small>Defaults to "The Present"</small></span>
+          </div>
         </div>
       </div>
     </div>
     <div>
-      <div class="col-sm-6">
-        <strong>Pros: </strong>
-        <ul style="list-style: none">
-          <li>
-            <div class="checkbox">
-              <label for="pro1">
-                <input type="checkbox" name="pros" id="pro1">
-                <span>Well tested</span>
-              </label>
-            </div>
-          </li>
-          <li>
-            <div class="checkbox">
-              <label for="pro2">
-                <input type="checkbox" name="pros" id="pro2">
-                <span>Active Development</span>
-              </label>
-            </div>
-          </li>
-          <li>
-            <div class="checkbox">
-              <label for="pro3">
-                <input type="checkbox" name="pros" id="pro3">
-                <span>Reliable</span>
-              </label>
-            </div>
-          </li>
-          <li>
-            <div class="checkbox">
-              <label for="pro4">
-                <input type="checkbox" name="pros" id="pro4">
-                <span>Open Source</span>
-              </label>
-            </div>
-          </li>
-          <li>
-            <div class="checkbox">
-              <label for="pro5">
-                <input type="checkbox" name="pros" id="pro5">
-                <span>Compact</span>
-              </label>
-            </div>
-          </li>
-          <li>
-            <div class="checkbox">
-              <label for="pro6">
-                <input type="checkbox" name="pros" id="pro6">
-                <span>Well Tested</span>
-              </label>
-            </div>
-          </li>
-        </ul>      
+      <div class="row">
+        <div class="col-sm-12">
+          <strong>Pros: </strong>
+          <tags-input class="bootstrap" min-length="1" ng-model="reviewPros" add-from-autocomplete-only="true" replace-spaces-with-dashes="false" on-tag-added="" on-tag-removed=""><auto-complete min-length="1" source="checkTagsList($query, reviewPros, prosConsList.pros)"></auto-complete></tags-input>
+        </div>
       </div>
-      <div class="col-sm-6">
-        <strong>Cons: </strong>
-        <ul style="list-style: none">
-          <li>
-            <div class="checkbox">
-              <label for="con1">
-                <input type="checkbox" name="cons" id="con1">
-                <span>Poorly Tested</span>
-              </label>
-            </div>
-          </li>
-          <li>
-            <div class="checkbox">
-              <label for="con2">
-                <input type="checkbox" name="cons" id="con2">
-                <span>Security Concerns</span>
-              </label>
-            </div>
-          </li>
-          <li>
-            <div class="checkbox">
-              <label for="con3">
-                <input type="checkbox" name="cons" id="con3">
-                <span>Difficult Installation</span>
-              </label>
-            </div>
-          </li>
-          <li>
-            <div class="checkbox">
-              <label for="con4">
-                <input type="checkbox" name="cons" id="con4">
-                <span>Poor Documentation</span>
-              </label>
-            </div>
-          </li>
-          <li>
-            <div class="checkbox">
-              <label for="con5">
-                <input type="checkbox" name="cons" id="con5">
-                <span>Bulky</span>
-              </label>
-            </div>
-          </li>
-          <li>
-            <div class="checkbox">
-              <label for="con6">
-                <input type="checkbox" name="cons" id="con6">
-                <span>Legacy system</span>
-              </label>
-            </div>
-          </li>
-        </ul>
+      <div class="row">
+        <div class="col-sm-12">
+          <strong>Cons: </strong>
+          <tags-input class="bootstrap" min-length="1" ng-model="reviewCons" add-from-autocomplete-only="true" replace-spaces-with-dashes="false" on-tag-added="" on-tag-removed=""><auto-complete min-length="1" source="checkTagsList($query, reviewCons, prosConsList.cons)"></auto-complete></tags-input>
+        </div>
       </div>
     </div>
     <div>

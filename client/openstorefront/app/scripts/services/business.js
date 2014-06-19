@@ -44,6 +44,10 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
     return MOCKDATA.tagsList;
   };
 
+  business.getProsConsList = function(){
+    return MOCKDATA.prosConsList;
+  };
+
   business.getWatches = function(){
     return MOCKDATA.watches;
   };
