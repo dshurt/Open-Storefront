@@ -42,7 +42,7 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   
   // Set up the main controller's variables.
   $scope._scopename = 'main';
-  $scope.pageTitle  = 'DI2E Storefront Catalog';
+  $scope.pageTitle  = 'DI2E Storefront';
 
   // grab the custom filters (aka groups).
   $scope.filters    = Business.getFilters();

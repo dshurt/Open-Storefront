@@ -82,6 +82,10 @@ grunt.loadNpmTasks('grunt-war');
         files: ['<%= yeoman.app %>/styles/**/*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
       },
+      compass: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['compass:server', 'autoprefixer']
+      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -127,6 +131,44 @@ grunt.loadNpmTasks('grunt-war');
       dist: {
         options: {
           base: '<%= yeoman.dist %>'
+        }
+      }
+    },
+
+    // Compiles Sass to CSS and generates necessary files if requested
+    compass: {
+      options: {
+        sassDir: '<%= yeoman.app %>/styles',
+        cssDir: '.tmp/styles',
+        generatedImagesDir: '.tmp/images/generated',
+        imagesDir: '<%= yeoman.app %>/images',
+        javascriptsDir: '<%= yeoman.app %>/scripts',
+        importPath: '<%= yeoman.app %>/bower_components',
+        httpImagesPath: '/images',
+        httpGeneratedImagesPath: '/images/generated',
+        fontsDir: grunt.option('appPath')? grunt.option('appPath') + '/fonts' : '<%= yeoman.app %>/fonts',
+        httpFontsPath: grunt.option('appPath')? grunt.option('appPath') + '/fonts' : '/fonts',
+        relativeAssets: false,
+        assetCacheBuster: false,
+        raw: 'Sass::Script::Number.precision = 10\n'
+      },
+      // prod: {
+      //   options: {
+      //     **************************************************************
+      //     * THIS IS WHERE YOU WILL PUT THE PATH FROM THE ROOT TO THE FONTS
+      //     * FOLDER
+      //     **************************************************************
+
+      //   }
+      // },
+      dist: {
+        options: {
+          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+        }
+      },
+      server: {
+        options: {
+          debugInfo: true
         }
       }
     },
@@ -184,6 +226,10 @@ grunt.loadNpmTasks('grunt-war');
       app: {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath: '<%= yeoman.app %>/'
+      },
+      sass: {
+        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        ignorePath: '<%= yeoman.app %>/bower_components/'
       }
     },
 
@@ -194,7 +240,6 @@ grunt.loadNpmTasks('grunt-war');
           src: [
             '<%= yeoman.dist %>/scripts/**/*.js',
             '<%= yeoman.dist %>/styles/**/*.css',
-            '<%= yeoman.dist %>/styles/fonts/*'
           ]
         }
       }
@@ -309,9 +354,10 @@ grunt.loadNpmTasks('grunt-war');
             '*.html',
             'views/**/*.html',
             'images/**/*.png',
-            'fonts/*',
             'bower_components/fontawesome/fonts/*',
+            'bower_components/fontawesome/css/font-awesome.css',
             'bower_components/bootstrap/dist/fonts/*',
+            'bower_components/bootstrap/dist/css/bootstrap.css',
             'styles/*.css',
             'scripts/common-min/*.js',
             'scripts/common/data.js'
@@ -323,21 +369,35 @@ grunt.loadNpmTasks('grunt-war');
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '**/*.css'
+      },
+      fonts: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/fonts',
+        dest: '<%= yeoman.dist %>/fonts',
+        src: '**/*'
       }
     },
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
+        'compass:server',
         'copy:styles'
       ],
       test: [
+        'compass',
         'copy:styles'
       ],
       dist: [
+        'compass:dist',
         'copy:styles',
         'svgmin'
-      ]
+      ]//,
+      // prod: [
+      //   'compass:prod',
+      //   'copy:styles',
+      //   'svgmin'
+      // ]
     },
 
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
@@ -404,23 +464,53 @@ grunt.loadNpmTasks('grunt-war');
     'karma'
   ]);
 
-  grunt.registerTask('build', [
-    'clean:dist',
-    'bowerInstall',
-    'useminPrepare',
-    'concurrent:dist',
-    'autoprefixer',
-    'concat',
-    'ngmin',
-    'copy:dist',
-    'cdnify',
-    'cssmin',
-    'uglify',
-    'rev',
-    'usemin',
-    'htmlmin',
-    'war'
-  ]);
+  grunt.registerTask('build', function (target) {
+      // if (target !== '' && target !== undefined && target !== null) {
+      //   grunt.option('httpFontsPath', (target || '/') + '/fonts');
+      //   grunt.option('fontsDir', (target || '/') + '/fonts');
+      //   // httpFontsPath: (grunt.option('root') || '/') + 'fonts',
+      //   // fontsDir: (grunt.option('root') || '/') + 'fonts',
+      //   // return grunt.task.run([
+      //   //   'clean:dist',
+      //   //   'bowerInstall',
+      //   //   'useminPrepare',
+      //   //   'concurrent:prod',
+      //   //   'autoprefixer',
+      //   //   'concat',
+      //   //   'ngmin',
+      //   //   'copy:dist',
+      //   //   'copy:fonts',
+      //   //   'cdnify',
+      //   //   'cssmin',
+      //   //   'uglify',
+      //   //   'rev',
+      //   //   'usemin',
+      //   //   'htmlmin',
+      //   //   'war'
+      //   //   ]);
+      // } else {
+      //   grunt.option('fontsDir', '<%= yeoman.app %>/fonts');
+      //   grunt.option('httpFontsPath', '/fonts');
+      // }
+      grunt.task.run([
+        'clean:dist',
+        'bowerInstall',
+        'useminPrepare',
+        'concurrent:dist',
+        'autoprefixer',
+        'concat',
+        'ngmin',
+        'copy:dist',
+        'copy:fonts',
+        'cdnify',
+        'cssmin',
+        'uglify',
+        'rev',
+        'usemin',
+        'htmlmin',
+        'war'
+        ]);
+    });
 
   grunt.registerTask('default', [
     'newer:jshint',
