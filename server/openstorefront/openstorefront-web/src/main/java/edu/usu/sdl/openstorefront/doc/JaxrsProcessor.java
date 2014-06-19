@@ -20,6 +20,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import edu.usu.sdl.openstorefront.web.rest.RestConfiguration;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -188,12 +189,51 @@ public class JaxrsProcessor
 			
 			//method parameters	
 			mapMethodParameters(methodModel.getMethodParams(), method.getParameters());
+						
+			//Handle Consumed Objects
+			mapConsumedObjects(methodModel.getConsumeObjects(), method.getParameters());
 			
 			resourceModel.getMethods().add(methodModel);
 		}	
 		return resourceModel;
 	}
 	
+	private static void mapConsumedObjects(List<APIValueModel> consumeObjects, Parameter parameters[])
+	{
+		for (Parameter parameter : parameters)
+		{
+			//deterimine if this is "Body" object
+			List<Annotation> paramAnnotation = new ArrayList<>();
+			paramAnnotation.add(parameter.getAnnotation(QueryParam.class));
+			paramAnnotation.add(parameter.getAnnotation(FormParam.class));
+			paramAnnotation.add(parameter.getAnnotation(MatrixParam.class));
+			paramAnnotation.add(parameter.getAnnotation(HeaderParam.class));
+			paramAnnotation.add(parameter.getAnnotation(CookieParam.class));
+			paramAnnotation.add(parameter.getAnnotation(PathParam.class));
+			paramAnnotation.add(parameter.getAnnotation(BeanParam.class));
+	
+			boolean consumeObject = true;
+			for (Annotation annotation : paramAnnotation)
+			{
+				if (annotation != null)
+				{
+					consumeObject = false;
+					break;
+				}
+			}
+			
+			if (consumeObject)
+			{
+				APIValueModel valueModel = new APIValueModel();
+				
+				
+				
+				
+				consumeObjects.add(valueModel);
+			}
+		}	
+	}
+
 	private static void mapValueField(List<APIValueFieldModel> fieldModels,  Field fields[])
 	{
 		for (Field field : fields)
@@ -295,8 +335,7 @@ public class JaxrsProcessor
 			{
 				paramModel.setParameterType(CookieParam.class.getSimpleName());
 				paramModel.setParameterName(cookieParam.value());
-			}
-			
+			}		
 
 			if (beanParam != null)
 			{
@@ -328,10 +367,9 @@ public class JaxrsProcessor
 				{
 					paramModel.setDefaultValue(defaultValue.value());
 				}
-			}
-
-
-			parameterList.add(paramModel);
+				
+				parameterList.add(paramModel);
+			}			
 		}		
 	}
 	

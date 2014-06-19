@@ -33,13 +33,13 @@ limitations under the License.
 			<h4>API</h4>
 			<ul>
 				<li>
-					<a href="#" onclick="$('#apidocId').load('API.action?Page&page=intro');">Introduction</a>
+					<a href="#API.action?Page&page=intro" onclick="$('#apidocId').load('API.action?Page&page=intro');">Introduction</a>
 				</li>
 				<li>
-					<a href="#" onclick="$('#apidocId').load('API.action?Page&page=security');">Security</a>
+					<a href="#API.action?Page&page=security" onclick="$('#apidocId').load('API.action?Page&page=security');">Security</a>
 				</li>
 				<li>
-					<a href="#" onclick="$('#apidocId').load('API.action?Page&page=errorhandling');">Error Handling</a>
+					<a href="#API.action?Page&page=errorhandling" onclick="$('#apidocId').load('API.action?Page&page=errorhandling');">Error Handling</a>
 				</li>
 			</ul>
 			
@@ -48,7 +48,7 @@ limitations under the License.
 			</h4>
 			<ul>
 				<li>
-					<a href="#" onclick="$('#apidocId').load('API.action?API&resourceClass=UserProfile');">User Profile</a>
+					<a href="#API.action?API&resourceClass=UserProfile" onclick="$('#apidocId').load('API.action?API&resourceClass=UserProfile');">User Profile</a>
 				</li>
 				<li>
 					<a href="component.html">Component</a>
@@ -90,8 +90,21 @@ limitations under the License.
 		<script type="text/javascript">
 			$( document ).tooltip();
 			$(document).ready(function(){
-				$('#apidocId').load('API.action?Page&page=intro');
+				var doctoLoad = window.location.href.split("#");
+				if (doctoLoad[1] !== undefined && doctoLoad[1] !== null){
+					$('#apidocId').load(doctoLoad[1]);
+				} else {
+					$('#apidocId').load('API.action?Page&page=intro');
+				}
 				
+				window.onhashchange = function(){
+					var doctoLoad = window.location.href.split("#");
+					if (doctoLoad[1] !== undefined && doctoLoad[1] !== null){
+						$('#apidocId').load(doctoLoad[1]);
+					} else {
+						$('#apidocId').load('API.action?Page&page=intro');
+					}					
+				};
 			});
 			
 		</script>

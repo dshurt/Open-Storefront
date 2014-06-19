@@ -23,7 +23,7 @@ limitations under the License.
     <body>
 		<h1>API Reference</h1>
 		This document describes the API interface for the open storefront project.<br><br>
-		<b>Base Path:</b> /api/v1<br>
+		<b>Base Path:</b> /api<br>
 		<b>Supported Content Type: </b>JSON <br><br>
 		For JSONP support set "callback" parameter.  For example: "callback=processResponse" the response would be "processResponse({"data":"data"});" <br>
 		The server also supports cross-origin resource sharing (CORS).		

@@ -163,7 +163,7 @@ tr:nth-child(even) {
 
 .PUT{
 	font-weight: bold;
-	background-color: yellow;
+	background-color: grey;
 	color: white;
 	text-shadow: 2px 2px 2px black;
 	text-align: center;	

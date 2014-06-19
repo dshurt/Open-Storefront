@@ -24,8 +24,10 @@ import edu.usu.sdl.openstorefront.web.rest.model.RestListResponse;
 import edu.usu.sdl.openstorefront.web.rest.model.UserProfileView;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -35,7 +37,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author dshurtleff
  */
-@Path("userprofiles")
+@Path("v1/resource/userprofiles")
 @APIDescription("A user profile contain information about the user and user specific data. A user profile is created at the time the user logins in.<br>"
 		           + "Note: id can be set to \"CURRENTUSER\" to perform operations on the currently logged in user.")
 public class UserProfile
@@ -58,7 +60,7 @@ public class UserProfile
 	}
 	
 	@GET
-	@APIDescription("Gets user profile specified by id")
+	@APIDescription("Gets user profile specified by id.")
 	@RequireAdmin
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("/{id}")
@@ -72,4 +74,23 @@ public class UserProfile
 		
 		return userProfileView;
 	}
+	
+	@PUT
+	@APIDescription("Update user profile returns updated profile.")
+	@RequireAdmin
+	@Produces({MediaType.APPLICATION_JSON})
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/{id}")
+	public UserProfileView updateProile(
+			@PathParam("id") 
+			@DefaultValue(DEFAULT_USER) 
+			@RequiredParam		
+			String userId,  
+			UserProfileView inputProfile) 
+	{
+		UserProfileView userProfileView = new UserProfileView();
+		
+		return userProfileView;
+	}
+	
 }

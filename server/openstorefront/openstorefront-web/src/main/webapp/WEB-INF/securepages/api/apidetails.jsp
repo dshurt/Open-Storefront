@@ -103,8 +103,14 @@ limitations under the License.
 					</c:if>
 				</td>
 				<td>
-					${item.producesTypes}
-					${item.consumesTypes}
+					<c:if test="${item.producesTypes != null}">
+						<b>Produces:</b><br> 					
+						${item.producesTypes}<br>						
+					</c:if>
+					<c:if test="${item.consumesTypes != null}">
+						<b>Consumes:</b><br> 					
+						${item.consumesTypes}<br>						
+					</c:if>
 				</td>				
 			</tr>		
 			<c:if test="${item.responseObject != null}">
@@ -119,7 +125,7 @@ limitations under the License.
 							<script  type="text/javascript">			
 								toggleDetails[${item.id}] = true;
 							</script>								
-							<div id="rinfo-${item.id}" class="returnInfo-contents">
+							<div id="rinfo-${item.id}" class="returnInfo-contents">								
 								<c:if test="${item.responseObject.returnObject != null}">
 									<pre>
 ${item.responseObject.returnObject}									
