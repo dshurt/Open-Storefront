@@ -78,7 +78,7 @@ body {
   float: none;
 }
 .navSearch{
-  margin-left:235px;
+  margin-left:220px;
   margin-right:220px;
   width: auto;
 }
@@ -257,14 +257,14 @@ span.twitter-typeahead {
 
 
 @font-face {
-    font-family: 'WideLatin';
-    src: url('../fonts/wide_latin.eot');
-    src: url('../fonts/wide_latin.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/wide_latin.woff') format('woff'),
-         url('../fonts/wide_latin.ttf') format('truetype'),
-         url('../fonts/wide_latin.svg#wide_latinregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'WideLatin';
+  src: url('../fonts/wide_latin.eot');
+  src: url('../fonts/wide_latin.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/wide_latin.woff') format('woff'),
+  url('../fonts/wide_latin.ttf') format('truetype'),
+  url('../fonts/wide_latin.svg#wide_latinregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 
@@ -281,7 +281,21 @@ span.twitter-typeahead {
   text-transform: none;
 }
 
+.navbar-brand {
+  padding: 0px;
+}
 
+.navbar-brand .logo,
+.navbar-brand .logo-small{
+  font-family: WideLatin;
+}
+.navbar-brand .logo-small {
+  font-size: 15px;
+  margin-top: -4px;
+}
+.navbar-brand .logo {
+  font-size: 28px;
+}
 
 
 /*  Use these instead if you want to use FontAwesome instead of the raty font
