@@ -16,7 +16,7 @@
 'use strict';
 
 
-/* exported setupPopovers, setupTypeahead, isEmpty, toggleclass*/
+/* exported setupPopovers, setupTypeahead, isEmpty, toggleclass, setUpDropdown*/
 
 /*****************************
 * This function sets up the popovers for the results page, but could be 
@@ -31,10 +31,23 @@ var setupPopovers = function() {
   $('[data-toggle=\'popover\']').popover({trigger: 'hover','placement': 'bottom', 'html': true});
 };
 
-
-
+/***************************************************************
+* This function toggles a class name for a specified id
+***************************************************************/
 var toggleclass = function(id, className) {
   $('#'+id).toggleClass(className);
+};
+
+/***************************************************************
+* This function makes a dropdown menu work on first click.
+***************************************************************/
+var setUpDropdown= function(id) {
+  $('#' + id).on('click', function(e) {
+    e.stopPropagation();
+
+    //The dropdown has to be somewhere inside the element (not in the element itself)
+    $(this).next('.dropdown').find('[data-toggle=dropdown]').dropdown('toggle');
+  });
 };
 
 /***************************************************************

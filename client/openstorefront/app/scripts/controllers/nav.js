@@ -15,6 +15,8 @@
 */
 'use strict';
 
+/*global setUpDropdown*/
+
 app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'business', '$route', '$timeout', function ($scope, $location, $rootScope, Business, $route, $timeout) { /*jshint unused: false*/
 
   /*******************************************************************************
@@ -46,6 +48,10 @@ app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'business', '$ro
   });
   
 
+  /***************************************************************
+  * This function sends the routing to the results page with a specified
+  * search key saved in the localCache
+  ***************************************************************/
   $scope.goToSearch = function(){ /*jshint unused:false*/
     $rootScope.searchkey = $scope.searchkey;
     Business.search('search', $scope.searchKey, true).then(function (key) {
@@ -57,11 +63,20 @@ app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'business', '$ro
     });
   };
 
+  /***************************************************************
+  * This function sends the person home
+  ***************************************************************/
   $scope.sendHome = function(){ /*jshint unused:false*/
     Business.search('search', $scope.searchKey);
     $location.path('/');
   };
 
+  /***************************************************************
+  * This function sends the navigation to a specified route.
+  ***************************************************************/
+  $scope.send = function(route) {
+    $location.path(route);
+  };
 
   /*******************************************************************************
   * This function sets the rootScope's search key so that if you did it in the
@@ -76,5 +91,10 @@ app.controller('NavCtrl', ['$scope', '$location', '$rootScope', 'business', '$ro
     $rootScope.searchKey = $scope.searchKey;
   });
 
+
+  // We have to manually connect the list item to the dropdown toggle because the
+  // routing and nav load somehow delays it which makes the dropdown not work
+  // until the second click. This makes it work on first click.
+  setUpDropdown('dropTheMenu');
 
 }]);

@@ -29,12 +29,12 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
 
   $scope.expertise = [
     //
-    {"value":"1", 'label': 'Less than 1 month'},
-    {"value":"2", 'label': 'Less than 3 months'},
-    {"value":"3", 'label': 'Less than 6 months'},
-    {"value":"4", 'label': 'Less than 1 year'},
-    {"value":"5", 'label': 'Less than 3 years'},
-    {"value":"6", 'label': 'More than 3 years'}
+    {'value':'1', 'label': 'Less than 1 month'},
+    {'value':'2', 'label': 'Less than 3 months'},
+    {'value':'3', 'label': 'Less than 6 months'},
+    {'value':'4', 'label': 'Less than 1 year'},
+    {'value':'5', 'label': 'Less than 3 years'},
+    {'value':'6', 'label': 'More than 3 years'}
   //
   ];
 
