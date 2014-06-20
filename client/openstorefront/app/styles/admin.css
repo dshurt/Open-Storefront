@@ -1,0 +1,12 @@
+.tools {
+  width: 250px !important;
+  display: inline-block;
+  border-right: 1px solid lightgray;
+  overflow: hidden;
+  height: 100%;
+  margin-bottom:-3px;
+}
+.content {
+  display: inline-block;
+  vertical-align: top;
+}
