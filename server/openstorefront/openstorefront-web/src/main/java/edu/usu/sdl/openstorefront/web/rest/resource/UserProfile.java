@@ -22,16 +22,22 @@ import edu.usu.sdl.openstorefront.doc.RequireAdmin;
 import edu.usu.sdl.openstorefront.doc.RequiredParam;
 import edu.usu.sdl.openstorefront.web.rest.model.RestListResponse;
 import edu.usu.sdl.openstorefront.web.rest.model.UserProfileView;
+import edu.usu.sdl.openstorefront.web.rest.model.UserRecentView;
+import edu.usu.sdl.openstorefront.web.rest.model.UserWatchView;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -92,5 +98,117 @@ public class UserProfile
 		
 		return userProfileView;
 	}
+	
+	@GET
+	@APIDescription("Retrieves Active User Watches.")
+	@RequireAdmin
+	@Produces({MediaType.APPLICATION_JSON})
+	@Path("/{id}/watches")
+	@DataType(UserWatchView.class)
+	public RestListResponse getWatches(
+			@PathParam("id") 
+			@DefaultValue(DEFAULT_USER) 
+			@RequiredParam		
+			String userId)
+	{
+		RestListResponse restListResponse = new RestListResponse();
+		
+		return restListResponse;
+	}	
+	
+	@GET
+	@APIDescription("Retrieves an user watch by id or componentId.")
+	@RequireAdmin
+	@Produces({MediaType.APPLICATION_JSON})
+	@Path("/{id}/watches/{watchIdorComponetId}")
+	public UserWatchView getWatch(
+			@PathParam("id") 
+			@DefaultValue(DEFAULT_USER) 
+			@RequiredParam		
+			String userId,
+			@PathParam("watchIdorComponetId") 			
+			@RequiredParam		
+			Long watchIdorComponentId)
+	{
+		UserWatchView userWatchView = new UserWatchView();
+		
+		return userWatchView;
+	}	
+	
+	@POST
+	@APIDescription("Adds existing new watch.")
+	@RequireAdmin	
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/{id}/watches")
+	public Response addWatch(
+			@PathParam("id") 
+			@DefaultValue(DEFAULT_USER) 
+			@RequiredParam		
+			String userId,  
+			UserWatchView userWatchView) 
+	{
+		UserProfileView userProfileView = new UserProfileView();
+		
+		//TODO: return the location of the created watch
+		return Response.created(URI.create("watches")).build();
+	}
+	
+	@PUT
+	@APIDescription("Update existing new watch. On update: it will update the last view date.")
+	@RequireAdmin
+	@Produces({MediaType.APPLICATION_JSON})
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/{id}/watches/{watchId}")
+	public UserWatchView updateWatch(			
+			@PathParam("id") 
+			@DefaultValue(DEFAULT_USER) 
+			@RequiredParam		
+			String userId, 
+			
+			@PathParam("watchId") 			
+			@RequiredParam
+			long watchId,
+			
+			UserWatchView userWatchView) 
+	{
+		UserWatchView userWatchViewUpdate = new UserWatchView();
+		
+		return userWatchViewUpdate;
+	}	
+	
+	@DELETE
+	@APIDescription("Removes a Users Watch.")
+	@RequireAdmin
+	@Path("/{id}/watches/{watchId}")
+	public Response updateWatch(			
+			@PathParam("id") 
+			@DefaultValue(DEFAULT_USER) 
+			@RequiredParam		
+			String userId,
+			@PathParam("watchId") 			
+			@RequiredParam		
+			Long watchId) 
+	{
+		
+		
+		return Response.noContent().build();
+	}	
+	
+	@GET
+	@APIDescription("Retrieves Recent Views.  The system keep the 5 most recent.  Sorted by most recent.")
+	@RequireAdmin
+	@Produces({MediaType.APPLICATION_JSON})
+	@Path("/{id}/recentviews")
+	@DataType(UserRecentView.class)
+	public RestListResponse getRecentviews(
+			@PathParam("id") 
+			@DefaultValue(DEFAULT_USER) 
+			@RequiredParam		
+			String userId)
+	{
+		RestListResponse restListResponse = new RestListResponse();
+		
+		return restListResponse;
+	}	
 	
 }
