@@ -17,7 +17,7 @@
 package edu.usu.sdl.openstorefront.web.rest.resource;
 
 import edu.usu.sdl.openstorefront.doc.APIDescription;
-import edu.usu.sdl.openstorefront.doc.ProduceType;
+import edu.usu.sdl.openstorefront.doc.DataType;
 import edu.usu.sdl.openstorefront.doc.RequireAdmin;
 import edu.usu.sdl.openstorefront.doc.RequiredParam;
 import edu.usu.sdl.openstorefront.web.rest.model.RestListResponse;
@@ -48,7 +48,7 @@ public class UserProfile
 	@APIDescription("Get a list of user profiles")
 	@RequireAdmin
 	@Produces({MediaType.APPLICATION_JSON})
-	@ProduceType(UserProfileView.class)
+	@DataType(UserProfileView.class)
 	public RestListResponse userProfiles()
 	{
 		RestListResponse restListResponse = new RestListResponse();

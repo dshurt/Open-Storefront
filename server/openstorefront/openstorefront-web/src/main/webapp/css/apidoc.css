@@ -201,3 +201,7 @@ tr:nth-child(even) {
 	padding: 20px;
 	display: none;
 }
+
+.value-object-name{
+	color: yellow;
+}

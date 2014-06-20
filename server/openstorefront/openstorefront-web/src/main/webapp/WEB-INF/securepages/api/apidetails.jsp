@@ -26,9 +26,7 @@ limitations under the License.
         <title>API Details</title>
     </head>
     <body>
-	<script type="text/javascript">			
-		var toggleDetails = new Array();
-	</script>			
+		
        <h1>${actionBean.resourceModel.resourceName}</h1>
 	      ${actionBean.resourceModel.resourceDescription}<br>
 	<c:if test="${!empty actionBean.resourceModel.requireAdmin}">
@@ -73,7 +71,7 @@ limitations under the License.
 				<th style='text-align: left;'>Produces/Consumes Type(s)</th>
 			</tr>		
 			<c:forEach var="item" items="${actionBean.resourceModel.methods}">
-			<tr>
+			<tr style="background-color: white;">
 				<td align="center"><span class="${item.restMethod}">${item.restMethod}</span></td>
 				<td align="center">${item.requireAdmin}</td>
 				<td>${item.description}</td>
@@ -112,23 +110,25 @@ limitations under the License.
 						${item.consumesTypes}<br>						
 					</c:if>
 				</td>				
-			</tr>		
-			<c:if test="${item.responseObject != null}">
-				<tr>
+			</tr>
+			<c:if test="${item.consumeObject != null}">
+				<tr style="background-color: lightgrey;">
 					<td colspan="6">
 						<div class="returnInfo">
-							<div id="rtitle-${item.id}" class="returnInfo-title"
+							<div id="ctitle-${item.id}" class="returnInfo-title"
 								 onmouseover="this.style.cursor='pointer';" onmouseout="this.style.cursor='default';"
-								 onclick="if (toggleDetails[${item.id}]){ $('#rinfo-${item.id}').show('slow');  $('#rtitle-${item.id}').html('[-] Response/Consumed Object');  toggleDetails[${item.id}]=false; }else{ $('#rinfo-${item.id}').hide('slow'); $('#rtitle-${item.id}').html('[+] Response/Consumed Object');  toggleDetails[${item.id}]=true;}  ">	
-								[+] Response/Consumed Object
+								 onclick="$('#cinfo-${item.id}').toggle('slow');">	
+								<c:if test="${item.consumeObject.typeObject != null}">
+									Consume Object: <span class="value-object-name">${item.consumeObject.valueObjectName} (${item.consumeObject.typeObjectName})</span>									
+								</c:if>
+								<c:if test="${item.consumeObject.typeObject == null}">
+									Consume Object: <span class="value-object-name">${item.consumeObject.valueObjectName}</span>
+								</c:if>
 							</div>
-							<script  type="text/javascript">			
-								toggleDetails[${item.id}] = true;
-							</script>								
-							<div id="rinfo-${item.id}" class="returnInfo-contents">								
-								<c:if test="${item.responseObject.returnObject != null}">
+							<div id="cinfo-${item.id}" class="returnInfo-contents">								
+								<c:if test="${item.consumeObject.valueObject != null}">
 									<pre>
-${item.responseObject.returnObject}									
+${item.consumeObject.valueObject}									
 									</pre>								
 									<table>
 										<tr>
@@ -137,7 +137,88 @@ ${item.responseObject.returnObject}
 											<th style='text-align: left;'>Type</th>
 											<th style='text-align: left;'>Notes</th>
 										</tr>
-										<c:forEach var="field" items="${item.responseObject.returnFields}">
+										<c:forEach var="field" items="${item.consumeObject.valueFields}">
+										<tr>
+											<td>
+												${field.fieldName}
+											</td>
+											<td align="center">
+												${field.required}
+											</td>
+											<td>
+												${field.type}
+											</td>
+											<td>
+												${field.validation}
+											</td>										
+										</tr>
+										</c:forEach>
+									</table>								
+								</c:if>
+								<c:if test="${item.consumeObject.typeObject != null}">
+									<h3>Data Type Details</h3>
+									<pre>
+${item.consumeObject.typeObject}									
+									</pre>								
+									<table>
+										<tr>
+											<th style='text-align: left;'>Field Name</th>
+											<th style='text-align: center;'>Required</th>
+											<th style='text-align: left;'>Type</th>
+											<th style='text-align: left;'>Notes</th>
+										</tr>
+										<c:forEach var="field" items="${item.consumeObject.typeFields}">
+										<tr>
+											<td>
+												${field.fieldName}
+											</td>
+											<td  align="center">
+												${field.required}
+											</td>
+											<td>
+												${field.type}
+											</td>
+											<td>
+												${field.validation}
+											</td>										
+										</tr>
+										</c:forEach>
+									</table>								
+								</c:if>
+							</div>
+						</div>
+							
+					</td>					
+				</tr>	
+			</c:if>			
+			<c:if test="${item.responseObject != null}">
+				<tr style="background-color: lightgrey;">
+					<td colspan="6">
+						<div class="returnInfo">
+							<div id="rtitle-${item.id}" class="returnInfo-title"
+								 onmouseover="this.style.cursor='pointer';" onmouseout="this.style.cursor='default';"
+								 onclick="$('#rinfo-${item.id}').toggle('slow');">	
+								<c:if test="${item.responseObject.typeObject != null}">
+									Response Object: <span class="value-object-name">${item.responseObject.valueObjectName} (${item.responseObject.typeObjectName})</span>
+								</c:if>
+								<c:if test="${item.responseObject.typeObject == null}">
+									Response Object: <span class="value-object-name">${item.responseObject.valueObjectName}</span>
+								</c:if>
+							</div>
+													
+							<div id="rinfo-${item.id}" class="returnInfo-contents">								
+								<c:if test="${item.responseObject.valueObject != null}">
+									<pre>
+${item.responseObject.valueObject}									
+									</pre>								
+									<table>
+										<tr>
+											<th style='text-align: left;'>Field Name</th>
+											<th style='text-align: center;'>Required</th>
+											<th style='text-align: left;'>Type</th>
+											<th style='text-align: left;'>Notes</th>
+										</tr>
+										<c:forEach var="field" items="${item.responseObject.valueFields}">
 										<tr>
 											<td>
 												${field.fieldName}

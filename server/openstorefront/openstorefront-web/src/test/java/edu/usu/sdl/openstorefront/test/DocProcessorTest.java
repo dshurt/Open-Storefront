@@ -16,10 +16,11 @@
 
 package edu.usu.sdl.openstorefront.test;
 
-import edu.usu.sdl.openstorefront.web.rest.resource.LookupResouce;
-import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import junit.framework.TestCase;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import edu.usu.sdl.openstorefront.util.ServiceUtil;
+import edu.usu.sdl.openstorefront.web.rest.model.UserProfileView;
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.Test;
 
 
@@ -32,14 +33,13 @@ public class DocProcessorTest
 {
 	
 	@Test
-	public void testProcessor()
+	public void testProcessor() throws JsonProcessingException
 	{
-		System.out.println(Arrays.toString(LookupResouce.class.getAnnotations()));
-		for (Annotation annotation : LookupResouce.class.getAnnotations())
-		{
-			
-		}
+		Set<String> fields = new HashSet<>();
+		fields.add("username");
 		
+		String json = ServiceUtil.stripeFieldJSON(ServiceUtil.defaultObjectMapper().writeValueAsString(new UserProfileView()), fields);
+		System.out.println(json);
 	}
 	
 	

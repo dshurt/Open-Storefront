@@ -34,7 +34,7 @@ public class APIMethodModel
 	private String consumesTypes;
 	private APIValueModel responseObject;	
 	private long id;
-	private List<APIValueModel> consumeObjects = new ArrayList<>();
+	private APIValueModel consumeObject;
 
 	public APIMethodModel()
 	{
@@ -130,14 +130,14 @@ public class APIMethodModel
 		this.id = id;
 	}
 
-	public List<APIValueModel> getConsumeObjects()
+	public APIValueModel getConsumeObject()
 	{
-		return consumeObjects;
+		return consumeObject;
 	}
 
-	public void setConsumeObjects(List<APIValueModel> consumeObjects)
+	public void setConsumeObject(APIValueModel consumeObject)
 	{
-		this.consumeObjects = consumeObjects;
+		this.consumeObject = consumeObject;
 	}
 	
 }

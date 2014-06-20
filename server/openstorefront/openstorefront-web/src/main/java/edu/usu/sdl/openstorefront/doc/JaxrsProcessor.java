@@ -19,13 +19,16 @@ package edu.usu.sdl.openstorefront.doc;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import edu.usu.sdl.openstorefront.util.ServiceUtil;
 import edu.usu.sdl.openstorefront.web.rest.RestConfiguration;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.validation.constraints.Max;
@@ -168,14 +171,16 @@ public class JaxrsProcessor
 				if (!(method.getReturnType().getSimpleName().equals(Void.class.getSimpleName())))
 				{
 					APIValueModel valueModel = new APIValueModel();
-					valueModel.setReturnObject(objectMapper.writeValueAsString(method.getReturnType().newInstance()));
-					mapValueField(valueModel.getReturnFields(), method.getReturnType().getDeclaredFields());
+					valueModel.setValueObjectName(method.getReturnType().getSimpleName());					
+					valueModel.setValueObject(objectMapper.writeValueAsString(method.getReturnType().newInstance()));
+					mapValueField(valueModel.getValueFields(), method.getReturnType().getDeclaredFields());
 					
-					ProduceType produceType = (ProduceType) method.getAnnotation(ProduceType.class);
-					if (produceType != null)
+					DataType dataType = (DataType) method.getAnnotation(DataType.class);
+					if (dataType != null)
 					{
-						valueModel.setTypeObject(objectMapper.writeValueAsString(produceType.value().newInstance()));
-						mapValueField(valueModel.getTypeFields(), produceType.value().getDeclaredFields());							
+						valueModel.setTypeObjectName(dataType.value().getSimpleName());
+						valueModel.setTypeObject(objectMapper.writeValueAsString(dataType.value().newInstance()));
+						mapValueField(valueModel.getTypeFields(), dataType.value().getDeclaredFields());							
 					}					
 
 					methodModel.setResponseObject(valueModel);					
@@ -191,15 +196,18 @@ public class JaxrsProcessor
 			mapMethodParameters(methodModel.getMethodParams(), method.getParameters());
 						
 			//Handle Consumed Objects
-			mapConsumedObjects(methodModel.getConsumeObjects(), method.getParameters());
+			mapConsumedObjects(methodModel, method.getParameters());
 			
 			resourceModel.getMethods().add(methodModel);
 		}	
 		return resourceModel;
 	}
 	
-	private static void mapConsumedObjects(List<APIValueModel> consumeObjects, Parameter parameters[])
+	private static void mapConsumedObjects(APIMethodModel methodModel, Parameter parameters[])
 	{
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+		objectMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);		
 		for (Parameter parameter : parameters)
 		{
 			//deterimine if this is "Body" object
@@ -225,70 +233,115 @@ public class JaxrsProcessor
 			if (consumeObject)
 			{
 				APIValueModel valueModel = new APIValueModel();
+				try
+				{
+					valueModel.setValueObject(objectMapper.writeValueAsString(parameter.getType().newInstance()));
+					valueModel.setValueObjectName(parameter.getType().getSimpleName());	
+					Set<String> fieldList = mapValueField(valueModel.getValueFields(), parameter.getType().getDeclaredFields(), true);	
+					String cleanUpJson = ServiceUtil.stripeFieldJSON(valueModel.getValueObject(), fieldList);
+					valueModel.setValueObject(cleanUpJson);
+					
+					DataType dataType = (DataType) parameter.getAnnotation(DataType.class);
+					if (dataType != null)
+					{
+						valueModel.setTypeObjectName(dataType.value().getSimpleName());
+						valueModel.setTypeObject(objectMapper.writeValueAsString(dataType.value().newInstance()));
+						fieldList = mapValueField(valueModel.getTypeFields(), dataType.value().getDeclaredFields(), true);							
+						cleanUpJson = ServiceUtil.stripeFieldJSON(valueModel.getValueObject(), fieldList);
+						valueModel.setValueObject(cleanUpJson);
+					}					
+				}
+				catch (InstantiationException | IllegalAccessException | JsonProcessingException ex)
+				{
+					log.log(Level.WARNING, null, ex);
+				}
 				
-				
-				
-				
-				consumeObjects.add(valueModel);
+				//There can only be one consume(Request Body Parameter) object 
+				//We take the first one and ignore the rest.  
+				methodModel.setConsumeObject(valueModel);
+				break;
 			}
 		}	
 	}
-
+	
 	private static void mapValueField(List<APIValueFieldModel> fieldModels,  Field fields[])
 	{
+		mapValueField(fieldModels, fields, false);
+	}
+	
+	private static Set<String> mapValueField(List<APIValueFieldModel> fieldModels,  Field fields[], boolean onlyComsumeField)
+	{
+		Set<String> fieldNamesCaptured = new HashSet<>();
+		
 		for (Field field : fields)
 		{
-			APIValueFieldModel fieldModel = new APIValueFieldModel();			
-			fieldModel.setFieldName(field.getName());
-			
-			NotNull requiredParam = (NotNull) field.getAnnotation(NotNull.class);
-			if (requiredParam != null)
+			boolean capture = true;
+						
+			if (onlyComsumeField)
 			{
-				fieldModel.setRequired(true);
+				ConsumeField consumeField = (ConsumeField) field.getAnnotation(ConsumeField.class);
+				if (consumeField == null)
+				{
+					capture = false;
+				}
 			}
 			
-			ParamTypeDescription description = (ParamTypeDescription) field.getAnnotation(ParamTypeDescription.class);
-			if (description != null)
+			if (capture)
 			{
-				fieldModel.setType(description.value());				
-			}			
-			
-			StringBuilder validation = new StringBuilder();
-			
-			ValidationRequirement validationRequirement = (ValidationRequirement) field.getAnnotation(ValidationRequirement.class);
-			if (validationRequirement != null)
-			{
-				validation.append(validationRequirement.value()).append("<br>");
-			}			
-			
-			Min min = (Min) field.getAnnotation(Min.class);
-			if (min != null)
-			{
-				validation.append("Min Value: ").append(min.value()).append("<br>");				
+				APIValueFieldModel fieldModel = new APIValueFieldModel();
+				fieldModel.setFieldName(field.getName());
+				fieldNamesCaptured.add(field.getName());
+
+				NotNull requiredParam = (NotNull) field.getAnnotation(NotNull.class);
+				if (requiredParam != null)
+				{
+					fieldModel.setRequired(true);
+				}
+
+				ParamTypeDescription description = (ParamTypeDescription) field.getAnnotation(ParamTypeDescription.class);
+				if (description != null)
+				{
+					fieldModel.setType(description.value());
+				}
+
+				StringBuilder validation = new StringBuilder();
+
+				ValidationRequirement validationRequirement = (ValidationRequirement) field.getAnnotation(ValidationRequirement.class);
+				if (validationRequirement != null)
+				{
+					validation.append(validationRequirement.value()).append("<br>");
+				}
+
+				Min min = (Min) field.getAnnotation(Min.class);
+				if (min != null)
+				{
+					validation.append("Min Value: ").append(min.value()).append("<br>");
+				}
+
+				Max max = (Max) field.getAnnotation(Max.class);
+				if (max != null)
+				{
+					validation.append("Max Value: ").append(max.value()).append("<br>");
+				}
+
+				Size size = (Size) field.getAnnotation(Size.class);
+				if (size != null)
+				{
+					validation.append("Min Length: ").append(size.min()).append(" Max Length: ").append(size.max()).append("<br>");
+				}
+
+				Pattern pattern = (Pattern) field.getAnnotation(Pattern.class);
+				if (pattern != null)
+				{
+					validation.append("Needs to Match: ").append(pattern.regexp()).append("<br>");
+				}
+
+				fieldModel.setValidation(validation.toString());
+
+				fieldModels.add(fieldModel);
 			}
-			
-			Max max = (Max) field.getAnnotation(Max.class);
-			if (max != null)
-			{
-				validation.append("Max Value: ").append(max.value()).append("<br>");				
-			}
-			
-			Size size = (Size) field.getAnnotation(Size.class);
-			if (size != null)
-			{
-				validation.append("Min Length: ").append(size.min()).append(" Max Length: ").append(size.max()).append("<br>");				
-			}
-			
-			Pattern pattern = (Pattern) field.getAnnotation(Pattern.class);
-			if (pattern != null)
-			{
-				validation.append("Needs to Match: ").append(pattern.regexp()).append("<br>");				
-			}
-			
-			fieldModel.setValidation(validation.toString());
-			
-			fieldModels.add(fieldModel);
 		}
+		return fieldNamesCaptured;
 	}
 	
 	private static void mapMethodParameters(List<APIParamModel> parameterList, Parameter parameters[])
