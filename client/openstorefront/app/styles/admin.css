@@ -1,4 +1,7 @@
 .tools {
+  position:relative;
+  z-index: 1;
+  background: white;
   width: 250px !important;
   display: inline-block;
   border-right: 1px solid lightgray;
@@ -9,4 +12,17 @@
 .content {
   display: inline-block;
   vertical-align: top;
+  width: 100%;
+  margin-left: -255px;
+  padding-left: 250px;
+}
+
+.nav-pills > li {
+  clear: both;
+}
+
+#cke_editor1 {
+  width: 100%;
+  margin-left: -276px;
+  padding-left: 275px;
 }
