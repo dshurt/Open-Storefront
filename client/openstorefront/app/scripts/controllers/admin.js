@@ -1,9 +1,11 @@
 'use strict';
 
+/*global getCkConfig*/
+
 app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
 
   $scope.filters = Business.getFilters();
-  console.log('filters', $scope.filters);
+  // console.log('filters', $scope.filters);
   $scope.incLoc = '';
   $scope.data = [];
 
@@ -39,6 +41,9 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
     //   return $scope.output += '(' + branch.data.description + ')';
     // }
   };
+
+  // setup editor options
+  $scope.editorOptions = getCkConfig();
 
   // apple_selected = function(branch) {
   //   return $scope.output = 'APPLE! : ' + branch.label;
