@@ -152,15 +152,6 @@ grunt.loadNpmTasks('grunt-war');
         assetCacheBuster: false,
         raw: 'Sass::Script::Number.precision = 10\n'
       },
-      // prod: {
-      //   options: {
-      //     **************************************************************
-      //     * THIS IS WHERE YOU WILL PUT THE PATH FROM THE ROOT TO THE FONTS
-      //     * FOLDER
-      //     **************************************************************
-
-      //   }
-      // },
       dist: {
         options: {
           generatedImagesDir: '<%= yeoman.dist %>/images/generated'
@@ -249,7 +240,7 @@ grunt.loadNpmTasks('grunt-war');
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: ['<%= yeoman.app %>/index.html','<%= yeoman.app %>/views/results.html', '<%= yeoman.app %>/views/main.html'],
+      html: ['<%= yeoman.app %>/index.html','<%= yeoman.app %>/views/results.html', '<%= yeoman.app %>/views/main.html', '<%= yeoman.app %>/views/admin.html'],
       options: {
         dest: '<%= yeoman.dist %>',
         flow: {
@@ -465,33 +456,6 @@ grunt.loadNpmTasks('grunt-war');
   ]);
 
   grunt.registerTask('build', function (target) {
-      // if (target !== '' && target !== undefined && target !== null) {
-      //   grunt.option('httpFontsPath', (target || '/') + '/fonts');
-      //   grunt.option('fontsDir', (target || '/') + '/fonts');
-      //   // httpFontsPath: (grunt.option('root') || '/') + 'fonts',
-      //   // fontsDir: (grunt.option('root') || '/') + 'fonts',
-      //   // return grunt.task.run([
-      //   //   'clean:dist',
-      //   //   'bowerInstall',
-      //   //   'useminPrepare',
-      //   //   'concurrent:prod',
-      //   //   'autoprefixer',
-      //   //   'concat',
-      //   //   'ngmin',
-      //   //   'copy:dist',
-      //   //   'copy:fonts',
-      //   //   'cdnify',
-      //   //   'cssmin',
-      //   //   'uglify',
-      //   //   'rev',
-      //   //   'usemin',
-      //   //   'htmlmin',
-      //   //   'war'
-      //   //   ]);
-      // } else {
-      //   grunt.option('fontsDir', '<%= yeoman.app %>/fonts');
-      //   grunt.option('httpFontsPath', '/fonts');
-      // }
       grunt.task.run([
         'clean:dist',
         'bowerInstall',

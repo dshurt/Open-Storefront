@@ -39,6 +39,10 @@ var app = angular
     templateUrl: 'views/results.html',
     controller: 'ResultsCtrl'
   })
+  .when('/admin', {
+    templateUrl: 'views/admin.html',
+    controller: 'AdminCtrl'
+  })
   .otherwise({
     redirectTo: '/'
   });
