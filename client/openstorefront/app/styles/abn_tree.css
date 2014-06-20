@@ -43,8 +43,8 @@ The second selector is for Angular 1.2.0
 .abn-tree-animate-enter,
 li.abn-tree-row.ng-enter {
   transition: 200ms linear all;
-  position: relative;
-  display: block;
+  /*position: relative;*/
+  /*display: block;*/
   opacity: 0;
   max-height:0px;
 }
@@ -57,8 +57,8 @@ li.abn-tree-row.ng-enter-active{
 .abn-tree-animate-leave,
 li.abn-tree-row.ng-leave {
   transition: 200ms linear all;
-  position: relative;
-  display: block;
+  /*position: relative;*/
+  /*display: block;*/
   height:30px;
   max-height: 30px;
   opacity: 1;
@@ -108,39 +108,47 @@ ul.abn-tree i.indented {
 .abn-tree {
   cursor: pointer;
 }
-ul.nav.abn-tree .level-1 .indented {
-  position: relative;
-  left: 0px;
+ul.nav.abn-tree li.level-1 {
+  /*position: relative;*/
+  /*left: 0px;*/
 }
-ul.nav.abn-tree .level-2 .indented {
-  position: relative;
-  left: 20px;
+ul.nav.abn-tree li.level-2 {
+  margin-left:20px;
+  /*position: relative;*/
+  /*left: 20px;*/
 }
-ul.nav.abn-tree .level-3 .indented {
-  position: relative;
-  left: 40px;
+ul.nav.abn-tree li.level-3 {
+  margin-left: 40px;
+  /*position: relative;*/
+  /*left: 40px;*/
 }
-ul.nav.abn-tree .level-4 .indented {
-  position: relative;
-  left: 60px;
+ul.nav.abn-tree li.level-4 {
+  margin-left:60px;
+  /*position: relative;*/
+  /*left: 60px;*/
 }
-ul.nav.abn-tree .level-5 .indented {
-  position: relative;
-  left: 80px;
+ul.nav.abn-tree li.level-5 {
+  margin-left:80px;
+  /*position: relative;*/
+  /*left: 80px;*/
 }
-ul.nav.abn-tree .level-6 .indented {
-  position: relative;
-  left: 100px;
+ul.nav.abn-tree li.level-6 {
+  margin-left:100px;
+  /*position: relative;*/
+  /*left: 100px;*/
 }
-ul.nav.nav-list.abn-tree .level-7 .indented {
-  position: relative;
-  left: 120px;
+ul.nav.nav-list.abn-tree li.level-7 {
+  margin-left:120px;
+  /*position: relative;*/
+  /*left: 120px;*/
 }
-ul.nav.nav-list.abn-tree .level-8 .indented {
-  position: relative;
-  left: 140px;
+ul.nav.nav-list.abn-tree li.level-8 {
+  margin-left:140px;
+  /*position: relative;*/
+  /*left: 140px;*/
 }
-ul.nav.nav-list.abn-tree .level-9 .indented {
-  position: relative;
-  left: 160px;
+ul.nav.nav-list.abn-tree li.level-9 {
+  margin-left:160px;
+  /*position: relative;*/
+  /*left: 160px;*/
 }
