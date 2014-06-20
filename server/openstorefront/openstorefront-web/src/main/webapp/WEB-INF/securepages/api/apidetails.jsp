@@ -35,6 +35,16 @@ limitations under the License.
 	</c:if>	  
 	
 	<h3>Resource Path: ${actionBean.resourceModel.resourcePath}</h3>
+	<c:if test="${!empty actionBean.resourceModel.methods}">
+		<h2>Paths</h2>
+		<ul>
+		<c:forEach var="item" items="${actionBean.resourceModel.methods}">
+			<li><span class="${item.restMethod}" style="line-height: 28px;">${item.restMethod}</span> - ${actionBean.resourceModel.resourcePath}${item.methodPath}</li>
+		</c:forEach>
+		</ul>	
+	</c:if>
+	
+	
 	<c:if test="${!empty actionBean.resourceModel.resourceParams}">
 		<h3>Resource Parameters: </h3>	  
 		<table>
@@ -60,7 +70,7 @@ limitations under the License.
 		
 	</c:if>
 	<c:if test="${!empty actionBean.resourceModel.methods}">
-		<h2>Methods</h2>
+		<h2>Details</h2>
 		<table width="100%">
 			<tr>
 				<th style='text-align: center;'>Method</th>
