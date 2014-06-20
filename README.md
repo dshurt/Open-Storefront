@@ -203,16 +203,17 @@ Before Running the Build
 Running the build
 -----------------
 
-* Go into a project's front end base directory, for example `Open-Storefront/frontend`:
+* Go into a project's front end base directory, for example `Open-Storefront/client/openstorefront`:
 
-        $ cd ~/projects/Open-Storefront-Project/Open-Storefront/frontend
+        $ cd ~/projects/Open-Storefront-Project/Open-Storefront/client/openstorefront
         $ ls
         app/  bower.json*  Gruntfile.js*  karma.conf.js*  karma-e2e.conf.js*  node_modules/  package.json*  test/
 
 * **Run the build**:
 
-        $ grunt build
-
+        $ grunt build --appPath=/openstorefront  
+        
+    "appPath" is only needed when changing the root context.          
     The first build will take a long time, because a lot of dependencies will be downloaded (and cached locally).
 
     It might even fail, if certain servers are offline or experience hiccups.
