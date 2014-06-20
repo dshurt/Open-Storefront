@@ -17,7 +17,8 @@
 @import "compass";
 
 /* Space out content a bit */
-body {
+html, body {
+  height: 100%;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -46,6 +47,11 @@ body {
   /*border-top: 1px solid #e5e5e5;*/
 }
 
+.fullHeight {
+  margin-top: -52px;
+  padding-top: 52px;
+  height: 100%
+}
 
 /***********************************************************************************/
 /*This section is for the navigation css that should remain constant over each page*/

@@ -1,61 +1,52 @@
 'use strict';
 
-app.controller('AdminCtrl', ['$scope', function ($scope) {
-  $scope.data = [
-    //
-    {
-      label: 'North America',
-      children: [
-        //
-        {
-          label: 'Canada',
-          children: ['Toronto', 'Vancouver']
-        },
-        {
-          label: 'USA',
-          children: ['New York', 'Los Angeles']
-        },
-        {
-          label: 'Mexico',
-          children: ['Mexico City', 'Guadalajara']
-        }
-      //
-      ]
-    },
-    {
-      label: 'South America',
-      children: [
-        //
-        {
-          label: 'Venezuela',
-          children: ['Caracas', 'Maracaibo']
-        },
-        {
-          label: 'Brazil',
-          children: ['Sao Paulo', 'Rio de Janeiro']
-        },
-        {
-          label: 'Argentina',
-          children: ['Buenos Aires', 'Cordoba']
-        }
-      //
-      ]
-    }
-  //
-  ];
+/*global getCkConfig*/
 
+app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
+
+  $scope.filters = Business.getFilters();
+  // console.log('filters', $scope.filters);
+  $scope.incLoc = '';
+  $scope.data = [];
+
+  var setUpData = function() {
+    var topics = {};
+    topics.label = 'Edit Topics';
+    topics.location='/views/admin/edittopics.html';
+    topics.children = [];
+    _.each($scope.filters, function(filter) {
+      var label = 'Edit ' + filter.name + ' Codes';
+      var location = '/views/admin/editcodes.html';
+      var children = [];
+      _.each(filter.collection, function(code){
+        children.push({'label':code.type, 'location':'/views/admin/editcode.html'});
+      });
+      topics.children.push({'label':label, 'location': location, 'children': children});
+    });
+    topics.children.push({'label':'Edit Topic Landing Pages', 'location':'/views/admin/editlanding.html'});
+    $scope.data.push(topics);
+    $scope.data.push({'label': 'Edit Component', 'location':'/views/admin/editcomponents.html'});
+    $scope.data.push({'label': 'Edit Branding', 'location': '/views/admin/editbranding.html'});
+  };
+
+  setUpData();
+  
   $scope.editor = function(branch) {
-    console.log('branch', branch.label);
+    $scope.incLoc = branch.location;
+    // console.log('branch', branch.label);
     
     // var _ref;
-    // $scope.output = "You selected: " + branch.label;
+    // $scope.output = 'You selected: ' + branch.label;
     // if ((_ref = branch.data) != null ? _ref.description : void 0) {
     //   return $scope.output += '(' + branch.data.description + ')';
     // }
   };
 
+  // setup editor options
+  $scope.editorOptions = getCkConfig();
+
   // apple_selected = function(branch) {
-  //   return $scope.output = "APPLE! : " + branch.label;
+  //   return $scope.output = 'APPLE! : ' + branch.label;
   // };
   // treedata_avm = [
   // {
@@ -64,17 +55,17 @@ app.controller('AdminCtrl', ['$scope', function ($scope) {
   //   {
   //     label: 'Dog',
   //     data: {
-  //       description: "man's best friend"
+  //       description: 'man's best friend'
   //     }
   //   }, {
   //     label: 'Cat',
   //     data: {
-  //       description: "Felis catus"
+  //       description: 'Felis catus'
   //     }
   //   }, {
   //     label: 'Hippopotamus',
   //     data: {
-  //       description: "hungry, hungry"
+  //       description: 'hungry, hungry'
   //     }
   //   }, {
   //     label: 'Chicken',
@@ -84,11 +75,11 @@ app.controller('AdminCtrl', ['$scope', function ($scope) {
   // }, {
   //   label: 'Vegetable',
   //   data: {
-  //     definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
+  //     definition: 'A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.',
   //     data_can_contain_anything: true
   //   },
   //   onSelect: function(branch) {
-  //     return $scope.output = "Vegetable: " + branch.data.definition;
+  //     return $scope.output = 'Vegetable: ' + branch.data.definition;
   //   },
   //   children: [
   //   {
@@ -162,7 +153,7 @@ app.controller('AdminCtrl', ['$scope', function ($scope) {
   //     label: 'New Branch',
   //     data: {
   //       something: 42,
-  //       "else": 43
+  //       'else': 43
   //     }
   //   });
   // };
