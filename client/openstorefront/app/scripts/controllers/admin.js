@@ -1,6 +1,6 @@
 'use strict';
 
-/*global getCkConfig*/
+/*global getCkConfig, CKEDITOR*/
 
 app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
 
@@ -8,31 +8,53 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   // console.log('filters', $scope.filters);
   $scope.incLoc = '';
   $scope.data = [];
+  $scope.editedTopic = 'Types';
+  $scope.toolTitle = 'idAM Landing Page';
 
   var setUpData = function() {
     var topics = {};
     topics.label = 'Edit Topics';
-    topics.location='/views/admin/edittopics.html';
+    topics.location='views/admin/edittopics.html';
     topics.children = [];
+    topics.toolTitle = 'Edit Topics';
     _.each($scope.filters, function(filter) {
       var label = 'Edit ' + filter.name + ' Codes';
-      var location = '/views/admin/editcodes.html';
-      var children = [];
-      _.each(filter.collection, function(code){
-        children.push({'label':code.type, 'location':'/views/admin/editcode.html'});
-      });
-      topics.children.push({'label':label, 'location': location, 'children': children});
+      var location = 'views/admin/editcodes.html';
+      // var children = [];
+      // _.each(filter.collection, function(code){
+      //   children.push({'label':code.type, 'location':'views/admin/editcode.html'});
+      // });
+        //
+      topics.children.push({'label':label, 'location': location, 'toolTitle': label/*, 'children': children*/});
     });
-    topics.children.push({'label':'Edit Topic Landing Pages', 'location':'/views/admin/editlanding.html'});
+    topics.children.push({'label':'Edit Topic Landing Pages', 'location':'views/admin/editlanding.html', 'toolTitle': 'Edit Topic Landing Pages'});
+
+    $scope.data.push({'label': 'About Admin Tools', 'location':'views/admin/about.html', 'toolTitle': 'About Admin Tools'});
     $scope.data.push(topics);
-    $scope.data.push({'label': 'Edit Component', 'location':'/views/admin/editcomponents.html'});
-    $scope.data.push({'label': 'Edit Branding', 'location': '/views/admin/editbranding.html'});
+    $scope.data.push({'label': 'Edit Components', 'location':'views/admin/editcomponents.html', 'toolTitle': 'Edit Components'});
+    $scope.data.push({'label': 'Edit Branding', 'location': 'views/admin/editbranding.html', 'toolTitle': 'Edit Branding'});
   };
 
   setUpData();
   
+  $scope.setData = function() {
+    console.log('Data', $scope.parseComponentInsert());
+    $scope.parseComponentInsert();
+  };
+
+  $scope.parseComponentInsert = function () {
+    var data = CKEDITOR.instances.editor1.getData();
+    // console.log('data', data);
+    var splitData = data.split('### Component List ###');
+    // console.log('sp', splitData);
+    data = splitData.join('\n<component-list click-callback="updateDetails" class-list="" data="data" cols="3" ></component-list>\n');
+    // console.log('data', data);
+    return data;
+  };
+
   $scope.editor = function(branch) {
     $scope.incLoc = branch.location;
+    $scope.toolTitle = branch.toolTitle;
     // console.log('branch', branch.label);
     
     // var _ref;

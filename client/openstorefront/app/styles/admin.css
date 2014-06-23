@@ -8,12 +8,14 @@
   overflow: hidden;
   height: 100%;
   margin-bottom:-3px;
+  padding-left: 5px;
+  margin-left: -5px;
 }
-.content {
+.toolsContent {
   display: inline-block;
   vertical-align: top;
   width: 100%;
-  margin-left: -255px;
+  margin-left: -250px;
   padding-left: 250px;
 }
 
