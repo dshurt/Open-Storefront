@@ -87,7 +87,7 @@ var app = angular
   $rootScope.$on('$routeChangeStart', function (event, next, current) {/* jshint unused:false */
     if (current && current.loadedTemplateUrl === 'views/results.html') {
       resetAnimGlobals();
-    } 
+    }
 
     setTimeout(function () {
       $('.searchBar:input[type=\'text\']').on('click', function () {
@@ -100,8 +100,11 @@ var app = angular
   * This funciton resets the search query when we don't want to be showing it
   ***************************************************************/
   $rootScope.$on('$locationChangeStart', function (event, next, current) {
-    if (!$location.path() || $location.path() !== '/results' || $location.path() === '/') {
-      $location.$$search = {};
+    console.log('path', $location.path());
+    console.log($location.path() === '/');
+    
+    if (!$location.path() || $location.path() !== '/results') {
+      $location.search({});
     }
   });
 

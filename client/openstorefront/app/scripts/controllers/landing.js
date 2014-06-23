@@ -7,10 +7,10 @@ app.controller('LandingCtrl', ['$scope', 'business', '$location', function ($sco
     $scope.landingRoute = result.value;
   });
   $scope.sendToResults = function() {
-    $location.$$search = {
+    $location.search({
       'type': 'categories',
       'code': 'IDAM'
-    }
+    });
     $location.path('/results');
-  }
+  };
 }]);
