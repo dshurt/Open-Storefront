@@ -1,2 +1,4 @@
 <button ng-click="setData()" class="btn btn-primary">Insert Resources</button>
-<textarea ckeditor="editorOptions" ng-model="landingContent"></textarea>
+<form submit="doSomething()" ng-submit="submitLanding();">
+  <textarea ckeditor="editorOptions" ng-model="editorContent"></textarea>
+</form>

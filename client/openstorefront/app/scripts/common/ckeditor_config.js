@@ -10,10 +10,8 @@
 * params: param name -- param description
 * returns: Return name -- return description
 ***************************************************************/
-CKEDITOR.plugins.add( 'componentList',
-{
-  init : function( editor )
-  {
+CKEDITOR.plugins.add( 'componentList', {
+  init : function( editor ) {
     editor.addCommand( 'insertComponentList', {
       exec: function( editor ) {
         editor.insertHtml( '### Component List ###');
@@ -28,6 +26,19 @@ CKEDITOR.plugins.add( 'componentList',
   }
 });
 
+CKEDITOR.plugins.registered.save = {
+  init : function( editor ) {
+    var command = editor.addCommand( 'save', { /*jshint unused:false*/
+      modes: {wysiwyg: 1, source: 1},
+      // readOnly: 1,
+      exec: function(editor) {
+        editor.fire('save');
+      }
+    }
+    );
+    editor.ui.addButton( 'Save',{label : 'My Save',command : 'save'});
+  }
+};
 
 // This is the auto save feature...
 // (function()
