@@ -166,7 +166,8 @@ var getCkConfig = function() {
     '/',
     { name: 'styles', items : [ 'Styles','Format','Font','FontSize' ] },
     { name: 'colors', items : [ 'TextColor','BGColor' ] },
-    { name: 'tools', items : [ 'Maximize', 'ShowBlocks','-','About', 'ComponentButton' ] }
+    { name: 'tools', items : [ 'Maximize', 'ShowBlocks','-','About',  ] },
+    { name: 'CusomtTools', items: ['ComponentButton'] }
   //
   ];
 

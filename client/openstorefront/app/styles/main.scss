@@ -423,6 +423,16 @@ font. The rest are the same*/
   font-weight: bold;
 }
 
+.cke_button_label.cke_button__componentbutton_label {
+   display: inline-block !important;
+}
+
+small button {
+  padding: 2px 4px !important;
+  font-size: 10px !important;
+}
+
+
 @media (max-width: 768px) {
   .fullWidthModal .modal-dialog {
     margin-left: 10px;

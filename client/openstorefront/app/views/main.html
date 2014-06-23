@@ -50,6 +50,7 @@ limitations under the License.
         </div>
         <div ng-if="item.landing !== null && item.landing !== undefined">
           <small><button class="btn btn-primary" ng-click="goToLanding(item.landing)">Go to Landing Page</button></small>
+          <small><button class="btn btn-primary" ng-click="goToSearch(type.key, item.code)">Go to Results Page</button></small>
         </div>
       </li>
     </ul>
