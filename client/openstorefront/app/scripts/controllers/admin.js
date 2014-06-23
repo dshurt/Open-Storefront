@@ -3,6 +3,10 @@
 /*global getCkConfig*/
 
 app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
+  
+  //this object is used to contain the tree functions
+  $scope.myTree = {};
+
 
   $scope.filters = Business.getFilters();
   // console.log('filters', $scope.filters);
@@ -24,13 +28,14 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
     $scope.saveData();
   });
 
-
   var setUpData = function() {
     var topics = {};
     topics.label = 'Edit Topics';
     topics.location='views/admin/edittopics.html';
     topics.children = [];
     topics.toolTitle = 'Edit Topics';
+    topics.key = 'topics';
+    topics.parentKey = null;
     _.each($scope.filters, function(filter) {
       var label = 'Edit ' + filter.name + ' Codes';
       var location = 'views/admin/editcodes.html';
@@ -39,14 +44,14 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
       //   children.push({'label':code.type, 'location':'views/admin/editcode.html'});
       // });
         //
-      topics.children.push({'label':label, 'location': location, 'toolTitle': label/*, 'children': children*/});
+      topics.children.push({'label':label, 'location': location, 'toolTitle': label, 'key': filter.key, 'parentKey': 'topics'/*, 'children': children*/});
     });
-    topics.children.push({'label':'Edit Topic Landing Pages', 'location':'views/admin/editlanding.html', 'toolTitle': 'Edit Topic Landing Pages'});
+    topics.children.push({'label':'Edit Topic Landing Pages', 'location':'views/admin/editlanding.html', 'toolTitle': 'Edit Topic Landing Pages', 'parentKey': 'topics'});
 
-    $scope.data.push({'label': 'About Admin Tools', 'location':'views/admin/about.html', 'toolTitle': 'About Admin Tools'});
+    $scope.data.push({'label': 'About Admin Tools', 'location':'views/admin/about.html', 'toolTitle': 'About Admin Tools', 'key': 'tools' });
     $scope.data.push(topics);
-    $scope.data.push({'label': 'Edit Components', 'location':'views/admin/editcomponents.html', 'toolTitle': 'Edit Components'});
-    $scope.data.push({'label': 'Edit Branding', 'location': 'views/admin/editbranding.html', 'toolTitle': 'Edit Branding'});
+    $scope.data.push({'label': 'Edit Components', 'location':'views/admin/editcomponents.html', 'toolTitle': 'Edit Components', 'key': 'components' });
+    $scope.data.push({'label': 'Edit Branding', 'location': 'views/admin/editbranding.html', 'toolTitle': 'Edit Branding', 'key': 'branding' });
   };
 
   setUpData();
@@ -58,6 +63,54 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   $scope.editor = function(branch) {
     $scope.incLoc = branch.location;
     $scope.toolTitle = branch.toolTitle;
+    $scope.myTree.selectBranch(branch);
+  };
+
+
+  /***************************************************************
+  * This function recursively searches through the tree in order to find the
+  * branch that we want to go to (used to set location and active class)
+  ***************************************************************/
+  var checkCollection = function(branch, index, key) {
+    while (branch[index]) {
+      if (branch[index].key === key) {
+        return branch[index];
+      }
+      if (branch[index].children && branch[index].children.length > 0) {
+        return checkCollection(branch[index].children, 0, key);
+      }
+      index = index + 1;
+    }
+    return null;
+  };
+
+
+  /***************************************************************
+  * This function takes a key, finds the branch with that key, and then
+  * sends us there :)
+  ***************************************************************/
+  $scope.editCollection = function(key) {
+    var branch = checkCollection($scope.data, 0, key);
+    $scope.editor(branch);
+  };
+
+  /***************************************************************
+  * This function checks our tree to see if there was a parent collection
+  ***************************************************************/
+  $scope.checkParent = function() {
+    var branch = $scope.myTree.getSelectedBranch();
+    if (branch) {
+      return $scope.myTree.getParentBranch(branch);
+    } else {
+      return false;
+    }
+  };
+
+  /***************************************************************
+  * This function takes us back to the parent tool
+  ***************************************************************/
+  $scope.goToParent = function () {
+    $scope.editor($scope.checkParent());
   };
 
   /***************************************************************
@@ -96,11 +149,12 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   ***************************************************************/
   $scope.saveData = function() {
     $scope.saveContent = $scope.parseComponentInsert($scope.editorContent);
-    console.log('Save', $scope.saveContent);
+    // console.log('Save', $scope.saveContent);
   };
 
   // setup editor options
   $scope.editorOptions = getCkConfig();
 
+  console.log('myTree', $scope.myTree);
 
 }]);

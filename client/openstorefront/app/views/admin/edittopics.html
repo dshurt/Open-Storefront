@@ -1,0 +1,18 @@
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <th>Key</th>
+        <th>Src</th>
+        <th>Collection</th>
+      </tr>
+      <tr ng-repeat="filter in filters">
+        <td>{{filter.name}}</td>
+        <td>{{filter.key}}</td>
+        <td>{{filter.src}}</td>
+        <td class="imitateLink" ng-click="editCollection(filter.key)"><a>Edit Collection</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
