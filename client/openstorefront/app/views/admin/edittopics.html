@@ -1,5 +1,5 @@
 <div>
-  <table>
+  <table class="table table-hover">
     <tbody>
       <tr>
         <th>Name</th>
@@ -8,10 +8,10 @@
         <th>Collection</th>
       </tr>
       <tr ng-repeat="filter in filters">
-        <td>{{filter.name}}</td>
-        <td>{{filter.key}}</td>
-        <td>{{filter.src}}</td>
-        <td class="imitateLink" ng-click="editCollection(filter.key)"><a>Edit Collection</a></td>
+        <td><input class="form-control input" type="text" ng-model="filter.name"/></td>
+        <td><input class="form-control input" type="text" ng-model="filter.key"/></td>
+        <td><input class="form-control input" type="text" ng-model="filter.src"/></td>
+        <td class="imitateLink" ng-click="editCollection(filter.key)"><a>Edit Code Collection</a></td>
       </tr>
     </tbody>
   </table>

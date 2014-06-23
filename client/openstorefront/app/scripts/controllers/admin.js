@@ -3,25 +3,28 @@
 /*global getCkConfig*/
 
 app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
-  
+
   //this object is used to contain the tree functions
   $scope.myTree = {};
 
 
   $scope.filters = Business.getFilters();
+  $scope.collection = null;
   // console.log('filters', $scope.filters);
   $scope.incLoc = '';
   $scope.data = [];
   $scope.editedTopic = 'Types';
   $scope.toolTitle = 'idAM Landing Page';
-  Business.landingPage('IDAM', 'views/temp/landingpage.html', true).then(function (result) { /*jshint unused:false*/
-    Business.landingPage(false, false, true).then(function (result) {
-      $scope.landingRoute = result.value;
-      $.get($scope.landingRoute).then(function(responseData) {
-        $scope.editorContent = $scope.parseForEditor(responseData);
+  if (!$scope.landingRoute) { 
+    Business.landingPage('IDAM', 'views/temp/landingpage.html', true).then(function (result) { /*jshint unused:false*/
+      Business.landingPage(false, false, true).then(function (result) {
+        $scope.landingRoute = result.value;
+        $.get($scope.landingRoute).then(function(responseData) {
+          $scope.editorContent = $scope.parseForEditor(responseData);
+        });
       });
     });
-  });
+  }
   $scope.saveContent = '';
 
   $scope.$watch('editorContent', function() {
@@ -36,6 +39,7 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
     topics.toolTitle = 'Edit Topics';
     topics.key = 'topics';
     topics.parentKey = null;
+    topics.data = $scope.filters;
     _.each($scope.filters, function(filter) {
       var label = 'Edit ' + filter.name + ' Codes';
       var location = 'views/admin/editcodes.html';
@@ -44,9 +48,9 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
       //   children.push({'label':code.type, 'location':'views/admin/editcode.html'});
       // });
         //
-      topics.children.push({'label':label, 'location': location, 'toolTitle': label, 'key': filter.key, 'parentKey': 'topics'/*, 'children': children*/});
+      topics.children.push({'label':label, 'location': location, 'toolTitle': label, 'key': filter.key, 'parentKey': 'topics', 'data': filter /*, 'children': children*/});
     });
-    topics.children.push({'label':'Edit Topic Landing Pages', 'location':'views/admin/editlanding.html', 'toolTitle': 'Edit Topic Landing Pages', 'parentKey': 'topics'});
+    topics.children.push({'label':'Edit Topic Landing Pages', 'location':'views/admin/editlanding.html', 'toolTitle': 'Edit Topic Landing Pages', 'key': 'landing', 'parentKey': 'topics'});
 
     $scope.data.push({'label': 'About Admin Tools', 'location':'views/admin/about.html', 'toolTitle': 'About Admin Tools', 'key': 'tools' });
     $scope.data.push(topics);
@@ -62,6 +66,10 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   ***************************************************************/
   $scope.editor = function(branch) {
     $scope.incLoc = branch.location;
+    if (branch.parentKey === 'topics' && branch.key !== 'landing') {
+      var filter = grabCollection(branch.key);
+      $scope.collection = filter.collection;
+    }
     $scope.toolTitle = branch.toolTitle;
     $scope.myTree.selectBranch(branch);
   };
@@ -84,13 +92,29 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
     return null;
   };
 
+  /***************************************************************
+  * This function will grab a collection from a filter given the key
+  * of the filter.
+  ***************************************************************/
+  var grabCollection = function(key) {
+    return _.where($scope.filters, {'key': key})[0];
+  };
 
   /***************************************************************
   * This function takes a key, finds the branch with that key, and then
-  * sends us there :)
+  * sends us there 
   ***************************************************************/
   $scope.editCollection = function(key) {
     var branch = checkCollection($scope.data, 0, key);
+    $scope.editor(branch);
+  };
+  /***************************************************************
+  * This function takes a key, finds the branch with that key, and then
+  * sends us there 
+  ***************************************************************/
+  $scope.editLanding = function(route) {
+    var branch = checkCollection($scope.data, 0, 'landing');
+    $scope.landingRoute = route;
     $scope.editor(branch);
   };
 
@@ -155,6 +179,5 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   // setup editor options
   $scope.editorOptions = getCkConfig();
 
-  console.log('myTree', $scope.myTree);
 
 }]);

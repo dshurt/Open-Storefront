@@ -168,44 +168,44 @@ MOCKDATA.filters[1]= {
   {
     'code': 'VISUAL',
     'type': 'Visualization',
-    'desc': 'Identity and Access Management (IdAM) Development and Sustainment Support',
-    'longDesc': 'Identity and Access Management (IdAM) Development and Sustainment Support <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'Presentation, Interactivity',
+    'longDesc': 'Data visualization is not only a way to present your data, but a way to explore and understand your data.. This is the landing page for Visualization. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'checked': false
   },
   {
     'code': 'IDAM',
     'type': 'idAM',
-    'desc': 'Redeployable, Middleware',
-    'longDesc': 'Redeployable, Middleware. This is the landing page for Visualization. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'Identity and Access Management (IdAM) Development and Sustainment Support',
+    'longDesc': 'Identity and Access Management (IdAM) Development and Sustainment Support <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'checked': false,
     'landing': 'views/temp/landingpage.html'
   },
   {
     'code': 'DATAM',
     'type': 'Data Management',
-    'desc': 'Redeployable, Middleware',
-    'longDesc': 'Redeployable, Middleware. This is the landing page for Data Management. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'Software management, Relational, Object Oriented',
+    'longDesc': 'Software, typically proprietary products or open-source projects, with a primary purpose of data management. Database management system software could be considered a related category, though those will typically exist for the purpose of managing a database in a particular structure (i.e. relational, object-oriented). This is the landing page for Data Management. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'checked': false
   },
   {
     'code': 'COLLECT',
     'type': 'Collection',
-    'desc': 'Redeployable, Middleware',
-    'longDesc': 'Redeployable, Middleware. This is the landing page for Collection. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'Software Collections',
+    'longDesc': 'Open Sourced, GOS, Etc... This is the landing page for Collaboration. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'checked': false
   },
   {
     'code': 'COLLAB',
     'type': 'Collaboration',
-    'desc': 'Redeployable, Middleware',
-    'longDesc': 'Redeployable, Middleware. This is the landing page for Collaboration. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'Computer Supported Cooperative Works',
+    'longDesc': 'Collaborative software or groupware is an application software designed to help people involved in a common task to achieve goals. One of the earliest definitions of collaborative software is intentional group processes plus software to support them. This is the landing page for Collection. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'checked': false
   },
   {
     'code': 'SECM',
     'type': 'Security Management',
-    'desc': 'Redeployable, Middleware',
-    'longDesc': 'Redeployable, Middleware. This is the landing page for Security Management. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'Incident Management, Computer-aided security',
+    'longDesc': 'Specific software and hardware solutions for incident management, guard tour, guard scheduling, computer-aided dispatch, electronic post orders and trend reporting/analysis. This is the landing page for Security Management. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'checked': false
   },
   {
@@ -227,40 +227,40 @@ MOCKDATA.filters[2] = {
     'code': 'STATENA',
     'type': 'No Evaluation Planned',
     'displayType': 'No Evaluation',
-    'desc': 'Redeployable, Middleware',
-    'longDesc': 'Redeployable, Middleware. This is the landing page for No Evaluation. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'Results not applicable to evaluation',
+    'longDesc': 'No evaluations have been planned for these results. This is the landing page for No Evaluation. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
     'checked': false
   },
   {
     'code': 'STATE0',
     'type': 'Level 0 - Not Assessed',
     'displayType': 'Not Assessed',
-    'desc': 'Redeployable, Middleware',
-    'longDesc': 'Redeployable, Middleware. This is the landing page for Not Assessed. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'Available for Reuse/Not Evaluated',
+    'longDesc': 'Asset is added to the Storefront for reuse or consumption. Asset has not been evaluated for Enterprise readiness or Conformance. Asset is will enter DI2E Clearinghouse Process to be assessed for potential reuse. Asset has completed the Component Prep and Analysis phase',
     'checked': false
   },
   {
     'code': 'STATE1',
     'type': 'Level 1 - Checklist Complete',
     'displayType': 'Checklist Complete',
-    'desc': 'Redeployable, Middleware',
-    'longDesc': 'Redeployable, Middleware. This is the landing page for Checklist Complete. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'Initial Reuse Analysis',
+    'longDesc': 'Inspection portion of DI2E Framework Evaluation Checklist complete. These questions focus mainly on the reuse potential (Visible, Accessible, and Understandable) by analysis of the information provided. This level does not represent the pass or fail, the Consumer must read the Evaluation Report.',
     'checked': false
   },
   {
     'code': 'STATE2',
     'type': 'Level 2 - DI2E Tested',
     'displayType': 'DI2E Tested',
-    'desc': 'Redeployable, Middleware',
-    'longDesc': 'Redeployable, Middleware. This is the landing page for DI2E Tested. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'Integration and Test',
+    'longDesc': 'Integration and Test portion of the DI2E Framework Evaluation Checklist complete.  These questions focus on the interoperability and ease of reuse, and will normally include an I&T plan. This level does not indicate a pass or fail of the conformance test. Consumer will read the Test Report linked in the storefront entry for program functionality.',
     'checked': false
   },
   {
     'code': 'STATE3',
     'type': 'Level 3 - DI2E Framework Conformant',
     'displayType': 'DI2E Conformant',
-    'desc': 'Redeployable, Middleware',
-    'longDesc': 'Redeployable, Middleware. This is the landing page for DI2E Conformant. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'desc': 'DI2E Framework Reference Implementation',
+    'longDesc': 'Asset has been determined to be reusable and interoperable, appropriately documented, and conformant to applicable DI2E Framework specifications and standards and is integrated into the DI2E Reference Ecosystem.',
     'checked': false
   }
   ]
