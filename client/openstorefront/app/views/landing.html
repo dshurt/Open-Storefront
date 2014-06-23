@@ -1,5 +1,10 @@
 <div ng-controller="LandingCtrl" id="landingBackground">
 </div>
 <div id="landingBox">
+  <div id="resultsLink">
+  </div>
   <div ng-include="landingRoute"></div>
+  <button ng-click="sendToResults()">
+    View Topic Results
+  </button>
 </div>
