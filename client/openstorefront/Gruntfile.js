@@ -350,6 +350,8 @@ grunt.loadNpmTasks('grunt-war');
             'bower_components/fontawesome/css/font-awesome.css',
             'bower_components/bootstrap/dist/fonts/*',
             'bower_components/bootstrap/dist/css/bootstrap.css',
+            'bower_components/ckeditor/**/*',
+            'bower_components/ng-ckeditor/ng-ckeditor.js',
             'styles/*.css',
             'scripts/common-min/*.js',
             'scripts/common/data.js'
