@@ -107,6 +107,47 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
     return searchKey;
   };
 
+  business.landingPage = function(key, value, wait){
+    var deferred = $q.defer();
+    var landingRoute = null;
+    if (!(key && value)) {
+      var reCallRequired = true;
+      landingRoute = localCache.get('landingRoute', 'object');
+      if (landingRoute) {
+        var cacheTime = localCache.get('landingRoute-time', 'date');
+        var timeDiff = new Date() - cacheTime;
+        // we take a quarter of a minute before the search expires
+        if (timeDiff < expireTime * 1440)
+        {
+          deferred.resolve(landingRoute);
+        } else {
+          deferred.reject('The landingRoute has expired.');
+          landingRoute = null;
+        }
+      } else {
+        deferred.reject('The Landing Route has not been set. Landing has been reset to Default.');
+        landingRoute = null;
+      }
+    } else if (!key && value) {
+      localCache.save('landingRoute', { 'key': key, 'value': value});
+      localCache.save('landingRoute-time', new Date());
+      landingRoute = key;
+      deferred.resolve(landingRoute);
+    } else if (key && value) {
+      localCache.save('landingRoute', { 'key': key, 'value': value});
+      localCache.save('landingRoute-time', new Date());
+      landingRoute = key;
+      deferred.resolve(landingRoute);
+    } else {
+      deferred.reject('There was an unexpected or unknownn error.');
+      landingRoute = null;
+    }
+    if (wait) {
+      return deferred.promise;
+    }
+    return landingRoute;
+  };
+
   business.typeahead = function(target, pluckItem){
     var collection = null;
     var result = localCache.get('typeahead', 'object');

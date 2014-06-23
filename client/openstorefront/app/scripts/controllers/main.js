@@ -64,6 +64,18 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   };
 
   /*******************************************************************************
+  * This and the following functions send the user to the search filling the 
+  * data object with the search key 
+  * params: type -- This is the code of the type that was clicked on
+  *******************************************************************************/
+  $scope.goToLanding = function(route){ /*jshint unused:false*/
+    Business.landingPage('landing', route, true).then(function() {
+      $location.path('/landing');
+    });
+    return;
+  };
+
+  /*******************************************************************************
   * This function sets the rootScope's search key so that if you did it in the
   * controller search, it is still preserved across the page.
   * params: param name -- param description

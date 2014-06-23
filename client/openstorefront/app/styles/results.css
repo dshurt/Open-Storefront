@@ -146,35 +146,7 @@ html, .resultsContainer {
   padding: 0px 5px;
 }
 
-.large-raty{
-  top: 2px;
-  position: relative;
-  margin-bottom: -8px;
-}
 
-.average-raty{
-  margin-bottom: -4px;
-}
-
-.large-raty, .large-raty .star-on-png, .large-raty .star-off-png,
-.large-raty .cancel-off-png, .large-raty .cancel-on-png,
-.large-raty .star-half-png{
-  font-size: 24px;
-}
-.average-raty, .average-raty .star-on-png, .average-raty .star-off-png,
-.average-raty .cancel-off-png, .average-raty .cancel-on-png,
-.average-raty .star-half-png{
-  font-size: 18px;
-}
-.average-raty .star-on-png, .large-raty .star-on-png{
-  color: #333333;
-}
-.average-raty .star-off-png, .large-raty .star-off-png{
-  color: #333333;
-}
-.average-raty .cancel-on-png, .large-raty .cancel-on-png{
-  color:#c44848;
-}
 /*.watch-content-title{
   color: #ffffff;
   padding: 2px 5px;

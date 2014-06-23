@@ -10,7 +10,14 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   $scope.data = [];
   $scope.editedTopic = 'Types';
   $scope.toolTitle = 'idAM Landing Page';
-  $scope.editorContent = 'This is a test';
+  Business.landingPage(false, false, true).then(function (result) {
+    // console.log('resutl', result);
+    
+    $scope.landingRoute = result.value;
+    $.get($scope.landingRoute).then(function(responseData) {
+      $scope.editorContent = $scope.parseForEditor(responseData);
+    });
+  });
   $scope.saveContent = '';
 
   $scope.$watch('editorContent', function() {
@@ -58,13 +65,30 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   * tags for a list of components
   ***************************************************************/
   $scope.parseComponentInsert = function (content) {
-    var data = content;
-    // console.log('data', data);
-    var splitData = data.split('### Component List ###');
-    // console.log('sp', splitData);
-    data = splitData.join('\n<component-list click-callback="updateDetails" class-list="" data="data" cols="3" ></component-list>\n');
-    // console.log('data', data);
-    return data;
+    if (content !== null && content !== undefined && content !== '') {
+      var data = content;
+      // console.log('data', data);
+      var splitData = data.split('### Component List ###');
+      // console.log('sp', splitData);
+      data = splitData.join('\n<component-list click-callback="updateDetails" class-list="" data="data" cols="3" ></component-list>\n');
+      // console.log('data', data);
+      return data;
+    }
+    return content;
+  };
+
+  /***************************************************************
+  * This function is used to parse the data that may contain one of our custom
+  * tags for the editor to be able to represent (since it doesn't like our tags)
+  ***************************************************************/
+  $scope.parseForEditor = function(content) {
+    if (content !== null && content !== undefined && content !== '') {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(content, 'text/html');
+      $(doc).find('component-list').replaceWith('### Component List ###');
+      return $(doc).find('body').html();
+    }
+    return content;
   };
 
   /***************************************************************
