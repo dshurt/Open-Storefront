@@ -18,7 +18,7 @@
 /* global isEmpty, setupPopovers, openClick:true, setupResults, moveButtons,
 fullClick, openFiltersToggle, buttonOpen, buttonClose, toggleclass*/
 
-app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', '$q', '$route', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope, $q, $route) {
+app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', '$q', '$route', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope, $q, $route) { /*jshint unused: false*/
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
   $scope.tagsList           = Business.getTagsList();
@@ -180,15 +180,16 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   ***************************************************************/
   var callSearch = function() {
     Business.search(false, false, true).then(
-      
+
     //This is the success function on returning a value from the business layer 
     function(key) {
+      var type = 'all';
+      var code = '';
+      var query = null;
       if (key === null || key === undefined) {
-        var type = 'all';
-        var code = '';
         if (!isEmpty($location.search()))
         {
-          var query = $location.search();
+          query = $location.search();
           if (query.type && query.code) {
             type = query.type;
             code = query.code;
@@ -196,20 +197,20 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
         }
         $scope.reAdjust([{ 'key': type, 'code': code }]);
       } else {
-        var type = '';
-        var code = '';
+        type = '';
+        code = '';
         // console.log('search', $location.search());
         
         if (!isEmpty($location.search()))
         {
-          var query = $location.search();
+          query = $location.search();
           if (query.type && query.code) {
             type = query.type;
             code = query.code;
           } else {
             type = 'all';
           }
-          key = [{ 'key': type, 'code': code }]
+          key = [{ 'key': type, 'code': code }];
         }
         // console.log('key', key);
         
@@ -218,6 +219,8 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     },
     // This is the failure function that handles a returned error
     function(error) {
+      console.error('ERROR: ', error);
+      
       var type = 'all';
       var code = '';
       if (!isEmpty($location.search()))
@@ -230,7 +233,8 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       }
       $scope.reAdjust([{ 'key': type, 'code': code }]);
     });
-};
+    //
+  };
 
   /***************************************************************
   * This function is used by the reviews section in the details to remove

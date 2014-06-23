@@ -1,4 +1,4 @@
-.tools {
+.adminTools {
   position:relative;
   z-index: 1;
   background: white;
@@ -19,7 +19,7 @@
   padding-left: 250px;
 }
 
-.nav-pills > li {
+.treeNav .nav-pills > li {
   clear: both;
 }
 
@@ -27,4 +27,9 @@
   width: 100%;
   margin-left: -276px;
   padding-left: 275px;
+}
+
+html, body,
+.fullHeight {
+  height: 100%;
 }
