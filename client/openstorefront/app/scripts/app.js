@@ -100,8 +100,8 @@ var app = angular
   * This funciton resets the search query when we don't want to be showing it
   ***************************************************************/
   $rootScope.$on('$locationChangeStart', function (event, next, current) {
-    console.log('path', $location.path());
-    console.log($location.path() === '/');
+    // console.log('path', $location.path());
+    // console.log($location.path() === '/');
     
     if (!$location.path() || $location.path() !== '/results') {
       $location.search({});
