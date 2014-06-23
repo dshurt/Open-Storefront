@@ -15,7 +15,7 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   $scope.data = [];
   $scope.editedTopic = 'Types';
   $scope.toolTitle = 'idAM Landing Page';
-  if (!$scope.landingRoute) { 
+  if (!$scope.landingRoute) {
     Business.landingPage('IDAM', 'views/temp/landingpage.html', true).then(function (result) { /*jshint unused:false*/
       Business.landingPage(false, false, true).then(function (result) {
         $scope.landingRoute = result.value;
