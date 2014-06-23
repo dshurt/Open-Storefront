@@ -67,7 +67,7 @@ var app = angular
   });
 })
 // here we add the .run function for intial setup and other useful functions
-.run(['$rootScope', 'localCache', 'business', '$location', '$route', function ($rootScope, localCache, Business, $location, $route) {/* jshint unused: false*/
+.run(['$rootScope', 'localCache', 'business', '$location', '$route', '$timeout', function ($rootScope, localCache, Business, $location, $route, $timeout) {/* jshint unused: false*/
 
   //We must initialize global scope variables.
   $rootScope.Current = null;
@@ -87,13 +87,22 @@ var app = angular
   $rootScope.$on('$routeChangeStart', function (event, next, current) {/* jshint unused:false */
     if (current && current.loadedTemplateUrl === 'views/results.html') {
       resetAnimGlobals();
-    }
+    } 
 
     setTimeout(function () {
       $('.searchBar:input[type=\'text\']').on('click', function () {
         $(this).select();
       });
     }, 500);
+  });
+
+  /***************************************************************
+  * This funciton resets the search query when we don't want to be showing it
+  ***************************************************************/
+  $rootScope.$on('$locationChangeStart', function (event, next, current) {
+    if ($location.path() && $location.path() !== '/results') {
+      $location.$$search = {};
+    }
   });
 
   /***************************************************************
