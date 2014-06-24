@@ -261,7 +261,8 @@ MOCKDATA.filters[2] = {
     'displayType': 'DI2E Conformant',
     'desc': 'DI2E Framework Reference Implementation',
     'longDesc': 'Asset has been determined to be reusable and interoperable, appropriately documented, and conformant to applicable DI2E Framework specifications and standards and is integrated into the DI2E Reference Ecosystem.',
-    'checked': false
+    'checked': false,
+    'landing': 'views/temp/landingpage2.html'
   }
   ]
 };

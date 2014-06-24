@@ -16,7 +16,7 @@
         <td><textarea class="form-control input" type="text" ng-model="item.longDesc"></textarea></td>
         <td><input class="" type="checkbox" ng-model="item.checked" ng-checked="item.checked"/></td>
         <td ng-if="item.landing" class="imitateLink" ng-click="editLanding(item.landing)"><a>Edit Landing Page</a></td>
-        <td ng-if="!item.landing" class="imitateLink" ng-click="editLanding(item.type)"><a>Add Landing Page</a></td>
+        <td ng-if="!item.landing" class="imitateLink" ng-click="editLanding('')"><a>Add Landing Page</a></td>
       </tr>
     </tbody>
   </table>

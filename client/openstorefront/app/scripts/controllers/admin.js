@@ -19,13 +19,19 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
     Business.landingPage('IDAM', 'views/temp/landingpage.html', true).then(function (result) { /*jshint unused:false*/
       Business.landingPage(false, false, true).then(function (result) {
         $scope.landingRoute = result.value;
-        $.get($scope.landingRoute).then(function(responseData) {
-          $scope.editorContent = $scope.parseForEditor(responseData);
-        });
+
       });
     });
   }
   $scope.saveContent = '';
+
+  $scope.$watch('landingRoute', function() {
+    $.get($scope.landingRoute).then(function(responseData) {
+      $scope.editorContent = $scope.parseForEditor(responseData);
+      $scope.$apply();
+    });
+  });
+
 
   $scope.$watch('editorContent', function() {
     $scope.saveData();
