@@ -383,3 +383,55 @@ width: 100%;
 
   background: inherit; 
 }
+/* override bootstrap progress bar*/
+.bs-example{
+  margin: 120px;
+}
+.bar-transparent{
+  background-color:transparent;  
+  color:black;
+}
+.progress {
+  background-color: transparent;
+  border:solid black  1px;
+  height:35px;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.barborder {
+  border-right:solid black 1px;
+}
+.eval-status{
+  /*margin: 34px 0px 10px 0px;*/
+  color:gray;
+  font-size: 19px;
+  margin-left: 25px;
+}
+
+/* evaluations */
+.evaluation {
+  overflow: auto;
+}
+
+.eval-content-title{
+  color: #3892d3;
+  padding: 2px 5px 0px 21px;
+  /*margin-left:110px;*/
+}
+.eval-content-title-content{ 
+  font-size: 23px;
+}
+.eval-content-title .popover{
+  position: absolute !important;
+  color: black;
+  font-size: 12px;
+  /*margin-left:110px;*/
+}
+.eval-content-title:hover{
+/*  cursor: pointer;*/
+  color: #22699c;
+}
+.eval-content-description {
+  padding: 0px 5px 0px 21px;;
+}

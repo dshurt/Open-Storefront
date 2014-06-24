@@ -1,0 +1,199 @@
+
+
+
+<!-- Progress bar begin-->
+<!-- <div class="col-sm-2 text-left"></div>
+<div class="col-sm-6">
+	<div class="col-sm-3 text-left">
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-inverse fa-stack-1x">1</i>
+		</span>title-left
+	</div>
+	<div class="col-sm-3 text-center">
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-inverse fa-stack-1x">2</i>
+		</span>
+	</div>
+	<div class="col-sm-3 text-center">
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-inverse fa-stack-1x">3</i>
+		</span>title-center
+	</div>
+	<div class="col-sm-3 text-right">
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-inverse fa-stack-1x">4</i>
+		</span>
+	</div>      
+</div>
+-->
+
+
+<!-- <br><br>
+<div class="col-sm-2 text-left eval-status">Evaluation Status:</div>
+-->
+<!-- Modal legend for progress bar colors -->
+<div class="row">
+	<div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove" text="lll" /></button>
+					<h4 class="modal-title" id="myModalLabel">Evaluation Status Progress Bar Color Legend</h4>
+				</div>
+				<div class="modal-body">
+					<div class="col-sm-12">
+						<progress>
+							<bar class="barborder" value="25" type="success"><span>Completed</span></bar>
+							<bar class="barborder" value="25" type="info"><span>In Progress</span></bar>
+							<bar class="barborder" value="25" type="danger"><span>Halted</span></bar>
+							<bar class="bar-transparent" value="25" type="transparent"><span>Not Started</span></bar>
+						</progress>	
+					</div>	
+					<br><br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-sm-7 eval-content-title eval-content-title-content">Evaluation Status : {{details.name}}</div>
+<!-- <div class="col-sm-3 eval-content-title eval-content-title-content">eval progress bar legend</div> -->
+<br><br>
+<!-- 
+<div class="col-sm-6">
+	<div class="barborder"  style="text-align: left; padding-left:21px; ">
+		<progress>
+			<bar class="barborder" value="25" type="success"><span>20%</span></bar>
+			<bar class="barborder" value="25" type="warning"><span>6/19</span></bar>
+			<bar class="barborder" value="25" type="danger"><span>6/19</span></bar>
+			<bar class="bar-transparent" value="25" type="transparent"><span>20%</span></bar>
+		</progress>
+	</div>
+</div>
+
+<tr class="active">...</tr> blue
+<tr class="success">...</tr>  green #5cb85c
+<tr class="warning">...</tr> yellow
+<tr class="danger">...</tr> red
+<tr class="info">...</tr> light blue #5bc0de
+-->
+
+
+
+<!-- <div ng-controller="Ctrl">
+  <select ng-model="selection" ng-options="item for item in items">
+  </select>
+  <tt>selection={{selection}}</tt>
+  <hr/>
+  <div class="animate-switch-container"
+    ng-switch on="selection">
+      <div class="animate-switch" ng-switch-when="settings">Settings Div</div>
+      <div class="animate-switch" ng-switch-when="home">Home Span</div>
+      <div class="animate-switch" ng-switch-default>default</div>
+  </div>
+</div> -->
+
+
+<!-- {{details.name}}
+ -->
+
+<div class="row">
+<!-- 	<div class="col-sm-4">
+		<div class="barborderf" style="text-align: left; padding-left:21px; ">
+			<progress>
+				<bar class="barborder" value="25" type="success"><span>Level 0</span></bar>
+				<bar class="barborder" value="25" type="success"><span>Level 1</span></bar>
+				<bar class="barborder" value="25" type="info"><span>Level 2</span></bar> 
+				<bar class="bar-transparent" value="25" type="transparent"><span>Level 3</span></bar>
+			</progress>
+		</div>
+	</div>
+ -->
+
+	<div class="col-sm-4">
+		<div class="barborders" style="text-align: left; padding-left:21px; ">
+			<progress>
+					<bar ng-repeat="rows in evaluations" class="{{rows.class1}}" value="25" type="{{rows.type}}">level <span>{{rows.level}}</span></bar>
+			</progress>
+		</div>
+	</div>
+
+
+
+<!-- 
+<tabset>
+          <tab ng-repeat="tab in tabs2" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+            {{tab.content}}
+          </tab>
+      </tabset>
+ -->
+
+
+
+<!-- 				<div ng-repeat="item in evaluations.evalBar">
+					<bar class="barborder" value="25" type="danger"><span>Level 0</span></bar>
+				</div>	 -->				
+	<!-- 		
+
+				<bar class="barborder" value="25" type="success"><span>Level 0</span></bar>
+				<bar class="barborder" value="25" type="success"><span>Level 0</span></bar>
+				<bar class="barborder" value="25" type="success"><span>Level 1</span></bar>
+				<bar class="barborder" value="25" type="info"><span>Level 2</span></bar>
+				<bar class="bar-transparent" value="25" type="transparent"><span>Level 3</span></bar>
+ -->
+
+
+<!-- 	<div class="col-sm-4">
+		<div class="barborder" style="text-align: left; padding-left:21px; ">
+			<progress>
+				<bar class="barborder" value="25" type="success"><span>Level 0</span></bar>
+				<bar class="barborder" value="25" type="success"><span>Level 1</span></bar>
+				<bar class="barborder" value="25" type="info"><span>Level 2</span></bar>
+				<bar class="bar-transparent" value="25" type="transparent"><span>Level 3</span></bar>
+			</progress>
+		</div>
+	</div>
+
+ -->
+
+	<!-- 		<div class="col-sm-3"><span ng-click="setupModal(''); openModal('descModal','dddd');" class="imitateLink" ><i class="glyphicon glyphicon-info-sign searchDescription"></i></div><div class="col-sm-3"> -->
+
+	<!-- <a href="javascript: void(0)" ng-click="openModal('profileModal', 'User Profile')">User Profile</a>
+	-->
+	<div class="col-sm-3"><a href="javascript: void(0)" data-toggle="modal" data-target="#basicModal2"><i class="glyphicon glyphicon-info-sign"></i></a>
+	</div>
+
+	<!-- <div class="col-sm-3">
+		<progress>
+			<bar class="barborder" value="25" type="success"><span>completed</span></bar>
+
+			<bar class="barborder" value="25" type="info"><span>in progress</span></bar>
+			<bar class="barborder" value="25" type="danger"><span>halted</span></bar>
+			<bar class="bar-transparent" value="25" type="transparent"><span>not started</span></bar>
+		</progress>	
+	</div>	
+	-->
+</div>
+
+<br><br><br>
+<div class="col-sm-6 eval-content-title eval-content-title-content">DI2E Clearinghouse Process</div>
+<br>
+<div style="text-align: left;padding-left:21px;  width: 100%">
+	<img src="images/di2e_clearinghouse_process.png" alt="">
+</div>
+<br><br>
+<div class="col-sm-6 eval-content-title eval-content-title-content">DI2E Evaluation Level Details</div>
+<br><br>
+<div style="text-align: left; padding-left:21px; width: 100%">
+	<img src="images/di2e_evaluation_level_details.png" alt="">
+</div>
+<br><br>
+<div class="col-sm-6 eval-content-title eval-content-title-content">DI2E Storefront Component State Details</div>
+<br><br>
+<div style="text-align: left; padding-left:21px; width: 100%">
+	<img src="images/di2e_storefront_component_state.png" alt="">
+</div>
