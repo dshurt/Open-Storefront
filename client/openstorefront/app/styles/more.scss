@@ -1,0 +1,139 @@
+/* css only show/hide*/
+
+.moreContent * {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.moreContent {
+  /*max-width: 480px;*/
+  /*width: 90%;*/
+  /*margin: 3em auto;*/
+  /*font-size: 75%;*/
+  /*line-height: 1.3rem;*/
+  /*font-family: sans-serif;*/
+  /*position: relative;*/
+  /**zoom: 1;*/
+
+  -webkit-transition: 1s linear;
+  -moz-transition: 1s linear;
+  -ms-transition: 1s linear;
+  -o-transition: 1s linear;
+  transition: 1s linear;
+
+}
+
+.tooltip {
+  text-align: center;
+}
+.tooltip-inner {
+  display: inline-block;
+  padding: 3px 5px;
+}
+
+.moreContent:before, .moreContent:after {
+  content: "";
+  display: table;
+}
+
+.moreContent:after { clear: both }
+
+p { margin-bottom: 1.3rem }
+
+.moreContentArticle {
+  margin-bottom: 3rem;
+  position: relative;
+  *zoom: 1;
+}
+
+.moreContentArticle:before, .moreContentArticle:after {
+  content: "";
+  display: table;
+}
+
+.moreContentArticle:after { clear: both }
+
+.moreContentSection:nth-child(-n+3) {
+  display: table-row;
+  visibility: visible;
+}
+
+.moreContentSection {
+  display: none;
+  visibility: hidden;
+}
+
+.moreContentSection {
+  -webkit-transition: 1s linear;
+  -moz-transition: 1s linear;
+  -ms-transition: 1s linear;
+  -o-transition: 1s linear;
+  transition: 1s linear;
+}
+
+.moreContent input[type=checkbox] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.moreContent label {
+
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  margin-left: -40px;
+  text-align: center;
+  padding: .65rem;
+  line-height: 70px;
+  box-shadow: inset 1px 1px rgba(0, 0, 0, 0.1), inset -1px -1px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, .5);
+  opacity: .7;
+    -webkit-transition: opacity .3s ease-in-out;
+       -moz-transition: opacity .3s ease-in-out;
+        -ms-transition: opacity .3s ease-in-out;
+         -o-transition: opacity .3s ease-in-out;
+            transition: opacity .3s ease-in-out;
+}
+
+.moreContent label:hover {
+  opacity: 1;
+  color: rgb(255,255,255);
+}
+
+.moreContent:not(.active) label span:last-of-type {
+  display: none;
+  visibility: hidden;
+}
+
+.moreContent.active label span:first-of-type {
+  display: none;
+  visibility: hidden;
+}
+
+.moreContent.active input[type=checkbox]:checked ~ .min table .moreContentSection {
+  display: table-row;
+  visibility: visible;
+  width: 100%;
+}
+
+.moreContent.active input[type=checkbox]:checked ~ [for="read_more"] span:first-of-type {
+  display: none;
+  visibility: hidden;
+}
+
+.moreContent.active input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
+  display: block;
+  visibility: visible;
+}
