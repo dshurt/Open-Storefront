@@ -15,7 +15,6 @@ app.directive('componentList', ['business', function (Business) {
       scope.listOfClasses = attrs.classList;
       if (attrs.type !== null && attrs.type !== undefined && attrs.type !== '') {
         scope.data = Business.getData();
-        console.log('scope.data', scope.data);
         _.each(scope.data, function(item){
           item.shortdescription = item.description.match(/^(.*?)[.?!]\s/)[1] + '.';
         });

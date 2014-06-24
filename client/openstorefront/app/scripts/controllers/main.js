@@ -77,7 +77,9 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   * data object with the search key 
   * params: type -- This is the code of the type that was clicked on
   *******************************************************************************/
-  $scope.goToLanding = function(route){ /*jshint unused:false*/
+  $scope.goToLanding = function(route, searchType, searchkey){ /*jshint unused:false*/
+    localCache.save('landingType', searchType);
+    localCache.save('landingCode', searchkey);
     Business.landingPage('landing', route, true).then(function() {
       $location.path('/landing');
     });
