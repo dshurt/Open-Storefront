@@ -75,6 +75,10 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     }
   }
 
+ $scope.getTimes=function(n){
+     return new Array(parseInt(n));
+   };
+
   $scope.tabs2 = [
   { title:'SUMMARY', content:'Dynamic content 1', relpath:'views/details/summary.html' },
   { title:'DETAILS', content:'Dynamic content 22', relpath:'views/details/details.html' },
@@ -95,65 +99,67 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   {class1: 'barborder', type:'info', level:'2'},
   {class1: 'bar-transparent', type:'success', level:'3'}
   ];
- 
- /*  $scope.evaluations = [
-  {class1: 'bar-transparent', type:'transparent', level:'0'}
-  ];*/
- 
 
 
+  $scope.externaldepend = [
+  {name: 'WebLogic server', desc:'Optional deployment container'},
+  {name: 'JBoss 7.1', desc:'Optional deployment container'},
+  {name: 'Tomcat', desc:'Optional deployment container'},
+  {name: 'JOGL', desc:'Supplied within JView source code'}
+  ];
 
-/*
+  $scope.locassetartifacts = [
+  {name: 'Home page', desc:'https://extranet.rl.af.mil/jview/'},
+  {name: 'Wiki', desc:'https://software.forge.mil/sf/wiki/do/viewPage/projects.jview/wiki/HomePage'},
+  {name: 'Binaries', desc:'You must build this from the source code'},
+  {name: 'Source', desc:'https://software.forge.mil/sf/go/proj1195'},
+  {name: 'Issue Tracking', desc:'https://software.forge.mil/sf/go/proj1195'},
+  {name: 'Documentation', desc:'See full evaluation report'},
+  {name: 'Training', desc:'none'}
+  ];
 
-  'assetTags': [
-    {
-      'code': 'DATAV',
-      'desc': 'Data Validation',
-      'text': 'Data Validation'
-    },
-    {
-      'code': 'DATAT',
-      'desc': 'Data Transformation',
-      'text': 'Data Transformation'
-    },
-    {
-      'code': 'SOFTLIB',
-      'desc': 'Software Libraries',
-      'text': 'Software Libraries'
-    }
-    ],*/
+  $scope.scoretable = [
+  {name: 'Discoverable', ranking: 2, icon: 'whatever'},
+  {name: 'Accessible', ranking: 2, icon: 'whatever'},
+  {name: 'Documentation', ranking: 3, icon: 'whatever'},
+  {name: 'Deployable', ranking: 4, icon: 'whatever'},
+  {name: 'Usable', ranking: 5, icon: 'whatever'},
+  {name: 'Error Handling', ranking: 2, icon: 'whatever'},
+  {name: 'Integrable', ranking: 4, icon: 'whatever'},
+  {name: 'I/O Validation', ranking: 2, icon: 'whatever'},
+  {name: 'Testing', ranking: 2, icon: 'whatever'},
+  {name: 'Monitoring', ranking: 1, icon: 'whatever'},
+  {name: 'Performance', ranking: 3, icon: 'whatever'},
+  {name: 'Scalability', ranking: 2, icon: 'whatever'},
+  {name: 'Security', ranking: 3, icon: 'whatever'},
+  {name: 'Maintainability / Upgradability', ranking: 2, icon: 'whatever'},
+  {name: 'Community and Outreach', ranking: 1, icon: 'whatever'},
+  {name: 'Change Management', ranking: 2, icon: 'whatever'},
+  {name: 'CA', ranking: 1, icon: 'whatever'},
+  {name: 'Licensing', ranking: 2, icon: 'whatever'},
+  {name: 'Roadmap', ranking: 1, icon: 'whatever'},
+  {name: 'Willingness', ranking: 2, icon: 'whatever'},
+  {name: 'Architecture Alignment', ranking: 3, icon: 'whatever'}
+  ];
 
+  $scope.compvitals = [
+  {name: 'SupportedOS', desc: 'Same as Java 1.5+'},
+  {name: 'VM Support', desc: 'yes'},
+  {name: 'License', desc: 'JView license (CAC Card Required)'},
+  {name: 'SvcV-4 Alignment', desc: '2.2.1.2 Widget Framework'},
+  {name: 'JCA Alignment', desc: '6.2.3.8 Enterprise Application Software'},
+  {name: 'JCSFL Alignment', desc: '8.9.5 Integrate Enterprise Applications'}
+  ];
 
+  $scope.compsummary = [
+  {versions: '1.7.1', evaluationdate: '3/14/2014', componenttype: 'Redeployed Capability, API/Library ', agency: 'AFRL JView Team', di2emarketplace: 'https://storefront.di2e.net/marketplace/serviceItem/show/24'}
+  ];
 
-/*  ,
-  {
-    "ID": 2,
-    "date": "25/12/2012",
-    "time": "11.34",
-    "evalBar": [
-    {"class": "barborder","type": "success","level": "0"},
-    {"class": "barborder","type": "success","level": "1"},
-    {"class": "barborder","type": "success","level": "2"}
-    ]
-  }*/
-  
-
-
-
-
-
-/*function JobsCtrl($scope) {
-  
-}
-
-function InvoicesCtrl($scope) {
-  
-}
-
-function PaymentsCtrl($scope) {
-  
-}
-*/
+  $scope.pointscontact = [
+  {position: 'Program POC', name: 'Jason Kahn', email: 'jason.m.kahn@intelink.gov'},
+  {position: 'Technical POC', name: 'Ian Nelson', email: 'ian.l.nelson@intelink.gov'},
+  {position: 'DI2E Asset Coordinator', name: 'Kimberly Holladay', email: 'Kimberly.Holladay@volant-associates.com'}
+  ];
 
   /***************************************************************
   * This function is looked at for auto suggestions for the tag list
