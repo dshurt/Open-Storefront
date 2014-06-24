@@ -411,5 +411,8 @@ width: 100%;
   color: #22699c;
 }
 .eval-content-description {
-  padding: 0px 5px 0px 21px;;
+  padding: 0px 5px 0px 21px;
+}
+.vertalign {
+  vertical-align:middle;
 }

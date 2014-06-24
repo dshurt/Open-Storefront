@@ -4,45 +4,34 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-7">
 				<div class="table-responsive">
-					<table class="table table-bordered">
-<!-- 						<thead>
+					<table class="table table-bordered table-hover" ng-repeat="row in compsummary">
+						<tbody>
 							<tr>
-								<th>#</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-							</tr>
-						</thead> -->
-					 	<tbody>
-							<tr>
-								<td class="success" colspan="3">Component Summary</td>
+								<td class="warning valign" colspan="3"><h4><b>Component Summary</b></h4></td>
 							</tr>							
-							<tr>
-								<td width="40%">Component</td>
-								<td width="60%"><h4>{{details.name}}</h4></td>
+							<tr class="valign">
+								<td style="vertical-align:middle"  width="40%">Component</td>
+								<td style="vertical-align:middle"  width="60%"><h4>{{details.name}}</h4></td>
 							</tr>
 							<tr>
 								<td>Version</td>
-								<td>1.7.1</td>
+								<td>{{row.versions}}</td>
 							</tr>
 							<tr>
 								<td>Evaluation Date</td>
-								<td>3/13/2014</td>
+								<td>{{row.evaluationdate}}</td>
 							</tr>
 							<tr>
 								<td>Component Type</td>
-								<td>Redeployed Capability, API/Library</td>
+								<td>{{row.componenttype}}</td>
 							</tr>							
 							<tr>
 								<td>Agency</td>
-								<td>AFRL JView Team</td>
+								<td>{{row.agency}}</td>
 							</tr>
 							<tr>
 								<td>DI2E Marketplace</td>
-								<td>https://storefront.di2e.net/marketplace/serviceItem/show/24</td>
+								<td>{{row.di2emarketplace}}</td>
 							</tr>													
 						</tbody>
 					</table>
@@ -80,120 +69,137 @@
 						</p>
 					</div>
 				</div>
-					<table class="table table-bordered">
-						<tbody>
-							<tr>
-								<td class="success" colspan="2"><h4>External Dependencies</h4></td>
-							</tr>							
-							<tr>
-								<td width="50%">WebLogic server</td>
-								<td width="50%">Optional deployment container</td>
-							</tr>
-						</tbody>
-					</table>	
-					<table class="table table-bordered">
-						<tbody>
-							<tr>
-								<td class="success"  colspan="2"><h4>Location of Asset Artifacts</h4></td>
-							</tr>							
-							<tr>
-								<td width="50%">Home Page</td>
-								<td width="50%">https://extranet.rl.af.mil/jview/</td>
-							</tr>
-						</tbody>
-					</table>									
+				<!-- table-striped -->
+				<table class="table table-bordered table-hover table-condensed">
+					<tbody>
+						<tr>
+							<td class="warning valign" colspan="2"><h4>External Dependencies</h4></td>
+						</tr>							
+						<tr data-ng-repeat="row in externaldepend">
+							<td width="50%">{{row.name}}</td>
+							<td width="50%">{{row.desc}}</td>
+						</tr>
+					</tbody>
+				</table>	
+				<table class="table table-bordered table-hover">
+					<tbody>
+						<tr>
+							<td class="warning valign"  colspan="2"><h4>Location of Asset Artifacts</h4></td>
+						</tr>							
+						<tr data-ng-repeat="row in locassetartifacts">
+							<td width="30%">{{row.name}}</td>
+							<td width="70%">{{row.desc}}</td>
+						</tr>
+					</tbody>
+				</table>									
 			</div>
 			<div class="col-md-3">
 				<div class="table-responsive">
-					<table class="table table-bordered">
+					<table class="table table-bordered table-hover">
 						<tbody>
 							<tr>
-								<td class="success"  colspan="3"><h4>Component Scoring</h4></td>
+								<td class="warning"  colspan="3"><h4>Component Scoring</h4></td>
+							</tr>
+							<tr>
+								<td class="success" style="vertical-align:middle"  colspan="2"><h4>Overall Score</h4></td>
+								<td class="success"  colspan="1"><h4>46.7</h4>Out of 100</td>
 							</tr>							
+							<tr data-ng-repeat="row in scoretable">
+								<td style="vertical-align:middle" width="50%">{{row.name}}</td>
+								<td style="vertical-align:middle" width="10%">{{row.ranking}}</td>
+								<td style="vertical-align:middle" width="40%" >
+									<i ng-repeat="t in getTimes(row.ranking) track by $index" class="fa fa-circle" style="color:#4679B2"></i>
+								</td>
+
+								<!--   <div ng-repeat="t in getTimes(4)">text</div> -->
+
+							<!-- 	<td width="40%" ng-repeat="t in getTimes(5)" >
+									ggg
+								</td> -->
+<!-- 							<td width="40%" ng-if="row.ranking == '1' ">
+									<i ng-repeat="t in getTimes(row.ranking) track by $index" class="fa fa-circle"></i>
+								</td>									
+								<td width="40%" ng-if="row.ranking == '2' ">
+									<i class="fa fa-circle"></i>
+									<i class="fa fa-circle"></i>  
+								</td>	
+								<td width="40%" ng-if="row.ranking == '3' ">
+									<i class="fa fa-circle"></i>
+									<i class="fa fa-circle"></i>
+									<i class="fa fa-circle"></i>  
+								</td>
+								<td width="40%" ng-if="row.ranking == '4' ">
+									<i class="fa fa-circle"></i>
+									<i class="fa fa-circle"></i>
+									<i class="fa fa-circle"></i>
+									<i class="fa fa-circle"></i>
+								</td>
+								<td width="40%" ng-if="row.ranking == '5' ">
+									<i class="fa fa-circle"></i>
+									<i class="fa fa-circle"></i>
+									<i class="fa fa-circle"></i>
+									<i class="fa fa-circle"></i>
+									<i class="fa fa-circle"></i>
+								</td> -->
+							</tr>							
+						</tbody>
+					</table>
+					<table class="table table-bordered table-hover">
+						<tbody>
 							<tr>
-								<td rowspan="2"><h4>Overall Score</h4></td>
-								<td colspan="2"><h4>46.7</h4></td>
+								<td class="warning" colspan="2"><h4>Component Vitals</h4></td>
 							</tr>
-							<tr>
-								<!-- <td >&nbsp;</td> -->
-								<td colspan="3">Out of 100</td>
-							</tr>
-							<tr>
-								<td colspan="3">&nbsp;</td>
-							</tr>
-							<tr>
-								<td width="60%">Discoverable</td>
-								<td width="10%">2</td>
-								<td width="30%">icon</td>
-							</tr>
-							<tr>
-								<td>Accessible</td>
-								<td>2</td>
-								<td>icon</td>
-							</tr>
-							<tr>
-								<td>Documentation</td>
-								<td>2</td>
-								<td>icon</td>
-							</tr>
-							<tr>
-								<td>Deployable</td>
-								<td>2</td>
-								<td>icon</td>
+							<tr data-ng-repeat="row in compvitals">
+								<td style="vertical-align:middle"  width="50%">{{row.name}}</td>
+								<td style="vertical-align:middle"  width="50%">{{row.desc}}</td>
 							</tr>
 
 						</tbody>
 					</table>
-					<table class="table table-bordered">
+					<table class="table table-bordered table-hover">
 						<tbody>
 							<tr>
-								<td class="success" colspan="2"><h4>Component Vitals</h4></td>
-							</tr>							
-							<tr>
-								<td width="50%">Supported OS</td>
-								<td width="50%">Same as Java 1.5+</td>
+								<td  class="warning" colspan="2"><h4>Points of Contact</h4></td>
 							</tr>
-							<tr>
-								<td>VM Support</td>
-								<td>Yes</td>
-							</tr>
-							<tr>
-								<td>VM Support</td>
-								<td>Yes</td>
-							</tr>
-							<tr>
-								<td>License</td>
-								<td>JView license (CAC Card Required)</td>
-							</tr>
-							<tr>
-								<td>SvcV-4 Alignment</td>
-								<td>2.2.1.2 Widget Framework</td>
-							</tr>	
-							<tr>
-								<td>JCA Alignment</td>
-								<td>6.2.3.8 Enterprise Application Software</td>
-							</tr>	
-							<tr>
-								<td>JCSFL Alignment</td>
-								<td>8.9.5 Integrate Enterprise Applications</td>
-							</tr>																															
-						</tbody>
-					</table>
-					<table class="table table-bordered">
-						<tbody>
-							<tr>
-								<td  class="success" colspan="2"><h4>Points of Contact</h4></td>
-							</tr>							
-							<tr>
-								<td width="50%">Supported OS</td>
-								<td width="50%">Same as Java 1.5+</td>
+							<tr data-ng-repeat="row2 in pointscontact">
+								<td>
+									<table class="table table-hover">
+										<tr>
+											<td style="background-color:#EEEEEE"  colspan="2">{{row2.position}}</td>
+										</tr>
+										<tr>
+											<td style="vertical-align:middle"  width="50%">Name</td>
+											<td style="vertical-align:middle" width="50%">{{row2.name}}</td>
+										</tr>
+										<tr>
+											<td width="50%">Email</td>
+											<td width="50%">{{row2.email}}</td>
+										</tr>										
+									</table>
+								</td>
 							</tr>
 						</tbody>
 					</table>
-
 				</div>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
 	</div>
 </div>
+
+<!-- Bootstrap default table colors -->
+<!-- On rows -->
+<!-- <tr class="active">...</tr>
+<tr class="success">...</tr>
+<tr class="warning">...</tr>
+<tr class="danger">...</tr>
+<tr class="info">...</tr> -->
+
+<!-- On cells (`td` or `th`) -->
+<!-- <tr>
+  <td class="active">...</td>
+  <td class="success">...</td>
+  <td class="warning">...</td>
+  <td class="danger">...</td>
+  <td class="info">...</td>
+</tr> -->
