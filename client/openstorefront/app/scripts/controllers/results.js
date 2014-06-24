@@ -41,65 +41,69 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   $scope.tabs = {
     'current': null,
     'bars': [
-    {
-      'title': 'Summary',
-      'include': 'views/details/summary.html'
-    },
-    {
-      'title': 'Details',
-      'include': 'views/details/details.html'
-    },
-    {
-      'title': 'Reviews',
-      'include': 'views/details/reviews.html'
-    },
-    {
-      'title': 'Comments',
-      'include': 'views/details/comments.html'
-    }
+      //
+      {
+        'title': 'Summary',
+        'include': 'views/details/summary.html'
+      },
+      {
+        'title': 'Details',
+        'include': 'views/details/details.html'
+      },
+      {
+        'title': 'Reviews',
+        'include': 'views/details/reviews.html'
+      },
+      {
+        'title': 'Comments',
+        'include': 'views/details/comments.html'
+      }
+    //
     ]
   };
 
-  $scope.selectedTab = $scope.tabs[0];  
+  $scope.selectedTab = $scope.tabs[0];
 
   //console.log("hi") ;
   $scope.setSelectedTab = function(tab) {
     $scope.selectedTab = tab;
-  }
+  };
 
   $scope.tabClass = function(tab) {
-    if ($scope.selectedTab == tab) {
-      return "active";
+    if ($scope.selectedTab === tab) {
+      return 'active';
     } else {
-      return "";
+      return '';
     }
-  }
+  };
 
   $scope.tabs2 = [
-  { title:'SUMMARY', content:'Dynamic content 1', relpath:'views/details/summary.html' },
-  { title:'DETAILS', content:'Dynamic content 22', relpath:'views/details/details.html' },
-  { title:'REVIEWS', content:'Dynamic content 33', relpath:'views/details/reviews.html' },
-  { title:'COMMENTS', content:'Dynamic content 33', relpath:'views/details/comments.html' },
-  { title:'EVALUATION', content:'Dynamic content 1', relpath:'views/details/evaluation.html' }
+    //
+    { title:'SUMMARY', content:'Dynamic content 1', relpath:'views/details/summary.html' },
+    { title:'DETAILS', content:'Dynamic content 22', relpath:'views/details/details.html' },
+    { title:'REVIEWS', content:'Dynamic content 33', relpath:'views/details/reviews.html' },
+    { title:'COMMENTS', content:'Dynamic content 33', relpath:'views/details/comments.html' },
+    { title:'EVALUATION', content:'Dynamic content 1', relpath:'views/details/evaluation.html' }
+  //
   ];
-  $scope.tab = $scope.tabs2[0]; 
+  $scope.tab = $scope.tabs2[0];
 
-  $scope.templates =
-  [ { name: 'template1.html', url: 'views/details/summary.html'},
-  { name: 'template2.html', url: 'views/details/details.html'} ];
+  $scope.templates = [ { name: 'template1.html', url: 'views/details/summary.html'}, { name: 'template2.html', url: 'views/details/details.html'} ];
   $scope.template = $scope.templates[1];
 
   $scope.evaluations = [
-  {class1: 'barborder', type:'success', level:'0'},
-  {class1: 'barborder', type:'success', level:'1'},
-  {class1: 'barborder', type:'info', level:'2'},
-  {class1: 'bar-transparent', type:'success', level:'3'}
+    //
+    {class1: 'barborder', type:'success', level:'0'},
+    {class1: 'barborder', type:'success', level:'1'},
+    {class1: 'barborder', type:'info', level:'2'},
+    {class1: 'bar-transparent', type:'success', level:'3'}
+  //
   ];
- 
+
  /*  $scope.evaluations = [
   {class1: 'bar-transparent', type:'transparent', level:'0'}
   ];*/
- 
+
 
 
 
