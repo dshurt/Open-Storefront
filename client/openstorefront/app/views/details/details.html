@@ -1,1 +1,164 @@
-<p>This is the details/details view.</p>
+<!-- <p>This is the details/details view.</p> -->
+<!-- <div class="row"> -->
+<!-- 	<div class="col-md-12"> -->
+	<div class="component-details">
+		<div class="component-div row" style="margin-top: -10px">
+			<div class="col-md-4">
+				<p style="margin-top: 5px; margin-bottom: 0px"><strong>Categories:</strong></p>
+				<div data-ng-repeat="tag in details.categories">
+					<p style="margin: 0px 0px 0px 20px">
+						<a href="">
+							{{tag.desc}}
+						</a>
+					</p>
+				</div>
+
+			</div>
+			<div class="col-md-4">
+				<p style="margin-top: 5px; margin-bottom: 0px"><strong>Features:</strong></p>
+				<div data-ng-repeat="tag in details.features">
+					<p style="margin: 0px 0px 0px 20px">
+						<a href="">
+							{{tag.desc}}
+						</a>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<p style="margin-top: 5px">
+					<strong>
+						License:
+					</strong>
+					{{details.primaryLicense}}
+				</p>
+				<p style="margin-top: -10px">
+					<strong>
+						Operational Status:
+					</strong>
+					{{details.operationStatus}}
+				</p>
+				<p style="margin-top: -10px">
+					<strong>
+						Evaluation Levels:
+					</strong>
+					{{getEvaluationState()}}
+				</p>
+			</div>
+		</div>
+	</div>
+<!-- </div> -->
+<!-- </div> -->
+<div class="component-div-title">Description</div>
+<div class="container component-div">
+  <div class="col-sm-12">
+    {{details.description}}
+  </div>
+</div>
+<div class="component-div-title">Resources</div>
+<div class="container component-div">
+  <div class="col-sm-12">
+
+    <div class="pull-left" style="width: 95px">
+      <div style="text-align: center; width: 100%">
+        <img src="images/icon/tango/text-html.png" alt="">
+      </div>
+      <div style="text-align: center">
+        <a href="">
+          Web Pages
+        </a>
+      </div>
+    </div>
+    <div class="pull-left" style="width: 95px">
+      <div style="text-align: center; width: 100%">
+        <img src="images/icon/tango/text-x-script.png" alt="">
+      </div>
+      <div style="text-align: center">
+        <a href="">
+          Binaries
+        </a>
+      </div>
+    </div>
+    <div class="pull-left" style="width: 95px">
+      <div style="text-align: center; width: 100%">
+        <img src="images/icon/tango/text-x-generic.png" alt="">
+      </div>
+      <div style="text-align: center">
+        <a href="">
+          Source
+        </a>
+      </div>
+    </div>
+    <div class="pull-left" style="width: 95px">
+      <div style="text-align: center; width: 100%">
+        <img src="images/icon/tango/x-office-document.png" alt="">
+      </div>
+      <div style="text-align: center">
+        <a href="">
+          Documentation
+        </a>
+      </div>
+    </div>
+    <div style="position: relative; clear: both"></div>
+  </div>
+</div>
+<div class="component-div-title">Evaluation Resources</div>
+<div class="container component-div">
+  <div class="col-sm-12">
+    <div class="detailSection">
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <a href="" target="_blank">
+                <img src="images/icon/silk/medal_bronze_1.png" title="Evaluated" width="22" height="22"> 
+                <span class="conformance_badge">Evaluation</span><br>                   
+              </a> 
+            </td>
+            <td style="padding-left: 20px">
+              <a href="" target="_blank">
+                <img src="images/icon/silk/medal_silver_1.png" title="Evaluated" width="22" height="22"> 
+                <span class="conformance_badge">Conformance Testing</span><br>                    
+              </a>                  
+            </td>
+            <td style="padding-left: 20px">
+              <a href="" target="_blank">
+                <img src="images/icon/silk/medal_gold_1.png" title="Evaluated" width="22" height="22"> 
+                <span class="conformance_badge">Reference Integration</span><br>                    
+              </a>                  
+            </td>
+          </tr>
+        </tbody>
+      </table>              
+    </div>
+  </div>
+</div>
+
+
+    <div class="component-div-title">Relations</div>
+    <div class="container component-div">
+      <div class="col-sm-12">
+        <div>
+          <h3>
+            Component Of:
+          </h3>
+          <div data-ng-repeat="thing in details.componentOf">
+            <a  href="">{{thing.name}}</a>
+          </div>
+          <h3>
+            Sub-Components:
+          </h3>
+          <div data-ng-repeat="subComponent in details.subComponents">
+            <a  href="">{{subComponent.name}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="component-div-title">Screenshots/Media</div>
+    <div class="container component-div">
+      <div class="col-sm-6">
+        <div class="detailSection">
+          <img src="images/picture1.png" class="screenshot" onclick="screenshotPopUp('images/picture1.png')">
+        </div>
+      </div>
+    </div>
