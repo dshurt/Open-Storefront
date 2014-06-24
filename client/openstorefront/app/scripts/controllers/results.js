@@ -218,6 +218,15 @@ function PaymentsCtrl($scope) {
   // component information
 
 
+  var getBody = function(route) {
+    var deferred = $q.defer();
+    $.get(route).then(function(responseData) {
+      deferred.resolve(responseData);
+    });
+    return deferred.promise;
+  };
+
+
   /***************************************************************
   * This function is called once we have the search request from the business layer
   ***************************************************************/
@@ -247,8 +256,14 @@ function PaymentsCtrl($scope) {
     if (!isEmpty($scope.searchGroup)) {
       // grab all of the keys in the filters
       var keys = _.pluck($scope.filters, 'key');
+      var foundFilter = null;
+      var foundCollection = null;
+      var type = '';
 
       if (_.contains(keys, $scope.searchGroup[0].key)) {
+        foundFilter = _.where($scope.filters, {'key': $scope.searchGroup[0].key})[0];
+        foundCollection = _.where(foundFilter.collection, {'code': $scope.searchGroup[0].code})[0];
+
         // if the search group is based on one of those filters do this
         $scope.searchKey          = $scope.searchGroup[0].key;
         $scope.searchCode         = $scope.searchGroup[0].code;
@@ -259,7 +274,13 @@ function PaymentsCtrl($scope) {
         $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
         $scope.modalTitle         = $scope.searchType + ', ' + $scope.searchColItem.type;
         $scope.searchDescription  = $scope.searchColItem.desc;
-        $scope.modalBody          = $scope.searchColItem.longDesc;
+        if (foundCollection.landing !== undefined && foundCollection.landing !== null) {
+          getBody(foundCollection.landing).then(function(result) {
+            $scope.modalBody = result;
+          });
+        } else {
+          $scope.modalBody          = $scope.searchColItem.longDesc;
+        }
         adjustFilters();
       } else if ($scope.searchGroup[0].key === 'search') {
 
