@@ -199,6 +199,7 @@ function PaymentsCtrl($scope) {
   $scope.total              = null;
   $scope.watches            = null;
   $scope.ratingsFilter      = 0;
+  $scope.isLanding          = false;
 
 
   /***************************************************************
@@ -281,9 +282,11 @@ function PaymentsCtrl($scope) {
         if (foundCollection.landing !== undefined && foundCollection.landing !== null) {
           getBody(foundCollection.landing).then(function(result) {
             $scope.modalBody = result;
+            $scope.isLanding = true;
           });
         } else {
           $scope.modalBody          = $scope.searchColItem.longDesc;
+          $scope.isLanding = false;
         }
         adjustFilters();
       } else if ($scope.searchGroup[0].key === 'search') {
@@ -408,9 +411,14 @@ function PaymentsCtrl($scope) {
       };
       deferred.resolve();
     } else {
-      $scope.classes = '';
       $scope.nav = '';
       deferred.resolve();
+    }
+
+    if (classNames === '' && $scope.isLanding) {
+      $scope.classes = 'fullWidthModal';
+    } else if (classNames === '') {
+      $scope.classes = '';
     }
     return deferred.promise;
   };
