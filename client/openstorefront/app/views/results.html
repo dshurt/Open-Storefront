@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<!-- Results Containter -->
+<!-- Results Container -->
 <div class='container-fluid'>
 
 
@@ -118,27 +118,9 @@ limitations under the License.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <!-- Page 2 -->
   <div class='page2'>
-    
+
     <!-- This is the show page button, and needs to stay here -->
     <div class="showPage">
       <button id="showPageLeft" class="showPageLeft btn btn-primary" ng-click="doButtonClose()">
@@ -146,300 +128,393 @@ limitations under the License.
       </button>
     </div>
 
+<!-- Progress bar begin
+
+    <div class="col-sm-2 text-left"></div>
+    <div class="col-sm-6">
+      <div class="col-sm-3 text-left">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-inverse fa-stack-1x">1</i>
+        </span>title-left
+      </div>
+      <div class="col-sm-3 text-center">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-inverse fa-stack-1x">2</i>
+        </span>
+      </div>
+      <div class="col-sm-3 text-center">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-inverse fa-stack-1x">3</i>
+        </span>title-center
+      </div>
+      <div class="col-sm-3 text-right">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-inverse fa-stack-1x">4</i>
+        </span>
+      </div>      
+    </div>
+    <br><br>
+    <div class="col-sm-2 text-left eval-status">Evaluation Status:</div>
+    <div class="col-sm-6">
+      <div class="barborderd">
+        <progress>
+          <bar class="barborder" value="25" type="success"><span>20%</span></bar>
+          <bar class="barborder" value="25" type="warning"><span>6/19</span></bar>
+          <bar class="barborder" value="25" type="danger"><span>6/19</span></bar>
+          <bar class="bar-transparent" value="25" type="transparent"><span>20%</span></bar>
+        </progress>
+      </div>
+    </div> -->
 
 
-    <!-- This is most likely where you will put the progress bar -->
+
+
+<!--     <br><br>
+    <div class="col-sm-6">
+      <ul class="nav nav-tabs">
+        <li ng-repeat="tab in tabs.bars" tab="tab">
+          <a href="{{tab.include}}" ng-click="setSelectedTab(tab)">{{tab.title}}</a></li>
+        </ul>
+      </div>
+      <br><br> -->
+<!--       <div class="col-sm-6">
+        <tabset>
+          <tab ng-repeat="tab in tabs2" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+            {{tab.content}}
+          </tab>
+      </tabset>
+    </div> -->
 
 
 
-    <!-- This is the Title div with the tags, and needs to stay here -->
-    <div class="component-details">
-      <div class="container component-title">
-        <div class="col-sm-12">
-          <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span>
-            <br><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches <i class="fa fa-thumbs-o-up imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="openModal('profileModal', 'Watches')">View Watches <i class="fa fa-eye imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="removeFromWatches(details.id)">Remove From Watches <i class="fa fa-thumbs-o-down imitateLink"></i></button>
-          </h1>
-          <div style="padding: 0px 10px;">
-            <strong>
-              Tags:
-            </strong>
-            <tags-input class="bootstrap" min-length="1" ng-model="details.assetTags" replace-spaces-with-dashes="false" on-tag-added="saveTags(details.id, details.assetTags);" on-tag-removed="saveTags(details.id, details.assetTags);"><auto-complete min-length="1" source="checkTagsList($query, details.assetTags, tagsList)"></auto-complete></tags-input>
-          </div>
-        </div>
-        <div class="col-sm-12">
-        </div>
+<!-- 
+    <br><br><br>
+    <select ng-model="template" ng-options="t.name for t in templates">
+     <option value="">(blank)</option>
+   </select>
+   url of the template: <tt>{{template.url}}</tt>
+   <hr/>
+   <div class="slide-animate-container">
+    <div class="slide-animate" ng-include="template.url"></div>
+  </div>
+
+
+<br><br><br>
+-->
+
+
+<!-- progress bar end-->
+
+<!-- This is the Title div with the tags, and needs to stay here -->
+<div class="component-details">
+  <div class="container component-title">
+    <div class="col-sm-12">
+      <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span>
+        <br><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches <i class="fa fa-thumbs-o-up imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="openModal('profileModal', 'Watches')">View Watches <i class="fa fa-eye imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="removeFromWatches(details.id)">Remove From Watches <i class="fa fa-thumbs-o-down imitateLink"></i></button>
+      </h1>
+      <div style="padding: 0px 10px;">
+        <strong>
+          Tags:
+        </strong>
+        <tags-input class="bootstrap" min-length="1" ng-model="details.assetTags" replace-spaces-with-dashes="false" on-tag-added="saveTags(details.id, details.assetTags);" on-tag-removed="saveTags(details.id, details.assetTags);"><auto-complete min-length="1" source="checkTagsList($query, details.assetTags, tagsList)"></auto-complete></tags-input>
       </div>
     </div>
-
-
-
-
-
-
-    <!-- ******************************************************************* -->
-    <!-- ******************************************************************* -->
-    <!-- This can be changed however you would like! -->
-    <div class="component-details">
-      <div class="component-div row" style="margin-top: -10px">
-        <div class="col-md-4">
-          <p style="margin-top: 5px; margin-bottom: 0px"><strong>Categories:</strong></p>
-          <div data-ng-repeat="tag in details.categories">
-            <p style="margin: 0px 0px 0px 20px">
-              <a href="">
-                {{tag.desc}}
-              </a>
-            </p>
-          </div>
-
-        </div>
-        <div class="col-md-4">
-          <p style="margin-top: 5px; margin-bottom: 0px"><strong>Features:</strong></p>
-          <div data-ng-repeat="tag in details.features">
-            <p style="margin: 0px 0px 0px 20px">
-              <a href="">
-                {{tag.desc}}
-              </a>
-            </p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <p style="margin-top: 5px">
-            <strong>
-              License:
-            </strong>
-            {{details.primaryLicense}}
-          </p>
-          <p style="margin-top: -10px">
-            <strong>
-              Operational Status:
-            </strong>
-            {{details.operationStatus}}
-          </p>
-          <p style="margin-top: -10px">
-            <strong>
-              Evaluation Levels:
-            </strong>
-            {{getEvaluationState()}}
-          </p>
-        </div>
-      </div>
+    <div class="col-sm-12">
     </div>
-    <div class="component-div-title">Description</div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        {{details.description}}
-      </div>
-    </div>
-    <div class="component-div-title">Resources</div>
-    <div class="container component-div">
-      <div class="col-sm-12">
+  </div>
+</div>
 
-        <div class="pull-left" style="width: 95px">
-          <div style="text-align: center; width: 100%">
-            <img src="images/icon/tango/text-html.png" alt="">
-          </div>
-          <div style="text-align: center">
-            <a href="">
-              Web Pages
-            </a>
-          </div>
-        </div>
-        <div class="pull-left" style="width: 95px">
-          <div style="text-align: center; width: 100%">
-            <img src="images/icon/tango/text-x-script.png" alt="">
-          </div>
-          <div style="text-align: center">
-            <a href="">
-              Binaries
-            </a>
-          </div>
-        </div>
-        <div class="pull-left" style="width: 95px">
-          <div style="text-align: center; width: 100%">
-            <img src="images/icon/tango/text-x-generic.png" alt="">
-          </div>
-          <div style="text-align: center">
-            <a href="">
-              Source
-            </a>
-          </div>
-        </div>
-        <div class="pull-left" style="width: 95px">
-          <div style="text-align: center; width: 100%">
-            <img src="images/icon/tango/x-office-document.png" alt="">
-          </div>
-          <div style="text-align: center">
-            <a href="">
-              Documentation
-            </a>
-          </div>
-        </div>
-        <div style="position: relative; clear: both"></div>
-      </div>
-    </div>
-    <div class="component-div-title">Evaluation Resources</div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        <div class="detailSection">
-          <table>
-            <tbody>
-              <tr>
-                <td>
-                  <a href="" target="_blank">
-                    <img src="images/icon/silk/medal_bronze_1.png" title="Evaluated" width="22" height="22"> 
-                    <span class="conformance_badge">Evaluation</span><br>                   
-                  </a> 
-                </td>
-                <td style="padding-left: 20px">
-                  <a href="" target="_blank">
-                    <img src="images/icon/silk/medal_silver_1.png" title="Evaluated" width="22" height="22"> 
-                    <span class="conformance_badge">Conformance Testing</span><br>                    
-                  </a>                  
-                </td>
-                <td style="padding-left: 20px">
-                  <a href="" target="_blank">
-                    <img src="images/icon/silk/medal_gold_1.png" title="Evaluated" width="22" height="22"> 
-                    <span class="conformance_badge">Reference Integration</span><br>                    
-                  </a>                  
-                </td>
-              </tr>
-            </tbody>
-          </table>              
-        </div>
-      </div>
-    </div>
-    <div class="component-div-title">Review Summary</div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        <div class="col-sm-6">
-          <div class="row">
-            <raty read-only class="pull-left large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="3" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-            </raty>
-          </div>
-          <div class="row">
-            <span class="pull-left" style="margin-bottom: 10px;"><strong>210 out of 269 (78%)</strong> reviewers would recommend this component.</span>
-          </div>
-          <div class="row">
-            <button class="btn btn-primary" ng-click="setupModal('fullWidthModal').then(openModal('descModal', 'Write a Review')); ">Write a Review <i class="fa fa-star-half-full"></i></button>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <ul class="list-unstyled">
-            <li><strong>Pros</strong></li>
-            <li><a href="">well tested</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(95)</span></li>
-            <li><a href="">active development</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(45)</span></li>
-            <li><a href="">reliable</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(26)</span></li>
-            <li><a href="">open source</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(15)</span></li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <ul class="list-unstyled">
-            <li><strong>Cons</strong></li>
-            <li><a href="">bulky</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(25)</span></li>
-            <li><a href="">security concerns</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(18)</span></li>
-            <li><a href="">difficult installation</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(13)</span></li>
-            <li><a href="">poor documentation</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(7)</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="component-div-title">Component Reviews</div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        <H3 style="margin-top: 0px"><strong>A good IDE &mdash;</strong>
-          <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="4" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-          </raty>
-          <strong style="font-size: 14px;">&dash;I would recommend this component&dash;</strong>
-          <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-1', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
-        </H3>
-      </div>
-      <div class="col-sm-6">
-        <p style="font-size: 12px;">
-          <strong>Johnny</strong><br />
-          <strong>Location: </strong> USSTRATCOM <br />
-          <strong>Role: </strong> Developer <br />
-          <strong>Usage Experiance: </strong> 3 Months<br />
-          September 13, 2013
+
+<!-- ******************************************************************* -->
+<!-- ******************************************************************* -->
+<!-- This can be changed however you would like! -->
+
+<!-- Tabbing for Results Page -->
+<div class="row">
+  <div class="col-md-12">
+    <tabset>
+      <tab ng-repeat="tab3 in tabs2" heading="{{tab3.title}}">
+        <br>
+        <div ng-include="tab3.relpath"></div>
+      </tab>
+    </tabset>
+  </div>
+</div>
+
+
+
+<!-- 
+<div class="component-details">
+  <div class="component-div row" style="margin-top: -10px">
+    <div class="col-md-4">
+      <p style="margin-top: 5px; margin-bottom: 0px"><strong>Categories:</strong></p>
+      <div data-ng-repeat="tag in details.categories">
+        <p style="margin: 0px 0px 0px 20px">
+          <a href="">
+            {{tag.desc}}
+          </a>
         </p>
       </div>
-      <div class="col-sm-6">
-        <div class="col-sm-6">
-          <p>
-            <strong>Pros</strong><br />
-            <a href="">reliable</a>,
-            <a href="">free</a>
-          </p>
-        </div>
-        <div class="col-sm-6">
-          <p>
-            <strong>Cons</strong><br />
-            <a href="">bulky</a>,
-            <a href="">poor documentation</a>
-          </p>
-        </div>
-      </div>
-      <div class="col-sm-12">
-        <div id="detailsReview-1" class="detailsPadding detailsReview">
-          <p><strong>Comments: </strong>
-            This is my review commentary. Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut.
-          </p>
-          <p>
-            Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
-          </p>
-        </div>
-      </div>
-      <!-- Start of right column for user review -->
+
     </div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        <H3 style="margin-top: 0px"><strong>A bad IDE &mdash;</strong>
-          <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="1" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-          </raty>
-          <strong style="font-size: 14px;">&dash;I would NOT recommend this component&dash;</strong>
-          <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-2', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
-        </H3>
-      </div>
-      <div class="col-sm-6">
-        <p style="font-size: 12px;">
-          <strong>Bobby</strong><br />
-          <strong>Location: </strong> USSTRATCOM <br />
-          <strong>Role: </strong> Program Manager <br />
-          <strong>Usage Experiance: </strong> 3 Months<br />
-          May 14, 2012
+    <div class="col-md-4">
+      <p style="margin-top: 5px; margin-bottom: 0px"><strong>Features:</strong></p>
+      <div data-ng-repeat="tag in details.features">
+        <p style="margin: 0px 0px 0px 20px">
+          <a href="">
+            {{tag.desc}}
+          </a>
         </p>
       </div>
-      <div class="col-sm-6">
-        <div class="col-sm-6">
-          <p>
-            <strong>Pros</strong><br />
-            <a href="">Compact</a>,
-            <a href="">Documented</a>
-          </p>
-        </div>
-        <div class="col-sm-6">
-          <p>
-            <strong>Cons</strong><br />
-            <a href="">Unreliable</a>,
-            <a href="">Steep learning curve</a>
-          </p>
-        </div>
+    </div>
+    <div class="col-md-4">
+      <p style="margin-top: 5px">
+        <strong>
+          License:
+        </strong>
+        {{details.primaryLicense}}
+      </p>
+      <p style="margin-top: -10px">
+        <strong>
+          Operational Status:
+        </strong>
+        {{details.operationStatus}}
+      </p>
+      <p style="margin-top: -10px">
+        <strong>
+          Evaluation Levels:
+        </strong>
+        {{getEvaluationState()}}
+      </p>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<!-- <div class="component-div-title">Description</div>
+<div class="container component-div">
+  <div class="col-sm-12">
+    {{details.description}}
+  </div>
+</div>
+<div class="component-div-title">Resources</div>
+<div class="container component-div">
+  <div class="col-sm-12">
+
+    <div class="pull-left" style="width: 95px">
+      <div style="text-align: center; width: 100%">
+        <img src="images/icon/tango/text-html.png" alt="">
       </div>
-      <div class="col-sm-12">
-        <div id="detailsReview-2" class="detailsPadding detailsReview">
-          <p><strong>Comments: </strong> 
-            This is my negative review commentary. I hated my experience with this product. I do not reccomend it!!!<!--Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
-          </p>
-          <p>
-            Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut. -->
+      <div style="text-align: center">
+        <a href="">
+          Web Pages
+        </a>
+      </div>
+    </div>
+    <div class="pull-left" style="width: 95px">
+      <div style="text-align: center; width: 100%">
+        <img src="images/icon/tango/text-x-script.png" alt="">
+      </div>
+      <div style="text-align: center">
+        <a href="">
+          Binaries
+        </a>
+      </div>
+    </div>
+    <div class="pull-left" style="width: 95px">
+      <div style="text-align: center; width: 100%">
+        <img src="images/icon/tango/text-x-generic.png" alt="">
+      </div>
+      <div style="text-align: center">
+        <a href="">
+          Source
+        </a>
+      </div>
+    </div>
+    <div class="pull-left" style="width: 95px">
+      <div style="text-align: center; width: 100%">
+        <img src="images/icon/tango/x-office-document.png" alt="">
+      </div>
+      <div style="text-align: center">
+        <a href="">
+          Documentation
+        </a>
+      </div>
+    </div>
+    <div style="position: relative; clear: both"></div>
+  </div>
+</div>
+<div class="component-div-title">Evaluation Resources</div>
+<div class="container component-div">
+  <div class="col-sm-12">
+    <div class="detailSection">
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <a href="" target="_blank">
+                <img src="images/icon/silk/medal_bronze_1.png" title="Evaluated" width="22" height="22"> 
+                <span class="conformance_badge">Evaluation</span><br>                   
+              </a> 
+            </td>
+            <td style="padding-left: 20px">
+              <a href="" target="_blank">
+                <img src="images/icon/silk/medal_silver_1.png" title="Evaluated" width="22" height="22"> 
+                <span class="conformance_badge">Conformance Testing</span><br>                    
+              </a>                  
+            </td>
+            <td style="padding-left: 20px">
+              <a href="" target="_blank">
+                <img src="images/icon/silk/medal_gold_1.png" title="Evaluated" width="22" height="22"> 
+                <span class="conformance_badge">Reference Integration</span><br>                    
+              </a>                  
+            </td>
+          </tr>
+        </tbody>
+      </table>              
+    </div>
+  </div>
+</div> -->
+
+
+<!-- 
+<div class="component-div-title">Review Summary</div>
+<div class="container component-div">
+  <div class="col-sm-12">
+    <div class="col-sm-6">
+      <div class="row">
+        <raty read-only class="pull-left large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="3" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+        </raty>
+      </div>
+      <div class="row">
+        <span class="pull-left" style="margin-bottom: 10px;"><strong>210 out of 269 (78%)</strong> reviewers would recommend this component.</span>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" ng-click="setupModal('fullWidthModal').then(openModal('descModal', 'Write a Review')); ">Write a Review <i class="fa fa-star-half-full"></i></button>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <ul class="list-unstyled">
+        <li><strong>Pros</strong></li>
+        <li><a href="">well tested</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(95)</span></li>
+        <li><a href="">active development</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(45)</span></li>
+        <li><a href="">reliable</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(26)</span></li>
+        <li><a href="">open source</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(15)</span></li>
+      </ul>
+    </div>
+    <div class="col-sm-3">
+      <ul class="list-unstyled">
+        <li><strong>Cons</strong></li>
+        <li><a href="">bulky</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(25)</span></li>
+        <li><a href="">security concerns</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(18)</span></li>
+        <li><a href="">difficult installation</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(13)</span></li>
+        <li><a href="">poor documentation</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(7)</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="component-div-title">Component Reviews</div>
+<div class="container component-div">
+  <div class="col-sm-12">
+    <H3 style="margin-top: 0px"><strong>A good IDE &mdash;</strong>
+      <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="4" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+      </raty>
+      <strong style="font-size: 14px;">&dash;I would recommend this component&dash;</strong>
+      <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-1', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
+    </H3>
+  </div>
+  <div class="col-sm-6">
+    <p style="font-size: 12px;">
+      <strong>Johnny</strong><br />
+      <strong>Location: </strong> USSTRATCOM <br />
+      <strong>Role: </strong> Developer <br />
+      <strong>Usage Experiance: </strong> 3 Months<br />
+      September 13, 2013
+    </p>
+  </div>
+  <div class="col-sm-6">
+    <div class="col-sm-6">
+      <p>
+        <strong>Pros</strong><br />
+        <a href="">reliable</a>,
+        <a href="">free</a>
+      </p>
+    </div>
+    <div class="col-sm-6">
+      <p>
+        <strong>Cons</strong><br />
+        <a href="">bulky</a>,
+        <a href="">poor documentation</a>
+      </p>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div id="detailsReview-1" class="detailsPadding detailsReview">
+      <p><strong>Comments: </strong>
+        This is my review commentary. Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut.
+      </p>
+      <p>
+        Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
+      </p>
+    </div>
+  </div>
+  <!-- Start of right column for user review -->
+</div>
+<div class="container component-div">
+  <div class="col-sm-12">
+    <H3 style="margin-top: 0px"><strong>A bad IDE &mdash;</strong>
+      <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="1" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
+      </raty>
+      <strong style="font-size: 14px;">&dash;I would NOT recommend this component&dash;</strong>
+      <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-2', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
+    </H3>
+  </div>
+  <div class="col-sm-6">
+    <p style="font-size: 12px;">
+      <strong>Bobby</strong><br />
+      <strong>Location: </strong> USSTRATCOM <br />
+      <strong>Role: </strong> Program Manager <br />
+      <strong>Usage Experiance: </strong> 3 Months<br />
+      May 14, 2012
+    </p>
+  </div>
+  <div class="col-sm-6">
+    <div class="col-sm-6">
+      <p>
+        <strong>Pros</strong><br />
+        <a href="">Compact</a>,
+        <a href="">Documented</a>
+      </p>
+    </div>
+    <div class="col-sm-6">
+      <p>
+        <strong>Cons</strong><br />
+        <a href="">Unreliable</a>,
+        <a href="">Steep learning curve</a>
+      </p>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div id="detailsReview-2" class="detailsPadding detailsReview">
+      <p><strong>Comments: </strong> 
+            This is my negative review commentary. I hated my experience with this product. I do not reccomend it!!!
           </p>
         </div>
       </div>
       <div class="col-sm-12">
         <button class="btn btn-primary" ng-click="setupModal('fullWidthModal').then(openModal('descModal')); ">See All Reviews <i class="fa fa-star-half-full"></i></button>
       </div>
-    </div>
+    </div> -->
 
-    <div class="component-div-title">Relations</div>
+    
+
+<!--     <div class="component-div-title">Relations</div>
     <div class="container component-div">
       <div class="col-sm-12">
         <div>
@@ -458,6 +533,7 @@ limitations under the License.
         </div>
       </div>
     </div>
+
     <div class="component-div-title">Screenshots/Media</div>
     <div class="container component-div">
       <div class="col-sm-6">
@@ -466,6 +542,12 @@ limitations under the License.
         </div>
       </div>
     </div>
+ -->
+
+
+
+
+
     <div class="component-div-title">Details</div>
     <div class="container component-div">
       <div class="col-sm-12">
@@ -505,6 +587,12 @@ limitations under the License.
         </table>
       </div>
     </div>
+
+
+
+
+
+
     <!-- <div class="component-div-title">Related Components</div>
     <div class="container component-div">
       <div class="col-sm-12">
@@ -517,6 +605,9 @@ limitations under the License.
         </div>
       </div>
     </div> -->
+
+
+<!--     
     <div class="component-div-title">Comments</div>
     <div class="container component-div">
       <div class="col-sm-12">
@@ -525,7 +616,7 @@ limitations under the License.
         <button class="btn btn-primary">Post</button> 
       </div>
     </div>
-
+ -->
 
 
     <!-- This is the end of what you can take out. The rest must stay -->
@@ -552,7 +643,7 @@ limitations under the License.
   <div modal controller-name="ResultsCtrl" modalId='descModal' >
   </div>
 </div>
-<!-- End Results Containter -->
+<!-- End Results Container -->
 
 <!-- build:css({.tmp,app}) styles/results.css -->
 <link rel="stylesheet" href="styles/results.css">
