@@ -1,0 +1,154 @@
+/*
+The MIT License (MIT)
+
+Copyright (c) 2013 Nick Perkins
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+
+
+/* 
+   abn-tree.css
+
+   style for the angular-bootstrap-nav-tree
+   for both Bootstrap 2 and Bootstrap 3
+
+*/
+
+
+
+/* ------------------------------------------
+AngularJS Animations...
+
+The first selector is for Angular 1.1.5
+The second selector is for Angular 1.2.0
+
+*/
+.abn-tree-animate-enter,
+li.abn-tree-row.ng-enter {
+  transition: 200ms linear all;
+  /*position: relative;*/
+  /*display: block;*/
+  opacity: 0;
+  max-height:0px;
+}
+.abn-tree-animate-enter.abn-tree-animate-enter-active,
+li.abn-tree-row.ng-enter-active{
+  opacity: 1;
+  max-height:30px;
+}
+
+.abn-tree-animate-leave,
+li.abn-tree-row.ng-leave {
+  transition: 200ms linear all;
+  /*position: relative;*/
+  /*display: block;*/
+  height:30px;
+  max-height: 30px;
+  opacity: 1;
+}
+.abn-tree-animate-leave.abn-tree-animate-leave-active,
+li.abn-tree-row.ng-leave-active {  
+  height: 0px;
+  max-height:0px;
+  opacity: 0;
+}
+
+
+/* 
+------------------------------------------
+Angular 1.2.0 Animation 
+*/
+
+
+.abn-tree-animate.ng-enter{
+
+}
+.abn-tree-animate.ng-enter{
+
+}
+
+
+
+
+/*
+   end animation stuff
+-----------------------------------------
+   begin normal css stuff
+*/
+ul.abn-tree li.abn-tree-row {  
+  padding: 0px;
+  margin:0px;
+}
+
+ul.abn-tree li.abn-tree-row a {
+  padding: 3px 10px;
+}
+
+ul.abn-tree i.indented {
+  padding: 2px;
+}
+
+.abn-tree {
+  cursor: pointer;
+}
+ul.nav.abn-tree li.level-1 {
+  /*position: relative;*/
+  /*left: 0px;*/
+}
+ul.nav.abn-tree li.level-2 {
+  margin-left:20px;
+  /*position: relative;*/
+  /*left: 20px;*/
+}
+ul.nav.abn-tree li.level-3 {
+  margin-left: 40px;
+  /*position: relative;*/
+  /*left: 40px;*/
+}
+ul.nav.abn-tree li.level-4 {
+  margin-left:60px;
+  /*position: relative;*/
+  /*left: 60px;*/
+}
+ul.nav.abn-tree li.level-5 {
+  margin-left:80px;
+  /*position: relative;*/
+  /*left: 80px;*/
+}
+ul.nav.abn-tree li.level-6 {
+  margin-left:100px;
+  /*position: relative;*/
+  /*left: 100px;*/
+}
+ul.nav.nav-list.abn-tree li.level-7 {
+  margin-left:120px;
+  /*position: relative;*/
+  /*left: 120px;*/
+}
+ul.nav.nav-list.abn-tree li.level-8 {
+  margin-left:140px;
+  /*position: relative;*/
+  /*left: 140px;*/
+}
+ul.nav.nav-list.abn-tree li.level-9 {
+  margin-left:160px;
+  /*position: relative;*/
+  /*left: 160px;*/
+}

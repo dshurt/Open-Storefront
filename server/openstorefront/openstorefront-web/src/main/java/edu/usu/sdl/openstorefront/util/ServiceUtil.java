@@ -16,10 +16,15 @@
 
 package edu.usu.sdl.openstorefront.util;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import edu.usu.sdl.openstorefront.exception.OpenStorefrontRuntimeException;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.beanutils.BeanUtils;
@@ -36,6 +41,44 @@ public class ServiceUtil
 	{
 		objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 		return objectMapper;
+	}
+	
+	public static String stripeFieldJSON(String json, Set<String> fieldsToKeep)
+	{
+		ObjectMapper mapper = defaultObjectMapper();
+		
+		try
+		{
+			JsonNode rootNode = mapper.readTree(json);			
+			processNode(rootNode, fieldsToKeep);
+			
+			 Object jsonString = mapper.readValue(rootNode.toString(), Object.class);			 
+			return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonString);
+		} catch (IOException ex)
+		{
+			throw new OpenStorefrontRuntimeException(ex);
+		}		
+	}
+	
+	/**
+	 * This only goes down one level
+	 * @param rootNode
+	 * @param fieldsToKeep 
+	 */
+	private static void processNode(JsonNode rootNode, Set<String> fieldsToKeep)
+	{
+		if (rootNode instanceof ObjectNode)
+		{
+			ObjectNode object = (ObjectNode) rootNode;
+			object.retain(fieldsToKeep);
+		}
+		else
+		{
+			for (JsonNode childNode : rootNode) 
+			{
+				processNode(childNode, fieldsToKeep);
+			}
+		}		
 	}
 	
 	public static String printObject(Object o)

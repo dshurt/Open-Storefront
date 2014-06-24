@@ -15,9 +15,11 @@
 */
 
 @import "compass";
+@import "customLanding.scss";
 
 /* Space out content a bit */
-body {
+html, body {
+  /*height: 100%;*/
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -46,6 +48,11 @@ body {
   /*border-top: 1px solid #e5e5e5;*/
 }
 
+.fullHeight {
+  margin-top: -52px;
+  padding-top: 52px;
+  /*height: 100%*/
+}
 
 /***********************************************************************************/
 /*This section is for the navigation css that should remain constant over each page*/
@@ -376,6 +383,55 @@ font. The rest are the same*/
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+
+.large-raty{
+  top: 2px;
+  position: relative;
+  margin-bottom: -8px;
+}
+
+.average-raty{
+  margin-bottom: -4px;
+}
+
+.large-raty, .large-raty .star-on-png, .large-raty .star-off-png,
+.large-raty .cancel-off-png, .large-raty .cancel-on-png,
+.large-raty .star-half-png{
+  font-size: 24px;
+}
+.average-raty, .average-raty .star-on-png, .average-raty .star-off-png,
+.average-raty .cancel-off-png, .average-raty .cancel-on-png,
+.average-raty .star-half-png{
+  font-size: 18px;
+}
+.average-raty .star-on-png, .large-raty .star-on-png{
+  color: #333333;
+}
+.average-raty .star-off-png, .large-raty .star-off-png{
+  color: #333333;
+}
+.average-raty .cancel-on-png, .large-raty .cancel-on-png{
+  color:#c44848;
+}
+
+
+
+.componentListTitle {
+  padding: 4px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cke_button_label.cke_button__componentbutton_label {
+   display: inline-block !important;
+}
+
+small button {
+  padding: 2px 4px !important;
+  font-size: 10px !important;
+}
+
 
 @media (max-width: 768px) {
   .fullWidthModal .modal-dialog {

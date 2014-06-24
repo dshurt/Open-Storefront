@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
   <!-- build:css({.tmp,app}) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/abn_tree.css" />
   <!-- endbuild -->
   <!--
 Copyright 2014 Space Dynamics Laboratory - Utah State University Research Foundation.
@@ -48,7 +49,7 @@ limitations under the License.
 
 
   <!-- Add your site or application content here -->
-  <div class="container-fluid" ng-view="">
+  <div class="container-fluid fullHeight" ng-view="">
     <!-- Nothing goes here!!! -->
   </div>
 
@@ -61,6 +62,7 @@ limitations under the License.
   <script src="bower_components/es5-shim/es5-shim.js"></script>
   <script src="bower_components/json3/lib/json3.min.js"></script>
   <![endif]-->
+
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
@@ -80,6 +82,15 @@ limitations under the License.
   <!-- endbower -->
   <!-- endbuild -->
 
+
+  <!-- THINGS IN THIS SECTION WILL NOT BE MINIFIED -->
+  <!-- Grab our Common js -->
+  <script type="text/javascript" src="scripts/common-min/data.js"></script>
+  <script src="bower_components/ckeditor/ckeditor.js"></script>
+  <script src="bower_components/ng-ckeditor/ng-ckeditor.js"></script>
+  <!-- THINGS IN THIS SECTION WILL NOT BE MINIFIED -->
+
+
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <!-- Grab our app -->
   <script type="text/javascript" src="scripts/app.js"></script>
@@ -91,18 +102,23 @@ limitations under the License.
   <!-- Grab our Directives -->
   <script type="text/javascript" src="scripts/directives/raty.js"></script>
   <script type="text/javascript" src="scripts/directives/modal.js"></script>
+  <script type="text/javascript" src="scripts/directives/enterevent.js"></script>
+  <script type="text/javascript" src="scripts/directives/componentlist.js"></script>
+  <script type="text/javascript" src="scripts/directives/abn_tree_directive.js"></script>
   
   <!-- Grab our Controller -->
   <script type="text/javascript" src="scripts/controllers/main.js"></script>
-  <script type="text/javascript" src="scripts/controllers/userprofile.js"></script>
-  <script type="text/javascript" src="scripts/controllers/results.js"></script>
   <script type="text/javascript" src="scripts/controllers/nav.js"></script>
+  <script type="text/javascript" src="scripts/controllers/results.js"></script>
+  <script type="text/javascript" src="scripts/controllers/userprofile.js"></script>
+  <script type="text/javascript" src="scripts/controllers/admin.js"></script>
   
   
   <!-- Grab our Filters -->
   <script type="text/javascript" src="scripts/filters/componentfilter.js"></script>
   <script type="text/javascript" src="scripts/filters/partition.js"></script>
   <script type="text/javascript" src="scripts/filters/tagfilter.js"></script>
+  <script type="text/javascript" src="scripts/filters/ratingfilter.js"></script>
 
   <!-- Grab our page-specific stuff -->
   <script type="text/javascript" src="scripts/page_specific/main.js"></script>
@@ -111,17 +127,12 @@ limitations under the License.
   <!-- Grab our common js -->
   <script type="text/javascript" src="scripts/common/animations.js"></script>
   <script type="text/javascript" src="scripts/common/common.js"></script>
+  <script type="text/javascript" src="scripts/common/ckeditor_config.js"></script>
   <script type="text/javascript" src="scripts/common/sessionpolyfill.js"></script>
   <script type="text/javascript" src="scripts/common/raty.js"></script>
-  <script src="scripts/directives/enterevent.js"></script>
-  <script src="scripts/filters/ratingfilter.js"></script>
-  <script src="scripts/directives/componentlist.js"></script>
+  <script type="text/javascript" src="scripts/controllers/landing.js"></script>
   <!-- endbuild -->
 
-  <!-- THINGS IN THIS SECTION WILL NOT BE MINIFIED -->
-  <!-- Grab our Common js -->
-  <script type="text/javascript" src="scripts/common-min/data.js"></script>
-  <!-- THINGS IN THIS SECTION WILL NOT BE MINIFIED -->
 
   <!-- This is the profile modal -->
   <div modal controller-name="UserProfileCtrl" modalId='profileModal' modalclasses="fullWidthModal">

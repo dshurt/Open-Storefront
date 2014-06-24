@@ -25,23 +25,25 @@ import java.util.List;
  */
 public class APIValueModel
 {
-	private String returnObject;
+	private String valueObject;
+	private String valueObjectName;
 	private String typeObject;
-	private List<APIValueFieldModel> returnFields = new ArrayList<>();
+	private String typeObjectName;
+	private List<APIValueFieldModel> valueFields = new ArrayList<>();
 	private List<APIValueFieldModel> typeFields = new ArrayList<>();
 
 	public APIValueModel()
 	{
 	}
 
-	public String getReturnObject()
+	public String getValueObject()
 	{
-		return returnObject;
+		return valueObject;
 	}
 
-	public void setReturnObject(String returnObject)
+	public void setValueObject(String valueObject)
 	{
-		this.returnObject = returnObject;
+		this.valueObject = valueObject;
 	}
 
 	public String getTypeObject()
@@ -54,16 +56,6 @@ public class APIValueModel
 		this.typeObject = typeObject;
 	}
 
-	public List<APIValueFieldModel> getReturnFields()
-	{
-		return returnFields;
-	}
-
-	public void setReturnFields(List<APIValueFieldModel> returnFields)
-	{
-		this.returnFields = returnFields;
-	}
-
 	public List<APIValueFieldModel> getTypeFields()
 	{
 		return typeFields;
@@ -72,6 +64,36 @@ public class APIValueModel
 	public void setTypeFields(List<APIValueFieldModel> typeFields)
 	{
 		this.typeFields = typeFields;
+	}
+
+	public String getValueObjectName()
+	{
+		return valueObjectName;
+	}
+
+	public void setValueObjectName(String valueObjectName)
+	{
+		this.valueObjectName = valueObjectName;
+	}
+
+	public String getTypeObjectName()
+	{
+		return typeObjectName;
+	}
+
+	public void setTypeObjectName(String typeObjectName)
+	{
+		this.typeObjectName = typeObjectName;
+	}
+
+	public List<APIValueFieldModel> getValueFields()
+	{
+		return valueFields;
+	}
+
+	public void setValueFields(List<APIValueFieldModel> valueFields)
+	{
+		this.valueFields = valueFields;
 	}
 
 }

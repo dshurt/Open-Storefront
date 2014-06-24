@@ -14,33 +14,25 @@
  * limitations under the License.
  */
 
-package edu.usu.sdl.openstorefront.test;
+package edu.usu.sdl.openstorefront.web.rest;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import edu.usu.sdl.openstorefront.util.ServiceUtil;
-import edu.usu.sdl.openstorefront.web.rest.model.UserProfileView;
-import java.util.HashSet;
-import java.util.Set;
-import org.junit.Test;
-
-
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import javax.ws.rs.HttpMethod;
+import javax.ws.rs.NameBinding;
 
 /**
- *
+ * Adds Patch Method Support
  * @author dshurtleff
  */
-public class DocProcessorTest
-{
-	
-	@Test
-	public void testProcessor() throws JsonProcessingException
-	{
-		Set<String> fields = new HashSet<>();
-		fields.add("username");
-		
-		String json = ServiceUtil.stripeFieldJSON(ServiceUtil.defaultObjectMapper().writeValueAsString(new UserProfileView()), fields);
-		System.out.println(json);
-	}
-	
-	
+@Target({ ElementType.METHOD, ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
+@HttpMethod("PATCH")
+@Documented
+@NameBinding
+public @interface PATCH
+{	
 }

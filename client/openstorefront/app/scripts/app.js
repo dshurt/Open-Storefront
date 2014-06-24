@@ -23,7 +23,7 @@
 ***************************************************************/
 var app = angular
 // Here we add the dependancies for the app
-.module('openstorefrontApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'mgcrea.ngStrap', 'ngTagsInput', 'ngAnimate'])
+.module('openstorefrontApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'mgcrea.ngStrap', 'ngTagsInput', 'ngAnimate', 'ngCkeditor'])
 // Here we configure the route provider
 .config(function ($routeProvider, tagsInputConfigProvider) {
   $routeProvider
@@ -38,6 +38,14 @@ var app = angular
   .when('/results', {
     templateUrl: 'views/results.html',
     controller: 'ResultsCtrl'
+  })
+  .when('/admin', {
+    templateUrl: 'views/admin.html',
+    controller: 'AdminCtrl'
+  })
+  .when('/landing', {
+    templateUrl: 'views/landing.html',
+    controller: 'LandingCtrl'
   })
   .otherwise({
     redirectTo: '/'
@@ -59,7 +67,7 @@ var app = angular
   });
 })
 // here we add the .run function for intial setup and other useful functions
-.run(['$rootScope', 'localCache', 'business', '$location', '$route', function ($rootScope, localCache, Business, $location, $route) {/* jshint unused: false*/
+.run(['$rootScope', 'localCache', 'business', '$location', '$route', '$timeout', function ($rootScope, localCache, Business, $location, $route, $timeout) {/* jshint unused: false*/
 
   //We must initialize global scope variables.
   $rootScope.Current = null;
@@ -86,6 +94,18 @@ var app = angular
         $(this).select();
       });
     }, 500);
+  });
+
+  /***************************************************************
+  * This funciton resets the search query when we don't want to be showing it
+  ***************************************************************/
+  $rootScope.$on('$locationChangeStart', function (event, next, current) {
+    // console.log('path', $location.path());
+    // console.log($location.path() === '/');
+    
+    if (!$location.path() || $location.path() !== '/results') {
+      $location.search({});
+    }
   });
 
   /***************************************************************

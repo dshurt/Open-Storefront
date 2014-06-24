@@ -18,7 +18,7 @@
 /* global isEmpty, setupPopovers, openClick:true, setupResults, moveButtons,
 fullClick, openFiltersToggle, buttonOpen, buttonClose, toggleclass*/
 
-app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', '$q', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope, $q) {
+app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', '$q', '$route', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope, $q, $route) { /*jshint unused: false*/
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
   $scope.tagsList           = Business.getTagsList();
@@ -29,12 +29,12 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
 
   $scope.expertise = [
     //
-    {"value":"1", 'label': 'Less than 1 month'},
-    {"value":"2", 'label': 'Less than 3 months'},
-    {"value":"3", 'label': 'Less than 6 months'},
-    {"value":"4", 'label': 'Less than 1 year'},
-    {"value":"5", 'label': 'Less than 3 years'},
-    {"value":"6", 'label': 'More than 3 years'}
+    {'value':'1', 'label': 'Less than 1 month'},
+    {'value':'2', 'label': 'Less than 3 months'},
+    {'value':'3', 'label': 'Less than 6 months'},
+    {'value':'4', 'label': 'Less than 1 year'},
+    {'value':'5', 'label': 'Less than 3 years'},
+    {'value':'6', 'label': 'More than 3 years'}
   //
   ];
 
@@ -297,19 +297,60 @@ function PaymentsCtrl($scope) {
   ***************************************************************/
   var callSearch = function() {
     Business.search(false, false, true).then(
+
     //This is the success function on returning a value from the business layer 
     function(key) {
+      var type = 'all';
+      var code = '';
+      var query = null;
       if (key === null || key === undefined) {
-        $scope.reAdjust([{ 'key': 'all', 'code': '' }]);
+        if (!isEmpty($location.search()))
+        {
+          query = $location.search();
+          if (query.type && query.code) {
+            type = query.type;
+            code = query.code;
+          }
+        }
+        $scope.reAdjust([{ 'key': type, 'code': code }]);
       } else {
+        type = '';
+        code = '';
+        // console.log('search', $location.search());
+        
+        if (!isEmpty($location.search()))
+        {
+          query = $location.search();
+          if (query.type && query.code) {
+            type = query.type;
+            code = query.code;
+          } else {
+            type = 'all';
+          }
+          key = [{ 'key': type, 'code': code }];
+        }
+        // console.log('key', key);
+        
         $scope.reAdjust(key);
       }
     },
     // This is the failure function that handles a returned error
     function(error) {
-      console.error('Error', error);
-      $scope.reAdjust([{ 'key': 'all', 'code': '' }]);
+      console.error('ERROR: ', error);
+      
+      var type = 'all';
+      var code = '';
+      if (!isEmpty($location.search()))
+      {
+        var query = $location.search();
+        if (query.type && query.code) {
+          type = query.type;
+          code = query.code;
+        }
+      }
+      $scope.reAdjust([{ 'key': type, 'code': code }]);
     });
+    //
   };
 
   /***************************************************************

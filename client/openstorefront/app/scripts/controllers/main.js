@@ -55,11 +55,32 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   $scope.goToSearch = function(searchType, searchKey){ /*jshint unused:false*/
     if (searchType === 'search') {
       console.log('Search save', Business.search(searchType, $scope.searchKey));
+      $location.search('type', searchType);
       $location.path('/results');
+      if ($scope.searchKey === '') {
+        $location.search('code', 'All');
+      } else {
+        $location.search('code', $scope.searchKey);
+      }
+
     } else {
       Business.search(searchType, searchKey);
       $location.path('/results');
+      $location.search('type', searchType);
+      $location.search('code', searchKey);
     }
+    return;
+  };
+
+  /*******************************************************************************
+  * This and the following functions send the user to the search filling the 
+  * data object with the search key 
+  * params: type -- This is the code of the type that was clicked on
+  *******************************************************************************/
+  $scope.goToLanding = function(route){ /*jshint unused:false*/
+    Business.landingPage('landing', route, true).then(function() {
+      $location.path('/landing');
+    });
     return;
   };
 

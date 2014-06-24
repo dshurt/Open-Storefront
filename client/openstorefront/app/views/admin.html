@@ -1,0 +1,34 @@
+<div style="height: 100%">
+  <div class="adminTools">
+    <div class="col-sm-12">
+      <h3>Admin tools</h3>
+      <hr/>
+    </div>
+    <div >
+      <div class="treeNav">
+        <abn-tree tree-data="data" tree-control="myTree" icon-leaf="fa fa-pencil-square-o" icon-expand="fa fa-plus" icon-collapse="fa fa-minus" on-select="editor(branch)" expand-level="1" initial-selection = "About Admin Tools"></abn-tree>
+      </div>
+    </div>
+  </div>
+  <div class="toolsContent">
+    <div class="col-sm-12">
+      <div class="tools-LandingTitle">
+        <h3>
+          {{toolTitle}}
+          &nbsp;<div ng-if="checkParent()" style="display: inline-block;">
+            <small><button class="btn btn-primary" style="margin-bottom: 10px" ng-click="goToParent()">Go back to Parent Tool</button></small>
+          </div>
+        </h3>
+
+      </div>
+      <hr>
+    </div>
+    <div ng-include="incLoc">
+    </div>
+  </div>
+</div>
+
+
+<!-- build:css({.tmp,app}) styles/admin.css -->
+<link rel="stylesheet" href="styles/admin.css">
+<!-- endbuild -->

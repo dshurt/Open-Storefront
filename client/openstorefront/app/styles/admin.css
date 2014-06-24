@@ -1,0 +1,35 @@
+.adminTools {
+  position:relative;
+  z-index: 1;
+  background: white;
+  width: 250px !important;
+  display: inline-block;
+  border-right: 1px solid lightgray;
+  overflow: hidden;
+  height: 100%;
+  margin-bottom:-3px;
+  padding-left: 5px;
+  margin-left: -5px;
+}
+.toolsContent {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  margin-left: -250px;
+  padding-left: 250px;
+}
+
+.treeNav .nav-pills > li {
+  clear: both;
+}
+
+#cke_editor1 {
+  width: 100%;
+  margin-left: -276px;
+  padding-left: 275px;
+}
+
+html, body,
+.fullHeight {
+  height: 100%;
+}

@@ -32,7 +32,7 @@
   text-overflow: ellipsis;
 }
 
-.navSearchForm, #searchNavButton {
+.navbar-brand, .navSearchForm, #searchNavButton {
   display: none !important;
 }
 
