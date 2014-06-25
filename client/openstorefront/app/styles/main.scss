@@ -391,6 +391,10 @@ font. The rest are the same*/
     behavior: url(PIE.htc); /* remove if you don't care about IE8 */
 }
 
+.bottomCircleBase {
+    border-radius: 0 0 80px 80px;
+}
+
 .componentListTitle {
   padding: 4px;
   font-size: 20px;

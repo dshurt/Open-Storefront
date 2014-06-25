@@ -366,19 +366,19 @@ width: 100%;
   margin: 120px;
 }
 .bar-transparent{
-  background-color:transparent;  
-  color:black;
+  background-color:transparent !important;  
+  color:black !important;
 }
 .progress {
-  background-color: transparent;
-  border:solid black  1px;
-  height:35px;
-  border-radius: 0px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  background-color: transparent !important;
+  border:solid black  1px !important;
+  height:35px !important;
+  border-radius: 0px !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 .barborder {
-  border-right:solid black 1px;
+  border-right:solid black 1px !important;
 }
 .eval-status{
   /*margin: 34px 0px 10px 0px;*/
