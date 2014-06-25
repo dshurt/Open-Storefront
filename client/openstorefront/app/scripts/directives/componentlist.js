@@ -15,7 +15,7 @@ app.directive('componentList', ['business', function (Business) {
       var item = 'componentList' + uniqueId++;
       element.find('.hideMore').attr('id', item);
 
-      var item = 'read_more' + uniqueId++;
+      item = 'read_more' + uniqueId++;
       element.find('input.read_more').attr('id', item);
       element.find('label.read_more').attr('for', item);
       
@@ -24,9 +24,9 @@ app.directive('componentList', ['business', function (Business) {
       scope.$watch('data', function() {
         if(scope.data.length > 3) {
           scope.hasMoreThan3 = true;
-        }        
+        }
         scope.addMore();
-      })
+      });
 
       scope._scopename = 'componentList';
       scope.isShownClass = null;
@@ -46,7 +46,7 @@ app.directive('componentList', ['business', function (Business) {
 
       scope.setShown = function() {
         var id = element.find('.hideMore').attr('id');
-        $("#" + id).toggleClass("active");
+        $('#' + id).toggleClass('active');
       };
 
       scope.$watch('hideMore', function() {
@@ -62,11 +62,12 @@ app.directive('componentList', ['business', function (Business) {
           });
           scope.showMore = true;
         }
-      }
+      };
 
       scope.init = function() {
         $('[data-toggle="tooltip"').tooltip();
-      }
+      };
+      
       scope.init();
 
     }
