@@ -370,6 +370,7 @@ width: 100%;
   color:black !important;
 }
 .progress {
+  width: 500px;
   background-color: transparent !important;
   border:solid black  1px !important;
   height:35px !important;
