@@ -22,6 +22,25 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   $scope.searchKey  = $rootScope.searchKey;
   $scope.typeahead  = null;
 
+  // variable holding the contents of the 'hot topics' carousel
+  $scope.slides = [
+    //
+    {
+      'image': '/images/carousel1.png',
+      'text': 'Knowledge Base Item of the week'
+    },{
+      'image': '/images/carousel2.png',
+      'text': 'Highlighted Component'
+    },{
+      'image': '/images/carousel3.png',
+      'text': 'Recently Added documentation'
+    },{
+      'image': '/images/carousel4.png',
+      'text': 'Etc.'
+    },
+  //
+  ];
+
 
   /***************************************************************
   * Set up typeahead, and then watch for selection made

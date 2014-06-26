@@ -16,6 +16,44 @@ limitations under the License.
 <div class="banner">
   {{pageTitle}}
 </div>
+
+<!-- Topics of interest slider -->
+<div class="row">
+  <div class="col-sm-12" style="text-align:center">
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" style=" display: inline-block; width: 600px;">
+      <div style="height: 50px; margin-bottom: -50px; position: relative; z-index: 1; "><h1 style="color: white; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Topics of Interest</h1></div>
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active: $first}" ng-repeat="slide in slides"></li>
+      </ol>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div ng-class="{item: true, active: $first}" ng-repeat="slide in slides">
+          <img src="{{slide.image}}" alt="{{slide.text}}">
+          <div class="container">
+            <div class="carousel-caption">
+              <p>{{slide.text}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="icon-next"></span>
+    </a>  
+  </div>
+  <!-- /.carousel -->
+</div>
+<!-- Topics of interest slider -->
+
+
+
 <div class="search">
   <div class="center navSearch defaultSearch">
     <form ng-submit="goToSearch('search', searchKey)">
@@ -28,6 +66,13 @@ limitations under the License.
     </form>
   </div>
 </div>
+
+
+
+
+
+
+
 
 <div class="row defaultContent defaultTitle">
   <div>

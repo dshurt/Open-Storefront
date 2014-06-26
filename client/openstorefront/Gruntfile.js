@@ -22,36 +22,36 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
-grunt.loadNpmTasks('grunt-war');
+  grunt.loadNpmTasks('grunt-war');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
 
      //construct-war
-      war: {
-        target: {
-          options: {
-            war_dist_folder: '<%= yeoman.jvmdist %>',
-            war_verbose: true,
-            war_name: 'openstorefront',
-            webxml_welcome: 'index.html',
-            webxml_display_name: 'Open Storefront',
-            webxml_mime_mapping: [ 
-        { 
+     war: {
+      target: {
+        options: {
+          war_dist_folder: '<%= yeoman.jvmdist %>',
+          war_verbose: true,
+          war_name: 'openstorefront',
+          webxml_welcome: 'index.html',
+          webxml_display_name: 'Open Storefront',
+          webxml_mime_mapping: [ 
+          { 
             extension: 'woff', 
-              mime_type: 'application/font-woff' 
-        } ]
-          },
-          files: [
-            {
-              expand: true,
-              cwd: '<%= yeoman.dist %>',
-              src: ['**'],
-              dest: ''
-            }
-          ]
+            mime_type: 'application/font-woff' 
+          } ]
+        },
+        files: [
+        {
+          expand: true,
+          cwd: '<%= yeoman.dist %>',
+          src: ['**'],
+          dest: ''
         }
-      },
+        ]
+      }
+    },
 
     // Project settings
     yeoman: {
@@ -80,27 +80,27 @@ grunt.loadNpmTasks('grunt-war');
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/**/*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+        tasks: ['newer:copy:styles', /*'autoprefixer'*/]
       },
       compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
-      },
-      gruntfile: {
-        files: ['Gruntfile.js']
-      },
-      livereload: {
-        options: {
-          livereload: '<%= connect.options.livereload %>'
-        },
-        files: [
-          '<%= yeoman.app %>/**/*.html',
-          '.tmp/styles/**/*.css',
-          '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'
-        ]
-      }
+      files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+      tasks: ['compass:server', /*'autoprefixer'*/]
     },
+    gruntfile: {
+      files: ['Gruntfile.js']
+    },
+    livereload: {
+      options: {
+        livereload: '<%= connect.options.livereload %>'
+      },
+      files: [
+      '<%= yeoman.app %>/**/*.html',
+      '.tmp/styles/**/*.css',
+      '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+    '<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'
+    ]
+  }
+},
 
     // The actual grunt server settings
     connect: {
@@ -114,8 +114,8 @@ grunt.loadNpmTasks('grunt-war');
         options: {
           open: true,
           base: [
-            '.tmp',
-            '<%= yeoman.app %>'
+          '.tmp',
+          '<%= yeoman.app %>'
           ]
         }
       },
@@ -123,9 +123,9 @@ grunt.loadNpmTasks('grunt-war');
         options: {
           port: 9001,
           base: [
-            '.tmp',
-            'test',
-            '<%= yeoman.app %>'
+          '.tmp',
+          'test',
+          '<%= yeoman.app %>'
           ]
         }
       },
@@ -172,8 +172,8 @@ grunt.loadNpmTasks('grunt-war');
         reporter: require('jshint-stylish')
       },
       all: [
-        'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/**/*.js'
+      'Gruntfile.js',
+      '<%= yeoman.app %>/scripts/**/*.js'
       ],
       test: {
         options: {
@@ -189,9 +189,9 @@ grunt.loadNpmTasks('grunt-war');
         files: [{
           dot: true,
           src: [
-            '.tmp',
-            '<%= yeoman.dist %>/*',
-            '!<%= yeoman.dist %>/.git*'
+          '.tmp',
+          '<%= yeoman.dist %>/*',
+          '!<%= yeoman.dist %>/.git*'
           ]
         }]
       },
@@ -220,18 +220,18 @@ grunt.loadNpmTasks('grunt-war');
         ignorePath: '<%= yeoman.app %>/'
       },
       sass: {
-        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        ignorePath: '<%= yeoman.app %>/bower_components/'
-      }
-    },
+      src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+      ignorePath: '<%= yeoman.app %>/bower_components/'
+    }
+  },
 
     // Renames files for browser caching purposes
     rev: {
       dist: {
         files: {
           src: [
-            '<%= yeoman.dist %>/scripts/**/*.js',
-            '<%= yeoman.dist %>/styles/**/*.css',
+          '<%= yeoman.dist %>/scripts/**/*.js',
+          '<%= yeoman.dist %>/styles/**/*.css',
           ]
         }
       }
@@ -341,21 +341,30 @@ grunt.loadNpmTasks('grunt-war');
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>',
           src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            '*.html',
-            'views/**/*.html',
-            'images/**/*.png',
-            'bower_components/fontawesome/fonts/*',
-            'bower_components/fontawesome/css/font-awesome.css',
-            'bower_components/bootstrap/dist/fonts/*',
-            'bower_components/bootstrap/dist/css/bootstrap.css',
-            'bower_components/ckeditor/**/*',
-            'bower_components/ng-ckeditor/ng-ckeditor.js',
-            'styles/*.css',
-            'scripts/common-min/*.js',
-            'scripts/common/data.js'
+          '*.{ico,png,txt}',
+          '.htaccess',
+          '*.html',
+          'views/**/*.html',
+          'images/**/*.png',
+          'bower_components/fontawesome/css/font-awesome.css',
+          'bower_components/fontawesome/fonts/*',
+          'bower_components/bootstrap/dist/fonts/*',
+          'bower_components/bootstrap/dist/css/bootstrap.css',
+          'bower_components/ckeditor/**/*',
+          'bower_components/ng-ckeditor/ng-ckeditor.js',
+          'styles/*.css',
+          'scripts/common-min/*.js',
+          'scripts/common/data.js'
           ]
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>/fonts',
+          src: [
+          'bower_components/fontawesome/fonts/*',
+          'bower_components/bootstrap/dist/fonts/*'
+          ],
+          flatten: true  
         }]
       },
       styles: {
@@ -375,17 +384,17 @@ grunt.loadNpmTasks('grunt-war');
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'compass:server',
-        'copy:styles'
+      'compass:server',
+      'copy:styles'
       ],
       test: [
-        'compass',
-        'copy:styles'
+      'compass',
+      'copy:styles'
       ],
       dist: [
-        'compass:dist',
-        'copy:styles',
-        'svgmin'
+      'compass:dist',
+      'copy:styles',
+      'svgmin'
       ]//,
       // prod: [
       //   'compass:prod',
@@ -430,41 +439,41 @@ grunt.loadNpmTasks('grunt-war');
   });
 
 
-  grunt.registerTask('serve', function (target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
-    }
+grunt.registerTask('serve', function (target) {
+  if (target === 'dist') {
+    return grunt.task.run(['build', 'connect:dist:keepalive']);
+  }
 
-    grunt.task.run([
-      'clean:server',
-      'bowerInstall',
-      'concurrent:server',
-      'autoprefixer',
+  grunt.task.run([
+    'clean:server',
+    'bowerInstall',
+    'concurrent:server',
+      // 'autoprefixer',
       'connect:livereload',
       'watch'
-    ]);
-  });
+      ]);
+});
 
-  grunt.registerTask('server', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
-  });
+grunt.registerTask('server', function (target) {
+  grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+  grunt.task.run(['serve:' + target]);
+});
 
-  grunt.registerTask('test', [
-    'clean:server',
-    'concurrent:test',
-    'autoprefixer',
+grunt.registerTask('test', [
+  'clean:server',
+  'concurrent:test',
+    // 'autoprefixer',
     'connect:test',
     'karma'
-  ]);
+    ]);
 
-  grunt.registerTask('build', function (target) {
-      grunt.task.run([
-        'clean:dist',
-        'bowerInstall',
-        'useminPrepare',
-        'concurrent:dist',
-        'autoprefixer',
+grunt.registerTask('build', function (target) {
+  grunt.task.run([
+    'clean:dist',
+    'bowerInstall',
+    'useminPrepare',
+    'concurrent:dist',
+        // 'autoprefixer',
         'concat',
         'ngmin',
         'copy:dist',
@@ -477,12 +486,12 @@ grunt.loadNpmTasks('grunt-war');
         'htmlmin',
         'war'
         ]);
-    });
+});
 
-  grunt.registerTask('default', [
-    'newer:jshint',
-    'test',
-    'build'
+grunt.registerTask('default', [
+  'newer:jshint',
+  'test',
+  'build'
   ]);
 };
 /* jshint ignore:end */

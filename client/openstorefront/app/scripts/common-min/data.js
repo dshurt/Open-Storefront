@@ -54,6 +54,12 @@ MOCKDATA.tagsList = [
 //
 ];
 
+MOCKDATA.hotTopics = {
+  //
+  'list': []
+//
+};
+
 MOCKDATA.prosConsList = {
   'pros':[
     //
