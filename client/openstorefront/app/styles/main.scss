@@ -21,6 +21,7 @@
 @import "includes/tags.scss";
 @import "includes/typeahead.scss";
 @import "includes/raty.scss";
+@import "fonts/fontello.scss";
 /*@import "../bower_components/sass-bootstrap/lib/_mixins.scss";
 @import "../bower_components/sass-bootstrap/lib/_variables.scss";
 @import "../bower_components/sass-bootstrap/lib/_carousel.scss";
@@ -31,6 +32,11 @@
   /*height: 100%*/
 }
 
+
+.carousel-indicators {
+  top: auto;
+  bottom: 15px;
+}
 
 
 /***********************************************************************************/

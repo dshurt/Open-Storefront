@@ -22,24 +22,6 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   $scope.searchKey  = $rootScope.searchKey;
   $scope.typeahead  = null;
 
-  // variable holding the contents of the 'hot topics' carousel
-  $scope.slides = [
-    //
-    {
-      'image': '/images/carousel1.png',
-      'text': 'Knowledge Base Item of the week'
-    },{
-      'image': '/images/carousel2.png',
-      'text': 'Highlighted Component'
-    },{
-      'image': '/images/carousel3.png',
-      'text': 'Recently Added documentation'
-    },{
-      'image': '/images/carousel4.png',
-      'text': 'Etc.'
-    },
-  //
-  ];
 
 
   /***************************************************************
@@ -61,7 +43,8 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   
   // Set up the main controller's variables.
   $scope._scopename = 'main';
-  $scope.pageTitle  = 'DI2E Storefront';
+  $scope.pageTitle  = 'DI2E';
+  $scope.subTitle  = 'Storefront';
 
   // grab the custom filters (aka groups).
   $scope.filters    = Business.getFilters();
