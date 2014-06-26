@@ -87,3 +87,25 @@ function isEmpty(obj) {
 
   return true;
 }
+
+var setupParallax = function() {
+  // Declare parallax on layers
+  setTimeout(function(){
+    var width = $('.banner').width();
+    var height = $('.banner').height();
+    
+    var i = 5;
+    var opacity = .2;
+    _.each($('.parallax-layer'), function(element) {
+      $(element).css('width', width + i + 'px');
+      $(element).css('height', height + i + 'px');
+      // $(element).css('height', height + 'px');
+      // $(element).css('opacity', opacity);
+      i = i + 25;
+      opacity = opacity + .02;
+    })
+    jQuery('.parallax-layer').parallax({
+      mouseport: jQuery("#port")
+    });
+  }, 10);
+};

@@ -115,6 +115,7 @@ var app = angular
   ***************************************************************/
   $rootScope.$on('$viewContentLoaded', function() {
     $rootScope.typeahead = Business.typeahead();
+    setupParallax();
   });
 
   /***************************************************************

@@ -16,12 +16,13 @@
 'use strict';
 
 /*global floatBelowTop*/
-/*exported setupMain*/
+/*exported setupMain, setupParallax*/
 var setupMain = function() {
   /***************************************************************
   * This function handles the default-search offset on resizing the window
   ***************************************************************/
   $(window).resize(function() {
+    setupParallax();
     if ($('.defaultSearch') !== undefined) {
       setTimeout(function() {
         $('.defaultSearch').data('offset', $('.defaultSearch').offset().top + parseInt($('.defaultSearch').css('padding-top'), 10) - 52);
@@ -43,6 +44,7 @@ var setupMain = function() {
   * This function handles the default-search offset on load
   ***************************************************************/
   $(document).ready(function() {
+    setupParallax();
     if ($('.defaultSearch')) {
       setTimeout(function() {
         $('.defaultSearch').data('offset', $('.defaultSearch').offset().top + parseInt($('.defaultSearch').css('padding-top'), 10) - 52);
