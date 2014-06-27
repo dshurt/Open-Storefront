@@ -15,7 +15,7 @@
 */
 'use strict';
 
-/* global resetAnimGlobals */
+/* global resetAnimGlobals, setupParallax */
 /* exported app */
 
 /***************************************************************
@@ -116,6 +116,10 @@ var app = angular
   $rootScope.$on('$viewContentLoaded', function() {
     $rootScope.typeahead = Business.typeahead();
     setupParallax();
+    $timeout(function() {
+      $('[data-toggle="tooltip"').tooltip();
+    }, 300);
+
   });
 
   /***************************************************************

@@ -44,10 +44,11 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   // Set up the main controller's variables.
   $scope._scopename = 'main';
   $scope.pageTitle  = 'DI2E';
-  $scope.subTitle  = 'Storefront';
+  $scope.subTitle   = 'Storefront';
 
   // grab the custom filters (aka groups).
   $scope.filters    = Business.getFilters();
+  $scope.goToLand   = false;
 
   /*******************************************************************************
   * This and the following functions send the user to the search filling the 
@@ -55,6 +56,7 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   * params: type -- This is the code of the type that was clicked on
   *******************************************************************************/
   $scope.goToSearch = function(searchType, searchKey){ /*jshint unused:false*/
+    $(window).scrollTop(0);
     if (searchType === 'search') {
       console.log('Search save', Business.search(searchType, $scope.searchKey));
       $location.search('type', searchType);
@@ -80,12 +82,13 @@ app.controller('MainCtrl', ['$scope', 'business', 'localCache', '$location', '$r
   * params: type -- This is the code of the type that was clicked on
   *******************************************************************************/
   $scope.goToLanding = function(route, searchType, searchkey){ /*jshint unused:false*/
+    $(window).scrollTop(0);
     localCache.save('landingType', searchType);
     localCache.save('landingCode', searchkey);
     Business.landingPage('landing', route, true).then(function() {
       $location.path('/landing');
     });
-    return;
+    return false;
   };
 
   /*******************************************************************************

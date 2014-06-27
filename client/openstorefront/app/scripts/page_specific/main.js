@@ -15,8 +15,8 @@
 */
 'use strict';
 
-/*global floatBelowTop*/
-/*exported setupMain, setupParallax*/
+/*global floatBelowTop, setupParallax*/
+/*exported setupMain*/
 var setupMain = function() {
   /***************************************************************
   * This function handles the default-search offset on resizing the window

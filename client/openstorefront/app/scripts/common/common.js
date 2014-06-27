@@ -16,7 +16,7 @@
 'use strict';
 
 
-/* exported setupPopovers, setupTypeahead, isEmpty, toggleclass, setUpDropdown*/
+/* exported setupPopovers, setupTypeahead, isEmpty, toggleclass, setUpDropdown, setupParallax*/
 
 /*****************************
 * This function sets up the popovers for the results page, but could be 
@@ -95,17 +95,17 @@ var setupParallax = function() {
     var height = $('.banner').height();
     
     var i = 5;
-    var opacity = .2;
+    var opacity = 0.2;
     _.each($('.parallax-layer'), function(element) {
       $(element).css('width', width + i + 'px');
       $(element).css('height', height + i + 'px');
       // $(element).css('height', height + 'px');
       // $(element).css('opacity', opacity);
       i = i + 25;
-      opacity = opacity + .02;
-    })
+      opacity = opacity + 0.02;
+    });
     jQuery('.parallax-layer').parallax({
-      mouseport: jQuery("#port")
+      mouseport: jQuery('#port')
     });
   }, 10);
 };

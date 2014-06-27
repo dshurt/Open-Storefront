@@ -8,6 +8,11 @@
 // Repository:
 // github.com/stephband/jparallax
 
+
+// Code here will be linted with JSHint.
+/* jshint ignore:start */
+// Code here will be linted with ignored by JSHint.
+
 (function(jQuery, undefined) {
   // VAR
   var debug = true,
@@ -519,3 +524,8 @@
     mouse = [e.pageX, e.pageY];
   });
 }(jQuery));
+
+
+
+/* jshint ignore:end */
+
