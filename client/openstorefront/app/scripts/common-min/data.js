@@ -315,7 +315,7 @@ MOCKDATA.filters.push({
     'checked': false
   },
   {
-    'code': 'Obs',
+    'code': 'OBS',
     'type': 'Obsolete',
     'displayType': 'Obsolete',
     'desc': 'Retired, superseded, or not reusable by DI2E',
