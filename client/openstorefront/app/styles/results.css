@@ -210,11 +210,6 @@ html, .resultsContainer {
     padding: 8px 18px;
   }
 
-
-  .filtersTh {
-    cursor: pointer;
-  }
-
 /*.component-details{
 position: absolute;
 width: 100%;
@@ -302,9 +297,6 @@ width: 100%;
 }
 
 
-.lastFilter{
-  padding-bottom: 40px;
-}
 
 .modal-title {
   color: #3892d3;
@@ -416,4 +408,16 @@ width: 100%;
 }
 .vertalign {
   vertical-align:middle;
+}
+
+.panel {
+  margin-bottom: 0px;
+}
+
+.lastFilter{
+  margin-bottom: 40px;
+}
+
+.btn.btn-link{
+  text-decoration: none;
 }

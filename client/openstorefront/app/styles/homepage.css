@@ -122,11 +122,11 @@ border-radius: 300px;
 }
 
 .defaultTitle{
-padding-left: 20px;
-padding-top: 50px;
-margin-bottom: -40px;
-font-size: 20.6px;
-text-transform: uppercase;
+  padding-left: 20px;
+  padding-top: 50px;
+  margin-bottom: -40px;
+  font-size: 20.6px;
+  text-transform: uppercase;
 }
 
 .defaultGroupTitle{
@@ -234,6 +234,10 @@ text-transform: uppercase;
   left: -20px;
   margin-right: -20px;
   text-align: center;
+}
+.defaultGroupTitle .icon:hover{
+  background: orange;
+  color: white;
 }
 
 .defaultGroupTitle .icon i{

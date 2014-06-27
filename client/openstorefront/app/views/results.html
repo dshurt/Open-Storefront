@@ -41,21 +41,34 @@ limitations under the License.
       <raty class="average-raty" id="filterRating" style="min-width:110px; height: 100%;" score="{{ratingsFilter}}" ng-model="ratingsFilter" number="5" path="images/raty/">
       </raty>
     </div>
-    <div class="filterTableDiv" ng-repeat="filter in filters">
-      <table class="table filterTable">
-        <tr>
-          <th class="filtersTd filtersTh" ng-click="toggleChecks(filter.collection)">{{filter.name}}</th>
-        </tr>
-        <tr class="filtersTr" data-ng-repeat="type in filter.collection">
-          <td class="filtersTd">
-            <div class="checkbox filterCheckbox">
-              <input type="checkbox" ng-checked="type.checked" ng-model="type.checked" id="{{type.type}}" ng-change="applyFilters()"/>
-              <label for="{{type.type}}">{{type.type}}</label>
-            </div>
-          </td>
-        </tr>
-      </table>
+
+
+    <!-- Added these divs for the ability to dynamically make the filters an accordian -->
+
+    <div class='filterTableDiv filterTable'>
+
+      <label for="accordian">Filter By Attribute: </label>
+      <div class="pane-group" id="accordion">
+        <div ng-class="$last? 'lastFilter': ''" class="panel panel-default" class="filterTableDiv" ng-repeat="filter in filters">
+          <table class="table">
+            <tr ng-class="filters.length > 2? 'panel-heading': ''">
+              <th ng-class="filters.length > 2? 'panel-title':''" class="filtersTd filtersTh" ><span class="btn btn-link" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">{{filter.name}} <i class="fa fa-caret-down"></i></span> <input type="checkbox" ng-model="filter.checked" ng-change="toggleChecks(filter.collection)"></th>
+            </tr>
+            <tbody ng-class="filters.length > 2? $first? 'panel-collapse collapse in': 'panel-collapse collapse':''" id="collapse{{$index}}">
+              <tr  class="filtersTr" data-ng-repeat="type in filter.collection" >
+                <td ng-class="filters.length > 2? 'panel-body': ''" class="filtersTd">
+                  <div class="checkbox filterCheckbox">
+                    <input type="checkbox" ng-checked="type.checked" ng-model="type.checked" id="{{type.type}}" ng-change="applyFilters()"/>
+                    <label for="{{type.type}}">{{type.type}}</label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+
     <div class="lastFilter">
       <button class="btn red btn-default col-sm-12" ng-click="clearFilters()">Clear Filters</button>
     </div>
@@ -509,7 +522,7 @@ limitations under the License.
     <button class="btn btn-primary" ng-click="setupModal('fullWidthModal').then(openModal('descModal')); ">See All Reviews <i class="fa fa-star-half-full"></i></button>
   </div>
 </div>
- -->
+-->
 
 
 

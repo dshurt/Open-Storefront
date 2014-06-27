@@ -98,8 +98,16 @@ limitations under the License.
     <div class="content">
       <div class="row">
         <ul>
-          <li>item1 test test test</li>
-          <li>item2</li>
+          <li class="imitateLink" ng-click="goToLanding('views/temp/landingpage.html', 'categories', 'IDAM')">
+            <a>
+              idAM Landing Page
+            </a>
+          </li>
+          <li class="imitateLink" ng-click="goToLanding('views/temp/landingpage2.html', 'evaluationLevel', 'STATE3')">
+            <a>
+              Evaluation Level 3 Landing Page
+            </a>
+          </li>
           <li>item3 test test </li>
           <li>item4</li>
           <li>item5</li>
@@ -136,25 +144,25 @@ limitations under the License.
 <div class="row defaultContent" ng-repeat="row in filters | partition:3">
   <div class="col-sm-4" ng-repeat="type in row" style="padding-right: 30px;">
     <div class="defaultGroupTitle">
-      <div class="icon">
-        <i class="{{type.icon}}"></i>        
+      <div class="icon" ng-click="goToSearch(type.key, 'all')">
+        <i class="{{type.icon}}" ></i>        
       </div>
       <div class="content">
-        {{type.name}}
+        {{type.name}} 
       </div>
     </div>
     <ul class="groupItemList">
       <li ng-repeat="item in type.collection" class="groupItem imitateLink">
         <div ng-click="goToSearch(type.key, item.code);" >
           <span class="item_bold">
-            <span class="listing_short_title_text">{{item.type}}</span>               
+            <span class="listing_short_title_text">{{item.type}} <i ng-if="item.landing !== null && item.landing !== undefined" class="fa fa-info-circle" ng-click="goToLanding(item.landing, type.key, item.code); $event.stopPropagation();" data-toggle="tooltip" data-placement="top" title="Click here to go to the knowledge base for components with this attribute."></i></span>               
           </span>
           <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
         </div>
-        <div ng-if="item.landing !== null && item.landing !== undefined">
-          <small><button class="btn btn-primary" ng-click="goToLanding(item.landing, type.key, item.code)">Go to Landing Page</button></small>
-          <small><button class="btn btn-primary" ng-click="goToSearch(type.key, item.code)">Go to Results Page</button></small>
-        </div>
+<!--         <div ng-if="item.landing !== null && item.landing !== undefined">
+  <small><button class="btn btn-primary" ng-click="goToLanding(item.landing, type.key, item.code)">Go to Landing Page</button></small>
+  <small><button class="btn btn-primary" ng-click="goToSearch(type.key, item.code)">Go to Results Page</button></small>
+</div> -->
       </li>
     </ul>
   </div>
