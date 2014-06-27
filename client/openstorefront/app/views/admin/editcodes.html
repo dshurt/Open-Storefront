@@ -1,3 +1,7 @@
+<label for="collection">Attribute Codes to edit:</label>
+<select class="form-control" name="collection" id="collection" ng-model="collectionSelection" ng-change="grabCollection(collectionSelection.key)" ng-options="item.name for item in collection" style="width: auto;">
+  <option value="">-- Choose an Attribute --</option>
+</select>
 <div>
   <table class="table table-hover">
     <tbody>
@@ -9,7 +13,7 @@
         <th>Start with Filter Applied</th>
         <th>Add/Edit Landing Page</th>
       </tr>
-      <tr ng-repeat="item in collection">
+      <tr ng-repeat="item in collectionContent">
         <td><input class="form-control input" type="text" ng-model="item.type"/></td>
         <td><input class="form-control input" type="text" ng-model="item.code"/></td>
         <td><input class="form-control input" type="text" ng-model="item.desc"/></td>

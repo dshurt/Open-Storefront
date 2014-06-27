@@ -10,6 +10,8 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
 
   $scope.filters = Business.getFilters();
   $scope.collection = null;
+  $scope.collectionSelection = null;
+  $scope.collectionContent = null;
   // console.log('filters', $scope.filters);
   $scope.incLoc = '';
   $scope.data = [];
@@ -38,33 +40,40 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   });
 
   var setUpData = function() {
-    var topics = {};
-    topics.label = 'Edit Topics';
-    topics.location='views/admin/edittopics.html';
-    topics.children = [];
-    topics.toolTitle = 'Edit Topics';
-    topics.key = 'topics';
-    topics.parentKey = null;
-    topics.data = $scope.filters;
+    var attributes = {};
+    attributes.label = 'Edit Attributes';
+    attributes.location='views/admin/editattributes.html';
+    attributes.children = [];
+    attributes.toolTitle = 'Edit Attributes';
+    attributes.key = 'attributes';
+    attributes.parentKey = null;
+    attributes.data = $scope.filters;
+
+    attributes.children.push({'label':'Edit Attribute Landing Pages', 'location':'views/admin/editlanding.html', 'toolTitle': 'Edit Topic Landing Pages', 'key': 'landing', 'parentKey': 'attributes'});
+    attributes.children.push({'label':'Edit Codes', 'location':'views/admin/editcodes.html', 'toolTitle': 'Edit Attribute Codes', 'key': 'codes', 'parentKey': 'attributes'});
+
+    $scope.data.push({'label': 'About Admin Tools', 'location':'views/admin/about.html', 'toolTitle': 'About Admin Tools', 'key': 'tools' });
+    $scope.data.push(attributes);
+    $scope.data.push({'label': 'Edit Components', 'location':'views/admin/editcomponents.html', 'toolTitle': 'Edit Components', 'key': 'components' });
+    $scope.data.push({'label': 'Edit Branding', 'location': 'views/admin/editbranding.html', 'toolTitle': 'Edit Branding', 'key': 'branding' });
+
+
+    $scope.collection = [];
     _.each($scope.filters, function(filter) {
-      var label = 'Edit ' + filter.name + ' Codes';
-      var location = 'views/admin/editcodes.html';
+      // var label = 'Edit ' + filter.name + ' Codes';
+      // var location = 'views/admin/editcodes.html';
       // var children = [];
       // _.each(filter.collection, function(code){
       //   children.push({'label':code.type, 'location':'views/admin/editcode.html'});
       // });
         //
-      topics.children.push({'label':label, 'location': location, 'toolTitle': label, 'key': filter.key, 'parentKey': 'topics', 'data': filter /*, 'children': children*/});
+      // attributes.children.push({'label':label, 'location': location, 'toolTitle': label, 'key': filter.key, 'parentKey': 'attributes', 'data': filter /*, 'children': children*/});
+      $scope.collection.push({'name': filter.name, 'key': filter.key});
     });
-    topics.children.push({'label':'Edit Topic Landing Pages', 'location':'views/admin/editlanding.html', 'toolTitle': 'Edit Topic Landing Pages', 'key': 'landing', 'parentKey': 'topics'});
-
-    $scope.data.push({'label': 'About Admin Tools', 'location':'views/admin/about.html', 'toolTitle': 'About Admin Tools', 'key': 'tools' });
-    $scope.data.push(topics);
-    $scope.data.push({'label': 'Edit Components', 'location':'views/admin/editcomponents.html', 'toolTitle': 'Edit Components', 'key': 'components' });
-    $scope.data.push({'label': 'Edit Branding', 'location': 'views/admin/editbranding.html', 'toolTitle': 'Edit Branding', 'key': 'branding' });
   };
 
   setUpData();
+
 
   /***************************************************************
   * This function changes the content in the admin tool section to the tool the
@@ -72,9 +81,8 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   ***************************************************************/
   $scope.editor = function(branch) {
     $scope.incLoc = branch.location;
-    if (branch.parentKey === 'topics' && branch.key !== 'landing') {
-      var filter = grabCollection(branch.key);
-      $scope.collection = filter.collection;
+    if (branch.parentKey === 'attributes' && branch.key !== 'landing') {
+      $scope.grabCollection($scope.collectionSelection.key);
     }
     $scope.toolTitle = branch.toolTitle;
     $scope.myTree.selectBranch(branch);
@@ -102,8 +110,9 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   * This function will grab a collection from a filter given the key
   * of the filter.
   ***************************************************************/
-  var grabCollection = function(key) {
-    return _.where($scope.filters, {'key': key})[0];
+  $scope.grabCollection = function(key) {
+    var filter = _.where($scope.filters, {'key': key})[0];
+    $scope.collectionContent = filter.collection;
   };
 
   /***************************************************************
@@ -111,7 +120,8 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   * sends us there 
   ***************************************************************/
   $scope.editCollection = function(key) {
-    var branch = checkCollection($scope.data, 0, key);
+    var branch = checkCollection($scope.data, 0, 'codes');
+    $scope.collectionSelection = _.where($scope.collection, {'key': key})[0];
     $scope.editor(branch);
   };
   /***************************************************************
@@ -181,6 +191,7 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
     $scope.saveContent = $scope.parseComponentInsert($scope.editorContent);
     // console.log('Save', $scope.saveContent);
   };
+
 
   // setup editor options
   $scope.editorOptions = getCkConfig();
