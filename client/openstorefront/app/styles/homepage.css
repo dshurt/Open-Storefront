@@ -13,6 +13,11 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+
+/***************************************************************
+* This is for the cool parallax background. You don't have to change the settings
+* if you don't use the parallax. You just have to take out the 'port' id in the main.html banner
+***************************************************************/
 .banner{
   /*font-family: WideLatin;*/
   font-family: 'Archivo Narrow', Arial, Helvetica, sans-serif;
@@ -38,6 +43,9 @@
   position: relative;
 }
 
+/***************************************************************
+* This is used for the round badge that shows the DI2E storefront currently
+***************************************************************/
 #bannerContent {
   color:white;
   position: absolute;
@@ -46,20 +54,24 @@
   margin-left: -113px;
   top: 40px;
   /*   width: 150px;
-width: 300px;
-height: 300px; */
-width: 226px;
-height: 226px;
-background-color:#445566;
-/*background-color:rgba(0,0,0,0.4);*/
-/*background-color:rgba(9,49,92,0.8);*/
-background-color: rgba(182,118,2, 1);
-/*background-color:rgba(6,31,59,0.5);*/
-box-shadow:0px 0px 35px 15px rgba(0,0,0,0.7);
-display:inline-block;
-border-radius: 300px;
-/*overflow: hidden;*/
+  width: 300px;
+  height: 300px; */
+  width: 226px;
+  height: 226px;
+  background-color:#445566;
+  /*background-color:rgba(0,0,0,0.4);*/
+  /*background-color:rgba(9,49,92,0.8);*/
+  background-color: rgba(182,118,2, 1);
+  /*background-color:rgba(6,31,59,0.5);*/
+  box-shadow:0px 0px 35px 15px rgba(0,0,0,0.7);
+  display:inline-block;
+  border-radius: 300px;
+  /*overflow: hidden;*/
 }
+
+/***************************************************************
+* This moves the DI2E to the correct location, handles the hr, and the span
+***************************************************************/
 #bannerTitle{
   margin: 79px 9px 0px 11px;
   font-size: 92px;
@@ -79,6 +91,12 @@ border-radius: 300px;
   margin-left: -80px;
 }
 
+
+
+/***************************************************************
+* This css is specific to the images that are used for the parallax backround
+* DON'T EDIT
+***************************************************************/
 .parallax-layer {
   position: absolute;
 }
@@ -99,6 +117,9 @@ border-radius: 300px;
 
 
 
+/***************************************************************
+* This is used for the navigation and search bar changes specific to the home page
+***************************************************************/
 .navbar-brand, .navSearchForm, #searchNavButton {
   display: none !important;
 }
@@ -115,6 +136,9 @@ border-radius: 300px;
 }
 
 
+/***************************************************************
+* This handles the content found under the search bar
+***************************************************************/
 .defaultContent{
   padding-top: 20px;
   margin: 0px auto;
@@ -252,6 +276,12 @@ border-radius: 300px;
   display: inline-block;
 }
 
+
+
+/***************************************************************
+* These are some responsive handlers that are used to make the content on the
+* home page reponsive to smaller screens.
+***************************************************************/
 @media screen and (max-width: 768px) {
   .nifty2col .col-sm-6{
     width: 100%;

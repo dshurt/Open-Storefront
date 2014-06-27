@@ -19,25 +19,41 @@ app.directive('raty', function () {
   return {
     restrict: 'AE',
     link: function(scope, elem, attrs) {
+      /***************************************************************
+      * This function watches the score, and if it changes we do stuff.
+      ***************************************************************/
       attrs.$observe('score', function(data) { /*jshint unused:false*/
+
+        /***************************************************************
+        * We set up variables...
+        * params: param name -- param description
+        * returns: Return name -- return description
+        ***************************************************************/
         var readOnly = false;
         var imagePath = 'images/raty';
 
+
+        /***************************************************************
+        * We override variables when the attirbutes to replace them have been set
+        ***************************************************************/
         if (attrs.readOnly !== undefined && attrs.readOnly !== null){
           readOnly = true;
         }
-
         if (attrs.path !== undefined && attrs.path !== null) {
           imagePath = attrs.path;
         }
-
         if (scope[attrs.ngmodel] !== undefined && scope[attrs.ngmodel] !== null && scope[attrs.ngmodel] !== '') {
           scope.$watch(scope[attrs.ngmodel], function() {
-            // console.log('The score changed');
           });
         }
 
+        /***************************************************************
+        * And we remake the elements.
+        ***************************************************************/
         $(elem).raty({
+
+          //This is a complete list of what is available for configuarion on the raty directive.
+
           // cancel      : false                                          // Creates a cancel button to cancel the rating.
           // cancelClass : 'raty-cancel'                                  // Name of cancel's class.
           // cancelHint  : 'Cancel this rating!'                          // The cancel's button hint.
@@ -73,6 +89,8 @@ app.directive('raty', function () {
           // targetType  : 'hint'                                         // Option to choose if target will receive hint o 'score' type.
           // starType    : 'img'                                          // The type of the star, img as default, could also be whatever element
 
+
+          //This is our current setup.
           score: attrs.score,
           number: attrs.number,
           path: imagePath,

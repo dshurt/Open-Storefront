@@ -88,6 +88,14 @@ function isEmpty(obj) {
   return true;
 }
 
+
+/***************************************************************
+* This function sets up the parallax backgrounds on the page. It could be improved
+* to dynamically set up the height and width of the images more accurately.
+*
+* The parallax relies on image size in order to work, so if you want different results
+* mess with the image size here.
+***************************************************************/
 var setupParallax = function() {
   // Declare parallax on layers
   setTimeout(function(){

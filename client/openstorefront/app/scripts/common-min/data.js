@@ -288,7 +288,7 @@ MOCKDATA.filters.push({
     'displayType': 'Not Evaluated',
     'desc': 'Evaluation has not started',
     'longDesc': 'No evaluations have been initialized for these results. This is the landing page for Not Evaluated. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
-    'checked': false
+    'checked': true
   },
   {
     'code': 'CAN',
@@ -296,7 +296,7 @@ MOCKDATA.filters.push({
     'displayType': 'DI2E Candidate',
     'desc': 'Potential reuse candidate',
     'longDesc': 'Component is considered as a potential reuse candidate but has not completed the DI2E Framework Evaluation Process.',
-    'checked': false
+    'checked': true
   },
   {
     'code': 'COM',
@@ -304,7 +304,7 @@ MOCKDATA.filters.push({
     'displayType': 'DI2E Component',
     'desc': 'Reusable and Interoperable.',
     'longDesc': 'Component has been through the DI2E Evaluation Process and determined to be reusable and interoperable.',
-    'checked': false
+    'checked': true
   },
   {
     'code': 'NR',
@@ -448,6 +448,11 @@ MOCKDATA.assets = {
       'desc': 'Data Management'
     }
     ],
+    'conformanceState': [
+    {
+      'code': 'COM'
+    }
+    ],
     'evaluationLevel': [
     {
       'code': 'STATE3'
@@ -562,6 +567,11 @@ MOCKDATA.assets = {
     {
       'code': 'DATAM',
       'desc': 'Data Management'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'COM'
     }
     ],
     'evaluationLevel': [
@@ -681,6 +691,11 @@ MOCKDATA.assets = {
       'desc': 'Planning and Direction'
     }
     ],
+    'conformanceState': [
+    {
+      'code': 'NE'
+    }
+    ],
     'evaluationLevel': [
     {
       'code': 'STATENA'
@@ -754,6 +769,11 @@ MOCKDATA.assets = {
     {
       'code': 'DATAM',
       'desc': 'Data Management'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'NR'
     }
     ],
     'evaluationLevel': [
@@ -843,6 +863,11 @@ MOCKDATA.assets = {
     {
       'code': 'COLLAB',
       'desc': 'Collaboration'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'COM'
     }
     ],
     'evaluationLevel': [
@@ -939,6 +964,11 @@ MOCKDATA.assets = {
       'desc': 'Data Management'
     }
     ],
+    'conformanceState': [
+    {
+      'code': 'OBS'
+    }
+    ],
     'evaluationLevel': [
     {
       'code': 'STATE0'
@@ -1031,6 +1061,11 @@ MOCKDATA.assets = {
     {
       'code': 'DATAM',
       'desc': 'Data Management'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'COM'
     }
     ],
     'evaluationLevel': [
@@ -1131,6 +1166,11 @@ MOCKDATA.assets = {
       'desc': 'Collection'
     }
     ],
+    'conformanceState': [
+    {
+      'code': 'CAN'
+    }
+    ],
     'evaluationLevel': [
     {
       'code': 'STATENA'
@@ -1196,6 +1236,11 @@ MOCKDATA.assets = {
     {
       'code': 'DATAM',
       'desc': 'Data Management'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'CAN'
     }
     ],
     'evaluationLevel': [
@@ -1286,6 +1331,11 @@ MOCKDATA.assets = {
     {
       'code': 'SECM',
       'desc': 'Security Management'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'NR'
     }
     ],
     'evaluationLevel': [
@@ -1396,6 +1446,11 @@ MOCKDATA.assets = {
       'desc': 'Security Management'
     }
     ],
+    'conformanceState': [
+    {
+      'code': 'COM'
+    }
+    ],
     'evaluationLevel': [
     {
       'code': 'STATE0'
@@ -1484,6 +1539,11 @@ MOCKDATA.assets = {
     {
       'code': 'SECM',
       'desc': 'Security Management'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'COM'
     }
     ],
     'evaluationLevel': [
@@ -1578,6 +1638,11 @@ MOCKDATA.assets = {
     {
       'code': 'VISUAL',
       'desc': 'Visualization'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'OBS'
     }
     ],
     'evaluationLevel': [
@@ -1678,6 +1743,11 @@ MOCKDATA.assets = {
       'desc': 'Visualization'
     }
     ],
+    'conformanceState': [
+    {
+      'code': 'CAN'
+    }
+    ],
     'evaluationLevel': [
     {
       'code': 'STATE0'
@@ -1761,6 +1831,11 @@ MOCKDATA.assets = {
     {
       'code': 'VISUAL',
       'desc': 'Visualization'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'COM'
     }
     ],
     'evaluationLevel': [
@@ -1849,6 +1924,11 @@ MOCKDATA.assets = {
       'desc': 'Collaboration'
     }
     ],
+    'conformanceState': [
+    {
+      'code': 'COM'
+    }
+    ],
     'evaluationLevel': [
     {
       'code': 'STATE0'
@@ -1929,6 +2009,11 @@ MOCKDATA.assets = {
     {
       'code': 'COLLAB',
       'desc': 'Collaboration'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'COM'
     }
     ],
     'evaluationLevel': [
@@ -2014,6 +2099,11 @@ MOCKDATA.assets = {
     {
       'code': 'PLAN',
       'desc': 'Planning and Direction'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'NE'
     }
     ],
     'evaluationLevel': [
@@ -2107,6 +2197,11 @@ MOCKDATA.assets = {
     {
       'code': 'VISUAL',
       'desc': 'Visualization'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'NE'
     }
     ],
     'evaluationLevel': [
@@ -2203,6 +2298,11 @@ MOCKDATA.assets = {
       'desc': 'Visualization'
     }
     ],
+    'conformanceState': [
+    {
+      'code': 'CAN'
+    }
+    ],
     'evaluationLevel': [
     {
       'code': 'STATE0'
@@ -2282,6 +2382,11 @@ MOCKDATA.assets = {
     {
       'code': 'DATAM',
       'desc': 'Data Management'
+    }
+    ],
+    'conformanceState': [
+    {
+      'code': 'COM'
     }
     ],
     'evaluationLevel': [

@@ -1,3 +1,19 @@
+/* 
+* Copyright 2014 Space Dynamics Laboratory - Utah State University Research Foundation.
+*
+* Licensed under the Apache License, Version 2.0 (the 'License');
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an 'AS IS' BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
 'use strict';
 
 /*global getCkConfig*/
@@ -7,16 +23,26 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   //this object is used to contain the tree functions
   $scope.myTree = {};
 
-
+  /***************************************************************
+  * Set up admin variables.
+  ***************************************************************/
   $scope.filters = Business.getFilters();
   $scope.collection = null;
   $scope.collectionSelection = null;
   $scope.collectionContent = null;
-  // console.log('filters', $scope.filters);
   $scope.incLoc = '';
   $scope.data = [];
   $scope.editedTopic = 'Types';
   $scope.toolTitle = 'idAM Landing Page';
+  $scope.saveContent = '';
+
+
+
+  /***************************************************************
+  * If we don't have a landing page, we're going to set up one for now so that
+  * there will always be one in the editor when we look, unless we click on a button
+  * that says 'add landing page'
+  ***************************************************************/
   if (!$scope.landingRoute) {
     Business.landingPage('IDAM', 'views/temp/landingpage.html', true).then(function (result) { /*jshint unused:false*/
       Business.landingPage(false, false, true).then(function (result) {
@@ -25,8 +51,12 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
       });
     });
   }
-  $scope.saveContent = '';
+  
 
+  /***************************************************************
+  * This function watches the landingRoute so that when that changes, we load
+  * the new content into the editor that we want to be able to look at.
+  ***************************************************************/
   $scope.$watch('landingRoute', function() {
     $.get($scope.landingRoute).then(function(responseData) {
       $scope.editorContent = $scope.parseForEditor(responseData);
@@ -35,32 +65,42 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
   });
 
 
+  /***************************************************************
+  * This function watches the editor content. When the model is updated, we'll
+  * call the function for saving the data.
+  ***************************************************************/
   $scope.$watch('editorContent', function() {
     $scope.saveData();
   });
 
+
+  /***************************************************************
+  * This function sets up the menu on the left for the admin tools.
+  * It isn't completely dynamic right now because the tools are pretty static.
+  * If we ever actually put this information into the database, things might change.
+  ***************************************************************/
   var setUpData = function() {
     var attributes = {};
-    attributes.label = 'Edit Attributes';
+    attributes.label = 'Manage Attributes';
     attributes.location='views/admin/editattributes.html';
     attributes.children = [];
-    attributes.toolTitle = 'Edit Attributes';
+    attributes.toolTitle = 'Manage Attributes';
     attributes.key = 'attributes';
     attributes.parentKey = null;
     attributes.data = $scope.filters;
 
-    attributes.children.push({'label':'Edit Attribute Landing Pages', 'location':'views/admin/editlanding.html', 'toolTitle': 'Edit Topic Landing Pages', 'key': 'landing', 'parentKey': 'attributes'});
-    attributes.children.push({'label':'Edit Codes', 'location':'views/admin/editcodes.html', 'toolTitle': 'Edit Attribute Codes', 'key': 'codes', 'parentKey': 'attributes'});
+    attributes.children.push({'label':'Manage Landing Pages', 'location':'views/admin/editlanding.html', 'toolTitle': 'Manage Attribute Landing Pages', 'key': 'landing', 'parentKey': 'attributes'});
+    attributes.children.push({'label':'Manage Codes', 'location':'views/admin/editcodes.html', 'toolTitle': 'Manage Attribute Codes', 'key': 'codes', 'parentKey': 'attributes'});
 
     $scope.data.push({'label': 'About Admin Tools', 'location':'views/admin/about.html', 'toolTitle': 'About Admin Tools', 'key': 'tools' });
     $scope.data.push(attributes);
-    $scope.data.push({'label': 'Edit Components', 'location':'views/admin/editcomponents.html', 'toolTitle': 'Edit Components', 'key': 'components' });
-    $scope.data.push({'label': 'Edit Branding', 'location': 'views/admin/editbranding.html', 'toolTitle': 'Edit Branding', 'key': 'branding' });
+    $scope.data.push({'label': 'Manage Components', 'location':'views/admin/editcomponents.html', 'toolTitle': 'Manage Components', 'key': 'components' });
+    $scope.data.push({'label': 'Manage Branding', 'location': 'views/admin/editbranding.html', 'toolTitle': 'Manage Branding', 'key': 'branding' });
 
-
+    // Here we are grabbing the different collection key's and name's to put in the 'editcodes' tool.
     $scope.collection = [];
     _.each($scope.filters, function(filter) {
-      // var label = 'Edit ' + filter.name + ' Codes';
+      // var label = 'Manage ' + filter.name + ' Codes';
       // var location = 'views/admin/editcodes.html';
       // var children = [];
       // _.each(filter.collection, function(code){
@@ -72,6 +112,7 @@ app.controller('AdminCtrl', ['$scope', 'business', function ($scope, Business) {
     });
   };
 
+  // make sure we actually set up the data...
   setUpData();
 
 
