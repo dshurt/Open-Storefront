@@ -23,6 +23,7 @@
     "app": true,
     "MOCKDATA": true,
     "_": true,
-    "$": true
+    "$": true,
+    "jQuery": true
   }
 }

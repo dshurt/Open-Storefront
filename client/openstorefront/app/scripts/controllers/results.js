@@ -713,9 +713,9 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   * to allow the user to view their watches.
   ***************************************************************/
   $scope.getEvaluationState = function () {
-    if ($scope.details && $scope.details.conformanceState !== undefined) {
-      var code = $scope.details.conformanceState[0].code;
-      var stateFilter = _.where($scope.filters, {'key': 'conformanceState'})[0];
+    if ($scope.details && $scope.details.evaluationLevel !== undefined) {
+      var code = $scope.details.evaluationLevel[0].code;
+      var stateFilter = _.where($scope.filters, {'key': 'evaluationLevel'})[0];
       var item = _.where(stateFilter.collection, {'code': code})[0];
       return item.type;
     }
