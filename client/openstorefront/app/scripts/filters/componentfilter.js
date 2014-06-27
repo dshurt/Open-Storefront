@@ -63,20 +63,20 @@
 *  "id": 34,
 *  "guid": "6482B5F8-CB71-E00D-8FA4-16529549EC22",
 *  "type": [
-*  {
-*    "code": "APPS"
-*  },
-*  {
-*    "code": "TOOLS"
-*  }
-*  ]
+*    {
+*      "code": "APPS"
+*    },
+*    {
+*      "code": "TOOLS"
+*    }
+*  ],
 *  "categories": [
-*  {
-*    "code": "MDATA"
-*  },
-*  {
-*    "code": "COLLECTION"
-*  }
+*    {
+*      "code": "MDATA"
+*    },
+*    {
+*      "code": "COLLECTION"
+*    }
 *  ]
 *}
 *******************************************************************************/
@@ -93,8 +93,10 @@ app.filter('componentFilter', function()  {
 
   return function (input, filters) {
     var out = null;
-    out = _.filter(input, function(item) {  // if value passes with true it remains
-      return _.every(filters, function(filter) {  //we return true if it passes all of these filters
+    // if value passes with true it remains
+    out = _.filter(input, function(item) {
+      //we return true if it passes all of these filters
+      return _.every(filters, function(filter) {
         var collection = filter.collection;
         var key = filter.key;
         // if the filter isn't being used, or all are checked, we know its true

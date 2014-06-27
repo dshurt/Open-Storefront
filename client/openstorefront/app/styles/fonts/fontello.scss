@@ -1,3 +1,25 @@
+/***************************************************************
+* This CSS is used to set up the fonts for the site including a specific
+* fontello item for the 'storefront' icon
+***************************************************************/
+
+/***************************************************************
+* This is the font that was used for the original DI2E logo
+***************************************************************/
+@font-face {
+  font-family: 'WideLatin';
+  src: font-url('wide_latin.eot');
+  src: font-url('wide_latin.eot?#iefix') format('embedded-opentype'),
+  font-url('wide_latin.woff') format('woff'),
+  font-url('wide_latin.ttf') format('truetype'),
+  font-url('wide_latin.svg#wide_latinregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/***************************************************************
+* This was used for the storefront icon
+***************************************************************/
 @font-face {
   font-family: 'fontello';
   src: font-url('fontello.eot');
@@ -8,6 +30,22 @@
   font-weight: normal;
   font-style: normal;
 }
+
+
+/***************************************************************
+* This is used for the rating system in place of the fontawesome stars
+***************************************************************/
+@font-face {
+  font-family: "raty";
+  src: font-url('raty.eot');
+  src: font-url('raty.eot?#iefix') format('embedded-opentype'),
+  font-url('raty.svg#raty') format('svg'),
+  font-url('raty.ttf') format('truetype'),
+  font-url('raty.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+}
+
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
 /*
