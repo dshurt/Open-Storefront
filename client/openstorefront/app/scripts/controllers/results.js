@@ -599,6 +599,18 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     $scope.applyFilters();
   });
 
+  /***************************************************************
+  * This function is used to watch filters in order to show the 'applied'
+  * message so that they won't forget one of the filters is applied.
+  ***************************************************************/
+  $scope.$watch('filters',function(val, old){ /* jshint unused:false */
+    _.each($scope.filters, function(filter){
+      filter.hasChecked = _.some(filter.collection, function(item){
+        return item.checked;
+      });
+    });
+  }, true);
+
   $scope.$on('$descModal', function(event) { /*jshint unused: false*/
     // re-initialize the modal content here if we must
     if ($scope.nav !== undefined && $scope.nav !== null) {

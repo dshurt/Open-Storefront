@@ -52,7 +52,7 @@ limitations under the License.
         <div ng-class="$last? 'lastFilter': ''" class="panel panel-default" class="filterTableDiv" ng-repeat="filter in filters">
           <table class="table">
             <tr ng-class="filters.length > 2? 'panel-heading': ''">
-              <th ng-class="filters.length > 2? 'panel-title':''" class="filtersTd filtersTh" ><span class="btn btn-link" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">{{filter.name}} <i class="fa fa-caret-down"></i></span> <input type="checkbox" ng-model="filter.checked" ng-change="toggleChecks(filter.collection)"></th>
+              <th ng-class="filters.length > 2? 'panel-title':''" class="filtersTd filtersTh" ><span class="btn btn-link" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">{{filter.name}} <i class="fa fa-caret-down"></i></span> <input type="checkbox" ng-model="filter.checked" ng-change="toggleChecks(filter.collection)" /><small ng-show="filter.hasChecked"> (applied)</small></th>
             </tr>
             <tbody ng-class="filters.length > 2? $first? 'panel-collapse collapse in': 'panel-collapse collapse':''" id="collapse{{$index}}">
               <tr  class="filtersTr" data-ng-repeat="type in filter.collection" >
