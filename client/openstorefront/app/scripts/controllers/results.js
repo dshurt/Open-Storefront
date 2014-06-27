@@ -608,6 +608,9 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       filter.hasChecked = _.some(filter.collection, function(item){
         return item.checked;
       });
+      if (!filter.hasChecked) {
+        filter.checked = false;
+      }
     });
   }, true);
 
