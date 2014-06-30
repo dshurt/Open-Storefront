@@ -168,7 +168,8 @@ public class JaxrsProcessor
 
 			try
 			{
-				if (!(method.getReturnType().getSimpleName().equals(Void.class.getSimpleName())))
+				if (!(method.getReturnType().getSimpleName().equals(Void.class.getSimpleName())) &&
+				    !("javax.ws.rs.core.Response".equals(method.getReturnType().getName())))
 				{
 					APIValueModel valueModel = new APIValueModel();
 					valueModel.setValueObjectName(method.getReturnType().getSimpleName());					
