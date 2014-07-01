@@ -20,7 +20,7 @@
     "ng-ckeditor": "~0.2.1",
     "sass-bootstrap": "~3.0.2",
     "typicons": "~2.0.4",
-        "ckeditor": "full/4.4.1",
+    "ckeditor": "~4.4.2",
     "moment": "~2.6.0",
     "angular-moment": "~0.7.1"
   },
