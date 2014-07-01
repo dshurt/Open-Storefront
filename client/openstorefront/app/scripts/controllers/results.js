@@ -18,7 +18,7 @@
 /* global isEmpty, setupPopovers, openClick:true, setupResults, moveButtons,
 fullClick, openFiltersToggle, buttonOpen, buttonClose, toggleclass*/
 
-app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', '$q', '$route', function ($scope, localCache, Business, $filter, $timeout, $location, $rootScope, $q, $route) { /*jshint unused: false*/
+app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$timeout', '$location', '$rootScope', '$q', '$route',  function ($scope,  localCache, Business, $filter, $timeout, $location, $rootScope, $q, $route) { /*jshint unused: false*/
   // Set up the results controller's variables.
   $scope._scopename         = 'results';
   $scope.tagsList           = Business.getTagsList();
@@ -36,6 +36,8 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   $scope.tagsList.sort();
 
   $scope.lastUsed = new Date();
+
+ // $scope.date1 = moment();
 
   $scope.expertise = [
     //
