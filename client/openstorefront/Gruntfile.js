@@ -32,7 +32,7 @@ module.exports = function (grunt) {
       target: {
         options: {
           war_dist_folder: '<%= yeoman.jvmdist %>',
-          war_verbose: true,
+          war_verbose: false,
           war_name: 'openstorefront',
           webxml_welcome: 'index.html',
           webxml_display_name: 'Open Storefront',
