@@ -25,7 +25,289 @@ MOCKDATA.resources = {
 MOCKDATA.feedback = {
 
 };
-
+MOCKDATA.componentState = [
+   //
+  {
+    'id': 1,
+    'state':'ssss',
+    'desc':'DI2E Candidate'
+  }
+   //  
+  ];
+MOCKDATA.externalDepend = [
+  //
+  {
+    'name': 'WebLogic server',
+    'desc':'Optional deployment container'
+  },
+  {
+    'name': 'JBoss 7.1',
+    'desc':'Optional deployment container'
+  },
+  {
+    'name': 'Tomcat',
+    'desc':'Optional deployment container'
+  },
+  {
+    'name': 'JOGL',
+    'desc':'Supplied within JView source code'
+  }
+  //  
+  ];
+MOCKDATA.pointsContact = [
+   //
+  {
+    'position': 'Program POC',
+    'name': 'Jason Kahn',
+    'email': 'jason.m.kahn@intelink.gov'
+  },
+  {
+    'position': 'Technical POC',
+    'name': 'Ian Nelson',
+    'email': 'ian.l.nelson@intelink.gov'
+  },
+  {
+    'position': 'DI2E Asset Coordinator',
+    'name': 'Kimberly Holladay',
+    'email': 'Kimberly.Holladay@volant-associates.com'
+  }
+   //
+  ];
+MOCKDATA.componentEvalProgressBar = [
+  //
+  {
+    'class1': 'barborder',
+    'type': 'success',
+    'level': '0',
+    'currvalue': 27.2737
+  },
+  {
+    'class1': 'barborder',
+    'type': 'success',
+    'level': '1',
+    'currvalue': 36.3636
+  },
+  {
+    'class1': 'barborder',
+    'type': 'info',
+    'level': '2',
+    'currvalue': 9.0909
+  },
+  {
+    'class1': 'bar-transparent',
+    'type': 'success',
+    'level': '3',
+    'currvalue': 27.2727
+  }
+  //
+  ];
+MOCKDATA.componentEvalProgressBarDates = [
+  //
+  {
+    'class1': 'barborder2',
+    'type': 'success',
+    'timedays': 27.2737,
+    'currdate': '6/1'
+  },
+  {
+    'class1': 'barborder2',
+    'type': 'success',
+    'timedays': 36.3636,
+    'currdate': '6/15'
+  },
+  {
+    'class1': 'barborder2',
+    'type': 'info',
+    'timedays': 9.0909,
+    'currdate': '7/1'
+  },
+  {
+    'class1': 'bar-transparentdate',
+    'type': 'success',
+    'timedays': 27.2727,
+    'currdate': '8/1'
+  }
+  //
+  ];
+MOCKDATA.componentSummary = [
+  //
+  {
+    'versions': '1.7.1',
+    'evaluationdate': '3/14/2014',
+    'componenttype': 'Redeployed Capability, API/Library',
+    'agency': 'AFRL JView Team',
+    'di2emarketplace': 'https://storefront.di2e.net/marketplace/serviceItem/show/24'
+  }
+  //
+  ];
+MOCKDATA.componentVitals = [
+  //
+  {
+    'name': 'SupportedOS',
+    'desc': 'Same as Java 1.5+'
+  },
+  {
+    'name': 'VM Support',
+    'desc': 'yes'
+  },
+  {
+    'name': 'License',
+    'desc': 'JView license (CAC Card Required)'
+  },
+  {
+    'name': 'SvcV-4 Alignment',
+    'desc': '2.2.1.2 Widget Framework'
+  },
+  {
+    'name': 'JCA Alignment',
+    'desc': '6.2.3.8 Enterprise Application Software'
+  },
+  {
+    'name': 'JCSFL Alignment',
+    'desc': '8.9.5 Integrate Enterprise Applications'
+  }
+  //
+  ];
+MOCKDATA.localAssetArtifacts = [
+  //
+  {
+    'name': 'Home page',
+    'desc':'https://extranet.rl.af.mil/jview/'
+  },
+  {
+    'name': 'Wiki',
+    'desc':'https://software.forge.mil/sf/wiki/do/viewPage/projects.jview/wiki/HomePage'
+  },
+  {
+    'name': 'Binaries',
+    'desc':'You must build this from the source code'
+  },
+  {
+    'name': 'Source',
+    'desc':'https://software.forge.mil/sf/go/proj1195'
+  },
+  {
+    'name': 'Issue Tracking',
+    'desc':'https://software.forge.mil/sf/go/proj1195'
+  },
+  {
+    'name': 'Documentation',
+    'desc':'See full evaluation report'
+  },
+  {
+    'name': 'Training',
+    'desc':'none'}
+  //
+  ];
+MOCKDATA.scoreTable = [
+  //
+  {
+    'name': 'Discoverable',
+    'ranking': 2,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Accessible',
+    'ranking': 2,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Documentation',
+    'ranking': 3,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Deployable',
+    'ranking': 4,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Usable',
+    'ranking': 5,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Error Handling',
+    'ranking': 2,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Integrable',
+    'ranking': 4,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'I/O Validation',
+    'ranking': 2,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Testing',
+    'ranking': 2,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Monitoring',
+    'ranking': 1,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Performance',
+    'ranking': 3,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Scalability',
+    'ranking': 2,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Security',
+    'ranking': 3,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Maintainability / Upgradability',
+    'ranking': 2,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Community and Outreach',
+    'ranking': 1,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Change Management',
+    'ranking': 2,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'CA',
+    'ranking': 1,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Licensing',
+    'ranking': 2,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Roadmap',
+    'ranking': 1,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Willingness',
+    'ranking': 2,
+    'icon': 'whatever'
+  },
+  {
+    'name': 'Architecture Alignment',
+    'ranking': 3,
+    'icon': 'whatever'
+  }
+  //  
+  ];
 MOCKDATA.tagsList = [
   //
   'Application',
@@ -324,6 +606,7 @@ MOCKDATA.filters.push({
   }
   ]
 });
+
 
 MOCKDATA.assetDetails = {
   details: [
@@ -2465,8 +2748,3 @@ MOCKDATA.assets = {
   }
   ]
 };
-
-
-
-
-
