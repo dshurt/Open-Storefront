@@ -235,29 +235,29 @@ Developing Open-Storefront (Server)
 
 Components used:
 
-JDK 8
-Wildfly 8.1
-MySQL 
-SOLR
-Open AM* (Configurable)
+JDK 8  
+Wildfly 8.1  
+MySQL  
+SOLR  
+Open AM* (Configurable)  
 
 The application is a JEE webapp.  So any JEE 7 compliant server should work with just server configuration setup.
 JAX-RS is heavily used for REST API.  JPA is use for Database access so the database is also configurable.
 
 Key Libraries used
 ------------------
-Stripes -Action based web framework
-Jackson -JSON Handling/binding
-Apache Shiro -Security
+Stripes -Action based web framework  
+Jackson -JSON Handling/binding  
+Apache Shiro -Security  
 
 
 Building with Maven
 -------------------
 
-mvn install
+mvn install  
 
-(Skip tests)
-Mav -Dmaven.test.skip=true or -DskipTests=true install
+(Skip tests)  
+Mav -Dmaven.test.skip=true or -DskipTests=true install  
 
 
 Deploying
