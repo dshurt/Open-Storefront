@@ -13,9 +13,36 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<div class="banner">
-  {{pageTitle}}
+<div class="banner parallax-port" id="port">
+
+<!--   <img class="parallax-layer" src="../images/parallax2.png" alt=""/>
+  <img class="parallax-layer" src="../images/parallax3.png" alt=""/>
+  <img class="parallax-layer" src="../images/parallax.png" alt=""/> -->
+<!-- 
+  <img class="parallax-layer" src="../images/0_sun.png" alt=""/>
+<img class="parallax-layer" src="../images/1_mountains.png" alt=""/>
+<img class="parallax-layer" src="../images/2_hill.png" alt=""/>
+<img class="parallax-layer" src="../images/3_wood.png" alt=""/>
+-->
+
+<img class="parallax-layer" src="../images/0.png" alt=""/>
+<img class="parallax-layer" src="../images/1.png" alt=""/>
+<img class="parallax-layer" src="../images/2.png" alt=""/>
+<img class="parallax-layer" src="../images/3.png" alt=""/><!-- 
+<img class="parallax-layer" src="../images/4.png" alt=""/>
+<img class="parallax-layer" src="../images/5.png" alt=""/>
+<img class="parallax-layer" src="../images/6.png" alt=""/> -->
+
 </div>
+<div style="" id="bannerContent">
+  <div id="bannerTitle">
+    {{pageTitle}}
+    <hr>
+    <span>{{subTitle}}</span>
+  </div>
+</div>
+
+
 <div class="search">
   <div class="center navSearch defaultSearch">
     <form ng-submit="goToSearch('search', searchKey)">
@@ -29,36 +56,119 @@ limitations under the License.
   </div>
 </div>
 
+<div class="nifty2col">
+  <div class="col-sm-6 first">
+    <div><h1>Topics of interest</h1> <hr></div>
+    <div class="content">
+      <div class="row">
+        <div class="col-sm-6" style="text-align: left">
+          <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+            <li>item5</li>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+            <li>item5</li>
+          </ul>
+        </div>
+        <div class="col-sm-6" style="text-align: left">
+
+          <ul>
+            <li>item6</li>
+            <li>item7</li>
+            <li>item8</li>
+            <li>item9</li>
+            <li>item10</li>
+            <li>item6</li>
+            <li>item7</li>
+            <li>item8</li>
+            <li>item9</li>
+            <li>item10</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 second">
+    <div><h1>Knowledge Base</h1> <hr></div>
+    <div class="content">
+      <div class="row">
+        <ul>
+          <li class="imitateLink" ng-click="goToLanding('views/temp/landingpage.html', 'categories', 'IDAM')">
+            <a>
+              idAM Landing Page
+            </a>
+          </li>
+          <li class="imitateLink" ng-click="goToLanding('views/temp/landingpage2.html', 'evaluationLevel', 'STATE3')">
+            <a>
+              Evaluation Level 3 Landing Page
+            </a>
+          </li>
+          <li>item3 test test </li>
+          <li>item4</li>
+          <li>item5</li>
+          <li>item1</li>
+          <li>item2 test test test test</li>
+          <li>item3</li>
+          <li>item4</li>
+          <li>item5</li>
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+          <li>item4</li>
+          <li>item5</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="liner">
+    <div class="container">
+      <i class="icon-shop"></i>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+
+
+
 <div class="row defaultContent defaultTitle">
   <div>
-    Browse Components By:
+    Search by Attribute:
   </div>
 </div>
 <div class="row defaultContent" ng-repeat="row in filters | partition:3">
   <div class="col-sm-4" ng-repeat="type in row" style="padding-right: 30px;">
     <div class="defaultGroupTitle">
-      <img ng-src="{{type.src}}" alt="">
-      {{type.name}}
+      <div class="icon" ng-click="goToSearch(type.key, 'all')">
+        <i class="{{type.icon}}" ></i>        
+      </div>
+      <div class="content">
+        {{type.name}} 
+      </div>
     </div>
     <ul class="groupItemList">
       <li ng-repeat="item in type.collection" class="groupItem imitateLink">
         <div ng-click="goToSearch(type.key, item.code);" >
           <span class="item_bold">
-            <span class="listing_short_title_text">{{item.type}}</span>               
+            <span class="listing_short_title_text">{{item.type}} <i ng-if="item.landing !== null && item.landing !== undefined" class="fa fa-info-circle" ng-click="goToLanding(item.landing, type.key, item.code); $event.stopPropagation();" data-toggle="tooltip" data-placement="top" title="Click here to go to the knowledge base for components with this attribute."></i></span>               
           </span>
           <div style="font-size: 12px; color: grey;">{{item.desc}}</div>
         </div>
-        <div ng-if="item.landing !== null && item.landing !== undefined">
-          <small><button class="btn btn-primary" ng-click="goToLanding(item.landing, type.key, item.code)">Go to Landing Page</button></small>
-          <small><button class="btn btn-primary" ng-click="goToSearch(type.key, item.code)">Go to Results Page</button></small>
-        </div>
+<!--         <div ng-if="item.landing !== null && item.landing !== undefined">
+  <small><button class="btn btn-primary" ng-click="goToLanding(item.landing, type.key, item.code)">Go to Landing Page</button></small>
+  <small><button class="btn btn-primary" ng-click="goToSearch(type.key, item.code)">Go to Results Page</button></small>
+</div> -->
       </li>
     </ul>
   </div>
-  <hr>
   <div class="defaultSpacer hidden-xs">&nbsp;</div>
 </div>
 
 <!-- build:css({.tmp,app}) styles/landing.css -->
-<link rel="stylesheet" href="styles/landing.css">
+<link rel="stylesheet" href="styles/homepage.css">
 <!-- endbuild -->

@@ -2,7 +2,8 @@
   "name": "openstorefront",
   "version": "0.0.0",
   "dependencies": {
-    "bower": ""
+    "bower": "",
+    "moment": "^2.7.0"
   },
   "scripts": {
     "test": "grunt test",

@@ -1,0 +1,321 @@
+/* 
+* Copyright 2014 Space Dynamics Laboratory - Utah State University Research Foundation.
+*
+* Licensed under the Apache License, Version 2.0 (the 'License');
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an 'AS IS' BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+/***************************************************************
+* This is for the cool parallax background. You don't have to change the settings
+* if you don't use the parallax. You just have to take out the 'port' id in the main.html banner
+***************************************************************/
+.banner{
+  /*font-family: WideLatin;*/
+  font-family: 'Archivo Narrow', Arial, Helvetica, sans-serif;
+  height: 200px;
+  width: 100%;
+  /*text-align: center;*/
+  /*background-color: #002947;*/
+  background:transparent url('../images/backg.png') repeat;
+  /*background-color: #3892d3;*/
+  /*background-color: white;*/
+  font-size: 2.8em;
+  color: white;
+  /*line-height: 200px;*/
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+  0px 8px 13px rgba(0,0,0,0.1),
+  0px 18px 23px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0px 0px 9px 0px;
+  -moz-box-shadow: inset 0px 0px 9px 0px rgba(68, 68, 68, 0.6);
+  box-shadow: inset 0px 0px 9px 0px rgba(68,68,68,0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+/***************************************************************
+* This is used for the round badge that shows the DI2E storefront currently
+***************************************************************/
+#bannerContent {
+  color:white;
+  position: absolute;
+  z-index: 1010;
+  left: 50%;
+  margin-left: -113px;
+  top: 40px;
+  /*   width: 150px;
+  width: 300px;
+  height: 300px; */
+  width: 226px;
+  height: 226px;
+  background-color:#445566;
+  /*background-color:rgba(0,0,0,0.4);*/
+  /*background-color:rgba(9,49,92,0.8);*/
+  background-color: rgba(182,118,2, 1);
+  /*background-color:rgba(6,31,59,0.5);*/
+  box-shadow:0px 0px 35px 15px rgba(0,0,0,0.7);
+  display:inline-block;
+  border-radius: 300px;
+  /*overflow: hidden;*/
+}
+
+/***************************************************************
+* This moves the DI2E to the correct location, handles the hr, and the span
+***************************************************************/
+#bannerTitle{
+  margin: 79px 9px 0px 11px;
+  font-size: 92px;
+  line-height: 43px;
+}
+#bannerTitle hr {
+  line-height: 20px;
+}
+#bannerTitle span{
+  line-height: 20px;
+  text-align: center;
+  font-size: 36px;
+  position: relative;
+  top: -39px;
+  color: white;
+  left: 50%;
+  margin-left: -80px;
+}
+
+
+
+/***************************************************************
+* This css is specific to the images that are used for the parallax backround
+* DON'T EDIT
+***************************************************************/
+.parallax-layer {
+  position: absolute;
+}
+
+.site_wrap {
+  margin-left: 80px;
+}
+
+.parallax-viewport {
+  position: relative;     /* relative, absolute, fixed */
+  overflow: hidden;
+}
+.parallax-layer {
+  position: absolute;
+}
+
+
+
+
+
+/***************************************************************
+* This is used for the navigation and search bar changes specific to the home page
+***************************************************************/
+.navbar-brand, .navSearchForm, #searchNavButton {
+  display: none !important;
+}
+
+.defaultSearch{
+  padding: 50px 2px;
+}
+.defaultSearch form div input, .defaultSearch form div button{
+  font-size: 1.5em;
+  height: 50px;
+}
+.defaultSearch form div.navSearchBar{
+  margin-right: 45px;
+}
+
+
+/***************************************************************
+* This handles the content found under the search bar
+***************************************************************/
+.defaultContent{
+  padding-top: 20px;
+  margin: 0px auto;
+  width: 80%;
+}
+
+.defaultTitle{
+  padding-left: 20px;
+  padding-top: 50px;
+  margin-bottom: -40px;
+  font-size: 20.6px;
+  text-transform: uppercase;
+}
+
+.defaultGroupTitle{
+  padding-top: 20px;
+  font-size: 17.6px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #E2E2E2;
+}
+
+.listing_short_title_text{
+  font-size: 18px;
+  text-decoration: none;
+  color: #0E66A0;
+  font-weight: bold;
+}
+
+.defaultContent .groupItemList{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 15px;
+}
+
+.defaultContent .groupItem{
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.defaultContent .groupItem:hover{
+  background-color: lightgray;
+}
+
+.defaultContent .groupItem a:hover{
+  text-decoration: none;
+}
+
+
+.nifty2col{
+  /*margin-top: 50px;*/
+  text-align: center;
+  position: relative;
+}
+.nifty2col .col-sm-6{
+  display: inline-block;
+  text-align: center;
+}
+.nifty2col .col-sm-6 .content{
+  width: 100%;
+  display: inline-block;
+  text-align: left;
+}
+.nifty2col .col-sm-6 .content .row{
+  padding: 0px 100px;
+}
+.nifty2col .col-sm-6.second .content .row{
+  padding: 0px 160px;
+}
+.nifty2col .col-sm-6.second{
+  border-left: 1px solid lightgray;
+}
+.nifty2col .col-sm-6.first{
+  margin-right: -1px;
+  border-right: 1px solid lightgray;
+}
+
+.nifty2col .liner .container{
+  background: white;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  padding: 0px;
+  margin-top: -50px;
+  margin-left: -50px;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  font-size: 70px;
+  border: 1px solid orange;
+  line-height: 100px;
+  border-radius: 50px;
+  /*font-family: "FontAwesome";*/
+}
+
+.search {
+  background: lightgray;
+  /*background-color:rgba(6,31,59,0.5);*/
+  /*background: rgba(9,49,92,0.8);*/
+
+  -webkit-box-shadow: inset 0px 0px 9px 0px;
+  -moz-box-shadow: inset 0px 0px 9px 0px rgba(68, 68, 68, 0.6);
+  box-shadow: inset 0px 0px 9px 0px rgba(68,68,68,0.6);
+}
+
+.defaultGroupTitle .icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background: white;
+  border: 1px solid orange;
+  display: inline-block;
+  position: relative;
+  bottom: -20px;
+  left: -20px;
+  margin-right: -20px;
+  text-align: center;
+}
+.defaultGroupTitle .icon:hover{
+  background: orange;
+  color: white;
+}
+
+.defaultGroupTitle .icon i{
+  font-size: 38px;
+  position: relative;
+  bottom: 9px;
+  line-height: 78px;
+}
+
+.defaultGroupTitle .content{
+  max-width: 78%;
+  display: inline-block;
+}
+
+
+
+/***************************************************************
+* These are some responsive handlers that are used to make the content on the
+* home page reponsive to smaller screens.
+***************************************************************/
+@media screen and (max-width: 768px) {
+  .nifty2col .col-sm-6{
+    width: 100%;
+    border: 0px !important;
+    text-align: left;
+    padding: 0px;
+  }
+  .nifty2col .col-sm-6 .content .row, .nifty2col .col-sm-6.second .content .row{
+    padding: 0px;
+  }
+  .defaultContent{
+    padding-top: 0px;
+  }
+  .nifty2col .liner {
+    display: none;
+  }
+  .banner{
+    padding: 10px 2px;
+    font-size: 1.8em;
+  }
+  .defaultSearch{
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+  }
+  .col-sm-4 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .defaultContent {
+    width: 100%;
+  }
+}
+

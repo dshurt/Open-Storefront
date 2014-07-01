@@ -17,6 +17,24 @@
 @import "compass";
 @import "customLanding.scss";
 @import "more.scss";
+@import "includes/nav.scss";
+@import "includes/tags.scss";
+@import "includes/typeahead.scss";
+@import "includes/raty.scss";
+@import "fonts/fontello.scss";
+/*@import "../bower_components/sass-bootstrap/lib/_mixins.scss";
+@import "../bower_components/sass-bootstrap/lib/_variables.scss";
+@import "../bower_components/sass-bootstrap/lib/_carousel.scss";
+*/
+
+
+
+
+
+
+/***************************************************************
+* Miscelaneous useful custom classes that are used throughout the site
+***************************************************************/
 
 .fullHeight {
   margin-top: -52px;
@@ -24,67 +42,12 @@
   /*height: 100%*/
 }
 
-/***********************************************************************************/
-/*This section is for the navigation css that should remain constant over each page*/
 
-/*This sets up the nav height and width for its fixed position*/
-.defaultSpacer {
-  height: 52px;
-}
-.top {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  z-index: 1010;
-}
-.navigation{
-  margin-bottom: 0px;
-  -webkit-box-shadow: 0px 0px 9px 0px;
-  -moz-box-shadow: 0px 0px 9px 0px rgba(68, 68, 68, 0.6);
-  box-shadow: 0px 0px 9px 0px rgba(68,68,68,0.6);
-}
 
-/*These are used to keep the elements on the nav working together nicely*/
-.userNavDropdown, .navSearch{
-  padding-left: 10px;
-  padding-right: 10px;
+.carousel-indicators {
+  top: auto;
+  bottom: 15px;
 }
-.userNavDropdown{
-  width: 199px;
-}
-.center, .navSearch form, .navSearchBar input{
-  width: 100%;
-  float: none;
-}
-.navSearch{
-  margin-left:220px;
-  margin-right:220px;
-  width: auto;
-}
-
-/*These change the input and button corner radius to make them fit together*/
-.navSearchBar input{
-  border-radius: 4px 0px 0px 4px;
-}
-.navSearchBar{
-  margin-right:38px;
-  display: block;
-} 
-.searchBoxButton{
-  width:39px;
-  margin-left: -1px; 
-}
-.searchBoxButton button{
-  border-radius: 0px 4px 4px 0px; 
-  border-left: none;
-}
-
-/*This changes the height of a navbarbutton so that it doesn't streach the nav*/
-.navButton{
-  padding: 6px 10px;
-}
-/***********************************************************************************/
 
 
 /***********************************************************************************/
@@ -100,40 +63,6 @@
   display: inline-block;
 }
 /***********************************************************************************/
-
-span.twitter-typeahead {
-  display:block !important;
-} 
-
-.tt-dropdown-menu {
-  width: 422px;
-  margin-top: 12px;
-  padding: 8px 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-  -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-  box-shadow: 0 5px 10px rgba(0,0,0,.2);
-}
-.tt-suggestion {
-  padding: 3px 10px;
-  font-size: 18px;
-  line-height: 18px;
-}
-.tt-suggestion p {
-  margin: 5px;
-}
-.tt-suggestion.tt-cursor {
-  color: #fff;
-  background-color: #3892d3;
-}
-.tt-hint {
-  color: #999;
-}
 
 
 
@@ -168,99 +97,6 @@ span.twitter-typeahead {
 }
 
 
-/************************************************ 
-*           This is for the tag stuff            
-*************************************************/
-.bootstrap .tags {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
-
-.bootstrap .tags.focused {
-  border-color: #66afe9;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
-}
-
-.bootstrap .tags .tag-item {
-  background: #428bca;
-  border: 1px solid #357ebd;
-  border-radius: 4px;
-  color: #fff;
-}
-
-.bootstrap .tags .tag-item.selected {
-  background: #d9534f;
-  border: 1px solid #d43f3a;
-  border-radius: 4px;
-  color: #fff;
-}
-
-.bootstrap .tags .tag-item button {
-  background: transparent;
-  color: #000;
-  opacity: .4;
-}
-
-.bootstrap .autocomplete {
-  border-radius: 4px;
-}
-
-.bootstrap .autocomplete .tag-item.selected {
-  color: #262626;
-  background-color: #e9e9e9;
-}
-/************************************************ 
-*************************************************/
-
-
-
-
-.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
-  font-size: 2em;
-}
-
-@font-face {
-  font-family: "raty";
-  src: font-url('raty.eot');
-  src: font-url('raty.eot?#iefix') format('embedded-opentype'),
-  font-url('raty.svg#raty') format('svg'),
-  font-url('raty.ttf') format('truetype'),
-  font-url('raty.woff') format('woff');
-  font-style: normal;
-  font-weight: normal;
-}
-
-
-
-
-@font-face {
-  font-family: 'WideLatin';
-  src: font-url('wide_latin.eot');
-  src: font-url('wide_latin.eot?#iefix') format('embedded-opentype'),
-  font-url('wide_latin.woff') format('woff'),
-  font-url('wide_latin.ttf') format('truetype'),
-  font-url('wide_latin.svg#wide_latinregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  /*font-family: "FontAwesome";*/
-  font-family: "raty";
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  speak: none;
-  text-transform: none;
-}
-
 .navbar-brand {
   padding: 0px;
 }
@@ -278,40 +114,21 @@ span.twitter-typeahead {
 }
 
 
-/*  Use these instead if you want to use FontAwesome instead of the raty font
-The rest work the same
-*/
-/*.cancel-on-png:before {
-  content: "\f057";
+.tooltip {
+  position: absolute;
+  z-index: 1030;
+  display: block;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: visible;
+  display: inline-table !important;
 }
-
-.cancel-off-png:before {
-  content: "\f05c";
+.tooltip-inner {
+  display: inline-block;
+  padding: 3px 5px;
 }
-*/
-
-/*Use these instead if you want to use the raty font instead of the FontAwesome
-font. The rest are the same*/
-.cancel-on-png:before {
-  content: "\e600";
-}
-
-.cancel-off-png:before {
-  content: "\e601";
-}
-
-.star-on-png:before {
-  content: "\f005";
-}
-
-.star-off-png:before {
-  content: "\f006";
-}
-
-.star-half-png:before {
-  content: "\f123";
-}
-
 
 
 
@@ -354,45 +171,13 @@ font. The rest are the same*/
   box-sizing: border-box;
 }
 
-
-.large-raty{
-  top: 2px;
-  position: relative;
-  margin-bottom: -8px;
-}
-
-.average-raty{
-  margin-bottom: -4px;
-}
-
-.large-raty, .large-raty .star-on-png, .large-raty .star-off-png,
-.large-raty .cancel-off-png, .large-raty .cancel-on-png,
-.large-raty .star-half-png{
-  font-size: 24px;
-}
-.average-raty, .average-raty .star-on-png, .average-raty .star-off-png,
-.average-raty .cancel-off-png, .average-raty .cancel-on-png,
-.average-raty .star-half-png{
-  font-size: 18px;
-}
-.average-raty .star-on-png, .large-raty .star-on-png{
-  color: #333333;
-}
-.average-raty .star-off-png, .large-raty .star-off-png{
-  color: #333333;
-}
-.average-raty .cancel-on-png, .large-raty .cancel-on-png{
-  color:#c44848;
-}
-
-
 .circleBase {
-    border-radius: 50%;
-    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+  border-radius: 50%;
+  behavior: url(PIE.htc); /* remove if you don't care about IE8 */
 }
 
 .bottomCircleBase {
-    border-radius: 0 0 80px 80px;
+  border-radius: 0 0 80px 80px;
 }
 
 .componentListTitle {
@@ -402,7 +187,7 @@ font. The rest are the same*/
 }
 
 .cke_button_label.cke_button__componentbutton_label {
-   display: inline-block !important;
+ display: inline-block !important;
 }
 
 small button {
@@ -411,6 +196,11 @@ small button {
 }
 
 
+
+
+/***************************************************************
+* Media queries to handle responsiveness for the site globally.
+***************************************************************/
 @media (max-width: 768px) {
   .fullWidthModal .modal-dialog {
     margin-left: 10px;
@@ -420,51 +210,10 @@ small button {
 }
 /* Customize container */
 @media (min-width: 768px) {
-  .container {
-    /*max-width: 730px;*/
-  }
-
-}
-.container-narrow > hr {
-  /*margin: 30px 0;*/
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  /*text-align: center;*/
-  /*border-bottom: 1px solid #e5e5e5;*/
-}
-.jumbotron .btn {
-  /*font-size: 21px;*/
-  /*padding: 14px 24px;*/
-}
-
-/* Supporting marketing content */
-.marketing {
-  /*margin: 40px 0;*/
-}
-.marketing p + h4 {
-  /*margin-top: 28px;*/
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    /*padding-left: 0;*/
-    /*padding-right: 0;*/
-  }
-  /* Space out the masthead */
-  .header {
-    /*margin-bottom: 30px;*/
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    /*border-bottom: 0;*/
-  }
-
 }
 
 

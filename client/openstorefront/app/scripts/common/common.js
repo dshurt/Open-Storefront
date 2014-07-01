@@ -16,7 +16,7 @@
 'use strict';
 
 
-/* exported setupPopovers, setupTypeahead, isEmpty, toggleclass, setUpDropdown*/
+/* exported setupPopovers, setupTypeahead, isEmpty, toggleclass, setUpDropdown, setupParallax*/
 
 /*****************************
 * This function sets up the popovers for the results page, but could be 
@@ -87,3 +87,33 @@ function isEmpty(obj) {
 
   return true;
 }
+
+
+/***************************************************************
+* This function sets up the parallax backgrounds on the page. It could be improved
+* to dynamically set up the height and width of the images more accurately.
+*
+* The parallax relies on image size in order to work, so if you want different results
+* mess with the image size here.
+***************************************************************/
+var setupParallax = function() {
+  // Declare parallax on layers
+  setTimeout(function(){
+    var width = $('.banner').width();
+    var height = $('.banner').height();
+    
+    var i = 5;
+    var opacity = 0.2;
+    _.each($('.parallax-layer'), function(element) {
+      $(element).css('width', width + i + 'px');
+      $(element).css('height', height + i + 'px');
+      // $(element).css('height', height + 'px');
+      // $(element).css('opacity', opacity);
+      i = i + 25;
+      opacity = opacity + 0.02;
+    });
+    jQuery('.parallax-layer').parallax({
+      mouseport: jQuery('#port')
+    });
+  }, 10);
+};

@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2014 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="shop" unicode="&#xe801;" d="m0 413l0 31q0 31 20 56l93 125q4 6 12 14l0 148q0 26 19 44t44 19l624 0q26 0 44-19t19-44l0-148q8-8 12-14l93-125q20-25 20-56l0-32q0-39-27-66t-67-27l0-407q0-25-18-43t-44-19l-688 0q-25 0-44 19t-18 43l0 407q-39 0-67 27t-27 66z m63 0q0-14 8-23t23-9l58 0 125 219-89 0q-16 0-26-12l-94-125q-5-9-5-19l0-31z m93-501l203 0 0 313q0 14 9 22t23 9l234 0q14 0 22-9t9-22l0-313 188 0 0 407-688 0 0-407z m32 469l130 0 63 219-68 0z m0 281l624 0 0 125-624 0 0-125z m164-281l132 0 0 219-70 0z m39-468l234 0 0 312-234 0 0-312z m125 468l132 0-62 219-70 0 0-219z m103 219l63-219 130 0-124 219-69 0z m104 0l125-219 58 0q14 0 23 9t8 23l0 31q0 10-5 19l-94 125q-10 12-26 12l-89 0z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

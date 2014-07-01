@@ -1,0 +1,109 @@
+/***************************************************************
+* This css is for the raty directive (the rating system used in this site)
+***************************************************************/
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  /*font-family: "FontAwesome";*/
+  font-family: "raty";
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+
+  font-size: 2em;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1px black;
+  background: transparent; 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fceabb), color-stop(61%,#fccd4d), color-stop(100%,#f8b500), color-stop(100%,#fbdf93), color-stop(101%,#f8b500)); 
+  background: -webkit-linear-gradient(top,  #fceabb 0%,#fccd4d 61%,#f8b500 100%,#fbdf93 100%,#f8b500 101%); 
+}
+
+
+/*  Use these instead if you want to use FontAwesome instead of the raty font
+The rest work the same
+*/
+/*.cancel-on-png:before {
+  content: "\f057";
+}
+
+.cancel-off-png:before {
+  content: "\f05c";
+}
+*/
+
+/*Use these instead if you want to use the raty font instead of the FontAwesome
+font. The rest are the same*/
+.cancel-on-png:before {
+  content: "\e600";
+  /*content: "\e601";*/
+
+}
+
+.cancel-off-png:before {
+  color: #F9C02F;
+  /*content: "\e600";*/
+  content: "\e601";
+
+}
+
+.star-on-png:before {
+  /*color: yellow;*/
+  color: #F9C02F;
+  content: "\f005";
+  /*content: "\f006";*/
+
+}
+
+.star-off-png:before {
+  color: #F9C02F;
+  /*color: white;*/
+  /*content: "\f005";*/
+  content: "\f006";
+}
+
+.star-half-png:before {
+  color: #F9C02F;
+  /*color: yellow;*/
+  content: "\f123";
+}
+
+
+
+
+/***************************************************************
+* These classes are used for a good looking size for the rating's stars as long
+* as those stars are done with the icon set.
+***************************************************************/
+.large-raty{
+  top: 2px;
+  position: relative;
+  margin-bottom: -8px;
+}
+
+.average-raty{
+  margin-bottom: -4px;
+}
+
+.large-raty, .large-raty .star-on-png, .large-raty .star-off-png,
+.large-raty .cancel-off-png, .large-raty .cancel-on-png,
+.large-raty .star-half-png{
+  font-size: 24px;
+}
+.average-raty, .average-raty .star-on-png, .average-raty .star-off-png,
+.average-raty .cancel-off-png, .average-raty .cancel-on-png,
+.average-raty .star-half-png{
+  font-size: 18px;
+}
+.average-raty .star-on-png, .large-raty .star-on-png{
+  color: #333333;
+}
+.average-raty .star-off-png, .large-raty .star-off-png{
+  color: #333333;
+}
+.average-raty .cancel-on-png, .large-raty .cancel-on-png{
+  color:#c44848;
+}

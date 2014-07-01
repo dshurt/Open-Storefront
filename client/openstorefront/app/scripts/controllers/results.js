@@ -209,26 +209,35 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       var type = '';
 
       if (_.contains(keys, $scope.searchGroup[0].key)) {
+        $scope.searchKey          = $scope.searchGroup[0].key;
+        $scope.searchCode         = $scope.searchGroup[0].code;
+        $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchKey})[0];
+        $scope.searchType         = $scope.searchGroupItem.name;
+        $scope.showSearch         = true;
+        
         foundFilter = _.where($scope.filters, {'key': $scope.searchGroup[0].key})[0];
         foundCollection = _.where(foundFilter.collection, {'code': $scope.searchGroup[0].code})[0];
 
         // if the search group is based on one of those filters do this
-        $scope.searchKey          = $scope.searchGroup[0].key;
-        $scope.searchCode         = $scope.searchGroup[0].code;
-        $scope.showSearch         = true;
-        $scope.searchGroupItem    = _.where($scope.filters, {'key': $scope.searchKey})[0];
-        $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchCode})[0];
-        $scope.searchType         = $scope.searchGroupItem.name;
-        $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
-        $scope.modalTitle         = $scope.searchType + ', ' + $scope.searchColItem.type;
-        $scope.searchDescription  = $scope.searchColItem.desc;
-        if (foundCollection.landing !== undefined && foundCollection.landing !== null) {
-          getBody(foundCollection.landing).then(function(result) {
-            $scope.modalBody = result;
-            $scope.isLanding = true;
-          });
+        if ($scope.searchCode !== 'all') {
+          $scope.searchColItem      = _.where($scope.searchGroupItem.collection, {'code': $scope.searchCode})[0];
+          $scope.searchTitle        = $scope.searchType + ', ' + $scope.searchColItem.type;
+          $scope.modalTitle         = $scope.searchType + ', ' + $scope.searchColItem.type;
+          $scope.searchDescription  = $scope.searchColItem.desc;
+          if (foundCollection.landing !== undefined && foundCollection.landing !== null) {
+            getBody(foundCollection.landing).then(function(result) {
+              $scope.modalBody = result;
+              $scope.isLanding = true;
+            });
+          } else {
+            $scope.modalBody          = $scope.searchColItem.longDesc;
+            $scope.isLanding = false;
+          }
         } else {
-          $scope.modalBody          = $scope.searchColItem.longDesc;
+          $scope.searchTitle        = $scope.searchType + ', All';
+          $scope.modalTitle         = $scope.searchType + ', All';
+          $scope.searchDescription  = 'The results on this page are restricted by an implied filter on the attribute: ' + $scope.searchType;
+          $scope.modalBody          = 'This will eventually hold a description for this attribute type.';
           $scope.isLanding = false;
         }
         adjustFilters();
@@ -474,6 +483,21 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     $scope.applyFilters();
   });
 
+  /***************************************************************
+  * This function is used to watch filters in order to show the 'applied'
+  * message so that they won't forget one of the filters is applied.
+  ***************************************************************/
+  $scope.$watch('filters',function(val, old){ /* jshint unused:false */
+    _.each($scope.filters, function(filter){
+      filter.hasChecked = _.some(filter.collection, function(item){
+        return item.checked;
+      });
+      if (!filter.hasChecked) {
+        filter.checked = false;
+      }
+    });
+  }, true);
+
   $scope.$on('$descModal', function(event) { /*jshint unused: false*/
     // re-initialize the modal content here if we must
     if ($scope.nav !== undefined && $scope.nav !== null) {
@@ -597,9 +621,9 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
   * to allow the user to view their watches.
   ***************************************************************/
   $scope.getEvaluationState = function () {
-    if ($scope.details && $scope.details.conformanceState !== undefined) {
-      var code = $scope.details.conformanceState[0].code;
-      var stateFilter = _.where($scope.filters, {'key': 'conformanceState'})[0];
+    if ($scope.details && $scope.details.evaluationLevel !== undefined) {
+      var code = $scope.details.evaluationLevel[0].code;
+      var stateFilter = _.where($scope.filters, {'key': 'evaluationLevel'})[0];
       var item = _.where(stateFilter.collection, {'code': code})[0];
       return item.type;
     }
@@ -616,6 +640,7 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     $scope.tagsFilter = null;
     $scope.query = null;
     _.each($scope.filters, function(item) {
+      item.checked = false;
       $scope.toggleChecks(item.collection, true);
     });
     $scope.applyFilters();

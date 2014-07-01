@@ -336,6 +336,12 @@ MOCKDATA.tagsList = [
 //
 ];
 
+MOCKDATA.hotTopics = {
+  //
+  'list': []
+//
+};
+
 MOCKDATA.prosConsList = {
   'pros':[
     //
@@ -392,10 +398,11 @@ MOCKDATA.watches = [
 
 MOCKDATA.filters = [];
 
-MOCKDATA.filters[0] = {
+MOCKDATA.filters.push({
   'name': 'Types',
   'key': 'type',
   'src': 'images/icon/pastel/application-double.png',
+  'icon': 'fa fa-files-o',
   'collection': [
   {
     'code': 'APPS',
@@ -440,12 +447,13 @@ MOCKDATA.filters[0] = {
     'checked': false
   }
   ]
-};
+});
 
-MOCKDATA.filters[1]= {
+MOCKDATA.filters.push({
   'name': 'Categories',
   'key': 'categories',
   'src': 'images/icon/pastel/table-multiple.png',
+  'icon': 'fa fa-list-alt',
   'collection': [
   {
     'code': 'VISUAL',
@@ -498,12 +506,13 @@ MOCKDATA.filters[1]= {
     'checked': false
   }
   ]
-};
+});
 
-MOCKDATA.filters[2] = {
-  'name': 'States',
-  'key': 'conformanceState',
+MOCKDATA.filters.push({
+  'name': 'Evaluation Levels',
+  'key': 'evaluationLevel',
   'src': 'images/icon/pastel/cog.png',
+  'icon': 'fa fa-edit',
   'collection': [
   {
     'code': 'STATENA',
@@ -547,7 +556,56 @@ MOCKDATA.filters[2] = {
     'landing': 'views/temp/landingpage2.html'
   }
   ]
-};
+});
+
+MOCKDATA.filters.push({
+  'name': 'Component State',
+  'key': 'conformanceState',
+  'src': 'images/icon/pastel/cog.png',
+  'icon': 'fa fa-gear',
+  'collection': [
+  {
+    'code': 'NE',
+    'type': 'Not Evaluated',
+    'displayType': 'Not Evaluated',
+    'desc': 'Evaluation has not started',
+    'longDesc': 'No evaluations have been initialized for these results. This is the landing page for Not Evaluated. <br/><br/> We have extended this description in order to test this modal. Descriptions can be many different lengths. Here we are trying to test how well content is handled when it is over a few sentances. <br/><br/> Now we will provide you with some filler text: Lorem ipsum dolor sit amet, vis no officiis voluptatibus, nusquam appareat accusata cu has. Usu cu ceteros vivendo fabellas, nec cu oporteat salutatus constituam, at habeo vivendo efficiendi per. Ut cum suas dissentiunt. Omnis diceret nonumes ea eum.',
+    'checked': true
+  },
+  {
+    'code': 'CAN',
+    'type': 'DI2E Candidate',
+    'displayType': 'DI2E Candidate',
+    'desc': 'Potential reuse candidate',
+    'longDesc': 'Component is considered as a potential reuse candidate but has not completed the DI2E Framework Evaluation Process.',
+    'checked': true
+  },
+  {
+    'code': 'COM',
+    'type': 'DI2E Component',
+    'displayType': 'DI2E Component',
+    'desc': 'Reusable and Interoperable.',
+    'longDesc': 'Component has been through the DI2E Evaluation Process and determined to be reusable and interoperable.',
+    'checked': true
+  },
+  {
+    'code': 'NR',
+    'type': 'Not DI2E Reusable',
+    'displayType': 'Not DI2E Reusable',
+    'desc': 'Not reusable or interoperable',
+    'longDesc': 'Component was evaluated and determined to not support reusability, is not interoperable, or does not conform to DI2E standards and specifications.',
+    'checked': false
+  },
+  {
+    'code': 'OBS',
+    'type': 'Obsolete',
+    'displayType': 'Obsolete',
+    'desc': 'Retired, superseded, or not reusable by DI2E',
+    'longDesc': 'Component has been retired, superseded, or is generally considered not reusable by DI2E',
+    'checked': false,
+  }
+  ]
+});
 
 
 MOCKDATA.assetDetails = {
@@ -675,6 +733,11 @@ MOCKDATA.assets = {
     ],
     'conformanceState': [
     {
+      'code': 'COM'
+    }
+    ],
+    'evaluationLevel': [
+    {
       'code': 'STATE3'
     }
     ],
@@ -790,6 +853,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'COM'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATE3'
     }
@@ -908,6 +976,11 @@ MOCKDATA.assets = {
     ],
     'conformanceState': [
     {
+      'code': 'NE'
+    }
+    ],
+    'evaluationLevel': [
+    {
       'code': 'STATENA'
     }
     ],
@@ -982,6 +1055,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'NR'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATE1'
     }
@@ -1071,6 +1149,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'COM'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATE2'
     }
@@ -1166,6 +1249,11 @@ MOCKDATA.assets = {
     ],
     'conformanceState': [
     {
+      'code': 'OBS'
+    }
+    ],
+    'evaluationLevel': [
+    {
       'code': 'STATE0'
     }
     ],
@@ -1259,6 +1347,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'COM'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATE0'
     }
@@ -1358,6 +1451,11 @@ MOCKDATA.assets = {
     ],
     'conformanceState': [
     {
+      'code': 'CAN'
+    }
+    ],
+    'evaluationLevel': [
+    {
       'code': 'STATENA'
     }
     ],
@@ -1424,6 +1522,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'CAN'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATENA'
     }
@@ -1514,6 +1617,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'NR'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATE0'
     }
@@ -1623,6 +1731,11 @@ MOCKDATA.assets = {
     ],
     'conformanceState': [
     {
+      'code': 'COM'
+    }
+    ],
+    'evaluationLevel': [
+    {
       'code': 'STATE0'
     }
     ],
@@ -1712,6 +1825,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'COM'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATE1'
     }
@@ -1806,6 +1924,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'OBS'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATE3'
     }
@@ -1905,6 +2028,11 @@ MOCKDATA.assets = {
     ],
     'conformanceState': [
     {
+      'code': 'CAN'
+    }
+    ],
+    'evaluationLevel': [
+    {
       'code': 'STATE0'
     }
     ],
@@ -1989,6 +2117,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'COM'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATE0'
     }
@@ -2076,6 +2209,11 @@ MOCKDATA.assets = {
     ],
     'conformanceState': [
     {
+      'code': 'COM'
+    }
+    ],
+    'evaluationLevel': [
+    {
       'code': 'STATE0'
     }
     ],
@@ -2157,6 +2295,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'COM'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATE0'
     }
@@ -2242,6 +2385,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'NE'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATENA'
     }
@@ -2335,6 +2483,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'NE'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATENA'
     }
@@ -2430,6 +2583,11 @@ MOCKDATA.assets = {
     ],
     'conformanceState': [
     {
+      'code': 'CAN'
+    }
+    ],
+    'evaluationLevel': [
+    {
       'code': 'STATE0'
     }
     ],
@@ -2510,6 +2668,11 @@ MOCKDATA.assets = {
     }
     ],
     'conformanceState': [
+    {
+      'code': 'COM'
+    }
+    ],
+    'evaluationLevel': [
     {
       'code': 'STATE0'
     }
