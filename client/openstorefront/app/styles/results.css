@@ -367,24 +367,48 @@ width: 100%;
 }
 .bar-transparent{
   background-color:transparent !important;  
+    border-right:solid black 1px !important;
+  border-top:solid black 1px !important;
   color:black !important;
 }
+.bar-transparentdate{
+  background-color:transparent !important;  
+  border-right:solid white 1px !important;
+  border-top:solid white  1px !important;
+  color:black !important;
+}
+
 .progress {
   width: 500px;
   background-color: transparent !important;
-  border:solid black  1px !important;
-  height:35px !important;
+/*  border:solid black  1px !important;*/
+border-bottom:solid black 1px !important;
+  height:25px !important;
   border-radius: 0px !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
+/*.progress2 {
+  width: 500px;
+  background-color: transparent !important;
+  height:35px !important;
+  border-radius: 0px !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}*/
 .barborder {
   border-right:solid black 1px !important;
+  border-top:solid black 1px !important;
 }
+.barborder2 {
+  border-right:solid white 1px !important;
+  border-top:solid white 1px !important;
+}
+
 .eval-status{
   /*margin: 34px 0px 10px 0px;*/
   color:gray;
-  font-size: 19px;
+  font-size: 17px;
   margin-left: 25px;
 }
 
@@ -399,7 +423,7 @@ width: 100%;
   /*margin-left:110px;*/
 }
 .eval-content-title-content{ 
-  font-size: 23px;
+  font-size: 18px;
 }
 .eval-content-title .popover{
   position: absolute !important;
@@ -416,4 +440,50 @@ width: 100%;
 }
 .vertalign {
   vertical-align:middle;
+}
+.componentstate {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  color: #555555;
+}
+/*results sections headers*/
+.component2-title{
+/*  border-bottom: 1px lightgray solid;
+  border-top: 1px lightgray solid;
+  border-right: 1px lightgray solid;*/
+  margin: 34px 0px 10px 0px;
+  background: white;
+  width: auto;
+}
+.component2-div-title{
+ /* border-bottom: 1px rgb(75, 75, 75) solid;
+  border-top: 1px rgb(75, 75, 75) solid;
+  border-right: 1px rgb(75, 75, 75) solid;*/
+  margin: 10px 0px 0px -1px;
+  /*background: #FFE38C;
+  background: #AEDCAE;
+  background: #D6EDD6;*/
+  background: #C1DBF0;
+
+  color: black;
+  padding: 0px 20px;
+}
+.component2-div{
+  margin: 0px 0px 0px 0px;
+  padding: 10px 25px;
+/*  border-bottom: 1px lightgray solid;
+  border-right: 1px lightgray solid;
+  border-top:0px;*/
+  background-color: white;
+  width: auto;
+}
+.component2-div.full,
+.component2-div-title.full{
+  border-left: 1px lightgray solid;
+}
+.helpcontent {
+  color:black;
+  cursor: pointer;
+  text-decoration: none !important;
 }

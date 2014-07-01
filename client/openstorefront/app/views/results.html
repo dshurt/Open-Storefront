@@ -15,8 +15,6 @@ limitations under the License.
 -->
 <!-- Results Container -->
 <div class='container-fluid'>
-
-
   <!-- Filters Div -->
   <div id="filters" class="filters filterBack">
     <div class="filterTableDiv firstFilter">
@@ -114,10 +112,6 @@ limitations under the License.
   </div>
   <!-- End Page 1 -->
 
-
-
-
-
   <!-- Page 2 -->
   <div class='page2'>
 
@@ -128,115 +122,244 @@ limitations under the License.
       </button>
     </div>
 
-<!-- Progress bar begin
+    <!-- This is the Title div with the tags, and needs to stay here -->
+    <div class="component-details">
+      <div class="container component-title">
+        <div class="col-sm-12">
+          <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span>
+            <br><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches <i class="fa fa-thumbs-o-up imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="openModal('profileModal', 'Watches')">View Watches <i class="fa fa-eye imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="removeFromWatches(details.id)">Remove From Watches <i class="fa fa-thumbs-o-down imitateLink"></i></button>
+          </h1>
+          <div style="padding: 0px 10px;">
+            <strong>
+              Tags:
+            </strong>
+            <tags-input class="bootstrap" min-length="1" ng-model="details.assetTags" replace-spaces-with-dashes="false" on-tag-added="saveTags(details.id, details.assetTags);" on-tag-removed="saveTags(details.id, details.assetTags);"><auto-complete min-length="1" source="checkTagsList($query, details.assetTags, tagsList)"></auto-complete></tags-input>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <br>
+          <div class="col-sm-12 eval-content-title eval-content-title-content ng-scope ng-binding">
+            <a href="javascript: void(0)" data-toggle="modal" data-target="#basicModal2">DI2E Evaluation Level</a>
+            <span style="font-size:12px">
+             <!--  <a href="javascript: void(0)" popover data-trigger="hover" data-target="#basicModal2"> -->
+ <!--               <a href="javascript: void(0)" data-toggle="modal" data-target="#basicModal2"> 
+                <span style="font-size:12px; vertical-align:super">DI2E Evaluation Level <i class="glyphicon glyphicon-info-sign"></i></span>
+              </a> -->
+            </span>
+            <span style="font-size:12px; color:black; margin-left:15px">Evaluation began 5/1/2014</span>
+            <div class="barborders" style="text-align: left; vertical-align:middle; padding-left:0px; ">
+              <progress>
+                <bar ng-repeat="rows in componentEvalProgressBar" class="{{rows.class1}}" type="{{rows.type}}" value="rows.currvalue" style="text-align:center; vertical-align:middle" >
+                  <span class="componentstate" >
+                <!--     {{rows.level}} -->
+                     <a  href="javascript:void(0)" class="helpcontent" 
+                      popover data-trigger="hover" 
+                      data-html="true" 
+                      data-selector="" 
+                      data-original-title="Evaluation Level {{rows.level}}" 
+                      data-content="<p class=''>
+                      <ul>
+                        <li><b>Supply Evaluation Level + Component Level info on hover.</li>
+                      </ul>
+        
+                    </p>"
+                    >
+                    {{rows.level}}<!-- <span style="font-size:12px; vertical-align:super"> <i class="glyphicon glyphicon-info-sign"></i></span> -->
+                  </a>
+                  </span>
+                </bar>
+              </progress>
+            </div>
+            <div class="barborder2" style="text-align: right; vertical-align:top; padding-left:0px; margin-top:-15px; border-style:none ">
+              <progress >
+                <bar ng-repeat="rows2 in componentEvalProgressBarDates" class="bar-transparentdate" type="bar-transparentdate" value="rows2.timedays" style="text-align:right; vertical-align:bottom" >
+                  <span class="componentstatess">{{rows2.currdate}}</span>
+                </bar>
+              </progress>
+            </div>           
+          </div>
+<!--           <div class="col-sm-6 eval-content-title eval-content-title-content ">DI2E Component Current State
+            <span style="font-size:12px"><a href="javascript: void(0)" data-toggle="modal" data-target="#basicModal3"><i class="glyphicon glyphicon-info-sign"></i></a></span>
+            <div  ng-repeat="row in componentState" class="componentstate">{{row.desc}}</div>  
+            <br><br>
+          </div> -->
 
-    <div class="col-sm-2 text-left"></div>
-    <div class="col-sm-6">
-      <div class="col-sm-3 text-left">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-inverse fa-stack-1x">1</i>
-        </span>title-left
-      </div>
-      <div class="col-sm-3 text-center">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-inverse fa-stack-1x">2</i>
+          <!--  -->
+        </div>
+        <div class="col-sm-12">
+          <div class="col-sm-9 eval-content-title eval-content-title-content"> 
+            <a  href="javascript:void(0)" class="tt1" 
+            popover data-trigger="hover" 
+            data-html="true" 
+            data-selector="" 
+            data-original-title="Component Current State" 
+            data-content="<p class=''>
+            <ul>
+              <li><b>Not Evaluated.</b> Evaluation has not started.</li>
+            </ul>
+            <ul>
+              <li><b>DI2E Candidate.</b> Component is considered as a potential reuse candidate but has not completed the DI2E Framework Evaluation Process.</li>
+            </ul>
+            <ul>
+              <li><b>DI2E Component.</b> Component has been through the DI2E Evaluation Process and determined to be reusable and interoperable.</li>
+            </ul>
+            <ul>
+              <li><b>Not DI2E Reusable.</b> Component was evaluated and determined to not support reusability, is not interoperable, or does not conform to DI2E standards and specifications.</li>
+            </ul>
+            <ul>
+              <li><b>Obsolete.</b> Component has been retired, superseded, or is generally considered not reusable by DI2E.</li>
+            </ul>            
+          </p>"
+          >
+          Component Current State:<!-- <span style="font-size:12px; vertical-align:super"> <i class="glyphicon glyphicon-info-sign"></i></span> -->
+        </a>
+        <span  ng-repeat="row in componentState" class="componentstate">{{row.desc}} 
+          <a href="javascript: void(0)" data-toggle="modal" data-target="#basicModal3">
+          </a>
         </span>
-      </div>
-      <div class="col-sm-3 text-center">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-inverse fa-stack-1x">3</i>
-        </span>title-center
-      </div>
-      <div class="col-sm-3 text-right">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-inverse fa-stack-1x">4</i>
-        </span>
-      </div>      
-    </div>
-    <br><br>
-    <div class="col-sm-2 text-left eval-status">Evaluation Status:</div>
-    <div class="col-sm-6">
-      <div class="barborderd">
-        <progress>
-          <bar class="barborder" value="25" type="success"><span>20%</span></bar>
-          <bar class="barborder" value="25" type="warning"><span>6/19</span></bar>
-          <bar class="barborder" value="25" type="danger"><span>6/19</span></bar>
-          <bar class="bar-transparent" value="25" type="transparent"><span>20%</span></bar>
-        </progress>
-      </div>
-    </div> -->
+        <!--  <div  ng-repeat="row in componentState" class="componentstate">{{row.desc}}</div>   -->
+        <br><br>
 
 
-
-
-<!--     <br><br>
-    <div class="col-sm-6">
-      <ul class="nav nav-tabs">
-        <li ng-repeat="tab in tabs.bars" tab="tab">
-          <a href="{{tab.include}}" ng-click="setSelectedTab(tab)">{{tab.title}}</a></li>
-        </ul>
-      </div>
-      <br><br> -->
-<!--       <div class="col-sm-6">
-        <tabset>
-          <tab ng-repeat="tab in tabs2" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
-            {{tab.content}}
-          </tab>
-      </tabset>
-    </div> -->
-
-
-
-<!-- 
-    <br><br><br>
-    <select ng-model="template" ng-options="t.name for t in templates">
-     <option value="">(blank)</option>
-   </select>
-   url of the template: <tt>{{template.url}}</tt>
-   <hr/>
-   <div class="slide-animate-container">
-    <div class="slide-animate" ng-include="template.url"></div>
-  </div>
-
-
-<br><br><br>
--->
-
-
-<!-- progress bar end-->
-
-<!-- This is the Title div with the tags, and needs to stay here -->
-<div class="component-details">
-  <div class="container component-title">
-    <div class="col-sm-12">
-      <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span>
-        <br><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches <i class="fa fa-thumbs-o-up imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="openModal('profileModal', 'Watches')">View Watches <i class="fa fa-eye imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="removeFromWatches(details.id)">Remove From Watches <i class="fa fa-thumbs-o-down imitateLink"></i></button>
-      </h1>
-      <div style="padding: 0px 10px;">
-        <strong>
-          Tags:
-        </strong>
-        <tags-input class="bootstrap" min-length="1" ng-model="details.assetTags" replace-spaces-with-dashes="false" on-tag-added="saveTags(details.id, details.assetTags);" on-tag-removed="saveTags(details.id, details.assetTags);"><auto-complete min-length="1" source="checkTagsList($query, details.assetTags, tagsList)"></auto-complete></tags-input>
       </div>
     </div>
-    <div class="col-sm-12">
+
+
+
+
+
+
+
+    <!-- {{details.type[0].code}}     {{componentState.desc}}             -->
+    <!-- Modal legend for evaluation levels progress bar colors -->
+    <div class="row">
+      <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove" text="lll" /></button>
+              <h4 class="modal-title" id="myModalLabel">DI2E Evaluation Level Details</h4>
+            </div>
+            <div class="modal-body">
+              <div class="col-sm-12">
+               <span class="">Progress bar color scheme</span>
+               <progress>
+                <bar class="barborder" value="25" type="success"><span>Completed</span></bar>
+                <bar class="barborder" value="25" type="info"><span>In Progress</span></bar>
+                <bar class="barborder" value="25" type="danger"><span>Halted</span></bar>
+                <bar class="bar-transparent" value="25" type="transparent"><span>Not Started</span></bar>
+              </progress> 
+            </div>  
+            <br><br>
+            <p class="">
+             <br><b>Level 0 – Available for Reuse/Not Evaluated</b>
+             <br>
+             <ul>
+              <li>Asset is added to the Storefront for reuse or consumption. Asset has not been evaluated for Enterprise readiness or Conformance. </li>
+              <li>Asset will enter DI2E Clearinghouse Process to be assessed for potential reuse.</li>
+              <li>Asset has completed the Component Prep and Analysis phase.</li>
+            </ul>
+            <br><b>Level 1 – Initial Reuse Analysis</b>
+            <br>
+            <ul>
+              <li>Inspection portion of DI2E Framework Evaluation Checklist complete.  </li>
+              <li>These questions focus mainly on the reuse potential (Visible, Accessible, and Understandable) by analysis of the information provided.
+              </li>
+              <li>This level does not represent the pass or fail, the Consumer must read the Evaluation Report. </li>
+            </ul>
+            <br><b>Level 2 – Integration and Test</b>
+            <br>
+            <ul>
+              <li>Integration and Test portion of the DI2E Framework Evaluation Checklist complete.</li>
+              <li>These questions focus on the interoperability and ease of reuse, and will normally include an I&T plan.</li>
+              <li>This level does not indicate a pass or fail of the conformance test.</li>
+              <li>Consumer will read the Test Report linked in the storefront entry for program functionality.</li>
+            </ul>
+            <br><b>Level 3 – DI2E Framework Reference Implementation</b>
+            <br>
+            <ul>
+              <li>Asset has been determined to be reusable and interoperable, appropriately documented, and conformant to applicable DI2E Framework specifications and standards and is integrated into the DI2E Reference Ecosystem.</li>
+            </ul>
+            <br><b>NA – No Evaluation Planned</b>
+            <br>
+            <ul>
+              <li>Planned Evaluation does not apply to DI2E Priorities, Focus Areas, Reference Architecture, Storefront (e.g. Guidebooks, reusable Contract Language, Lessons Learned, etc.).</li>
+              <li>N/A indicates no evaluation is expected.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- Modal legend for storefront component state details -->
+<div class="row">
+  <div class="modal fade" id="basicModal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove" text="lll" /></button>
+          <h4 class="modal-title" id="myModalLabel3">DI2E Storefront Component State Details</h4>
+        </div>
+        <div class="modal-body">
+          <div class="col-sm-12">
+           <span class="">Progress bar color scheme</span>
+           <progress>
+            <bar class="barborder" value="25" type="success"><span>Completed</span></bar>
+            <bar class="barborder" value="25" type="info"><span>In Progress</span></bar>
+            <bar class="barborder" value="25" type="danger"><span>Halted</span></bar>
+            <bar class="bar-transparent" value="25" type="transparent"><span>Not Started</span></bar>
+          </progress> 
+        </div>  
+        <br><br>
+        <p class="">
+         <br><b>Level 0 – Available for Reuse/Not Evaluated</b>
+         <br>
+         <ul>
+          <li>Asset is added to the Storefront for reuse or consumption. Asset has not been evaluated for Enterprise readiness or Conformance. </li>
+          <li>Asset will enter DI2E Clearinghouse Process to be assessed for potential reuse.</li>
+          <li>Asset has completed the Component Prep and Analysis phase.</li>
+        </ul>
+        <br><b>Level 1 – Initial Reuse Analysis</b>
+        <br>
+        <ul>
+          <li>Inspection portion of DI2E Framework Evaluation Checklist complete.  </li>
+          <li>These questions focus mainly on the reuse potential (Visible, Accessible, and Understandable) by analysis of the information provided.
+          </li>
+          <li>This level does not represent the pass or fail, the Consumer must read the Evaluation Report. </li>
+        </ul>
+        <br><b>Level 2 – Integration and Test</b>
+        <br>
+        <ul>
+          <li>Integration and Test portion of the DI2E Framework Evaluation Checklist complete.</li>
+          <li>These questions focus on the interoperability and ease of reuse, and will normally include an I&T plan.</li>
+          <li>This level does not indicate a pass or fail of the conformance test.</li>
+          <li>Consumer will read the Test Report linked in the storefront entry for program functionality.</li>
+        </ul>
+        <br><b>Level 3 – DI2E Framework Reference Implementation</b>
+        <br>
+        <ul>
+          <li>Asset has been determined to be reusable and interoperable, appropriately documented, and conformant to applicable DI2E Framework specifications and standards and is integrated into the DI2E Reference Ecosystem.</li>
+        </ul>
+        <br><b>NA – No Evaluation Planned</b>
+        <br>
+        <ul>
+          <li>Planned Evaluation does not apply to DI2E Priorities, Focus Areas, Reference Architecture, Storefront (e.g. Guidebooks, reusable Contract Language, Lessons Learned, etc.).</li>
+          <li>N/A indicates no evaluation is expected.</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 
 <!-- ******************************************************************* -->
-<!-- ******************************************************************* -->
-<!-- This can be changed however you would like! -->
-
 <!-- Tabbing for Results Page -->
 <div class="row">
-  <div class="col-md-12">
-    <tabset>
+  <div class="col-md-12" style="margin-left:36px">
+    <tabset type="pills">  <!-- pills -->
       <tab ng-repeat="tab3 in tabs2" heading="{{tab3.title}}">
         <br>
         <div ng-include="tab3.relpath"></div>
@@ -244,394 +367,7 @@ limitations under the License.
     </tabset>
   </div>
 </div>
-
-
-
-<!-- 
-<div class="component-details">
-  <div class="component-div row" style="margin-top: -10px">
-    <div class="col-md-4">
-      <p style="margin-top: 5px; margin-bottom: 0px"><strong>Categories:</strong></p>
-      <div data-ng-repeat="tag in details.categories">
-        <p style="margin: 0px 0px 0px 20px">
-          <a href="">
-            {{tag.desc}}
-          </a>
-        </p>
-      </div>
-
-    </div>
-    <div class="col-md-4">
-      <p style="margin-top: 5px; margin-bottom: 0px"><strong>Features:</strong></p>
-      <div data-ng-repeat="tag in details.features">
-        <p style="margin: 0px 0px 0px 20px">
-          <a href="">
-            {{tag.desc}}
-          </a>
-        </p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <p style="margin-top: 5px">
-        <strong>
-          License:
-        </strong>
-        {{details.primaryLicense}}
-      </p>
-      <p style="margin-top: -10px">
-        <strong>
-          Operational Status:
-        </strong>
-        {{details.operationStatus}}
-      </p>
-      <p style="margin-top: -10px">
-        <strong>
-          Evaluation Levels:
-        </strong>
-        {{getEvaluationState()}}
-      </p>
-    </div>
-  </div>
-</div> -->
-
-
-
-
-<!-- <div class="component-div-title">Description</div>
-<div class="container component-div">
-  <div class="col-sm-12">
-    {{details.description}}
-  </div>
-</div>
-<div class="component-div-title">Resources</div>
-<div class="container component-div">
-  <div class="col-sm-12">
-
-    <div class="pull-left" style="width: 95px">
-      <div style="text-align: center; width: 100%">
-        <img src="images/icon/tango/text-html.png" alt="">
-      </div>
-      <div style="text-align: center">
-        <a href="">
-          Web Pages
-        </a>
-      </div>
-    </div>
-    <div class="pull-left" style="width: 95px">
-      <div style="text-align: center; width: 100%">
-        <img src="images/icon/tango/text-x-script.png" alt="">
-      </div>
-      <div style="text-align: center">
-        <a href="">
-          Binaries
-        </a>
-      </div>
-    </div>
-    <div class="pull-left" style="width: 95px">
-      <div style="text-align: center; width: 100%">
-        <img src="images/icon/tango/text-x-generic.png" alt="">
-      </div>
-      <div style="text-align: center">
-        <a href="">
-          Source
-        </a>
-      </div>
-    </div>
-    <div class="pull-left" style="width: 95px">
-      <div style="text-align: center; width: 100%">
-        <img src="images/icon/tango/x-office-document.png" alt="">
-      </div>
-      <div style="text-align: center">
-        <a href="">
-          Documentation
-        </a>
-      </div>
-    </div>
-    <div style="position: relative; clear: both"></div>
-  </div>
-</div>
-<div class="component-div-title">Evaluation Resources</div>
-<div class="container component-div">
-  <div class="col-sm-12">
-    <div class="detailSection">
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <a href="" target="_blank">
-                <img src="images/icon/silk/medal_bronze_1.png" title="Evaluated" width="22" height="22"> 
-                <span class="conformance_badge">Evaluation</span><br>                   
-              </a> 
-            </td>
-            <td style="padding-left: 20px">
-              <a href="" target="_blank">
-                <img src="images/icon/silk/medal_silver_1.png" title="Evaluated" width="22" height="22"> 
-                <span class="conformance_badge">Conformance Testing</span><br>                    
-              </a>                  
-            </td>
-            <td style="padding-left: 20px">
-              <a href="" target="_blank">
-                <img src="images/icon/silk/medal_gold_1.png" title="Evaluated" width="22" height="22"> 
-                <span class="conformance_badge">Reference Integration</span><br>                    
-              </a>                  
-            </td>
-          </tr>
-        </tbody>
-      </table>              
-    </div>
-  </div>
-</div> 
-
-
-<div class="component-div-title">Review Summary</div>
-<div class="container component-div">
-  <div class="col-sm-12">
-    <div class="col-sm-6">
-      <div class="row">
-        <raty read-only class="pull-left large-raty" id="star{{$index}}" style="min-width:110px; height: 100%; margin: -6px 10px -4px 0px;" score="3" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-        </raty>
-      </div>
-      <div class="row">
-        <span class="pull-left" style="margin-bottom: 10px;"><strong>210 out of 269 (78%)</strong> reviewers would recommend this component.</span>
-      </div>
-      <div class="row">
-        <button class="btn btn-primary" ng-click="setupModal('fullWidthModal').then(openModal('descModal', 'Write a Review')); ">Write a Review <i class="fa fa-star-half-full"></i></button>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <ul class="list-unstyled">
-        <li><strong>Pros</strong></li>
-        <li><a href="">well tested</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(95)</span></li>
-        <li><a href="">active development</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(45)</span></li>
-        <li><a href="">reliable</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(26)</span></li>
-        <li><a href="">open source</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(15)</span></li>
-      </ul>
-    </div>
-    <div class="col-sm-3">
-      <ul class="list-unstyled">
-        <li><strong>Cons</strong></li>
-        <li><a href="">bulky</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(25)</span></li>
-        <li><a href="">security concerns</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(18)</span></li>
-        <li><a href="">difficult installation</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(13)</span></li>
-        <li><a href="">poor documentation</a><span style="color: #999;padding-left: 3px;font-size: 11px;">(7)</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div class="component-div-title">Component Reviews</div>
-<div class="container component-div">
-  <div class="col-sm-12">
-    <H3 style="margin-top: 0px"><strong>A good IDE &mdash;</strong>
-      <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="4" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-      </raty>
-      <strong style="font-size: 14px;">&dash;I would recommend this component&dash;</strong>
-      <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-1', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
-    </H3>
-  </div>
-  <div class="col-sm-6">
-    <p style="font-size: 12px;">
-      <strong>Johnny</strong><br />
-      <strong>Location: </strong> USSTRATCOM <br />
-      <strong>Role: </strong> Developer <br />
-      <strong>Usage Experiance: </strong> 3 Months<br />
-      September 13, 2013
-    </p>
-  </div>
-  <div class="col-sm-6">
-    <div class="col-sm-6">
-      <p>
-        <strong>Pros</strong><br />
-        <a href="">reliable</a>,
-        <a href="">free</a>
-      </p>
-    </div>
-    <div class="col-sm-6">
-      <p>
-        <strong>Cons</strong><br />
-        <a href="">bulky</a>,
-        <a href="">poor documentation</a>
-      </p>
-    </div>
-  </div>
-  <div class="col-sm-12">
-    <div id="detailsReview-1" class="detailsPadding detailsReview">
-      <p><strong>Comments: </strong>
-        This is my review commentary. Vivamus quis lacus fringilla, ultricies enim non, vehicula erat. Etiam consequat, lorem vitae viverra fermentum, lacus quam laoreet dolor, id porta tellus est luctus felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquam lobortis pharetra. Suspendisse laoreet nec ipsum et consectetur. Integer eget tempus magna, nec porttitor justo. Pellentesque euismod laoreet interdum. Sed at augue rutrum, cursus arcu vitae, eleifend tellus. Quisque condimentum, urna in varius laoreet, turpis nisi vehicula neque, sed ullamcorper diam urna et leo. Sed sed magna a est molestie mattis in quis augue. Donec a velit at purus feugiat laoreet eget eget magna. Proin sodales quam non nisi facilisis vestibulum. Quisque consectetur velit et varius bibendum. Sed placerat turpis nulla, in aliquet odio aliquam ut.
-      </p>
-      <p>
-        Proin quis lacus pulvinar leo elementum interdum cursus sit amet mi. Mauris diam tortor, pellentesque eget tortor at, luctus feugiat augue. Nullam fringilla eget odio eu dapibus. Vestibulum nec tortor quis mi viverra semper. Nunc fermentum rhoncus egestas. Praesent bibendum sagittis magna ac tempus. Donec suscipit posuere mauris, at interdum nisi porttitor quis. Duis sit amet ligula gravida augue viverra pellentesque. Suspendisse potenti. Sed laoreet augue et nulla rhoncus, et commodo neque vehicula. Vestibulum pulvinar eleifend mauris, vel aliquam dolor pharetra sit amet. Integer sed accumsan tellus, vel hendrerit nulla.
-      </p>
-    </div>
-  </div>
-</div>
-<div class="container component-div">
-  <div class="col-sm-12">
-    <H3 style="margin-top: 0px"><strong>A bad IDE &mdash;</strong>
-      <raty class="large-raty" read-only id="star{{$index}}" style="min-width:110px; height: 100%; " score="1" number="5" path="images/raty/" data-container="star{{$index}}" data-toggle="popover" data-content="Average rating: {{details.stats.averageRating}} of {{details.stats.numberRatings}}<br>Comments: {{details.stats.comments}}<br>Views: {{details.stats.views}}">
-      </raty>
-      <strong style="font-size: 14px;">&dash;I would NOT recommend this component&dash;</strong>
-      <div class="pull-right"><button class='btn btn-primary' ng-click="toggleclass('detailsReview-2', 'detailsReview')"><i class='fa fa-expand'></i></button></div>
-    </H3>
-  </div>
-  <div class="col-sm-6">
-    <p style="font-size: 12px;">
-      <strong>Bobby</strong><br />
-      <strong>Location: </strong> USSTRATCOM <br />
-      <strong>Role: </strong> Program Manager <br />
-      <strong>Usage Experiance: </strong> 3 Months<br />
-      May 14, 2012
-    </p>
-  </div>
-  <div class="col-sm-6">
-    <div class="col-sm-6">
-      <p>
-        <strong>Pros</strong><br />
-        <a href="">Compact</a>,
-        <a href="">Documented</a>
-      </p>
-    </div>
-    <div class="col-sm-6">
-      <p>
-        <strong>Cons</strong><br />
-        <a href="">Unreliable</a>,
-        <a href="">Steep learning curve</a>
-      </p>
-    </div>
-  </div>
-  <div class="col-sm-12">
-    <div id="detailsReview-2" class="detailsPadding detailsReview">
-      <p><strong>Comments: </strong> 
-        This is my negative review commentary. I hated my experience with this product. I do not reccomend it!!!
-      </p>
-    </div>
-  </div>
-  <div class="col-sm-12">
-    <button class="btn btn-primary" ng-click="setupModal('fullWidthModal').then(openModal('descModal')); ">See All Reviews <i class="fa fa-star-half-full"></i></button>
-  </div>
-</div>
- -->
-
-
-
-<!--     <div class="component-div-title">Relations</div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        <div>
-          <h3>
-            Component Of:
-          </h3>
-          <div data-ng-repeat="thing in details.componentOf">
-            <a  href="">{{thing.name}}</a>
-          </div>
-          <h3>
-            Sub-Components:
-          </h3>
-          <div data-ng-repeat="subComponent in details.subComponents">
-            <a  href="">{{subComponent.name}}</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="component-div-title">Screenshots/Media</div>
-    <div class="container component-div">
-      <div class="col-sm-6">
-        <div class="detailSection">
-          <img src="images/picture1.png" class="screenshot" onclick="screenshotPopUp('images/picture1.png')">
-        </div>
-      </div>
-    </div>
-  -->
-
-<!-- 
-  <div class="component-div-title">Details</div>
-  <div class="container component-div">
-    <div class="col-sm-12">
-      <table class="table table-striped table-bordered">
-        <tr>
-          <th style="width: 180px">Resource Type</th>
-          <td>{{details.type[0].code}}</td>
-        </tr>
-        <tr>
-          <th style="width: 180px">Metadata Date</th>
-          <td>{{details.releaseDate}}</td>
-        </tr>
-        <tr>
-          <th style="width: 180px">Metadata Created Date</th>
-          <td>{{details.postDate}}</td>
-        </tr>
-        <tr>
-          <th style="width: 180px">Metadata Updated Date</th>
-          <td>{{details.updateDate}}</td>
-        </tr>
-        <tr>
-          <th style="width: 180px">Reference Date(s)</th>
-          <td>5 Minutes</td>
-        </tr>
-        <tr>
-          <th style="width: 180px">Access Level</th>
-          <td>WWW, SIPR, JSWIC</td>
-        </tr>
-        <tr>
-          <th style="width: 180px">ITAR Export Approved</th>
-          <td>No</td>
-        </tr>
-        <tr>
-          <th style="width: 180px">C&amp;A</th>
-          <td>Available</td>
-        </tr>
-      </table>
-    </div>
-  </div> -->
-
-
-
-
-
-
-    <!-- <div class="component-div-title">Related Components</div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        <div id="commentsDiv" class="detailSection">
-          <div data-ng-repeat="relatedAsset in details.relatedAssets">
-            <a  href="">{{relatedAsset.name}}</a><br>
-          </div>
-
-          <i>(LINKS TO RELATED COMPONENTS  - determine by system based on Tags) </i>
-        </div>
-      </div>
-    </div> -->
-
-
-<!--     
-    <div class="component-div-title">Comments</div>
-    <div class="container component-div">
-      <div class="col-sm-12">
-        Add a comment<br>
-        <textarea cols="30"></textarea><br>
-        <button class="btn btn-primary">Post</button> 
-      </div>
-    </div>
-  -->
-
-
-  <!-- This is the end of what you can take out. The rest must stay -->
-  <!-- ******************************************************************* -->
-  <!-- ******************************************************************* -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- ******************************************************************* -->
 
 </div>
 <!-- End Page 2 -->
@@ -643,4 +379,4 @@ limitations under the License.
 
 <!-- build:css({.tmp,app}) styles/results.css -->
 <link rel="stylesheet" href="styles/results.css">
-<!-- endbuild -->
+<!-- endbuild 

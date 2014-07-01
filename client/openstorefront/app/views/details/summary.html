@@ -4,7 +4,7 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-7">
 				<div class="table-responsive">
-					<table class="table table-bordered table-hover" ng-repeat="row in compsummary">
+					<table class="table table-bordered table-hover" ng-repeat="row in componentSummary">
 						<tbody>
 							<tr>
 								<td class="warning valign" colspan="3"><h4><b>Component Summary</b></h4></td>
@@ -75,7 +75,7 @@
 						<tr>
 							<td class="warning valign" colspan="2"><h4>External Dependencies</h4></td>
 						</tr>							
-						<tr data-ng-repeat="row in externaldepend">
+						<tr data-ng-repeat="row in externalDepend">
 							<td width="50%">{{row.name}}</td>
 							<td width="50%">{{row.desc}}</td>
 						</tr>
@@ -86,7 +86,7 @@
 						<tr>
 							<td class="warning valign"  colspan="2"><h4>Location of Asset Artifacts</h4></td>
 						</tr>							
-						<tr data-ng-repeat="row in locassetartifacts">
+						<tr data-ng-repeat="row in localAssetArtifacts">
 							<td width="30%">{{row.name}}</td>
 							<td width="70%">{{row.desc}}</td>
 						</tr>
@@ -104,43 +104,13 @@
 								<td class="success" style="vertical-align:middle"  colspan="2"><h4>Overall Score</h4></td>
 								<td class="success"  colspan="1"><h4>46.7</h4>Out of 100</td>
 							</tr>							
-							<tr data-ng-repeat="row in scoretable">
+							<tr data-ng-repeat="row in scoreCard">
 								<td style="vertical-align:middle" width="50%">{{row.name}}</td>
 								<td style="vertical-align:middle" width="10%">{{row.ranking}}</td>
 								<td style="vertical-align:middle" width="40%" >
-									<i ng-repeat="t in getTimes(row.ranking) track by $index" class="fa fa-circle" style="color:#4679B2"></i>
+									<i ng-repeat="t in getTimes(row.ranking) track by $index" class="fa fa-circle" style="color:#A3BDD9"></i>
 								</td>
-
-								<!--   <div ng-repeat="t in getTimes(4)">text</div> -->
-
-							<!-- 	<td width="40%" ng-repeat="t in getTimes(5)" >
-									ggg
-								</td> -->
-<!-- 							<td width="40%" ng-if="row.ranking == '1' ">
-									<i ng-repeat="t in getTimes(row.ranking) track by $index" class="fa fa-circle"></i>
-								</td>									
-								<td width="40%" ng-if="row.ranking == '2' ">
-									<i class="fa fa-circle"></i>
-									<i class="fa fa-circle"></i>  
-								</td>	
-								<td width="40%" ng-if="row.ranking == '3' ">
-									<i class="fa fa-circle"></i>
-									<i class="fa fa-circle"></i>
-									<i class="fa fa-circle"></i>  
-								</td>
-								<td width="40%" ng-if="row.ranking == '4' ">
-									<i class="fa fa-circle"></i>
-									<i class="fa fa-circle"></i>
-									<i class="fa fa-circle"></i>
-									<i class="fa fa-circle"></i>
-								</td>
-								<td width="40%" ng-if="row.ranking == '5' ">
-									<i class="fa fa-circle"></i>
-									<i class="fa fa-circle"></i>
-									<i class="fa fa-circle"></i>
-									<i class="fa fa-circle"></i>
-									<i class="fa fa-circle"></i>
-								</td> -->
+								<!-- #4679B2 -->
 							</tr>							
 						</tbody>
 					</table>
@@ -149,19 +119,18 @@
 							<tr>
 								<td class="warning" colspan="2"><h4>Component Vitals</h4></td>
 							</tr>
-							<tr data-ng-repeat="row in compvitals">
+							<tr data-ng-repeat="row in componentVitals">
 								<td style="vertical-align:middle"  width="50%">{{row.name}}</td>
 								<td style="vertical-align:middle"  width="50%">{{row.desc}}</td>
 							</tr>
-
 						</tbody>
 					</table>
-					<table class="table table-bordered table-hover">
+<!-- 					<table class="table table-bordered table-hover">
 						<tbody>
 							<tr>
 								<td  class="warning" colspan="2"><h4>Points of Contact</h4></td>
 							</tr>
-							<tr data-ng-repeat="row2 in pointscontact">
+							<tr data-ng-repeat="row2 in pointsContact">
 								<td>
 									<table class="table table-hover">
 										<tr>
@@ -179,27 +148,33 @@
 								</td>
 							</tr>
 						</tbody>
-					</table>
+					</table> -->
 				</div>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<table class="table table-bordered table-hover">
+					<tbody>
+						<tr>
+							<td  class="warning" colspan="3"><h4>Points of Contact</h4></td>
+						</tr>
+						<tr>
+							<td width="25%" style="background-color:#dff0d8;vertical-align:middle;font-weight:bold">Position</td>
+							<td width="25%" style="background-color:#dff0d8;vertical-align:middle;font-weight:bold">Name</td>
+							<td width="50%" style="background-color:#dff0d8;vertical-align:middle;font-weight:bold">Email</td>
+						</tr>
+						<tr data-ng-repeat="row in pointsContact">
+							<td>{{row.position}}</td>
+							<td>{{row.name}}</td>
+							<td>{{row.email}}</td>
+						</tr>										
+					</tbody>
+				</table>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
 	</div>
 </div>
-
-<!-- Bootstrap default table colors -->
-<!-- On rows -->
-<!-- <tr class="active">...</tr>
-<tr class="success">...</tr>
-<tr class="warning">...</tr>
-<tr class="danger">...</tr>
-<tr class="info">...</tr> -->
-
-<!-- On cells (`td` or `th`) -->
-<!-- <tr>
-  <td class="active">...</td>
-  <td class="success">...</td>
-  <td class="warning">...</td>
-  <td class="danger">...</td>
-  <td class="info">...</td>
-</tr> -->

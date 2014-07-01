@@ -40,6 +40,36 @@ app.factory('business', ['localCache', '$http', '$q', function (localCache, $htt
     });
   };
   
+  business.getScoreCard = function() {
+    return MOCKDATA.scoreTable;
+  };
+  business.getExternalDepend = function() {
+    return MOCKDATA.externalDepend;
+  };
+  business.getLocalAssetArtifacts = function() {
+    return MOCKDATA.localAssetArtifacts;
+  };
+
+  business.getComponentVitals = function() {
+    return MOCKDATA.componentVitals;
+  };
+  
+  business.getPointsContact = function() {
+    return MOCKDATA.pointsContact;
+  };
+  business.getComponentSummary = function() {
+    return MOCKDATA.componentSummary;
+  };
+  business.getComponentEvalProgressBar = function() {
+    return MOCKDATA.componentEvalProgressBar;
+  };
+
+  business.getComponentState = function() {
+    return MOCKDATA.componentState;
+  };
+  business.getComponentEvalProgressBarDates = function() {
+    return MOCKDATA.componentEvalProgressBarDates;
+  };
   business.getTagsList = function(){
     return MOCKDATA.tagsList;
   };
