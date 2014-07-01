@@ -8,7 +8,7 @@ Developed at Space Dynamics Laboratory
 Licensed under Apache V2
 
 
-Developing Open-Storefront
+Developing Open-Storefront (Client)
 ==========================
 
 **If you want to build or contribute to a Open-Storefront project, read this document.**
@@ -228,6 +228,49 @@ Open-Storefront uses Karma to run tests for the frontend and hence tests need to
         
         $ cd ~/projects/Open-Storefront-Project/Open-Storefront/frontend
         $ grunt test
+
+
+Developing Open-Storefront (Server)
+==========================
+
+Components used:
+
+JDK 8  
+Wildfly 8.1  
+MySQL  
+SOLR  
+Open AM* (Configurable)  
+
+The application is a JEE webapp.  So any JEE 7 compliant server should work with just server configuration setup.
+JAX-RS is heavily used for REST API.  JPA is use for Database access so the database is also configurable.
+
+Key Libraries used
+------------------
+Stripes -Action based web framework  
+Jackson -JSON Handling/binding  
+Apache Shiro -Security  
+
+
+Building with Maven
+-------------------
+
+mvn install  
+
+(Skip tests)  
+Mav -Dmaven.test.skip=true or -DskipTests=true install  
+
+
+Deploying
+---------
+Copy the war artifacts to the standalone deploy directory in wildfly. Some IDE can handle this for you.
+
+
+Running
+=======
+
+Run wildfly in standalone mode 
+
+
 
 FAQ
 ===
