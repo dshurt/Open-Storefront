@@ -13,51 +13,27 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<div class="banner parallax-port" id="port">
-
-<!--   <img class="parallax-layer" src="../images/parallax2.png" alt=""/>
-  <img class="parallax-layer" src="../images/parallax3.png" alt=""/>
-  <img class="parallax-layer" src="../images/parallax.png" alt=""/> -->
-<!-- 
-  <img class="parallax-layer" src="../images/0_sun.png" alt=""/>
-<img class="parallax-layer" src="../images/1_mountains.png" alt=""/>
-<img class="parallax-layer" src="../images/2_hill.png" alt=""/>
-<img class="parallax-layer" src="../images/3_wood.png" alt=""/>
--->
-
-<img class="parallax-layer" src="../images/0.png" alt=""/>
-<img class="parallax-layer" src="../images/1.png" alt=""/>
-<img class="parallax-layer" src="../images/2.png" alt=""/>
-<img class="parallax-layer" src="../images/3.png" alt=""/><!-- 
-<img class="parallax-layer" src="../images/4.png" alt=""/>
-<img class="parallax-layer" src="../images/5.png" alt=""/>
-<img class="parallax-layer" src="../images/6.png" alt=""/> -->
-
-</div>
-<div style="" id="bannerContent">
-  <div id="bannerTitle">
-    {{pageTitle}}
-    <hr>
-    <span>{{subTitle}}</span>
-  </div>
-</div>
 
 
-<div class="search">
-  <div class="center navSearch defaultSearch">
+  <!-- Bring in the navigation -->
+  <div ng-include="'views/nav_main.html'"></div>
+
+
+<div class="search ">
+  <div class="center navSearch defaultSearch ">
     <form ng-submit="goToSearch('search', searchKey)">
       <div class="pull-right searchBoxButton">
         <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-search"></i></button>
       </div>
       <div class="navSearchBar">
-        <input type="text" class="form-control searchBar" ng-model="searchKey" ng-options="key for key in typeahead" placeholder="Search" bs-typeahead autofocus>
+        <input type="text" class="form-control searchBar" ng-model="searchKey" ng-options="key for key in typeahead" placeholder="Search All" bs-typeahead autofocus>
       </div>
     </form>
   </div>
 </div>
 
-<div class="nifty2col">
-  <div class="col-sm-6 first">
+<div class="nifty2col color_background_white" style="box-shadow: inset  0px 0px 9px 0px rgba(68,68,68,0.6); padding-bottom: 5px; padding-top: 5px;">
+	<div class="col-sm-6 first" style="padding-bottom: 30px;">
     <div><h1>Highlights</h1> <hr></div>
     <div class="content">
       <div class="row">
@@ -103,9 +79,7 @@ limitations under the License.
     </div>
   </div>
   <div class="liner">
-    <div class="container">
-      <i class="icon-shop"></i>
-    </div>
+
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -145,6 +119,39 @@ limitations under the License.
   </div>
   <div class="defaultSpacer hidden-xs">&nbsp;</div>
 </div>
+
+<footer style="margin-top: 20px;padding-bottom: 20px;" class="home_footer">
+<div class="footer_content">
+	<div class="column"><div class="title">About Us</div>
+		<ul>
+			<li><a href="https://intellipedia.intelink.gov/wiki/Defense_Intelligence_Information_Enterprise" title="Requires Intellipedia authentication">What is DI2E?</a>&nbsp;<i class="icon-lock" title="Authentication Required"></i></li>
+			<li><a href="https://intellipedia.intelink.gov/wiki/DI2E_Framework" title="Requires Intellipedia authentication">What is DI2E Framework?</a>&nbsp;<i class="icon-lock"></i></li>
+		</ul>
+	</div>
+	<div class="column"><div class="title">Links</div>
+		<ul>
+			<li><a href="https://devtools.di2e.net">DI2E Dev tools</a></li>
+		</ul>
+	</div>
+	<div class="column"><div class="title">F.A.Q.</div>
+		<ul>
+			<li><a href="https://devtools.di2e.net/sla.php">Our Service Commitment</a></li>
+			<li><a href="https://devtools.di2e.net/onboarding.php">Our Onboarding Process</a></li>
+			<li><a href="https://devtools.di2e.net/privacy.php">Our Privacy Policy</a></li>
+			<li><a href="https://devtools.di2e.net/terms_of_service.php">Our Terms of Service</a></li>
+		</ul>
+	</div>
+	<div class="column"><div class="title">Contact Us</div>
+		<ul>
+			<li><a href="https://devtools.di2e.net/accounts.php">Request an Account</a></li>
+			<li><a href="mailto:di2eframeworkinfo@di2e.net">General Questions</a></li>
+			<li><a href="https://devtools.di2e.net/support.php">Contact Support</a></li>
+		</ul>
+	</div>
+	<div style="clear:both"></div>		
+</div>
+	<div class="copyright">&#169; DI2E&nbsp;|&nbsp;<a href="https://devtools.di2e.net/consent.php">Consent to Monitoring</a>&nbsp;|&nbsp;All rights reserved</div>
+</footer>
 
 <!-- build:css({.tmp,app}) styles/landing.css -->
 <link rel="stylesheet" href="styles/homepage.css">

@@ -65,14 +65,14 @@ html, .resultsContainer {
 }
 
 .searchTitle {
-  color: #3892d3;
+  color: #ff4800;
   text-align: center;
   font-size: 25px;
   /*letter-spacing: 10px;*/
 }
 
 .searchDescription {
-  color: #3892d3;
+  color: #3d3d3d;
   text-align: center;
   font-size: 14px;
   /*letter-spacing: 10px;*/
@@ -132,7 +132,7 @@ html, .resultsContainer {
 }
 
 .results-content-title{
-  color: #3892d3;
+  color: #021233;
   padding: 2px 5px;
   /*margin-left:110px;*/
 }
@@ -147,7 +147,7 @@ html, .resultsContainer {
 }
 .results-content-title:hover{
   cursor: pointer;
-  color: #22699c;
+  color: #ff4800;
 }
 .results-content-description {
   padding: 0px 5px;
@@ -169,7 +169,7 @@ html, .resultsContainer {
     color: inherit;
   }
   input[type=checkbox]:checked + label,  input[type=checkbox]:checked + span{
-    color: #3892d3;
+    color: #ff4800;
   }
 
   .filterCheckbox{
@@ -225,11 +225,9 @@ width: 100%;
 }
 
 .component-div-title{
-  border-bottom: 1px rgb(75, 75, 75) solid;
-  border-top: 1px rgb(75, 75, 75) solid;
-  border-right: 1px rgb(75, 75, 75) solid;
   margin: 10px 0px 0px -1px;
-  background: dimgray;
+  background: #3d3d3d;
+  border: 1px solid #dddddd;
   color: white;
   padding: 0px 20px;
 }
@@ -252,7 +250,7 @@ width: 100%;
 }
 
 .page2 h1 {
-  color: #3892d3;
+  color: #ff4800;
   padding: 15px 10px;
   font-weight: 300;
   font-size: 2.4em;
@@ -300,7 +298,7 @@ width: 100%;
 
 
 .modal-title {
-  color: #3892d3;
+  color: #ff4800;
 }
 
 .detailsReview {
@@ -457,9 +455,9 @@ border-bottom:solid black 1px !important;
   /*background: #FFE38C;
   background: #AEDCAE;
   background: #D6EDD6;*/
-  background: #C1DBF0;
-
-  color: black;
+  background: #3d3d3d;
+  border: 1px solid #dddddd;
+  color: white;
   padding: 0px 20px;
 }
 .component2-div{
@@ -500,4 +498,9 @@ border-bottom:solid black 1px !important;
 .panel-title input[type="checkbox"]{
   position: relative;
   bottom: -4px;
+}
+
+tags-input .autocomplete .suggestion-item.selected, tags-input .autocomplete .suggestion-item.selected em {
+color: #fff;
+background-color: #3d3d3d;
 }

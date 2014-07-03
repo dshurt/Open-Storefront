@@ -1,0 +1,47 @@
+<!--
+Copyright 2014 Space Dynamics Laboratory - Utah State University Research Foundation.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!-- Fixed Navigation -->
+<div class="top" ng-controller="NavCtrl">
+  <div class="color_primary_background navbar navbar-default navigation"> 
+    <div class="container-fluid">
+
+
+      <!-- .userNav-collapse -->
+      <div class="collapse navbar-collapse pull-right userNavDropdown" style="padding-right: 30px;">
+        <ul class="nav navbar-nav navbar-right">
+          <li id="dropTheMenu" class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript: void(0)" ng-click="send('/admin')">Admin Tools</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript: void(0)" ng-click="openModal('profileModal', 'User Profile')">User Profile</a></li>
+              <li><a href="javascript: void(0)" ng-click="openModal('profileModal', 'Watches')">Watches</a></li>   
+              <li><a href="javascript: void(0)" ng-click="openModal('profileModal', 'Component Feedback')">Component Feedback</a></li>   
+            </ul></li>
+
+         
+        </ul>
+      </div>
+      <!-- /.userNav-collapse -->
+
+	<div class="logo-title">
+		------- DI2E Storefront -------
+	</div>
+    </div>
+  </div> 
+</div>
+<div class="defaultSpacer">&nbsp;</div>
+<!-- /Fixed Navigation -->
