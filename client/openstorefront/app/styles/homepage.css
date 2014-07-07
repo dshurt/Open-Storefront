@@ -18,6 +18,52 @@
 * This is for the cool parallax background. You don't have to change the settings
 * if you don't use the parallax. You just have to take out the 'port' id in the main.html banner
 ***************************************************************/
+//Site Colors
+
+.color_primary_background{
+	background-color: #0E66A0;
+}
+
+.color_background_white{
+	background-color: white;
+}
+
+.color_second_background{
+	background-color: #dddddd;
+}
+
+.color_primary_link_text{
+	color: #021233;
+}
+
+.color_primary_text{
+	color: black;
+}
+
+.color_subtitle_text{
+	color: #555555;
+}
+
+.color_hightlight_text{
+	color: #ff4800;
+}
+
+.color_hightlight_background{
+	background-color: #f5f5f5;
+}
+
+.color_hightlight_border{
+	color: #3d3d3d;
+}
+
+.color_select_background{
+	background-color: #dddddd;
+}
+
+
+////////////////////////////////////////////////
+
+
 .banner{
   /*font-family: WideLatin;*/
   font-family: 'Archivo Narrow', Arial, Helvetica, sans-serif;
@@ -25,7 +71,8 @@
   width: 100%;
   /*text-align: center;*/
   /*background-color: #002947;*/
-  background:transparent url('../images/backg.png') repeat;
+  background:transparent url('../images/storefrontlogo.png') repeat;
+   background-position-x: -700px;
   /*background-color: #3892d3;*/
   /*background-color: white;*/
   font-size: 2.8em;
@@ -92,6 +139,67 @@
 }
 
 
+.logo-title{
+	font-family: WideLatin;
+	color: white;
+	text-align: center;
+	font-size: 28px;
+	width: 100%;
+	text-shadow: 2px 2px 5px #7E7E7E;
+	padding-top: 5px;
+	padding-left: 218px;
+	white-space: nowrap;
+}
+
+
+.home_footer{
+	background-color: #021233;	
+}
+
+.footer_content{
+	margin:  0px auto;
+	white-space: nowrap;
+	width: 800px;
+	padding-left: 40px;
+}
+.home_footer a {
+color: gray;
+}
+.footer_content ul{
+	list-style: none;
+	margin-left: -40px;
+}
+
+
+.copyright {
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 10px;
+	color: gray;	
+}
+
+.column {
+	float: left;
+	font-size: 11px;
+	color: gray;
+	margin: 0px 40px 0px;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.column  .title{
+	font-family: 'Archivo Narrow', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #DDDDDD;	
+}
+
+.content-linebreak{
+	box-shadow:  0px 0px 9px 0px rgba(68,68,68,0.6);
+	height: 1px;
+}
 
 /***************************************************************
 * This css is specific to the images that are used for the parallax backround
@@ -142,7 +250,7 @@
 .defaultContent{
   padding-top: 20px;
   margin: 0px auto;
-  width: 80%;
+  width: 87%;
 }
 
 .defaultTitle{
@@ -163,7 +271,7 @@
 .listing_short_title_text{
   font-size: 18px;
   text-decoration: none;
-  color: #0E66A0;
+  color: #ff4800;
   font-weight: bold;
 }
 
@@ -180,7 +288,7 @@
 }
 
 .defaultContent .groupItem:hover{
-  background-color: lightgray;
+  background-color: #dddddd;
 }
 
 .defaultContent .groupItem a:hover{
@@ -206,7 +314,7 @@
   padding: 0px 100px;
 }
 .nifty2col .col-sm-6.second .content .row{
-  padding: 0px 160px;
+  padding: 0px 40px;
 }
 .nifty2col .col-sm-6.second{
   border-left: 1px solid lightgray;
@@ -237,11 +345,7 @@
 }
 
 .search {
-  background: lightgray;
-  /*background-color:rgba(6,31,59,0.5);*/
-  /*background: rgba(9,49,92,0.8);*/
-
-  -webkit-box-shadow: inset 0px 0px 9px 0px;
+    -webkit-box-shadow: inset 0px 0px 9px 0px;
   -moz-box-shadow: inset 0px 0px 9px 0px rgba(68, 68, 68, 0.6);
   box-shadow: inset 0px 0px 9px 0px rgba(68,68,68,0.6);
 }
@@ -251,7 +355,7 @@
   height: 60px;
   border-radius: 60px;
   background: white;
-  border: 1px solid orange;
+  border: 1px solid #021231;
   display: inline-block;
   position: relative;
   bottom: -20px;
@@ -260,7 +364,7 @@
   text-align: center;
 }
 .defaultGroupTitle .icon:hover{
-  background: orange;
+  background: #3d3d3d;
   color: white;
 }
 

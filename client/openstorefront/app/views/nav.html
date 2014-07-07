@@ -15,11 +15,12 @@ limitations under the License.
 -->
 <!-- Fixed Navigation -->
 <div class="top" ng-controller="NavCtrl">
-  <div class="navbar navbar-default navigation"> 
+  <div class="color_primary_background navbar navbar-default navigation"> 
     <div class="container-fluid">
 
       <!-- Nav header -->
       <div class="navbar-header">
+	  
         <!-- Nav buttons when collapsed menu is up -->
         <div>
           <button type="button" class="navbar-toggle navButton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -34,17 +35,15 @@ limitations under the License.
         <!-- / Nav buttons when collapsed menu is up -->
         <div>
           <!-- fa fa-home -->
-          <a class="navbar-brand" href="javascript: void(0)" ng-click="sendHome();"><span class="visible-xs logo">DI2E <i class="fa fa-home "></i></span>
+          <a class="navbar-brand" href="javascript: void(0)" ng-click="sendHome();">
             <span class="hidden-xs">
               <div style="height: 50px; width: 180px; text-align:center; display:inline-block;">
-                <div style="padding: 6px;">
-                  <div style="padding-top: 2px;">
-                    <span class='logo'>DI2E</span>
-                  </div>
-                  <span class="logo-small" style="display:block">Storefront</span>
+                <div style="padding: 6px; width: 269px;">
+                  <div style="padding-top: 10px;">
+                    <span class='logo'>DI2E Storefront</span>
+                  </div>                  
                 </div>
-              </div>
-              <i class="fa fa-home " style="font-size: 40px; position: relative; top: -3px; left: -17px;"></i>
+              </div>             
             </span>
           </a>
         </div> 
@@ -52,7 +51,7 @@ limitations under the License.
       <!-- /Nav header -->
 
       <!-- .userNav-collapse -->
-      <div class="collapse navbar-collapse pull-right userNavDropdown">
+      <div class="collapse navbar-collapse pull-right userNavDropdown" style="padding-right: 30px;">
         <ul class="nav navbar-nav navbar-right">
           <li id="dropTheMenu" class="dropdown">
             <a href="" class="dropdown-toggle" data-toggle="dropdown">Jimmy tester <b class="caret"></b></a>
