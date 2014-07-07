@@ -13,7 +13,7 @@
         <div class="row" style="margin:0px;">
           <strong>Title:&nbsp;</strong>
         </div>
-        <input type="text" class="form-control" style="width: auto; display:inline-block;" placeholder="Enter Review Title Here">
+        <input type="text" class="form-control" style="width: 325px; display:inline-block;" placeholder="Enter Review Title Here">
       </div>
     </div>
     <div class="col-sm-12">
@@ -22,9 +22,9 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="row" style="margin:0px;">
-          <label>Level of Expertise:&nbsp;</label>
+          <label>How Long Have your Used It:&nbsp;</label>
         </div>
-        <button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="level.label for level in expertise" data-animation="am-flip-x" bs-select>
+        <button type="button" class="btn btn-default" style="width: 325px;" ng-model="review.usedTime" data-html="1" ng-options="level.label for level in expertise" data-animation="am-flip-x" bs-select>
           Action <span class="caret"></span>
         </button>
       </div>
@@ -36,15 +36,25 @@
       <div class="col-sm-12">
         <div class="form-group">
           <div class="row" style="margin:0px;">
-            <label class="control-label"></i> Last Used:&nbsp;</label>
+            <label class="control-label">Last Used:&nbsp;</label>
           </div>
-          <div class="form-group" style=" display:inline-block">
-            <input type="text" class="form-control" style="width: auto; display:inline-block;" data-date-format="MM-yyyy" data-start-view="2" data-min-view="1" autoclose="true" ng-model="lastUsed" data-max-date="{{untilDate}}" placeholder="Last Used" bs-datepicker> 
+          <div class="form-group" >
+            <input type="text" class="form-control" style="width: 325px; display:inline-block;" data-date-format="MM-yyyy" data-start-view="2" data-min-view="1" autoclose="true" ng-model="lastUsed" data-max-date="{{untilDate}}" placeholder="Last Used" bs-datepicker> 
             &nbsp;<i class="fa fa-calendar"></i> <span><small>Defaults to "The Present"</small></span>
           </div>
         </div>
       </div>
     </div>
+   <div class="row" style=" padding-bottom: 10px;">
+      <div class="col-sm-12">
+        <div class="row" style="margin:0px;">
+          <label>Describe Yourself:&nbsp;</label>
+        </div>
+        <button type="button" class="btn btn-default" style="width: 325px;" ng-model="review.userRole" data-html="1" ng-options="role.description for role in userRoles" data-animation="am-flip-x" bs-select>
+          Action <span class="caret"></span>
+        </button>
+      </div>
+    </div>	  
     <div>
       <div class="row">
         <div class="col-sm-12">

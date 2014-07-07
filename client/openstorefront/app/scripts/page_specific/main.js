@@ -44,7 +44,7 @@ var setupMain = function() {
   * This function handles the default-search offset on load
   ***************************************************************/
   $(document).ready(function() {
-    setupParallax();
+    setupParallax();    
     if ($('.defaultSearch')) {
       setTimeout(function() {
         $('.defaultSearch').data('offset', $('.defaultSearch').offset().top + parseInt($('.defaultSearch').css('padding-top'), 10) - 52);
