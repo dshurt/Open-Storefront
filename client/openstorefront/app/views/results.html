@@ -135,49 +135,56 @@ limitations under the License.
       </button>
     </div>
 
+
+
     <!-- This is the Title div with the tags, and needs to stay here -->
     <div class="component-details">
+
+
+
+
+
       <div class="container component-title">
         <div class="col-sm-12">
           <h1>{{details.name}}<span>{{details.owner}} ({{details.type[0].code}})</span>
             <br><button class='btn btn-default' style="floag: right" ng-show="showWatchButton" ng-click="addToWatches(details.id)">Add To Watches <i class="fa fa-thumbs-o-up imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="openModal('profileModal', 'Watches')">View Watches <i class="fa fa-eye imitateLink"></i></button><button class='btn btn-default' style="floag: right" ng-show="!showWatchButton" ng-click="removeFromWatches(details.id)">Remove From Watches <i class="fa fa-thumbs-o-down imitateLink"></i></button>
           </h1>
+<!-- injected evaluations start -->
+
+<!-- injected evaluations start -->
           <div style="padding: 0px 10px;">
-            <strong>
+<!--             <strong>
               Tags:
-            </strong>
+            </strong> -->
             <tags-input class="bootstrap" min-length="1" ng-model="details.assetTags" replace-spaces-with-dashes="false" on-tag-added="saveTags(details.id, details.assetTags);" on-tag-removed="saveTags(details.id, details.assetTags);"><auto-complete min-length="1" source="checkTagsList($query, details.assetTags, tagsList)"></auto-complete></tags-input>
           </div>
         </div>
         <div class="col-sm-12">
           <br>
-          <div class="col-sm-12 eval-content-title eval-content-title-content ng-scope ng-binding">
+
+
+<!-- original place of evaluation levels start -->
+
+    
+            <div class="col-sm-12 eval-content-title eval-content-title-content ng-scope ng-binding">
             <a href="javascript: void(0)" data-toggle="modal" data-target="#basicModal2">DI2E Evaluation Level</a>
             <span style="font-size:12px">
-             <!--  <a href="javascript: void(0)" popover data-trigger="hover" data-target="#basicModal2"> -->
- <!--               <a href="javascript: void(0)" data-toggle="modal" data-target="#basicModal2"> 
-                <span style="font-size:12px; vertical-align:super">DI2E Evaluation Level <i class="glyphicon glyphicon-info-sign"></i></span>
-              </a> -->
             </span>
-            <span style="font-size:12px; color:black; margin-left:15px">Evaluation began 5/1/2014</span>
+            <span style="font-size:12px; color:black; margin-left:15px">Evaluation began 1/1/2014</span>
             <div class="barborders" style="text-align: left; vertical-align:middle; padding-left:0px; ">
               <progress>
                 <bar ng-repeat="rows in componentEvalProgressBar" class="{{rows.class1}}" type="{{rows.type}}" value="rows.currvalue" style="text-align:center; vertical-align:middle" >
-                  <span class="componentstate" >
+                  <span class="component-state" >
                 <!--     {{rows.level}} -->
                      <a  href="javascript:void(0)" class="helpcontent" 
                       popover data-trigger="hover" 
                       data-html="true" 
                       data-selector="" 
-                      data-original-title="Evaluation Level {{rows.level}}" 
-                      data-content="<p class=''>
-                      <ul>
-                        <li><b>Supply Evaluation Level + Component Level info on hover.</li>
-                      </ul>
-        
+                      data-original-title="Evaluation Level {{rows.level}}<br/> {{rows.desc}}" 
+                      data-content="<p class=''>{{rows.fulldesc}}
                     </p>"
                     >
-                    {{rows.level}}<!-- <span style="font-size:12px; vertical-align:super"> <i class="glyphicon glyphicon-info-sign"></i></span> -->
+                    {{rows.desc}}<!-- <span style="font-size:12px; vertical-align:super"> <i class="glyphicon glyphicon-info-sign"></i></span> -->
                   </a>
                   </span>
                 </bar>
@@ -191,6 +198,14 @@ limitations under the License.
               </progress>
             </div>           
           </div>
+
+
+
+<!-- original place of evaluation levels end -->
+
+
+
+
 <!--           <div class="col-sm-6 eval-content-title eval-content-title-content ">DI2E Component Current State
             <span style="font-size:12px"><a href="javascript: void(0)" data-toggle="modal" data-target="#basicModal3"><i class="glyphicon glyphicon-info-sign"></i></a></span>
             <div  ng-repeat="row in componentState" class="componentstate">{{row.desc}}</div>  
@@ -199,7 +214,9 @@ limitations under the License.
 
           <!--  -->
         </div>
-        <div class="col-sm-12">
+        <br><br>
+
+<!--         <div class="col-sm-12">
           <div class="col-sm-9 eval-content-title eval-content-title-content"> 
             <a  href="javascript:void(0)" class="tt1" 
             popover data-trigger="hover" 
@@ -224,16 +241,15 @@ limitations under the License.
             </ul>            
           </p>"
           >
-          Component Current State:<!-- <span style="font-size:12px; vertical-align:super"> <i class="glyphicon glyphicon-info-sign"></i></span> -->
+          Component Current State:
         </a>
         <span  ng-repeat="row in componentState" class="componentstate">{{row.desc}} 
           <a href="javascript: void(0)" data-toggle="modal" data-target="#basicModal3">
           </a>
         </span>
-        <!--  <div  ng-repeat="row in componentState" class="componentstate">{{row.desc}}</div>   -->
         <br><br>
       </div>
-    </div>
+    </div> -->
 
     <!-- {{details.type[0].code}}     {{componentState.desc}}             -->
     <!-- Modal legend for evaluation levels progress bar colors -->
@@ -363,15 +379,17 @@ limitations under the License.
 <!-- ******************************************************************* -->
 <!-- Tabbing for Results Page -->
 <div class="row">
-  <div class="col-md-12" style="margin-left:36px">
-    <tabset type="pills">  <!-- pills -->
-      <tab ng-repeat="tab3 in tabs2" heading="{{tab3.title}}">
-        <br>
-        <div ng-include="tab3.relpath"></div>
-      </tab>
-    </tabset>
+  
+    <div class="col-md-12" style="margin-left:36px">
+       <tabset type="">  <!-- pills -->
+        <tab ng-repeat="tab3 in tabs2" heading="{{tab3.title}}" class="">
+          <br>
+          <div ng-include="tab3.relpath"></div>
+        </tab>
+      </tabset>
   </div>
 </div>
+ 
 <!-- ******************************************************************* -->
 
   <!-- This is the end of what you can take out. The rest must stay -->

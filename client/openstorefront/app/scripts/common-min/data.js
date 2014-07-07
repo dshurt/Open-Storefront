@@ -58,18 +58,18 @@ MOCKDATA.pointsContact = [
    //
   {
     'position': 'Program POC',
-    'name': 'Jason Kahn',
-    'email': 'jason.m.kahn@intelink.gov'
+    'name': 'Jill Sample',
+    'email': 'jill.sample@someemail.com'
   },
   {
     'position': 'Technical POC',
-    'name': 'Ian Nelson',
-    'email': 'ian.l.nelson@intelink.gov'
+    'name': 'John Sample',
+    'email': 'john.sample@someemail.com'
   },
   {
     'position': 'DI2E Asset Coordinator',
-    'name': 'Kimberly Holladay',
-    'email': 'Kimberly.Holladay@volant-associates.com'
+    'name': 'Jennifer Sample',
+    'email': 'jennifer.sample@someemail.com'
   }
    //
   ];
@@ -79,25 +79,33 @@ MOCKDATA.componentEvalProgressBar = [
     'class1': 'barborder',
     'type': 'success',
     'level': '0',
-    'currvalue': 27.2737
-  },
-  {
-    'class1': 'barborder',
-    'type': 'success',
-    'level': '1',
-    'currvalue': 36.3636
+    'currvalue': 28.20512821,
+    'desc':'Available for Reuse/Not Evaluated',
+    'fulldesc':'<ul><li>Asset is added to the Storefront for reuse or consumption. Asset has not been evaluated for Enterprise readiness or Conformance.</li></ul>      <ul><li>Asset will enter DI2E Clearinghouse Process to be assessed for potential reuse.</li></ul>      <ul><li>Asset has completed the Component Prep and Analysis phase. </li></ul> ' 
   },
   {
     'class1': 'barborder',
     'type': 'info',
+    'level': '1',
+    'currvalue': 9.230769231,
+    'desc':'Initial Reuse Analysis',
+    'fulldesc':'<ul><li>Inspection portion of DI2E Framework Evaluation Checklist complete.</li></ul><ul><li>These questions focus mainly on the reuse potential (Visible, Accessible, and Understandable) by analysis of the information provided.</li></ul><ul><li>This level does not represent the pass or fail, the Consumer must read the Evaluation Report.</li></ul>'
+  },
+  {
+    'class1': 'barborder',
+    'type': 'danger',
     'level': '2',
-    'currvalue': 9.0909
+    'currvalue': 24.1025641,
+    'desc':'Integration and Test',
+    'fulldesc':'<ul><li>Integration and Test portion of the DI2E Framework Evaluation Checklist complete.</li></ul><ul><li>These questions focus on the interoperability and ease of reuse, and will normally include an I&T plan.</li></ul><ul><li>This level does not indicate a pass or fail of the conformance test.</li></ul><ul><li>Consumer will read the Test Report linked in the storefront entry for program functionality.</li></ul>'
   },
   {
     'class1': 'bar-transparent',
     'type': 'success',
     'level': '3',
-    'currvalue': 27.2727
+    'currvalue': 38.46153846,
+    'desc':'DI2E Framework Reference Implementation',
+    'fulldesc':'<ul><li>Asset has been determined to be reusable and interoperable, appropriately documented, and conformant to applicable DI2E Framework specifications and standards and is integrated into the DI2E Reference Ecosystem.</li></ul>'
   }
   //
   ];
@@ -106,26 +114,26 @@ MOCKDATA.componentEvalProgressBarDates = [
   {
     'class1': 'barborder2',
     'type': 'success',
-    'timedays': 27.2737,
-    'currdate': '6/1'
+    'timedays': 28.20512821,
+    'currdate': '2/25'
   },
   {
     'class1': 'barborder2',
     'type': 'success',
-    'timedays': 36.3636,
-    'currdate': '6/15'
+    'timedays': 9.230769231,
+    'currdate': '3/15'
   },
   {
     'class1': 'barborder2',
     'type': 'info',
-    'timedays': 9.0909,
-    'currdate': '7/1'
+    'timedays': 24.1025641,
+    'currdate': '5/1'
   },
   {
     'class1': 'bar-transparentdate',
     'type': 'success',
-    'timedays': 27.2727,
-    'currdate': '8/1'
+    'timedays': 38.46153846,
+    'currdate': '7/15'
   }
   //
   ];

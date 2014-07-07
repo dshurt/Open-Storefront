@@ -25,35 +25,41 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<p style="margin-top: 5px">
+<!-- 				<p style="margin-top: 5px">
 					<strong>
 						License:
 					</strong>
 					{{details.primaryLicense}}
-				</p>
-				<p style="margin-top: -10px">
+				</p> -->
+				<p style="margin-top: 5px">
 					<strong>
 						Operational Status:
 					</strong>
 					{{details.operationStatus}}
 				</p>
-				<p style="margin-top: -10px">
+<!-- 				<p style="margin-top: -10px">
 					<strong>
 						Evaluation Levels:
 					</strong>
 					{{getEvaluationState()}}
-				</p>
+				</p> -->
+        <p style="margin-top: -10px">
+          <strong>
+            Component State:
+          </strong>
+          {{getEvaluationState()}}
+        </p>        
 			</div>
 		</div>
 	</div>
 <!-- </div> -->
 <!-- </div> -->
-<div class="component2-div-title">DESCRIPTION</div>
+<!-- <div class="component2-div-title">DESCRIPTION</div>
 <div class="container component2-div">
   <div class="col-sm-12">
     {{details.description}}
   </div>
-</div>
+</div> -->
 <div class="component2-div-title">RESOURCES</div>
 <div class="container component2-div">
   <div class="col-sm-12">
@@ -138,15 +144,15 @@
     <div class="container component2-div">
       <div class="col-sm-12">
         <div>
-          <h3>
-            Component Of:
-          </h3>
+          <h4>
+            Parent Component:
+          </h4>
           <div data-ng-repeat="thing in details.componentOf">
             <a  href="">{{thing.name}}</a>
           </div>
-          <h3>
-            Sub-Components:
-          </h3>
+          <h4>
+            Child Component(s):
+          </h4>
           <div data-ng-repeat="subComponent in details.subComponents">
             <a  href="">{{subComponent.name}}</a>
           </div>
