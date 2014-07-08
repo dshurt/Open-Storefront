@@ -1,59 +1,135 @@
 <!-- <p>This is the details/details view.</p> -->
 <!-- <div class="row"> -->
 <!-- 	<div class="col-md-12"> -->
-	<div class="component-details">
-		<div class="component2-div row" style="margin-top: -10px">
-			<div class="col-md-4">
-				<p style="margin-top: 5px; margin-bottom: 0px"><strong>Categories:</strong></p>
-				<div data-ng-repeat="tag in details.categories">
-					<p style="margin: 0px 0px 0px 20px">
-						<a href="">
-							{{tag.desc}}
-						</a>
-					</p>
-				</div>
+<div class="component-details">
+  <div class="component2-div row" style="margin-top: -10px">
+   <div class="col-md-3">
 
-			</div>
-			<div class="col-md-4">
-				<p style="margin-top: 5px; margin-bottom: 0px"><strong>Features:</strong></p>
-				<div data-ng-repeat="tag in details.features">
-					<p style="margin: 0px 0px 0px 20px">
-						<a href="">
-							{{tag.desc}}
-						</a>
-					</p>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<p style="margin-top: 5px">
-					<strong>
-						License:
-					</strong>
-					{{details.primaryLicense}}
-				</p>
-				<p style="margin-top: -10px">
-					<strong>
-						Operational Status:
-					</strong>
-					{{details.operationStatus}}
-				</p>
-				<p style="margin-top: -10px">
-					<strong>
-						Evaluation Levels:
-					</strong>
-					{{getEvaluationState()}}
-				</p>
-			</div>
-		</div>
-	</div>
-<!-- </div> -->
-<!-- </div> -->
-<div class="component2-div-title">DESCRIPTION</div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+       <h3 class="panel-title">Categories</h3>
+     </div>
+     <div class="panel-body">
+      <div data-ng-repeat="tag in details.categories">
+                  <ul>
+            <li> <a href="">{{tag.desc}}</a></li>
+          </ul>
+<!--         <p style="margin: 0px 0px 0px 20px">
+          <a href="">
+            {{tag.desc}}
+          </a>
+        </p> -->
+      </div>
+    </div>
+  </div>
+
+<!--   <p style="margin-top: 5px; margin-bottom: 0px"><strong>Categories:</strong></p>
+  <div data-ng-repeat="tag in details.categories">
+   <p style="margin: 0px 0px 0px 20px">
+    <a href="">
+     {{tag.desc}}
+   </a>
+ </p>
+</div> -->
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+ <div class="panel panel-default">
+      <div class="panel-heading">
+       <h3 class="panel-title">Features</h3>
+     </div>
+     <div class="panel-body">
+<!-- 
+        <p style="margin-top: 5px; margin-bottom: 0px"><strong>Features:</strong></p> -->
+        <div data-ng-repeat="tag in details.features">
+
+          <ul>
+            <li> <a href="">{{tag.desc}}</a></li>
+          </ul>
+<!--              <p style="margin: 0px 0px 0px 20px">
+              <a href="">
+               {{tag.desc}}
+             </a>
+           </p> -->
+
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+ <div class="panel panel-default">
+      <div class="panel-heading">
+       <h3 class="panel-title">Operational Status</h3>
+     </div>
+     <div class="panel-body">
+      <p style="margin-top: 5px">
+    <!--    <strong>
+        Operational Status:
+      </strong> -->
+      {{details.operationStatus}}
+    </p>
+    </div>
+</div>
+<!-- <p style="margin-top: -10px">
+  <strong>
+    Component State:
+  </strong>
+  {{getEvaluationState()}}
+</p>  
+ -->
+
+</div>
+
+<div class="col-md-3">
+ <div class="panel panel-default">
+      <div class="panel-heading">
+       <h3 class="panel-title">Component State</h3>
+     </div>
+     <div class="panel-body">
+      <p style="margin-top: 5px">
+    <!--    <strong>
+        Operational Status:
+      </strong> -->
+       {{getEvaluationState()}}
+    </p>
+    </div>
+</div>
+<!-- <p style="margin-top: -10px">
+  <strong>
+    Component State:
+  </strong>
+  {{getEvaluationState()}}
+</p>  
+ -->
+
+</div>
+
+
+
+
+
+
+    </div>
+  </div>
+  <!-- </div> -->
+  <!-- </div> -->
+<!-- <div class="component2-div-title">DESCRIPTION</div>
 <div class="container component2-div">
   <div class="col-sm-12">
     {{details.description}}
   </div>
-</div>
+</div> -->
 <div class="component2-div-title">RESOURCES</div>
 <div class="container component2-div">
   <div class="col-sm-12">
@@ -134,31 +210,31 @@
 </div>
 
 
-    <div class="component2-div-title">RELATIONS</div>
-    <div class="container component2-div">
-      <div class="col-sm-12">
-        <div>
-          <h3>
-            Component Of:
-          </h3>
-          <div data-ng-repeat="thing in details.componentOf">
-            <a  href="">{{thing.name}}</a>
-          </div>
-          <h3>
-            Sub-Components:
-          </h3>
-          <div data-ng-repeat="subComponent in details.subComponents">
-            <a  href="">{{subComponent.name}}</a>
-          </div>
-        </div>
+<div class="component2-div-title">RELATIONSHIPS</div>
+<div class="container component2-div">
+  <div class="col-sm-12">
+    <div>
+      <h4>
+        Parent Component:
+      </h4>
+      <div data-ng-repeat="thing in details.componentOf">
+        <a  href="">{{thing.name}}</a>
+      </div>
+      <h4>
+        Child Component(s):
+      </h4>
+      <div data-ng-repeat="subComponent in details.subComponents">
+        <a  href="">{{subComponent.name}}</a>
       </div>
     </div>
-    
-    <div class="component2-div-title">SCREENSHOTS / MEDIA</div>
-    <div class="container component2-div">
-      <div class="col-sm-6">
-        <div class="detailSection">
-          <img src="images/picture1.png" class="screenshot" onclick="screenshotPopUp('images/picture1.png')">
-        </div>
-      </div>
+  </div>
+</div>
+
+<div class="component2-div-title">SCREENSHOTS / MEDIA</div>
+<div class="container component2-div">
+  <div class="col-sm-6">
+    <div class="detailSection">
+      <img src="images/picture1.png" class="screenshot" onclick="screenshotPopUp('images/picture1.png')">
     </div>
+  </div>
+</div>

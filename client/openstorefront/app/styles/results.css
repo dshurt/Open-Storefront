@@ -370,23 +370,16 @@ width: 100%;
 }
 
 .progress {
-  width: 500px;
+  width: 100%;
   background-color: transparent !important;
 /*  border:solid black  1px !important;*/
-border-bottom:solid black 1px !important;
+border-bottom:solid transparent 1px !important;
+
   height:25px !important;
   border-radius: 0px !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
-/*.progress2 {
-  width: 500px;
-  background-color: transparent !important;
-  height:35px !important;
-  border-radius: 0px !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}*/
 .barborder {
   border-right:solid black 1px !important;
   border-top:solid black 1px !important;
@@ -396,6 +389,34 @@ border-bottom:solid black 1px !important;
   border-top:solid white 1px !important;
 }
 
+/* override bootstrap tabs*/
+
+.nav-tabs {
+border-bottom: 2px solid #dddddd;
+border-bottom: 2px solid #A3BDD9;
+border-bottom: 2px solid #555555;
+}
+.nav-tabs > li > a {
+margin-right: 2px;
+line-height: 1.428571429;
+color: #555555;
+/*border: 2px solid transparent;*/
+border: 2px solid #555555;
+border-radius: 4px 4px 0 0;
+border-bottom-color: transparent;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+color: #555555;
+color: white;
+background-color: #428bca;
+background-color: #555555;
+font-size: 15px;
+border: 2px solid #357ebd;
+border: 2px solid #555555;
+border-bottom-color: transparent;
+}
+
+/* evaluations */
 .eval-status{
   /*margin: 34px 0px 10px 0px;*/
   color:gray;
@@ -403,7 +424,6 @@ border-bottom:solid black 1px !important;
   margin-left: 25px;
 }
 
-/* evaluations */
 .evaluation {
   overflow: auto;
 }
@@ -432,10 +452,10 @@ border-bottom:solid black 1px !important;
 .vertalign {
   vertical-align:middle;
 }
-.componentstate {
+.component-state {
   color: black;
-  font-size: 19px;
-  font-weight: bold;
+  font-size: 14px;
+ /* font-weight: bold;*/
   color: #555555;
 }
 /*results sections headers*/
