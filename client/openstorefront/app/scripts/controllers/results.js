@@ -49,6 +49,12 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
     {'value':'6', 'label': 'More than 3 years'}
   //
   ];
+  
+  $scope.userRoles = [    
+    {'code':'ENDUSER', 'description': 'User'},
+    {'code':'DEV', 'description': 'Developer'},
+    {'code':'PM', 'description': 'Project Manager'}    
+  ];
 
   $scope.tabs = {
     'current': null,
@@ -351,11 +357,6 @@ app.controller('ResultsCtrl', ['$scope', 'localCache', 'business', '$filter', '$
       $scope.nav = {
         'current': 'Reviews',
         'bars': [
-          //
-          {
-            'title': 'Reviews',
-            'include': 'views/reviews/reviews.html'
-          },
           {
             'title': 'Write a Review',
             'include': 'views/reviews/newfeedback.html'
